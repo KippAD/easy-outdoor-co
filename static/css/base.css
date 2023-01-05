@@ -1,6 +1,12 @@
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat:wght@400;500;600;700;800;900&family=Nunito:wght@500;600;700;800;900&display=swap');
 
+
+/* General rules */
+.sale {
+    color: #F0952A!important;
+}
+
 /* Navigation bar styles */
 .navbar {
     font-family: Montserrat, sans-serif;
@@ -59,10 +65,48 @@ h1 {
 /* Hero image */
 
 .hero-image {
-    height: 700px;
-    background: url('https://res.cloudinary.com/dn8zjehza/image/upload/v1672862596/Easy%20Outdoor%20Co/pexels-stephan-seeber-1054218_1_wjkttc.jpg') center bottom;
+    height: 800px;
+    background: url('https://res.cloudinary.com/dn8zjehza/image/upload/v1672924816/Easy%20Outdoor%20Co/pexels-stephan-seeber-1054218_ongdv1.jpg') center bottom;
     background-size: cover;
 }
+
+/* Footer */
+
+footer {
+    background-color: #272727;
+    color: white;
+}
+
+footer > .container {
+    padding-top: 1rem!important;
+}
+
+footer ul {
+    padding: 0;
+}
+
+footer li {
+    list-style-type: none;
+    font-family: Nunito, sans-serif;
+
+}
+
+footer li:hover {
+    cursor: pointer;
+    transition: all ease 0.3s;
+    color: #c2bfbf;
+}
+
+footer h4 {
+    font-family: Bungee, sans-serif;
+}
+
+footer h5 {
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+}
+
+
 
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media screen and (max-width: 1400px) {
@@ -72,7 +116,7 @@ h1 {
 @media screen and (max-width: 1200px) {
 }
 
-/* Large devices (desktops, 992px and up) */
+/* Large devices (desktops, 992px and down) */
 @media screen and (max-width: 992px) {
 
     .collapse {
@@ -81,11 +125,15 @@ h1 {
     }
 }
 
-/* Medium devices (tablets, 768px and up) */
+/* Medium devices (tablets, 768px and down) */
 @media screen and (max-width: 768px) {
+    #footer-form {
+        text-align: start!important;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media screen and (max-width: 576px) {
+    
 }
 

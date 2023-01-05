@@ -60,7 +60,7 @@
                 </form>
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link me-3" aria-current="page" href="#">Sale</a>
+                        <a class="nav-link me-3 sale" aria-current="page" href="#">Sale</a>
                     </li>
                     <li class="nav-item me-3">
                         <a class="nav-link" href="#">Clothing</a>
@@ -87,8 +87,8 @@
             </div>
 
             <div class="col-4 col-xl-1 d-flex justify-content-end order-xl-4">
-                <a class="nav-link fs-1 pe-3" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-                <a class="nav-link fs-1 pe-3" href="#"><i class="fa-solid fa-user"></i></a>
+                <a class="nav-link fs-3 pe-3" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a class="nav-link fs-3 pe-3" href="#"><i class="fa-solid fa-user"></i></a>
             </div>
 
             <a class="navbar-brand d-none d-xl-inline-block order-xl-2 col-xl-3" href="#">
@@ -97,11 +97,51 @@
 
         </nav>
     </header>
-    <div class="hero-image"></div>
-
+    
     {% block content %}
     {% endblock %}
 
+    <footer>
+        <div class="container px-3">
+
+            <div class="row">
+                <div class="col">
+                    <h5 class="mb-1 col-md-2">Help</h5>
+                    <ul>
+                        <li>FAQ's</li>
+                        <li>Contact Us</li>
+                        <li>Delivery</li>
+                    </ul>
+                </div>
+                <div class="col col-md-2">
+                    <h5 class="mb-1">Shop</h5>
+                    <ul>
+                        <li class="sale">Sale</li>
+                        <li>Clothing</li>
+                        <li>Equipment</li>
+                    </ul>
+                </div>
+                <div class="col col-md-2">
+                    <h5 class="mb-1">Account</h5>
+                    <ul>
+                        <li>Profile</li>
+                        <li>Billing Info</li>
+                        <li>Track Order</li>
+                        <li>Order History</li>
+                    </ul>
+                </div>
+                <div id="footer-form" class="col-12 col-md-6 text-end">
+                    <h4 class="fs-2 text-white">Easy Outdoor Co.</h4>
+                    <form action="POST" class="py-1">
+                        <p class="mb-2">Join our newsletter:</p>
+                        <input type="email" placeholder="Enter your email...">
+                        <input type="submit">
+                    </form>
+                    <p><i class="fa-regular fa-copyright"></i> 2023 Easy Outdoor Co. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
     {% block postloadjs %}
     {% endblock %}
 </body>
