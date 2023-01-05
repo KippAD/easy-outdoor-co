@@ -1,5 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
 {% block content %}
+
+<section class="hero-image d-flex align-items-center">
+    <div class="container">
+        <h5 class="fs-1 m-0">Easy Outdoor Co.</h5>
+        <p class="fs-3 mb-1">World class products, built for adventure.</p>
+        <button class="shop-btn fs-5">Shop Now</button>
+    </div>
+</section>
+
 {% endblock %}

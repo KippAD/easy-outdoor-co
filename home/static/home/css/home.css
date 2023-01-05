@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat:wght@400;500;600;700;800;900&family=Nunito:wght@500;600;700;800;900&display=swap');
+
+/* Hero image */
+
+
+.hero-image {
+    background: url('https://res.cloudinary.com/dn8zjehza/image/upload/v1672924816/Easy%20Outdoor%20Co/pexels-stephan-seeber-1054218_ongdv1.jpg') center center;
+    background-size: cover;
+    color: white;
+    min-height: 60vh;
+}
+
+
+.hero-image h5 {
+    font-family: Bungee, sans-serif;
+    font-weight: 900;
+}
+
+.hero-image p {
+    font-family: Montserrat;
+    font-weight: 700;
+}
+
+.shop-btn {
+    background-color: #F0952A;
+    color: white;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media screen and (max-width: 1400px) {
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media screen and (max-width: 1200px) {
+}
+
+/* Large devices (desktops, 992px and down) */
+@media screen and (max-width: 992px) {
+
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media screen and (max-width: 768px) {
+   
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (max-width: 576px) {
+    .hero-image {
+        align-items: flex-start!important;
+        padding-top: 10vh;
+        text-align: center;
+    }
+
+    .shop-btn {
+        font-weight: 700;
+        width: 150px;
+        height: 40px;
+        border-radius: 10px;
+        border: none;
+    }
+}
+
