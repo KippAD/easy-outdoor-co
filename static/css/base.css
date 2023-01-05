@@ -1,0 +1,91 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat:wght@400;500;600;700;800;900&family=Nunito:wght@500;600;700;800;900&display=swap');
+
+/* Navigation bar styles */
+.navbar {
+    font-family: Montserrat, sans-serif;
+    padding: 0;
+}
+
+h1 {
+    font-family: Bungee, sans-serif;
+}
+
+.search input {
+    border: 1px solid #989797;
+    border-radius: 5px 0 0 5px;
+}
+
+.search button {
+    font-weight: 600;
+    border: 1px solid #989797;
+    border-left: none;
+    background-color: #F0952A;
+    border-radius: 0 5px 5px 0;
+}
+
+.nav-link {
+    font-weight: 900;
+    color: #000000;
+}
+
+.logo {
+    width: 4rem;
+    height: 4rem;
+    background: url('https://res.cloudinary.com/dn8zjehza/image/upload/v1672920246/Easy%20Outdoor%20Co/logo2_vxat2m.png');
+    background-size: cover;
+    border-radius: 50%;
+    margin: auto;
+}
+
+/* Custom bootstrap burger menu styles (Taken from previous portfolio project: https://github.com/KippAD/george-orwell-pub */
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8, %3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    width: 3rem;
+    height: 3rem;
+    border: none!important;
+}
+
+.navbar-toggler:focus {
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.navbar-toggler {
+     border: 0 !important;
+}
+
+/* Hero image */
+
+.hero-image {
+    height: 700px;
+    background: url('https://res.cloudinary.com/dn8zjehza/image/upload/v1672862596/Easy%20Outdoor%20Co/pexels-stephan-seeber-1054218_1_wjkttc.jpg') center bottom;
+    background-size: cover;
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media screen and (max-width: 1400px) {
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media screen and (max-width: 1200px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (max-width: 992px) {
+
+    .collapse {
+        position: static!important;
+        top: 0;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (max-width: 768px) {
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (max-width: 576px) {
+}
+
