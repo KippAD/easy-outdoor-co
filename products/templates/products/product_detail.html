@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="product-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <img class="product-img" src="{{ product.image_url }}" alt="{{ product.name }}">
+            </div>
+            <div class="col-8">
+                <h2>{{ product.name }}</h2>
+                <p>£{{ product.price }}</p>
+                <p>Product Star Rating</p>
+                <p>{{ product.desc }}</p>
+                <div class="d-flex">
+                    <h4>Select Size:</h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

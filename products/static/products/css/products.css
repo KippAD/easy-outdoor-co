@@ -6,7 +6,7 @@
 }
 
 .product-img {
-
+    max-width: 100%;
 }
 
 .product-img img {
