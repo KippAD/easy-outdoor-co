@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block content %}
+
+{% for product in products %}
+    {{ product.price }}
+{% endfor %}
+
+{% endblock %}
