@@ -2,12 +2,33 @@
 {% load static %}
 
 {% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
 {% endblock %}
 
 {% block content %}
 
 {% for product in products %}
-    {{ product.price }}
+
+<section class="product-section py-5">
+    <div class="container">
+        <h2 class="pb-3">All Products</h2>
+        <div class="row">
+            {% for product in products %}
+            <div class="col-3 d-flex flex-column">
+                <div class="product-img pb-3">
+                    <img src="{{ product.image_url }}" alt="">
+                </div>
+                <h6>{{ product.name }}</h6>
+            </div>
+            <div>
+                <p>£{{ product.price }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</section>
+
 {% endfor %}
 
 {% endblock %}
