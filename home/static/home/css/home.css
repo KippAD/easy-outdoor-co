@@ -4,7 +4,7 @@
 
 
 .hero-image {
-    background: url('https://res.cloudinary.com/dn8zjehza/image/upload/v1672924816/Easy%20Outdoor%20Co/pexels-stephan-seeber-1054218_ongdv1.jpg') center center;
+    background: url('https://res.cloudinary.com/dn8zjehza/image/upload/v1672924744/Easy%20Outdoor%20Co/background_glusge.png') 50% 75%;
     background-size: cover;
     color: white;
     min-height: 60vh;
@@ -32,6 +32,36 @@
     border: none;
 }
 
+/* Shop panel links */
+
+.shop-panel-section {
+    background-color: #272727;
+}
+
+.shop-panel {
+    width: 90%;
+    height: 0;
+    padding-bottom: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    position: relative
+}
+
+.panel-content {
+    background-color: rgba(39, 39, 39, 0.500);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.panel-content > h5 {
+    font-family: Montserrat, sans-serif;
+    font-weight: 900;
+    color: white;
+}
+
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media screen and (max-width: 1400px) {
 }
@@ -47,7 +77,10 @@
 
 /* Medium devices (tablets, 768px and down) */
 @media screen and (max-width: 768px) {
-   
+    .shop-panel {
+        width: 100%;
+        padding-bottom: 100%;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -64,6 +97,11 @@
         height: 40px;
         border-radius: 10px;
         border: none;
+    }
+
+    .shop-panel {
+        width: 80%;
+        padding-bottom: 80%;
     }
 }
 

@@ -3,6 +3,14 @@
 
 
 /* General rules */
+body {
+    background-color: #272727;
+}
+
+header {
+    background-color: #FFFFFF;
+}
+
 .sale {
     color: #F0952A!important;
 }
