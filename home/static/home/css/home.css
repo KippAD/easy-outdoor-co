@@ -11,7 +11,7 @@
 }
 
 
-.hero-image h5 {
+.hero-image h2 {
     font-family: Bungee, sans-serif;
     font-weight: 900;
 }
@@ -79,9 +79,19 @@
 }
 
 .about-img {
-    width: 100%;
-    max-height: 100%;
+    max-width: 100%;
     object-fit: cover;
+}
+
+/* Related products */
+
+.related-products {
+    background: #FFFFFF;
+}
+
+.related-products h2 {
+    font-family: Montserrat, sans-serif;
+    font-weight: 900;
 }
 
 /* XX-Large devices (larger desktops, 1400px and up) */
