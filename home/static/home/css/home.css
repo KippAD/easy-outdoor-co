@@ -62,6 +62,28 @@
     color: white;
 }
 
+/* About us area */
+
+.about-us {
+    background-color: #474747;
+}
+
+.about-content {
+    font-family: Montserrat, sans-serif;
+    color: white;
+    border-left: 20px solid #FFFFFF;
+}
+
+.about-content h3 {
+    font-weight: 900;
+}
+
+.about-img {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media screen and (max-width: 1400px) {
 }
@@ -102,6 +124,15 @@
     .shop-panel {
         width: 80%;
         padding-bottom: 80%;
+    }
+
+    .about-us {
+        padding: 0 5%;
+        text-align: center;
+    }
+
+    .about-content {
+        border-left: none;
     }
 }
 
