@@ -1,10 +1,35 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product
+from .models import Product, Category
 
 
 def all_products(request):
-    """ A list of all products in the database """
+    """ Displays products depending on categories selected """
     products = Product.objects.all()
+
+    # Filters all clothing items
+    if 'clothing' in request.GET:
+        products = Product.objects.filter(category__name__in=[
+            'jackets_coats',
+            't-shirts',
+            'fleeces_jumpers',
+            'trousers',
+            'socks'
+            ])
+
+    # Filters all gear items 
+    if 'gear' in request.GET:
+        products = Product.objects.filter(category__name__in=[
+            'gloves',
+            'headwear',
+            'equipment',
+            'footwear',
+            'sunglasses'
+            ])
+
+    # Filters specific category types
+    if 'category' in request.GET:
+        category = request.GET['category']
+        products = products.filter(category__name=category)
 
     context = {
         'products': products,

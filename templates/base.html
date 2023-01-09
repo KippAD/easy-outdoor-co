@@ -62,21 +62,35 @@
                     <li class="nav-item">
                         <a class="nav-link me-3 sale" aria-current="page" href="#">Sale</a>
                     </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link" href="#">Clothing</a>
+                    
+
+                    <li class="nav-item me-3 dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Clothing
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'products' %}?clothing">All Clothing</a></li>
+                            <li><a class="dropdown-item" href="{% url 'products' %}?category=fleeces_jumpers">Fleeces & Jumpers</a></li>
+                            <li><a class="dropdown-item" href="{% url 'products' %}?category=jackets_coats">Jackets & Coats</a></li>
+                            <li><a class="dropdown-item" href="{% url 'products' %}?category=socks">Socks</a></li>
+                            <li><a class="dropdown-item" href="{% url 'products' %}?category=trousers">Trousers</a></li>
+                            <li><a class="dropdown-item" href="{% url 'products' %}?category=t-shirts">T-shirts</a></li>
+                        </ul>
                     </li>
+
                     <li class="nav-item me-3 dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Gear
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="{% url 'products' %}?gear">All Gear</a></li>
+                            <li><a class="dropdown-item" href="{% url 'products' %}?category=equipment">Equipment</a></li>
+                            <li><a class="dropdown-item" href="{% url 'products' %}?category=footwear">Footwear</a></li>
+                            <li><a class="dropdown-item" href="{% url 'products' %}?category=gloves">Gloves</a></li>
+                            <li><a class="dropdown-item" href="{% url 'products' %}?category=headwear">Headwear</a></li>
+                            <li><a class="dropdown-item" href="{% url 'products' %}?category=sunglasses">Sunglasses</a></li>
                         </ul>
                     </li>
                 </ul>
