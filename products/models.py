@@ -12,8 +12,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-    def riendly_name(self):
-        return self.friendly_name
+    def save(self, *args, **kwargs):
+        if not self.friendly_name:
+            self.friendly_name = self.name.capitalize()
+        return super().save(*args, **kwargs)
 
 
 class Product(models.Model):
