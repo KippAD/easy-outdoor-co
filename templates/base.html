@@ -54,8 +54,8 @@
             </div>
 
             <div class="collapse navbar-collapse p-3 fs-5 order-4 order-xl-3 col-xl-7 justify-content-end" id="navbarSupportedContent">
-                <form class="d-flex search fs-6 mx-auto" role="search">
-                    <input class="w-100 p-2 h-50" type="search" placeholder="Search for products..." aria-label="Search">
+                <form method="GET" action="{% url 'products' %}" class="d-flex search fs-6 mx-auto" role="search">
+                    <input class="w-100 p-2 h-50" name="search" type="search" placeholder="Search for products..." aria-label="Search">
                     <button class="text-white" type="submit">Search</button>
                 </form>
                 <ul class="navbar-nav mb-2 mb-lg-0">
