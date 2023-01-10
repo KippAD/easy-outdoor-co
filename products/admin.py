@@ -1,14 +1,12 @@
 from django.contrib import admin
-from .models import Product, Category
+from .models import Product, Category, SizeStock, RegularStock
 
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'name',
         'price',
-        'sizes',
-        'stock',
-        'total_sold',
+        'has_sizes',
     )
 
 
@@ -19,5 +17,26 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 
+class SizeStockAdmin(admin.ModelAdmin):
+    list_display = (
+        'product',
+        'xsmall',
+        'small',
+        'medium',
+        'large',
+        'xlarge',
+    )
+
+
+class RegularStockAdmin(admin.ModelAdmin):
+    list_display = (
+        'product',
+        'stock',
+        'total_sold',
+    )
+
+
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(SizeStock, SizeStockAdmin)
+admin.site.register(RegularStock, RegularStockAdmin)

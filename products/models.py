@@ -19,16 +19,16 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    category = models.ForeignKey('Category', null=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=50, unique=True, blank=True, null=True)
     desc = models.TextField()
-    sizes = models.BooleanField(null=True, blank=True, default=True)
-    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    slug = models.SlugField(max_length=50, unique=True, blank=True, null=True)
+    has_sizes = models.BooleanField(blank=False, default=True)
+    image = models.ImageField(null=True, blank=True)
+    image_url = models.URLField(null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     sale_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
-    stock = models.IntegerField(null=True, blank=True)
-    total_sold = models.IntegerField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     image_url = models.URLField(null=True, blank=True)
 
@@ -39,3 +39,20 @@ class Product(models.Model):
         if not self.slug:
             self.slug = slugify(self.name)
         return super().save(*args, **kwargs)
+
+
+# Model to take stock of product if it has sizes
+class SizeStock(models.Model):
+    product = models.ForeignKey('Product', related_name="size_stock", on_delete=models.CASCADE)
+    xsmall = models.IntegerField(null=True, blank=True)
+    small = models.IntegerField(null=True, blank=True)
+    medium = models.IntegerField(null=True, blank=True)
+    large = models.IntegerField(null=True, blank=True)
+    xlarge = models.IntegerField(null=True, blank=True)
+
+
+# Model to take stock of product without sizes
+class RegularStock(models.Model):
+    product = models.ForeignKey('Product', related_name="regular_stock", on_delete=models.CASCADE)
+    stock = models.IntegerField(null=True, blank=True)
+    total_sold = models.IntegerField(null=True, blank=True)
