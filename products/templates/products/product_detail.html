@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -16,13 +16,14 @@
                 </div>
             </div>
 
-            <div class="product-info col-12 offset-md-1 col-md-10 offset-lg-0 col-lg-8 d-flex flex-column justify-content-between">
+            <div
+                class="product-info col-12 offset-md-1 col-md-10 offset-lg-0 col-lg-8 d-flex flex-column justify-content-between">
                 <div>
                     <h2 class="fs-3">{{ product.name }}</h2>
                     <p class="price fs-4">£{{ product.price }}</p>
                     <p>Product Star Rating</p>
                 </div>
-                
+
                 <div>
                     <h3 class="fs-5 mb-0">Description</h3>
                     <p>{{ product.desc }}</p>
@@ -30,19 +31,26 @@
 
                 {% if product.has_sizes %}
                 <div>
-                    <h3 class="fs-5 mb-0">Select your size:</h4>
-                    <div class="d-flex text-center">
-                        <div class="size-box">XS</div>
-                        <div class="size-box">S</div>
-                        <div class="size-box">M</div>
-                        <div class="size-box">L</div>
-                        <div class="size-box">XL</div>
-                    </div>
+                    <h3 class="fs-5 mb-2">Select your size:</h4>
+                        <form class="d-flex text-center">
+
+                            {% for key, value in sizes.items %}
+                                {% if value %}
+                                    <input type="radio" class="btn-check" name="options" id="{{ key }}" autocomplete="off">
+                                    <label class="size-box" for="{{ key }}">{{ key }}</label>
+                                {% else %}
+                                    <input type="radio" class="btn-check" name="options" id="{{ key }}" autocomplete="off"
+                                        disabled>
+                                    <label class="size-box size-out" for="{{ key }}">{{ key }}</label>
+                                {% endif %}
+                            {% endfor %}
+
+                        </form>
                 </div>
                 {% endif %}
 
                 <div class="pt-3">
-                    <button class="shop-btn fs-5">Shop Now <i class="fa-solid fa-cart-shopping"></i></button>
+                    <button class="shop-btn fs-5">Add to Basket <i class="fa-solid fa-cart-shopping"></i></button>
                 </div>
             </div>
         </div>

@@ -44,11 +44,11 @@ class Product(models.Model):
 # Model to take stock of product if it has sizes
 class SizeStock(models.Model):
     product = models.ForeignKey('Product', related_name="size_stock", on_delete=models.CASCADE)
-    xsmall = models.IntegerField(null=True, blank=True)
-    small = models.IntegerField(null=True, blank=True)
-    medium = models.IntegerField(null=True, blank=True)
-    large = models.IntegerField(null=True, blank=True)
-    xlarge = models.IntegerField(null=True, blank=True)
+    xs = models.IntegerField('extra small', null=True, blank=True)
+    s = models.IntegerField('small', null=True, blank=True)
+    m = models.IntegerField('medium', null=True, blank=True)
+    l = models.IntegerField('large', null=True, blank=True)
+    xl = models.IntegerField('extra large', null=True, blank=True)
 
 
 # Model to take stock of product without sizes

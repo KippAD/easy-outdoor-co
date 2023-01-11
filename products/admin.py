@@ -20,11 +20,11 @@ class CategoryAdmin(admin.ModelAdmin):
 class SizeStockAdmin(admin.ModelAdmin):
     list_display = (
         'product',
-        'xsmall',
-        'small',
-        'medium',
-        'large',
-        'xlarge',
+        'xs',
+        's',
+        'm',
+        'l',
+        'xl',
     )
 
 

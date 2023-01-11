@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product, Category
+from .models import Product, Category, SizeStock
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.forms.models import model_to_dict
 
 
 def all_products(request):
@@ -75,11 +76,20 @@ def all_products(request):
 
 def product_detail(request, slug):
     """ Displays information about a single product """
-
     product = get_object_or_404(Product, slug=slug)
+    product_sizes = get_object_or_404(SizeStock, product=product)
+
+    # Converts sizes into dictionary and removes non size attributes
+    product_sizes = model_to_dict(product_sizes)
+    rem_keys = ['id', 'product']
+    for key in rem_keys:
+        del product_sizes[key]
+
+    sizes = {k.upper(): v for k, v in product_sizes.items()}
 
     context = {
         'product': product,
+        'sizes': sizes,
     }
 
     return render(request, 'products/product_detail.html', context)

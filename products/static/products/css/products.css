@@ -39,13 +39,36 @@
     color: #272727;
 }
 
+/* For size selectors */
 .size-box {
-    font-weight: Nunito, sans-serif;
+    font-weight: Nunito, sans-serif!important;
+    font-weight: 700;
     width: 50px;
     height: 50px;
-    border: 2px solid #c2c0c0;
+    border: 0.5px solid #000000;
     border-radius: 5px;
     margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.size-box:hover {
+    background-color: #e1e0e0;
+}
+
+.btn-check:checked + .size-box {
+    background-color: #F0952A;
+    color: #ffffff;
+}
+
+
+.size-out, .size-out:hover {
+    background-color: #ffffff;
+    border: 0.5px solid #b7b6b6;
+    color: #b7b6b6;
+    cursor: default;
 }
 
 .shop-btn {
