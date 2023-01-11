@@ -7,19 +7,42 @@
 
 {% block content %}
 
-<section class="product-section py-5">
+<section class="product-section">
     <div class="container">
         <div class="row">
-            <div class="col-4">
-                <img class="product-img" src="{{ product.image_url }}" alt="{{ product.name }}">
+            <div class="col-12 offset-md-1 col-md-10 offset-lg-0 col-lg-4 p-0">
+                <div class="product-img">
+                    <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                </div>
             </div>
-            <div class="col-8">
-                <h2>{{ product.name }}</h2>
-                <p>£{{ product.price }}</p>
-                <p>Product Star Rating</p>
-                <p>{{ product.desc }}</p>
-                <div class="d-flex">
-                    <h4>Select Size:</h4>
+
+            <div class="product-info col-12 offset-md-1 col-md-10 offset-lg-0 col-lg-8 d-flex flex-column justify-content-between">
+                <div>
+                    <h2 class="fs-3">{{ product.name }}</h2>
+                    <p class="price fs-4">£{{ product.price }}</p>
+                    <p>Product Star Rating</p>
+                </div>
+                
+                <div>
+                    <h3 class="fs-5 mb-0">Description</h3>
+                    <p>{{ product.desc }}</p>
+                </div>
+
+                {% if product.has_sizes %}
+                <div>
+                    <h3 class="fs-5 mb-0">Select your size:</h4>
+                    <div class="d-flex text-center">
+                        <div class="size-box">XS</div>
+                        <div class="size-box">S</div>
+                        <div class="size-box">M</div>
+                        <div class="size-box">L</div>
+                        <div class="size-box">XL</div>
+                    </div>
+                </div>
+                {% endif %}
+
+                <div class="pt-3">
+                    <button class="shop-btn fs-5">Shop Now <i class="fa-solid fa-cart-shopping"></i></button>
                 </div>
             </div>
         </div>
