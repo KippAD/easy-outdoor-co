@@ -1,18 +1,67 @@
 {% extends "base.html" %}
 {% load static %}
+{% load basket_tools %}
+
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
+<link rel="stylesheet" href="{% static 'basket/css/basket.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<section class="basket-section py-5">
+<section class="basket-section">
     <div class="container">
-        
-        {{ basket_items }}
+        <div class="row">
+            <h2>Your Basket</h2>
+        </div>
+        {% for item in basket_items %}
+        <div class="row py-3">
+            <div class="col-3">
+                <div class="img-container">
+                    <img class="basket-img" src="{{ item.product.image_url }}" alt="">
+                </div>
+            </div>
+            <div class="col-9 basket-item">
+                <h3 class="fs-5 m-0">{{ item.product.name }}</h3>
+                {% if item.size_selection %}
+                <p class="m-0">Size: {{ item.size_selection| upper }}</p>
+                {% endif %}
+                <div class="d-flex justify-content-between p-0">
+                    <p>
+                        <form action="{% url 'update_quantity' item.product_id %}" method="POST">
+                            {% csrf_token %}
+                            Quantity: 
+                            <button type="submit" name="decrement" value="{{ item.quantity }}" data-product_id="{{ item.product_id }}" class="decrement"><i class="fa-solid fa-minus"></i></button> 
+                            <span class="quantity">{{ item.quantity }} </span>
+                            <button type="submit" name="increment" value="{{ item.quantity }}" data-product_id="{{ item.product_id }}" class="increment"><i class="fa-solid fa-plus"></i></button></p>
+                            {% if item.size_selection %}
+                            <input type="hidden" name="product_size" value="{{ item.size_selection }}">
+                            {% endif %}
+                        </form>
+                    <p>Total: {{ item.product.price | calc_total_price:item.quantity }}</p>
+                </div>
+            </div>
+        </div>
+        <span class="d-block line-divide w-100"></span>
+        {% endfor %}
+    </div>
+
+    <div class="container checkout-btn py-3">
+        <button>Continue Shopping</button>
+        <button>Checkout</button>
     </div>
 
 </section>
 
+{% endblock %}
+
+{% block postloadjs %}
+
+{{ block.super }}
+<script type="text/javascript">
+    // Ensures that the item information matches the height of its image
+    $(document).ready(function () {
+        $('.basket-item').css({'maxHeight':($('.basket-img').height()+'px')});
+    });
+</script>
 {% endblock %}

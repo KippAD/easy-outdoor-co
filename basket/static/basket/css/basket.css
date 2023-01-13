@@ -2,6 +2,39 @@
 
 .basket-section {
     padding-top: 15vh;
-    height: 500px;
     background-color: white;
+}
+
+.img-container {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+
+}
+
+.basket-section img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    font-family: Nunito, sans-serif;
+}
+
+.line-divide {
+    border-bottom: 0.5px solid #dddddd;
+}
+
+.basket-item > h3 {
+    font-family: Nunito, sans-serif;
+    font-weight: 700;
+}
+
+.increment, .decrement {
+    border: none;
+    background-color: transparent;
+    font-weight: 700;
+    background-color: #F0952A;
+    color: #ffffff;
+    border-radius: 50%;
 }
