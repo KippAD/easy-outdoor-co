@@ -110,13 +110,43 @@ footer h5 {
     font-weight: 700;
 }
 
+/* Msg container for toasts */
+.message-container {
+    position: fixed;
+    top: 10vh;
+    right: 5vw;
+    z-index: 99999999999;
+}
+
+.toast-header {
+    border-bottom: 1px solid #000000;
+    font-family: Montserrat, sans-serif;
+    color: #000000;
+}
+
+/* Colors for toast icons */
+.toast-success {
+    color: #2b902b;
+}
+
+.toast-warning {
+    color: #ebd726;
+}
+
+.toast-error {
+    color: #d31e1e;
+}
+
+.toast-body {
+    font-family: Nunito, sans-serif;
+}
 
 
-/* XX-Large devices (larger desktops, 1400px and up) */
+/* XX-Large devices (larger desktops, 1400px and down) */
 @media screen and (max-width: 1400px) {
 }
 
-/* X-Large devices (large desktops, 1200px and up) */
+/* X-Large devices (large desktops, 1200px and down) */
 @media screen and (max-width: 1200px) {
 }
 
@@ -134,9 +164,17 @@ footer h5 {
     #footer-form {
         text-align: start!important;
     }
+
+    .message-container {
+        position: fixed;
+        max-width: 75vw;
+        top: 12.5vh;
+        right: 2.5vw;
+        z-index: 99999999999;
+    }
 }
 
-/* Small devices (landscape phones, 576px and up) */
+/* Small devices (landscape phones, 576px and down) */
 @media screen and (max-width: 576px) {
     
 }
