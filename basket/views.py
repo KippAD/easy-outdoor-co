@@ -53,8 +53,22 @@ def update_quantity(request, product_id):
             basket[product_id]['size_quantities'][size_selection] += 1
             print(basket)
         elif 'decrement' in request.POST:
-            basket[product_id]['size_quantities'][size_selection] -= 1
+            if basket[product_id]['size_quantities'][size_selection] > 1:
+                basket[product_id]['size_quantities'][size_selection] -= 1
+                print(basket)
+            else:
+                del basket[product_id]['size_quantities'][size_selection]
+                print(basket)
+    else:
+        if 'increment' in request.POST:
+            basket[product_id] += 1
             print(basket)
+        elif 'decrement' in request.POST:
+            if basket[product_id] > 1:
+                basket[product_id] -= 1
+            else:
+                basket.pop(product_id)
+                print(basket)
 
     request.session['basket'] = basket
     return render(request, "basket/basket.html")
