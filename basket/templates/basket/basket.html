@@ -12,37 +12,37 @@
 <section class="basket-section">
     <div class="container">
         <div class="row">
-            <h2>Your Basket</h2>
+            <h2 class="offset-lg-2">Your Basket</h2>
         </div>
         {% for item in basket_items %}
         <div class="row py-3">
-            <div class="col-3">
+            <div class="col-3 offset-2 col-lg-2">
                 <div class="img-container">
                     <img class="basket-img" src="{{ item.product.image_url }}" alt="">
                 </div>
             </div>
-            <div class="col-9 basket-item">
+            <div class="col-9 col-lg-6 basket-item d-flex flex-column justify-content-between">
                 <h3 class="fs-5 m-0">{{ item.product.name }}</h3>
                 {% if item.size_selection %}
                 <p class="m-0">Size: {{ item.size_selection| upper }}</p>
                 {% endif %}
+                <p>Total: {{ item.product.price | calc_total_price:item.quantity }}</p>
                 <div class="d-flex justify-content-between p-0">
-                    <p>
-                        <form action="{% url 'update_quantity' item.product_id %}" method="POST">
-                            {% csrf_token %}
-                            Quantity: 
-                            <button type="submit" name="decrement" value="{{ item.quantity }}" data-product_id="{{ item.product_id }}" class="decrement"><i class="fa-solid fa-minus"></i></button> 
-                            <span class="quantity">{{ item.quantity }} </span>
-                            <button type="submit" name="increment" value="{{ item.quantity }}" data-product_id="{{ item.product_id }}" class="increment"><i class="fa-solid fa-plus"></i></button></p>
-                            {% if item.size_selection %}
-                            <input type="hidden" name="product_size" value="{{ item.size_selection }}">
-                            {% endif %}
-                        </form>
-                    <p>Total: {{ item.product.price | calc_total_price:item.quantity }}</p>
+                    <form action="{% url 'update_quantity' item.product_id %}" method="POST">
+                        {% csrf_token %}
+                        Quantity: 
+                        <button type="submit" name="decrement" value="{{ item.quantity }}" data-product_id="{{ item.product_id }}" class="decrement"><i class="fa-solid fa-minus"></i></button> 
+                        <span class="quantity">{{ item.quantity }} </span>
+                        <button type="submit" name="increment" value="{{ item.quantity }}" data-product_id="{{ item.product_id }}" class="increment"><i class="fa-solid fa-plus"></i></button></p>
+                        {% if item.size_selection %}
+                        <input type="hidden" name="product_size" value="{{ item.size_selection }}">
+                        {% endif %}
+                    </form>
+                    <a class="remove-item" id="remove_{{ item.product_id }}" data-product_size="{{ item.size }}">Remove from Bag</a>
                 </div>
             </div>
         </div>
-        <span class="d-block line-divide w-100"></span>
+        <span class="mx-auto d-block line-divide"></span>
         {% endfor %}
     </div>
 
@@ -63,5 +63,18 @@
     $(document).ready(function () {
         $('.basket-item').css({'maxHeight':($('.basket-img').height()+'px')});
     });
+
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var productId = $(this).attr('id').split('remove_')[1];
+        var size = $(this).data('product_size');
+        var url = `/basket/delete/${productId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
 </script>
 {% endblock %}

@@ -23,6 +23,7 @@
 
 .line-divide {
     border-bottom: 0.5px solid #dddddd;
+    width: 75%;
 }
 
 .basket-item > h3 {
@@ -38,3 +39,38 @@
     color: #ffffff;
     border-radius: 50%;
 }
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media screen and (max-width: 1400px) {
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media screen and (max-width: 1200px) {
+}
+
+/* Large devices (desktops, 992px and down) */
+@media screen and (max-width: 992px) {
+
+    .collapse {
+        position: static!important;
+        top: 0;
+    }
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media screen and (max-width: 768px) {
+    #footer-form {
+        text-align: start!important;
+    }
+
+    .line-divide {
+        border-bottom: 0.5px solid #dddddd;
+        width: 100%;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (max-width: 576px) {
+    
+}
+

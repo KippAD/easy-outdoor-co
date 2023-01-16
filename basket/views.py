@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from products.models import Product, SizeStock
 
 
@@ -72,3 +72,20 @@ def update_quantity(request, product_id):
 
     request.session['basket'] = basket
     return render(request, "basket/basket.html")
+
+
+def delete_item(request, product_id):
+
+    product = get_object_or_404(Product, pk=product_id)
+    if 'product_size' in request.POST:
+        size_selection = request.POST.get('product_size')
+
+    basket = request.session.get('basket', {})
+
+    if size_selection:
+        del basket[product_id]['size_quantities'][size_selection]
+    else:
+        basket.pop(product_id)
+
+    request.session['basket'] = basket
+    return HttpResponse(status=200)
