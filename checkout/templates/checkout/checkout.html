@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% load basket_tools %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'basket/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="basket-section">
+    <div class="container">
+        <div class="row">
+            <h2 class="offset-lg-2">Checkout</h2>
+        </div>
+        <div class="row">
+            <div class="col-6 checkout-form"></div>
+
+        </div>>
+    </div>
+
+    <div class="container checkout-btn py-3">
+        <div class="row">
+            <div class="offset-2">
+                <button>Continue Shopping</button>
+                <button>Checkout</button>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block postloadjs %}
+
+{{ block.super }}
+{% endblock %}
