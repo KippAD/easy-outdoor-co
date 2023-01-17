@@ -66,6 +66,7 @@
                                 <button type="submit" name="increment" value="{{ item.quantity }}" data-product_id="{{ item.product_id }}" class="increment fs-5 fw-bold"><i class="fa-sharp fa-solid fa-plus"></i></i></button></p>
                                 {% if item.size_selection %}
                                 <input type="hidden" name="product_size" value="{{ item.size_selection }}">
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                 {% endif %}
                             </form>
                         </div>
@@ -76,7 +77,7 @@
 
                     <div class="row">
                         <div class="col-12 d-sm-none">
-                            <a class="fs-6 text-danger" href="{% url 'delete_item' item.product_id %}">Remove from basket <i class="fa-solid fa-square-xmark"></i></a>
+                            <a class="fs-6 text-danger" d="remove_{{ item.product_id }}" href="{% url 'delete_item' item.product_id %}">Remove from basket <i class="fa-solid fa-square-xmark"></i></a>
                         </div>
                     </div>
                 </div>
@@ -107,6 +108,12 @@
     $(document).ready(function () {
         $('#quantity-form > p').remove()
     });
+
+    // Update quantity on click
+    $('.incriment').click(function(e) {
+        var form = $('#quantity-form');
+        form.submit();
+    })
 
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
