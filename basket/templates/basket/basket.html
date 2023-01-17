@@ -12,45 +12,85 @@
 <section class="basket-section">
     <div class="container">
         <div class="row">
-            <h2 class="offset-lg-2">Your Basket</h2>
+            <h2 class="fs-3">Your Basket</h2>
         </div>
         {% for item in basket_items %}
-        <div class="row py-3">
-            <div class="col-3 offset-2 col-lg-2">
-                <div class="img-container">
-                    <img class="basket-img" src="{{ item.product.image_url }}" alt="">
-                </div>
+        <div class="row item-row my-2">
+            <div class="col-1 fs-5 fw-bold">
+                {{ forloop.counter }}.
             </div>
-            <div class="col-9 col-lg-6 basket-item d-flex flex-column justify-content-between">
-                <h3 class="fs-5 m-0">{{ item.product.name }}</h3>
-                {% if item.size_selection %}
-                <p class="m-0">Size: {{ item.size_selection| upper }}</p>
-                {% endif %}
-                <p>Total: {{ item.product.price | calc_total_price:item.quantity }}</p>
-                <div class="d-flex justify-content-between p-0">
-                    <form action="{% url 'update_quantity' item.product_id %}" method="POST">
-                        {% csrf_token %}
-                        Quantity: 
-                        <button type="submit" name="decrement" value="{{ item.quantity }}" data-product_id="{{ item.product_id }}" class="decrement"><i class="fa-solid fa-minus"></i></button> 
-                        <span class="quantity">{{ item.quantity }} </span>
-                        <button type="submit" name="increment" value="{{ item.quantity }}" data-product_id="{{ item.product_id }}" class="increment"><i class="fa-solid fa-plus"></i></button></p>
-                        {% if item.size_selection %}
-                        <input type="hidden" name="product_size" value="{{ item.size_selection }}">
-                        {% endif %}
-                    </form>
-                    <a class="remove-item" id="remove_{{ item.product_id }}" data-product_size="{{ item.size }}">Remove from Bag</a>
+            <div class="img-container d-none d-sm-block col-2 p-0">
+                <img class="basket-img" src="{{ item.product.image_url }}" alt="">
+            </div>
+            <div class="col-11 col-sm-9 ps-3">
+                <div class="container h-100 p-0">
+                    <div class="row">
+                        <div class="col-12 d-sm-flex justify-content-between">
+                            <h3 class="m-0">{{ item.product.name }}</h3>
+                            <div class="d-none d-sm-inline-block">
+                                <a class="fs-4 text-danger" href="{% url 'delete_item' item.product_id %}"><i class="fa-solid fa-square-xmark"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 star-rating m-0">
+                            <span class="d-none">{{ item.product.rating }}</span>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="m-0 fs-5 item-price">£{{ item.product.price }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            {% if item.size_selection %}
+                                <p class="m-0">Size: {{ item.size_selection| upper }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <form id="quantity-form" action="{% url 'update_quantity' item.product_id %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" name="decrement" value="{{ item.quantity }}" data-product_id="{{ item.product_id }}" class="decrement fs-5 fw-bold"><i class="fa-sharp fa-solid fa-minus"></i></button> 
+                                <span class="quantity fs-5 fw-bold">{{ item.quantity }} </span>
+                                <button type="submit" name="increment" value="{{ item.quantity }}" data-product_id="{{ item.product_id }}" class="increment fs-5 fw-bold"><i class="fa-sharp fa-solid fa-plus"></i></i></button></p>
+                                {% if item.size_selection %}
+                                <input type="hidden" name="product_size" value="{{ item.size_selection }}">
+                                {% endif %}
+                            </form>
+                        </div>
+                        <div class="col-6">
+                            <p class="fw-bold total-price fs-5 m-0 text-end">Total: £{{ item.product.price | calc_total_price:item.quantity }}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 d-sm-none">
+                            <a class="fs-6 text-danger" href="{% url 'delete_item' item.product_id %}">Remove from basket <i class="fa-solid fa-square-xmark"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <span class="mx-auto d-block line-divide"></span>
+        <span class="d-block line-divide"></span>
         {% endfor %}
     </div>
 
     <div class="container checkout-btn py-3">
         <div class="row">
-            <div class="offset-2">
-                <button>Continue Shopping</button>
-                <button>Checkout</button>
+            <div class="">
+                <a class="fs-6 py-1 px-2 fw-bold continue-shop-btn text-black" href="">Return to Shop</a>
+                <a class="fs-6 py-1 px-2 fw-bold shop-btn" href="{% url 'checkout' %}">Checkout</a>
             </div>
         </div>
         
@@ -66,7 +106,7 @@
 <script type="text/javascript">
     // Ensures that the item information matches the height of its image
     $(document).ready(function () {
-        $('.basket-item').css({'maxHeight':($('.basket-img').height()+'px')});
+        $('#quantity-form > p').remove()
     });
 
     $('.remove-item').click(function(e) {
