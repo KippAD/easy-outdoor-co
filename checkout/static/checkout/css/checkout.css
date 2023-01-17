@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat:wght@400;500;600;700;800;900&family=Nunito:wght@500;600;700;800;900&display=swap');
+
+
+.checkout-section {
+    padding-top: 100px;
+    background-color: white;
+}
+
+.checkout-section h2 {
+    font-family: Montserrat, sans-serif;
+    font-weight: 900;
+}
+
+.checkout-section h3 {
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+}
+
+.line-divide {
+    border-bottom: 0.5px solid #dddddd;
+    width: 75%;
+}
+
+.checkout-section input {
+    margin-bottom: 10px;
+}
+
+#div_id_county,
+#div_id_postcode {
+    width: 45%;
+    display: inline-block;
+}
+
+/* XX-Large devices (larger desktops, 1400px and down) */
+@media screen and (max-width: 1400px) {
+}
+
+/* X-Large devices (large desktops, 1200px and down) */
+@media screen and (max-width: 1200px) {
+}
+
+/* Large devices (desktops, 992px and down) */
+@media screen and (max-width: 992px) {
+
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media screen and (max-width: 768px) {
+
+}
+
+/* Small devices (landscape phones, 576px and down) */
+@media screen and (max-width: 576px) {
+    
+}
