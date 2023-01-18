@@ -109,12 +109,6 @@
         $('#quantity-form > p').remove()
     });
 
-    // Update quantity on click
-    $('.incriment').click(function(e) {
-        var form = $('#quantity-form');
-        form.submit();
-    })
-
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var productId = $(this).attr('id').split('remove_')[1];
