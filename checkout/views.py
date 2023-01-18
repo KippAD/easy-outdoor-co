@@ -1,9 +1,34 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.views.decorators.http import require_POST
 from django.contrib import messages
-from .forms import OrderForm
 from django.conf import settings
+
+from .forms import OrderForm
+from .models import Order, OrderLineItem
+from products.models import Product
 from basket.contexts import basket_contents
+
 import stripe
+import json
+
+# Views taken from Boutiqe Ado walkthrough projcect by CodeInstitue
+@require_POST
+def cache_checkout_data(request):
+    print('cache')
+    try:
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(pid, metadata={
+            'basket': json.dumps(request.session.get('basket', {})),
+            'save_info': request.POST.get('save_info'),
+            'username': request.user,
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        messages.error(request, 'Your payment was unsuccessfully \
+            processed. Please try again later.')
+        print('our payment was unsuccessfull')
+        return HttpResponse(content=e, status=400)
 
 
 def checkout(request):
@@ -53,28 +78,38 @@ def checkout(request):
                             order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "We're sorry, one of the products in your basket wasn't found in our database."
-                        "Get in touch with us for assistance.")
+                        "One of the products in your basket wasn't found in our database. "
+                        "Please contact us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_basket'))
-            # Saves info to user profile if form is valid
+
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
-            messages.error(request, 'There was an error with the information in the form. \
-                Please check your inputs and resubmit.')
+            messages.error(request, 'There was an error with your form. \
+                Please try again.')
+    else:
+        basket = request.session.get('basket', {})
+        if not basket:
+            messages.error(request, "Your basket is currently empty.")
+            return redirect(reverse('products'))
 
-    current_basket = basket_contents(request)
-    total = current_basket['grand_total']
-    stripe_total = round(total * 100)
-    stripe.api_key = stripe_secret_key
-    intent = stripe.PaymentIntent.create(
-        amount=stripe_total,
-        currency=settings.STRIPE_CURRENCY,
-    )
+        current_basket = basket_contents(request)
+        total = current_basket['grand_total']
+        stripe_total = round(total * 100)
+        stripe.api_key = stripe_secret_key
+        intent = stripe.PaymentIntent.create(
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
+        )
 
-    order_form = OrderForm()
+        order_form = OrderForm()
+
+    if not stripe_public_key:
+        messages.warning(request, 'Stripe public key is missing. \
+            Did you forget to set it in your environment?')
+
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
@@ -87,11 +122,11 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """
-    Handles successful checkout
+    Handles successful checkouts and redirects to success page
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    messages.success(request, f'Your order has been successfully processed! \
+    messages.success(request, f'Thank you, your order has been successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
 
@@ -104,4 +139,3 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
-

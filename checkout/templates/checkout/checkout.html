@@ -88,42 +88,51 @@
             </div>
 
             <div class="col-12 col-md-6 order-md-1 px-3 mx-auto checkout-form border-end">
-                <fieldset>
-                    <legend>Details</legend>
-                    {{ order_form.full_name | as_crispy_field }}
-                    {{ order_form.email | as_crispy_field }}
-                </fieldset>
-                <fieldset>
-                    <legend>Delivery</legend>
-                    {{ order_form.phone_number | as_crispy_field }}
-                    {{ order_form.street_address1 | as_crispy_field }}
-                    {{ order_form.street_address2 | as_crispy_field }}
-                    <div class="d-flex justify-content-between">
-                        {{ order_form.county | as_crispy_field }}
-                        {{ order_form.postcode | as_crispy_field }}
-                    </div>
-                    {{ order_form.country | as_crispy_field }}
-                </fieldset>
-            </div>
-            <div class="row order-3">
-                <fieldset class="px-3">
-                    <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
-                    <!-- A Stripe card element will go here -->
-                    <div class="mb-3" id="card-element"></div>
-                </fieldset>
-            </div>
+                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>Details</legend>
+                        {{ order_form.full_name | as_crispy_field }}
+                        {{ order_form.email | as_crispy_field }}
+                    </fieldset>
+                    <fieldset>
+                        <legend>Delivery</legend>
+                        {{ order_form.phone_number | as_crispy_field }}
+                        {{ order_form.street_address1 | as_crispy_field }}
+                        {{ order_form.street_address2 | as_crispy_field }}
+                        {{ order_form.town_or_city | as_crispy_field }}
+                        <div class="d-flex justify-content-between">
+                            {{ order_form.county | as_crispy_field }}
+                            {{ order_form.postcode | as_crispy_field }}
+                        </div>
+                        {{ order_form.country | as_crispy_field }}
+                        <div class="form-check form-check-inline float-right mr-0">
+                            {% if user.is_authenticated %}
+                                <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
+                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                            {% else %}
+                                <label class="form-check-label" for="id-save-info">
+                                    <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
+                                    <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                </label>
+                            {% endif %}
+                        </div>
+                    </fieldset>
+                    <fieldset class="px-3">
+                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                        <!-- A Stripe card element will go here -->
+                        <div class="mb-3" id="card-element"></div>
+                        <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                        <!-- Pass the client secret to the view so we can get the payment intent id -->
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                    </fieldset>
 
-        </div>
-    </div>
-
-    <div class="container checkout-btn py-3">
-        <div class="row">
-            <div class="">
-                <a class="fs-6 py-1 px-2 fw-bold continue-shop-btn text-black" href="">Basket</a>
-                <a class="fs-6 py-1 px-2 fw-bold shop-btn" href="{% url 'checkout' %}">Secure Payment</a>
+                    <a class="fs-6 py-1 px-2 fw-bold continue-shop-btn text-black" href="">Basket</a>
+                    <button id="submit-button" class="fs-6 py-1 px-2 fw-bold shop-btn">Secure Payment</button>
+                </form>
             </div>
         </div>
-    </div>
 
 
 </section>

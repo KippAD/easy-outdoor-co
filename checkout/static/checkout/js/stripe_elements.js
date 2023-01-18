@@ -1,3 +1,12 @@
+/*
+    Core logic/payment flow for this comes from here:
+    https://stripe.com/docs/payments/accept-a-payment
+
+    CSS from here: 
+    https://stripe.com/docs/stripe-js
+*/
+
+// Stripe elements JS taken from Boutiqe Ado walkthrough projcect by CodeInstitue and Stripe documentation
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
@@ -20,7 +29,7 @@ var style = {
 var card = elements.create('card', {style: style});
 card.mount('#card-element');
 
-// Handle realtime validation errors on the card element
+// Handles validation errors on the card element in realtime
 card.addEventListener('change', function (event) {
     var errorDiv = document.getElementById('card-errors');
     if (event.error) {
@@ -36,7 +45,7 @@ card.addEventListener('change', function (event) {
     }
 });
 
-// Handle form submit
+// Handles form submission
 var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function(ev) {
@@ -105,7 +114,7 @@ form.addEventListener('submit', function(ev) {
             }
         });
     }).fail(function () {
-        // Adds error will to django messages when page is reloaded
+        // Reloads the page so that errors will be in django messages
         location.reload();
     })
 });
