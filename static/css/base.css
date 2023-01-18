@@ -141,6 +141,11 @@ footer h5 {
     font-family: Nunito, sans-serif;
 }
 
+/* Star color */
+.star-rating i {
+    color: #d8c625;
+}
+
 
 /* XX-Large devices (larger desktops, 1400px and down) */
 @media screen and (max-width: 1400px) {

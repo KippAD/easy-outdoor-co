@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.core.validators import MaxValueValidator
 
 
 class Category(models.Model):
@@ -28,12 +29,16 @@ class Product(models.Model):
     image_url = models.URLField(null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     sale_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    rating = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True, validators=[MaxValueValidator(5)])
     image = models.ImageField(null=True, blank=True)
     image_url = models.URLField(null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.name     
+
+    # Rounds to nearest .5 for the star rating
+    def round_rating(self):
+        return round(self.rating * 2) / 2
 
     def save(self, *args, **kwargs):
         if not self.slug:

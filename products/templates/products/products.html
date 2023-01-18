@@ -39,7 +39,9 @@
                     </a>
                 </div>
                 <h6>{{ product.name }}</h6>
-
+                <div class="row">
+                    {% include 'products/includes/rating.html' %}
+                </div>
                 <div>
                     <p>£{{ product.price }}</p>
 
