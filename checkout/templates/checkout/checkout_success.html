@@ -11,7 +11,94 @@
 {% block content %}
 
 <section class="checkout-section">
-    {{ order }}
+    <div class="container px-3">
+        <div class="row">
+            <div class="row col-md-6 delivery-info">
+                <div class="row mb-3">
+                    <h2>Thank You!</h2>
+                    <p>Your order has been successfully processed.</p>
+                    <a class="text-decoration-underline text-black" href="{url 'products'}">Continue Shopping</a>
+                </div>
+                <div class="col-12">
+                    <h3 class="border-bottom">Delivery Info</h3>
+                    <p class="fw-bold">{{ order.order_number }}</p>
+                    <p>{{ order.full_name }}</p>
+                    <p>{{ order.street_address1 }}</p>
+                    <p>{{ order.street_address2 }}</p>
+                    <p>{{ order.county }}</p>
+                    <p>{{ order.postcode }}</p>
+                    <p>{{ order.country.name }}</p>
+                </div>
+                <div class="col-12 mt-3">
+                    <h3 class="border-bottom">Billing Info</h3>
+                    <p>{{ order.full_name }}</p>
+                    <p>{{ order.email }}</p>
+                    <p>{{ order.phone_number }}</p>
+                    <p>{{ order.street_address1 }}</p>
+                    <p>{{ order.street_address2 }}</p>
+                    <p>{{ order.county }}</p>
+                    <p>{{ order.postcode }}</p>
+                    <p>{{ order.country.name }}</p>
+                </div>
+            </div>
+            <div class="row col-md-6">
+                <div class="col-12 order-summary my-3">
+                    <h3 class="border-bottom">Summary</h3>
+                    {% for item in order_items %}
+                    <div class="border-bottom row item-row my-2">
+                        <div class="img-container d-none d-sm-block col-2 p-0">
+                            <img class="basket-img" src="{{ item.product.image_url }}" alt="">
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="container h-100 p-0">
+                                <div class="row">
+                                    <div class="col-12 d-flex justify-content-between">
+                                        <h3 class="fs-5 m-0">{{ item.product.name }}</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    {% include 'basket/includes/rating.html' %}
+                                </div>
+            
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="m-0 fs-5 item-price">£{{ item.product.price }}</p>
+                                    </div>
+                                </div>
+            
+                                <div class="row">
+                                    <div class="col-12">
+                                        {% if item.product_size%}
+                                            <p class="m-0">Size: {{ item.product_size| upper }}</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+            
+                                <div class="row">
+                                    <div class="col-6">
+                                        {% if item.size_selection %}
+                                            <p>{{ item.size_selection }}"</p>
+                                        {% endif %}
+                                        <p class="quantity fw-bold">Qty: {{ item.quantity }} </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="fw-bold total-price fs-5 m-0 text-end">Total: £{{ item.product.price | calc_total_price:item.quantity }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="row">
+                        <h3>Cost</h3>
+                        <p class="m-0"><strong>Total:</strong> £{{ order.order_total }}</p>
+                        <p class="m-0"><strong>Delivery:</strong> £{{ order.delivery_cost }}</p>
+                        <p class="m-0"><strong>Grand Total:</strong> £{{ order.grand_total }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 {% endblock %}
