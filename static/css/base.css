@@ -4,7 +4,10 @@
 
 /* General rules */
 body {
-    background-color: #272727;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    display: table;
 }
 
 header {
@@ -13,6 +16,19 @@ header {
     border-bottom: 0.5px solid #ebe8e8;
     position: fixed;
     z-index: 100;
+}
+
+.clear-content {
+    height: 80px;
+}
+
+.shop-btn {
+    background-color: #F0952A;
+    color: white;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    border-radius: 10px;
+    border: none;
 }
 
 .sale {
@@ -56,8 +72,12 @@ h1 {
     margin: auto;
 }
 
-/* Custom bootstrap burger menu styles (Taken from previous portfolio project: https://github.com/KippAD/george-orwell-pub */
+#profile-icon > .dropdown-menu[data-bs-popper] {
+    right: 0!important;
+    left: auto;
+}
 
+/* Custom bootstrap burger menu styles (Taken from previous portfolio project: https://github.com/KippAD/george-orwell-pub */
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8, %3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
     width: 3rem;
@@ -79,6 +99,8 @@ h1 {
 footer {
     background-color: #272727;
     color: white;
+    display: table-row;
+    height: 0;
 }
 
 footer > .container {

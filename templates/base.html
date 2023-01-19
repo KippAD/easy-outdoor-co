@@ -69,7 +69,7 @@
                     
 
                     <li class="nav-item me-3 dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Clothing
                         </a>
@@ -84,7 +84,7 @@
                     </li>
 
                     <li class="nav-item me-3 dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Gear
                         </a>
@@ -106,16 +106,29 @@
 
             <div class="col-4 col-xl-1 d-flex justify-content-end order-xl-4">
                 <a class="nav-link fs-3 pe-3" href="{% url 'view_basket' %}"><i class="fa-solid fa-cart-shopping"></i></a>
-                <a class="nav-link fs-3 pe-3" href="#"><i class="fa-solid fa-user"></i></a>
+                {% if user.is_authenticated %}
+                <div id="profile-icon" class="dropdown-center">
+                    <a class="nav-link fs-3 pe-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                  
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{% url 'profile' %}">Account</a></li>
+                      <li><a class="dropdown-item" href="#">Order History</a></li>
+                      <li><a class="dropdown-item" href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket"></i>Sign Out</a></li>
+                    </ul>
+                  </div>
+                {% else %}
+                <a class="nav-link fs-3 pe-3" href="{% url 'account_login' %}"><i class="fa-solid fa-right-to-bracket"></i></a>
+                {% endif %}
             </div>
 
-            <a class="navbar-brand d-none d-xl-inline-block order-xl-2 col-xl-3" href="#">
+            <a class="navbar-brand d-none d-xl-inline-block order-xl-2 col-xl-3" href="{% url 'home' %}">
                 <h1 class="m-0 fs-2">Easy Outdoor Co.</h1>
             </a>
-
         </nav>
     </header>
-    
+    <div class="clear-content"></div>
     {% block content %}
     {% endblock %}
 
