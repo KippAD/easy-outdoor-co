@@ -5,7 +5,7 @@ from django.conf import settings
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
-from products.models import Product
+from products.models import Product, SizeStock, RegularStock
 from basket.contexts import basket_contents
 
 import stripe
@@ -76,6 +76,13 @@ def checkout(request):
                                 product_size=size,
                             )
                             order_line_item.save()
+                            # Updates stock with quantity
+                            item_stock = get_object_or_404(SizeStock, product=product)
+                            size_stock = getattr(item_stock, size)
+                            if (size_stock - quantity) >= 0:
+                                updated_stock = (size_stock - quantity)
+                                setattr(item_stock, size, updated_stock)
+                                item_stock.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your basket wasn't found in our database. "
