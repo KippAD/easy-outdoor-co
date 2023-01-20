@@ -92,7 +92,6 @@ def product_detail(request, slug):
             stock = None
         else:
             stock = list(product_sizes.values())
-            print(stock)
             
     else:
         # Checks if stock exists on item

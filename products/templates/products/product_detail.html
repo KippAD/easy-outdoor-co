@@ -98,7 +98,7 @@
             if ($("input[name=sizes]:checked")) {
                 let key = $("input[name=sizes]:checked").val()
                 let value =  $("p[data-key=" + key + "]").attr("data-value");
-                if (value < 6) {
+                if (value < 10) {
                     $("p[data-key=" + key + "]").show()
                 }
             }
@@ -109,7 +109,7 @@
                     let value =  $("p[data-key=" + key + "]").attr("data-value");
                     $(".stock-warning").hide()
 
-                    if (value < 6) {
+                    if (value < 10) {
                         $("p[data-key=" + key + "]").show()
                     }
                 }
