@@ -37,8 +37,11 @@
                         <div class="d-flex">
                             {% for key, value in sizes.items %}
                             {% if value %}
+                            
+                            <p data-key="{{ key }}" data-value="{{ value }}" class="fw-bold stock-warning text-danger mb-0">Hurry! There is only {{ value }} of this size left in stock...</p>
+
                             <input type="radio" class="btn-check" name="sizes" value="{{ key }}" id="{{ key }}"
-                                autocomplete="off">
+                                autocomplete="off" data-stock="{{ value }}">
                             <label class="size-box" for="{{ key }}">{{ key }}</label>
                             {% else %}
                             <input type="radio" class="btn-check" name="sizes" id="{{ key }}" autocomplete="off"
@@ -47,9 +50,13 @@
                             {% endif %}
                             {% endfor %}
                         </div>
+                        <div class="append-warning mb-0 mt-2"></div>
                         {% endif %}
                         <div class="pt-3">
                             {% if stock %}
+                                {% if stock <= 6 %}
+                                    <p class="text-danger fw-bold">There are only {{ stock }} of this item left in stock...</p>
+                                {% endif %}
                             <h3 class="fs-5">Quantity:</h3>
                             <input data-product_id="{{ product.id }}" class="d-block" type="number" name="quantity"
                                 id="quantity">
@@ -77,4 +84,38 @@
 
 </section>
 
+{% endblock %}
+{% block postloadjs %}
+
+    {{ block.super }}
+    <!-- Displays stock warning on sized items when low on stock -->
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            $(".stock-warning").hide()
+            $("input:radio[name=sizes]:not(:disabled):first").attr('checked', true);
+            $(".append-warning").append($(".stock-warning"))
+            
+            if ($("input[name=sizes]:checked")) {
+                let key = $("input[name=sizes]:checked").val()
+                let value =  $("p[data-key=" + key + "]").attr("data-value");
+                if (value < 6) {
+                    $("p[data-key=" + key + "]").show()
+                }
+            }
+
+            $("input:radio[name=sizes]").change(function() {
+                if ($(this).is(":checked")) {
+                    let key = $("input[name=sizes]:checked").val()
+                    let value =  $("p[data-key=" + key + "]").attr("data-value");
+                    $(".stock-warning").hide()
+
+                    if (value < 6) {
+                        $("p[data-key=" + key + "]").show()
+                    }
+                }
+                
+            })
+
+        });
+    </script>
 {% endblock %}

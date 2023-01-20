@@ -85,12 +85,15 @@ def product_detail(request, slug):
         del_keys = ['id', 'product']
         for key in del_keys:
             del product_sizes[key]
+ 
         sizes = {k.upper(): v for k, v in product_sizes.items()}
         # Checks if stock exists accross all sizes
         if all(value == 0 for value in product_sizes.values()):
-            print('Empty')
             stock = None
-
+        else:
+            stock = list(product_sizes.values())
+            print(stock)
+            
     else:
         # Checks if stock exists on item
         sizes = None
