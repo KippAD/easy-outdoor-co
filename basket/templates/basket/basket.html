@@ -59,8 +59,8 @@
                                 <button type="submit" name="increment" value="{{ item.quantity }}" data-product_id="{{ item.product_id }}" class="increment fs-5 fw-bold"><i class="fa-sharp fa-solid fa-plus"></i></i></button></p>
                                 {% if item.size_selection %}
                                 <input type="hidden" name="product_size" value="{{ item.size_selection }}">
-                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                 {% endif %}
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </form>
                         </div>
                         <div class="col-6">

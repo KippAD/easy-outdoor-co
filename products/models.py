@@ -60,4 +60,3 @@ class SizeStock(models.Model):
 class RegularStock(models.Model):
     product = models.ForeignKey('Product', related_name="regular_stock", on_delete=models.CASCADE)
     stock = models.IntegerField(null=True, blank=True)
-    total_sold = models.IntegerField(null=True, blank=True)

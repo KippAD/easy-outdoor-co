@@ -32,7 +32,6 @@ class RegularStockAdmin(admin.ModelAdmin):
     list_display = (
         'product',
         'stock',
-        'total_sold',
     )
 
 

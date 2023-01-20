@@ -51,8 +51,6 @@ def update_quantity(request, product_id):
     size_selection = None
     if 'product_size' in request.POST:
         size_selection = request.POST.get('product_size')
-        print(size_selection)
-
     if size_selection:
         if 'increment' in request.POST:
             basket[product_id]['size_quantities'][size_selection] += 1
@@ -77,6 +75,7 @@ def update_quantity(request, product_id):
                 messages.success(request, f'Removed {product.name} from the basket')
 
     request.session['basket'] = basket
+    print(basket)
     return redirect(redirect_url, status=200)
 
 

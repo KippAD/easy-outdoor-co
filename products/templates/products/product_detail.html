@@ -29,30 +29,31 @@
                     <p>{{ product.desc }}</p>
                 </div>
 
-                {% if product.has_sizes %}
                 <div>
-                    <h3 class="fs-5 mb-2">Select your size:</h4>
                     <form action="{% url 'add_to_basket' product.id %}" method="POST">
                         {% csrf_token %}
+                        {% if product.has_sizes %}
+                        <h4 class="fs-5 mb-2">Select your size:</h4>
                         <div class="d-flex">
                             {% for key, value in sizes.items %}
-                            {% if value %}
-                            <input type="radio" class="btn-check" name="sizes" value="{{ key }}" id="{{ key }}"
-                                autocomplete="off">
-                            <label class="size-box" for="{{ key }}">{{ key }}</label>
-                            {% else %}
-                            <input type="radio" class="btn-check" name="sizes" id="{{ key }}" autocomplete="off"
-                                disabled>
-                            <label class="size-box size-out" for="{{ key }}">{{ key }}</label>
-                            {% endif %}
+                                {% if value %}
+                                    <input type="radio" class="btn-check" name="sizes" value="{{ key }}" id="{{ key }}"
+                                        autocomplete="off">
+                                    <label class="size-box" for="{{ key }}">{{ key }}</label>
+                                {% else %}
+                                    <input type="radio" class="btn-check" name="sizes" id="{{ key }}" autocomplete="off"
+                                        disabled>
+                                    <label class="size-box size-out" for="{{ key }}">{{ key }}</label>
+                                {% endif %}
                             {% endfor %}
                         </div>
+                        {% endif %}
                         <div class="pt-3">
                             <h3 class="fs-5">Quantity:</h3>
                             <input data-product_id="{{ product.id }}" class="d-block" type="number" name="quantity" id="quantity">
                         </div>
                 </div>
-                {% endif %}
+                
 
                         <div class="pt-3">
                             <button type="submit" class="shop-btn fs-5">Add to Basket <i

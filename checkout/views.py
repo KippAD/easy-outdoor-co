@@ -67,6 +67,18 @@ def checkout(request):
                             quantity=product_data,
                         )
                         order_line_item.save()
+                        # Updates stock with quantity
+                        regular_stock = get_object_or_404(RegularStock, product=product)         
+                        if (regular_stock.stock - product_data) >= 0:
+                            updated_stock = (regular_stock.stock - product_data)
+                            setattr(regular_stock, "stock", updated_stock)
+                            regular_stock.save()
+                        else:
+                            messages.error(request, (
+                                f"Unfortunately we only have {regular_stock.stock} left of the {product}. "
+                                "Please update the quantity or remove the item to complete your order!")
+                            )
+                            return redirect(reverse('view_basket'))
                     else:
                         for size, quantity in product_data['size_quantities'].items():
                             order_line_item = OrderLineItem(
@@ -83,6 +95,13 @@ def checkout(request):
                                 updated_stock = (size_stock - quantity)
                                 setattr(item_stock, size, updated_stock)
                                 item_stock.save()
+                            else:
+                                messages.error(request, (
+                                    f"Unfortunately we only have {size_stock} left of the {product} in {product_size}. "
+                                    "Please update the quantity, choose another size, or remove the item from the basket to complete your order!")
+                                )
+                                return redirect(reverse('view_basket'))
+
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your basket wasn't found in our database. "

@@ -77,15 +77,18 @@ def all_products(request):
 def product_detail(request, slug):
     """ Displays information about a single product """
     product = get_object_or_404(Product, slug=slug)
-    product_sizes = get_object_or_404(SizeStock, product=product)
 
-    # Converts sizes into dictionary and removes non size attributes
-    product_sizes = model_to_dict(product_sizes)
-    rem_keys = ['id', 'product']
-    for key in rem_keys:
-        del product_sizes[key]
+    if product.has_sizes:
+        product_sizes = get_object_or_404(SizeStock, product=product)
+        # Converts sizes into dictionary and removes non size attributes
+        product_sizes = model_to_dict(product_sizes)
+        rem_keys = ['id', 'product']
+        for key in rem_keys:
+            del product_sizes[key]
 
-    sizes = {k.upper(): v for k, v in product_sizes.items()}
+        sizes = {k.upper(): v for k, v in product_sizes.items()}
+    else:
+        sizes = None
 
     context = {
         'product': product,

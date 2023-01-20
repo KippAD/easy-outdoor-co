@@ -2,10 +2,10 @@
 
 /* Products */
 .product-section {
-    padding-top: 15vh;
     padding-bottom: 50px;
     border-top: 0.5px solid #272727;
     background-color: white;
+    padding-top:15px ;
 }
 
 .product-img {
@@ -100,9 +100,6 @@
 
 /* Medium devices (tablets, 768px and down) */
 @media screen and (max-width: 768px) {
-    .product-section {
-        padding-top: 10vh;
-    }
 
     .product-img img {
         min-width: 100%;
