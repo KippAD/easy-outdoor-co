@@ -10,13 +10,33 @@
 {% block content %}
 
 <section class="profile-section">
-    <div class="container">
+    <div class="container pb-5">
         <div class="row">
-            <h2 class="mb-2">Profile</h2>
+            <h2 class="px-3 fs-1 text-center">Profile</h2>
         </div>
         <div class="row">
-            
-           
+            <form id="user-form" class="px-3 mt-3 col-12 col-md-6 order-2 order-md-1" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                {% csrf_token %}
+                <div class="">
+                    <h3>Personal Info</h3>
+                    {{ user_form|crispy }}
+                </div>
+                <div class="pt-3">
+                    <h3>Delivery Details</h3>
+                    {{ delivery_form|crispy }}
+                </div>
+                <button type="submit" class="shop-btn px-4 py-1">Update Profile</button>
+            </form>
+           <div class="mx-auto mt-3 py-4 col-12 col-md-6 order-1 order-md-2 rounded info-panel d-flex flex-column justify-content-center align-content-center">
+            <div class="px-3 text-center text-white">
+                <div class="logo mb-3"></div>
+                <h3 class="fs-1">Hello {{ user.first_name }}.</h3>
+                <p class="mx-auto fs-5">This is your profile page. 
+                    Here you can add or update your personal information
+                    to make ordering in the future even <strong class="sale">easier</strong>! </p>
+                <p class="mx-auto fs-5">Thank you for choosing us :)</p>
+            </div>
+           </div>
         </div>
 </section>
 

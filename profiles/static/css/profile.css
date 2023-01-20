@@ -2,6 +2,48 @@
 
 
 .profile-section {
-    padding-top: 100px;
+    padding-top: 15px;
     background-color: white;
+    font-family: Nunito, sans-serif;
 }
+
+.profile-section h2,
+.profile-section h3 {
+    font-family: Montserrat, sans-serif;
+    font-weight: 900;
+}
+
+#user-form input,
+#user-form select {
+    margin-bottom: 5px;
+}
+
+.info-panel {
+    background: url('https://res.cloudinary.com/dn8zjehza/image/upload/v1674241443/Easy%20Outdoor%20Co/6229893_lvb2xo.jpg') center;
+    background-size: cover;
+}
+
+/* XX-Large devices (larger desktops, 1400px and down) */
+@media screen and (max-width: 1400px) {
+}
+
+/* X-Large devices (large desktops, 1200px and down) */
+@media screen and (max-width: 1200px) {
+}
+
+/* Large devices (desktops, 992px and down) */
+@media screen and (max-width: 992px) {
+
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media screen and (max-width: 768px) {
+}
+
+/* Small devices (landscape phones, 576px and down) */
+@media screen and (max-width: 576px) {
+    .info-panel {
+        width: calc(100% - 32px)
+    }
+}
+    
