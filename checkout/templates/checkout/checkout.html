@@ -59,15 +59,7 @@
         
                             <div class="row">
                                 <div class="col-6">
-                                    <form id="quantity-form" action="{% url 'update_quantity' item.product_id %}" method="POST">
-                                        {% csrf_token %}
-                                        <button type="submit" name="decrement" value="{{ item.quantity }}" data-product_id="{{ item.product_id }}" class="decrement fs-5 fw-bold"><i class="fa-sharp fa-solid fa-minus"></i></button> 
-                                        <span class="quantity fs-5 fw-bold">{{ item.quantity }} </span>
-                                        <button type="submit" name="increment" value="{{ item.quantity }}" data-product_id="{{ item.product_id }}" class="increment fs-5 fw-bold"><i class="fa-sharp fa-solid fa-plus"></i></i></button></p>
-                                        {% if item.size_selection %}
-                                        <input type="hidden" name="product_size" value="{{ item.size_selection }}">
-                                        {% endif %}
-                                    </form>
+                                    <p class="quantity fw-bold">Qty: {{ item.quantity }} </p>
                                 </div>
                                 <div class="col-6">
                                     <p class="fw-bold total-price fs-5 m-0 text-end">Total: £{{ item.product.price | calc_total_price:item.quantity }}</p>
