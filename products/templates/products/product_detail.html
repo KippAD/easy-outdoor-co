@@ -36,31 +36,41 @@
                         <h4 class="fs-5 mb-2">Select your size:</h4>
                         <div class="d-flex">
                             {% for key, value in sizes.items %}
-                                {% if value %}
-                                    <input type="radio" class="btn-check" name="sizes" value="{{ key }}" id="{{ key }}"
-                                        autocomplete="off">
-                                    <label class="size-box" for="{{ key }}">{{ key }}</label>
-                                {% else %}
-                                    <input type="radio" class="btn-check" name="sizes" id="{{ key }}" autocomplete="off"
-                                        disabled>
-                                    <label class="size-box size-out" for="{{ key }}">{{ key }}</label>
-                                {% endif %}
+                            {% if value %}
+                            <input type="radio" class="btn-check" name="sizes" value="{{ key }}" id="{{ key }}"
+                                autocomplete="off">
+                            <label class="size-box" for="{{ key }}">{{ key }}</label>
+                            {% else %}
+                            <input type="radio" class="btn-check" name="sizes" id="{{ key }}" autocomplete="off"
+                                disabled>
+                            <label class="size-box size-out" for="{{ key }}">{{ key }}</label>
+                            {% endif %}
                             {% endfor %}
                         </div>
                         {% endif %}
                         <div class="pt-3">
+                            {% if stock %}
                             <h3 class="fs-5">Quantity:</h3>
-                            <input data-product_id="{{ product.id }}" class="d-block" type="number" name="quantity" id="quantity">
+                            <input data-product_id="{{ product.id }}" class="d-block" type="number" name="quantity"
+                                id="quantity">
+                            {% else %}
+                            <h3 class="text-danger">We're sorry, this item is out of stock...</h3>
+                            {% endif %}
                         </div>
                 </div>
-                
 
-                        <div class="pt-3">
-                            <button type="submit" class="shop-btn fs-5">Add to Basket <i
-                                    class="fa-solid fa-cart-shopping"></i></button>
-                        </div>
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    </form>
+                {% if stock %}
+                <div class="pt-3">
+                    <button type="submit" class="shop-btn fs-5">Add to Basket <i
+                            class="fa-solid fa-cart-shopping"></i></button>
+                </div>
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                
+                </form>
+                {% else %}
+                <label for="stock-update">Notify me when this email is back in stock:</label>
+                <input class="w-25" type="email" placeholder="Enter your email" name="" id="stock-update">
+                {% endif %}
             </div>
         </div>
     </div>

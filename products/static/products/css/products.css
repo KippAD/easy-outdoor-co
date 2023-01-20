@@ -14,7 +14,7 @@
 
 .product-img img {
     max-width: 100%;
-    max-height: 600px;
+    max-height: 500px;
     object-fit: cover;
 }
 
@@ -110,10 +110,6 @@
 
 /* Small devices (landscape phones, 576px and down) */
 @media screen and (max-width: 576px) {
-    .product-img img {
-        max-height: 500px;
-    }
-
     .product-info {
         padding: 20px 10px!important;
     }
