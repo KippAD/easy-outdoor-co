@@ -23,6 +23,12 @@
     background-size: cover;
 }
 
+/* Order history */
+.order-info-list {
+    list-style-type: none;
+}
+
+
 /* XX-Large devices (larger desktops, 1400px and down) */
 @media screen and (max-width: 1400px) {
 }

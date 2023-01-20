@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+{% load basket_tools %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="profile-section">
+    <div class="container pb-5">
+        <div class="row">
+            <h2 class="px-3 fs-1 text-center">Order History</h2>
+        </div>
+        <div class="row">
+            <h3 class="border-bottom">Orders</h3>
+            <div class="px-3 mt-3 col-12 col-md-6 order-2 order-md-1">
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    {% for order in orders %}
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+
+                            <button class="accordion-button collapsed px-2" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse-{{ order.order_number }}" aria-expanded="false"
+                                aria-controls="flush-collapseOne">
+                                <strong>{{ forloop.counter }}. {{ order.date | date:"M d, Y"}} 
+                                    - {{ order.lineitems.all | length }} Items - 
+                                    £{{ order.grand_total }}
+                                    <span class="sale"></span>
+                                </strong>
+                            </button>
+                        </h2>
+                        <div id="flush-collapse-{{ order.order_number }}" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body p-0">
+                                <div class="p-2">
+                                    <p class="mb-0"><strong>Number:</strong> {{ order.order_number }}</p>
+                                    <p><strong>Date:</strong> {{ order.date | date:"M d, Y" }}</p>
+                                </div>
+                                <div class="p-2 border-bottom">
+                                    <h4 class="fw-bold">Order Items</h4>
+                                    {% for item in order.lineitems.all %}
+                                    <p class="mb-3">
+                                        <strong>{{ forloop.counter }}.</strong>
+                                        <strong>{{ item.product }}</strong> |
+                                        <strong>Qty:</strong> {{ item.quantity }} |
+                                        <strong>Size:</strong> {{ item.product_size }} |
+                                        <strong>£</strong>{{ item.lineitem_total }} |
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                                <div class="p-2 border-bottom">
+                                    <h4 class="fw-bold">Delivery Info:</h4>
+                                    <ul class="order-info-list p-0">
+                                        <li>{{ order.full_name }}</li>
+                                        <li>{{ order.email }}</li>
+                                        <li>{{ order.phone_number }}</li>
+                                        <li>{{ order.street_address1 }}</li>
+                                        {% if order.street_address2 %}
+                                            <li>{{ order.street_address2 }}</li>
+                                        {% endif %}
+                                        {% if order.county %}
+                                            <li>{{ order.county }}</li>
+                                        {% endif %}
+                                        <li>{{ order.postcode }}</li>
+                                        <li>{{ order.town_or_city }}</li>
+                                        <li>{{ order.country }}</li>
+                                    </ul>
+                                </div>
+                                <div class="p-2">
+                                    <h4>Cost:</h4>
+                                    <p class="mb-0"><strong>Order Total:</strong> {{ order.order_total }}</p>
+                                    <p class="mb-0"><strong>Delivery Cost:</strong> {{ order.delivery_cost }}</p>
+                                    <p class="mb-0"><strong>Grand Total:</strong> {{ order.grand_total }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div
+                class="mx-auto mt-3 py-4 col-12 col-md-6 order-1 order-md-2 rounded info-panel d-flex flex-column justify-content-center align-content-center">
+                <div class="px-3 text-center text-white">
+                    <div class="logo mb-3"></div>
+                    <h3 class="fs-1">Hello {{ user.first_name }}.</h3>
+                    <p class="mx-auto fs-5">This is your order history page.
+                        Here you can view previous orders, this is useful if any issues arise later on in the order
+                        process.</p>
+                    <p class="mx-auto fs-5">If you are having trouble with an order please contact us.</p>
+                    <a href="" class="shop-btn text-decoration-none px-5 py-1">Contact Form</a>
+                </div>
+            </div>
+        </div>
+</section>
+
+{% endblock %}

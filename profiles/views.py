@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .models import UserProfile
+from checkout.models import Order, OrderLineItem
 from .forms import UserProfileForm, UserDeliveryForm
 from django.contrib import messages
+from django.forms.models import model_to_dict
 
 
 def profile(request):
@@ -29,6 +31,19 @@ def profile(request):
         'profile': profile,
         'user_form': user_form,
         'delivery_form': delivery_form,
+    }
+
+    return render(request, template, context)
+
+
+def order_history(request):
+    """ Display user's order history' """
+    profile = get_object_or_404(UserProfile, user=request.user)
+    orders = Order.objects.filter(user_profile=profile)
+
+    template = 'profiles/order_history.html'
+    context = {
+        'orders': orders,
     }
 
     return render(request, template, context)
