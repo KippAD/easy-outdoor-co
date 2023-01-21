@@ -27,8 +27,14 @@ header {
     color: white;
     font-family: Montserrat, sans-serif;
     font-weight: 700;
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
+}
+
+.shop-btn:hover {
+    color: #FFFFFF;
+    background-color: #d38225;
+    transition: all ease 0.2s;
 }
 
 .sale {
@@ -166,6 +172,14 @@ footer h5 {
 /* Star color */
 .star-rating i {
     color: #d8c625;
+}
+
+/* Site wide form styles */
+
+input,
+select,
+textarea {
+    margin-bottom: 15px;
 }
 
 

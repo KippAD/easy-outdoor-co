@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat:wght@400;500;600;700;800;900&family=Nunito:wght@500;600;700;800;900&display=swap');
+
+body{
+    background-color: #f8f8f8!important;
+}
+
+.admin-section {
+    padding-top: 20px;
+    font-family: Nunito, sans-serif;
+    max-width: 100vw;
+}
+
+.admin-section h2 {
+    font-family: Montserrat, sans-serif;
+    font-weight: 900!important;
+}
+
+.admin-section h3 {
+    font-family: Montserrat, sans-serif!important;
+}
+
+/* Sidebar */
+
+.nav-link:hover {
+    background-color: #b0a9a9;
+}
+
+.nav-link:active {
+    color: #ffffff;
+}
+
+.admin-form {
+}
+
