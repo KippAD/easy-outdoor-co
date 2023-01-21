@@ -1,0 +1,83 @@
+<div class="row border-bottom mb-3">
+    <div class="my-3">
+        <h3 class="fw-bold">Clothing Stock</h3>
+    </div>
+</div>
+<!-- Sort Table is from https://datatables.net/examples/styling/bootstrap5.html -->
+<table id="sizeTable" class="table table-striped data-table" style="width:100%">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>X-Small</th>
+            <th>Small</th>
+            <th>Medium</th>
+            <th>Large</th>
+            <th>X-large</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for size in size_stock %}
+        <tr>
+            <td>{{ size.product }}</td>
+            <td>{{ size.xs }}</td>
+            <td>{{ size.s }}</td>
+            <td>{{ size.m }}</td>
+            <td>{{ size.l }}</td>
+            <td>{{ size.xl }}</td>
+            <td>
+                <a class="fw-bold" href="">Edit
+                    <i class="fa-solid fa-pen-to-square"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Product</th>
+            <th>X-Small</th>
+            <th>Small</th>
+            <th>Medium</th>
+            <th>Large</th>
+            <th>X-large</th>
+            <th>Update</th>
+        </tr>
+    </tfoot>
+</table>
+
+<div class="row border-bottom mb-3">
+    <div class="my-3">
+        <h3 class="fw-bold">Regular Stock</h3>
+    </div>
+</div>
+<table id="stockTable" class="table table-striped data-table" style="width:100%">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stock in regular_stock %}
+        <tr>
+            <td>{{ stock.product }}</td>
+            <td>{{ stock.stock }}</td>
+            <td>
+                <a class="fw-bold" href="">Edit
+                    <i class="fa-solid fa-pen-to-square"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Edit</th>
+        </tr>
+    </tfoot>
+</table>
+
+
+

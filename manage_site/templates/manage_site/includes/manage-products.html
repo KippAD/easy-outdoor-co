@@ -1,0 +1,50 @@
+<div class="row border-bottom mb-3">
+    <div class="my-3">
+        <h3 class="fw-bold">Product Management</h3>
+        <a class="shop-btn px-3 py-1 text-decoration-none" href="{% url 'add-product' %}">Add
+            product</a>
+
+    </div>
+</div>
+<!-- Sort Table is from https://datatables.net/examples/styling/bootstrap5.html -->
+<table id="productTable" class="table table-striped data-table" style="width:100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th class="d-none d-md-table-cell">Category</th>
+            <th class="d-none d-md-table-cell">Has Sizes</th>
+            <th class="d-none d-md-table-cell">Rating</th>
+            <th>Price</th>
+            <th>Manage</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product }}</td>
+            <td class="d-none d-md-table-cell">{{ product.category }}</td>
+            {% if product.has_sizes %}
+            <td class="d-none d-md-table-cell">Yes</td>
+            {% else %}
+            <td class="d-none d-md-table-cell">No</td>
+            {% endif %}
+            <td class="d-none d-md-table-cell"><i class="fa-solid fa-star"></i>{{ product.rating }}</td>
+            <td>£{{ product.price }}</td>
+            <td>
+                <a class="fw-bold" href="">Edit
+                    <i class="fa-solid fa-pen-to-square"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Name</th>
+            <th class="d-none d-md-table-cell">Category</th>
+            <th class="d-none d-md-table-cell">Has Sizes</th>
+            <th class="d-none d-md-table-cell">Rating</th>
+            <th>Price</th>
+            <th>Manage</th>
+        </tr>
+    </tfoot>
+</table>

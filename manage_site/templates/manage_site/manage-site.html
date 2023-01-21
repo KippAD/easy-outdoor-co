@@ -10,112 +10,81 @@
 {% block content %}
 
 <section class="admin-section">
-  <div class="container pb-5">
-    <div class="row">
-      <h2 class="px-3 fs-1 fw-bold text-center">Admin</h2>
-    </div>
-    <div class="row">
-      <div class="col-2 d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-        <h3 class="fs-4 m-0 text-center fw-bold">Admin</h3>
-        <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
-          <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">
-              <i class="fa-solid fa-shirt"></i>
-              Products
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link link-dark">
-              <i class="fa-solid fa-boxes-packing"></i>
-              Stock
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link link-dark">
-              <i class="fa-solid fa-box-archive"></i>
-              Orders
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link link-dark">
-              <i class="fa-solid fa-tags"></i>
-              Sale
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link link-dark">
-              <i class="fa-solid fa-user"></i>
-              Users
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link link-dark">
-              <i class="fa-solid fa-envelope"></i>
-              Mailing List
-            </a>
-          </li>
-        </ul>
-        <hr>
-        <div class="dropdown">
-          <div class="logo"></div>
+    <div class="container pb-5">
+        <div class="row">
+            <h2 class="px-3 fs-1 fw-bold text-center">Admin</h2>
         </div>
-      </div>
-      <div class="col-12 col-md-9">
-        <div class="container">
-          <div class="row border-bottom mb-3">
-            <div class="my-3">
-              <a class="shop-btn px-3 py-1 text-decoration-none" href="{% url 'add-product' %}">Add
-                product</a>
-
+        <div class="row">
+            <div class="col-2 d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+                <h3 class="fs-4 m-0 text-center fw-bold">Admin</h3>
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active" aria-current="page">
+                            <i class="fa-solid fa-shirt"></i>
+                            Products
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-boxes-packing"></i>
+                            Stock
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-box-archive"></i>
+                            Orders
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-tags"></i>
+                            Sale
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-user"></i>
+                            Users
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link">
+                            <i class="fa-solid fa-envelope"></i>
+                            Mailing List
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+                <div class="dropdown">
+                    <div class="logo"></div>
+                </div>
             </div>
-          </div>
-          <!-- Sort Table is from https://datatables.net/examples/styling/bootstrap5.html -->
-          <table id="adminTable" class="table table-striped" style="width:100%">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th class="d-none d-md-table-cell">Category</th>
-                <th class="d-none d-md-table-cell">Has Sizes</th>
-                <th class="d-none d-md-table-cell">Rating</th>
-                <th>Price</th>
-                <th>Manage</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for product in products %}
-              <tr>
-                <td>{{ product }}</td>
-                <td class="d-none d-md-table-cell">{{ product.category }}</td>
-                {% if product.has_sizes %}
-                <td class="d-none d-md-table-cell">Yes</td>
-                {% else %}
-                <td class="d-none d-md-table-cell">No</td>
-                {% endif %}
-                <td class="d-none d-md-table-cell"><i class="fa-solid fa-star"></i>{{ product.rating }}</td>
-                <td>£{{ product.price }}</td>
-                <td>
-                  <a href="">Edit
-                    <i class="fa-solid fa-pen-to-square"></i></a>
-                </td>
-              </tr>
-              {% endfor %}
-            </tbody>
-            <tfoot>
-              <tr>
-                <th>Name</th>
-                <th class="d-none d-md-table-cell">Category</th>
-                <th class="d-none d-md-table-cell">Has Sizes</th>
-                <th class="d-none d-md-table-cell">Rating</th>
-                <th>Price</th>
-                <th>Manage</th>
-              </tr>
-            </tfoot>
-          </table>
 
-        </div>
-      </div>
-    </div>
+            <div class="col-12 col-md-9">
+                <div class="container">
+
+                    <div class="admin-db" id="manage-products">
+                        {% include 'manage_site/includes/manage-products.html' %}
+                    </div>
+                    <div class="admin-db d-none" id="manage-stock">
+                        {% include 'manage_site/includes/manage-stock.html' %}
+                    </div>
+                    <div class="admin-db d-none" id="manage-orders">
+                        {% include 'manage_site/includes/manage-orders.html' %}
+                    </div>
+                    <div class="admin-db d-none" id="manage-sale">
+                        Sale
+                    </div>
+                    <div class="admin-db d-none" id="manage-users">
+                        Users
+                    </div>
+                </div>
+            </div>
+
+            
+
 
 </section>
 
@@ -125,8 +94,29 @@
 {{ block.super }}
 <!-- Displays stock warning on sized items when low on stock -->
 <script type="text/javascript">
-  $(document).ready(function () {
-    $('#adminTable').DataTable();
-  });
+    $(document).ready(function () {
+        $('.data-table').DataTable();
+
+        $(".nav-link").click(function (e) {
+            $('.data-table').DataTable();
+            $('.nav-link').removeClass('active text-white');
+            $('.admin-db').addClass('d-none');
+            $(this).addClass('active');
+            
+            if ($(this).is(':contains("Products")'))  {
+                $('#manage-products').removeClass('d-none');
+            } else if ($(this).is(':contains("Stock")')) {
+                $('#manage-stock').removeClass('d-none');
+            } else if ($(this).is(':contains("Orders")')) {
+                $('#manage-orders').removeClass('d-none');
+            } else if ($(this).is(':contains("Sale")')) {
+                $('#manage-sale').removeClass('d-none');
+            } else if ($(this).is(':contains("Users")')) {
+                $('#manage-users').removeClass('d-none');
+            } else if ($(this).is(':contains("Mailing List")')) {
+                $('#manage-mailing').removeClass('d-none');
+            }
+        });
+    });
 </script>
 {% endblock %}

@@ -1,11 +1,12 @@
 from django.shortcuts import render, reverse
-from products.models import Product
+from products.models import Product, SizeStock, RegularStock
 from checkout.models import Order
 from profiles.models import UserProfile
 from django.views import generic
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django import forms
+from itertools import chain
 
 
 def manage_site(request):
@@ -13,9 +14,15 @@ def manage_site(request):
     template = 'manage_site/manage_site.html'
 
     products = Product.objects.all()
-    
+    size_stock = SizeStock.objects.all()
+    regular_stock = RegularStock.objects.all()
+    orders = Order.objects.all()
+
     context = {
         'products': products,
+        'regular_stock': regular_stock,
+        'size_stock': size_stock,
+        'orders': orders,
     }
 
     return render(request, 'manage_site/manage-site.html', context)
