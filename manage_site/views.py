@@ -118,3 +118,11 @@ class UpdateSizeStock(SuccessMessageMixin, generic.UpdateView):
 
     def get_success_url(self):
         return reverse('manage-site')
+
+
+# View order details
+
+class OrderDetails(SuccessMessageMixin, generic.DetailView):
+    """Displays immutable order details"""
+    model = Order
+    template_name = "manage_site/order-detail.html"

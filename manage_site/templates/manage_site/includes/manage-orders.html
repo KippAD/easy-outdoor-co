@@ -11,7 +11,7 @@
             <th>Customer</th>
             <th>Email</th>
             <th>Grand Total</th>
-            <th>View</th>
+            <th>Details</th>
         </tr>
     </thead>
     <tbody>
@@ -22,9 +22,9 @@
             <td>{{ order.email }}</td>
             <td>£{{ order.grand_total }}</td>
             <td>
-                <a class="fw-bold" href="">
+                <a class="fw-bold" href="{% url 'order-details' pk=order.id %}">
                     <i class="fa-solid fa-list"></i>
-                    View Info
+                    Details
                 </a>
             </td>
         </tr>
@@ -36,7 +36,7 @@
             <th>Customer</th>
             <th>Email</th>
             <th>Grand Total</th>
-            <th>View</th>
+            <th>Details</th>
         </tr>
     </tfoot>
 </table>

@@ -16,7 +16,6 @@
                 <p>Adjust the stock value of your product.</p>
                 <form method="POST">
                     {% csrf_token %}
-                    {{ }}
                     {{ form.stock | as_crispy_field }}
                     <a class="white-btn px-3 py-1" href="{% url 'manage-site' %}">Cancel</a>
                     <input class="shop-btn px-3 py-1" type="submit" value="Update Stock">
