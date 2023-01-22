@@ -26,7 +26,7 @@
             <td>{{ size.l }}</td>
             <td>{{ size.xl }}</td>
             <td>
-                <a class="fw-bold" href="">Edit
+                <a class="fw-bold" href="{% url 'update-size-stock' pk=size.pk %}">Edit
                     <i class="fa-solid fa-pen-to-square"></i></a>
             </td>
         </tr>
@@ -55,7 +55,7 @@
         <tr>
             <th>Product</th>
             <th>Quantity</th>
-            <th>Edit</th>
+            <th>Update</th>
         </tr>
     </thead>
     <tbody>
@@ -64,7 +64,7 @@
             <td>{{ stock.product }}</td>
             <td>{{ stock.stock }}</td>
             <td>
-                <a class="fw-bold" href="">Edit
+                <a class="fw-bold" href="{% url 'update-regular-stock' pk=stock.id %}">Edit
                     <i class="fa-solid fa-pen-to-square"></i></a>
             </td>
         </tr>
@@ -74,7 +74,7 @@
         <tr>
             <th>Product</th>
             <th>Quantity</th>
-            <th>Edit</th>
+            <th>Update</th>
         </tr>
     </tfoot>
 </table>

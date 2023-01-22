@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django import forms
 from itertools import chain
-from .forms import ProductForm
+from .forms import ProductForm, RegularStockForm, SizeStockForm
 
 
 def manage_site(request):
@@ -72,4 +72,49 @@ class DeleteProduct(SuccessMessageMixin, generic.DeleteView):
     def get_success_url(self):
         return reverse('manage-site')
 
+
 # CRUD for stock for admin area
+class UpdateSizeStock(SuccessMessageMixin, generic.UpdateView):
+    """Updates product model"""
+    model = SizeStock
+    template_name = "manage_site/size-stock-update.html"
+    fields = '__all__'
+    success_message = "Product size stock updated!"
+
+    def get_initial(self):
+        initial_values = super(UpdateSizeStock, self).get_initial()
+        try:
+            current_group = self.object.groups.get()
+        except Exception as e:
+            success_message = f"{e} Error Occured: Update form could not be preloaded"
+            pass
+        return initial_values
+
+    def get_form_class(self):
+        return SizeStockForm
+
+    def get_success_url(self):
+        return reverse('manage-site')
+
+
+class UpdateSizeStock(SuccessMessageMixin, generic.UpdateView):
+    """Updates product model"""
+    model = RegularStock
+    template_name = "manage_site/regular-stock-update.html"
+    fields = '__all__'
+    success_message = "Product Stock Updated!"
+
+    def get_initial(self):
+        initial_values = super(UpdateSizeStock, self).get_initial()
+        try:
+            current_group = self.object.groups.get()
+        except Exception as e:
+            success_message = f"{e} Error Occured: Update form could not be preloaded"
+            pass
+        return initial_values
+
+    def get_form_class(self):
+        return RegularStockForm
+
+    def get_success_url(self):
+        return reverse('manage-site')
