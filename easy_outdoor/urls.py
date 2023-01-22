@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-
+from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
@@ -11,3 +11,5 @@ urlpatterns = [
     path('profile/', include('profiles.urls')),
     path('manage/', include('manage_site.urls')),
 ]
+
+handler404 = "easy_outdoor.views.page_not_found_view"

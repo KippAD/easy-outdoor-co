@@ -7,7 +7,7 @@
 
 {% block content %}
 <!-- Hero image -->
-<section class="hero-image d-flex align-items-center">
+<section class="vw-100 hero-image d-flex align-items-center">
     <div class="container">
         <h2 class="fs-1 m-0">Easy Outdoor Co.</h2>
         <p class="fs-3 mb-1">World class products, built for adventure.</p>
@@ -16,7 +16,7 @@
 </section>
 
 <!-- Shopping panels -->
-<section class="shop-panel-section pb-4">
+<section class="vw-100 shop-panel-section pb-4">
     <div class="container">
         
         <div class="row">
@@ -46,7 +46,7 @@
 </section>
 
 <!-- About us -->
-<section class="about-us py-5">
+<section class="vw-100 about-us py-5">
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-6 d-lg-table-cell container about-content">
@@ -60,7 +60,8 @@
                     our own products reflect this, and any outside brands we stock have to meet this
                     requirement.
                 </p>
-                <p class="fs-5 m-0">Whatever the journey is, we have you covered - by explorers for explorers.</p>
+                <p class="fs-5 mb-4">Whatever the journey is, we have you covered - by explorers for explorers.</p>
+                <button class="shop-btn fs-5">Shop Now</button>
             </div>
             <div class="d-none d-lg-table-cell col-6"><img class="about-img" src="https://res.cloudinary.com/dn8zjehza/image/upload/v1673009119/Easy%20Outdoor%20Co/patrick-hendry-PQa5vHHnpm4-unsplash_g1czgu.jpg" alt=""></div>
         </div>
@@ -68,9 +69,12 @@
 </section>
 
 <!-- Related products -->
-<section class="related-products py-5">
+<section  class=" vw-100 px-3 related-products mt-3">
     <div class="container">
-        <h2>Related Products</h2>
+        <h2 class="mb-3">Browse Products</h2>
+        <div class="d-flex overflow-scroll">
+            {% include 'home/includes/product-carousel.html' %}
+        </div>
     </div>
 </section>
 

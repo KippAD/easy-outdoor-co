@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat:wght@400;500;600;700;800;900&family=Nunito:wght@500;600;700;800;900&display=swap');
 
 /* Hero image */
-
-
 .hero-image {
     background: url('https://res.cloudinary.com/dn8zjehza/image/upload/v1672924744/Easy%20Outdoor%20Co/background_glusge.png') 50% 75%;
     background-size: cover;
@@ -24,6 +22,7 @@
 /* Shop panel links */
 
 .shop-panel-section {
+    width: 100vw;
     background-color: #272727;
 }
 
@@ -81,6 +80,17 @@
 .related-products h2 {
     font-family: Montserrat, sans-serif;
     font-weight: 900;
+}
+
+.product-img {
+    width: 250px;
+    height: 350px;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* XX-Large devices (larger desktops, 1400px and up) */

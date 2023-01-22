@@ -1,0 +1,21 @@
+{% for product in products %}
+<div class='text-center d-flex flex-column me-5'>
+    <div class='mx-auto product-img pb-3'>
+        <a href='{% url "product_detail" slug=product.slug%}'>
+            <img src='{{ product.image_url }}' alt='{{ product.name }}'>
+        </a>
+    </div>
+    <h5 class='fw-bold'>{{ product.name }}</h5>
+    <div class='row'>
+        {% include 'products/includes/rating.html' %}
+    </div>
+    <div>
+        {% if not product.sale_price %}
+        <p class='fw-bold'>£{{ product.price }}</p>
+        {% else %}
+        <p class='m-0 grey text-decoration-line-through'>£{{ product.price }}</p>
+        <p class='fw-bold sale'>£{{ product.sale_price }}</p>
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
