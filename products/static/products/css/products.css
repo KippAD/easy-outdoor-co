@@ -2,19 +2,25 @@
 
 /* Products */
 .product-section {
-    padding-bottom: 50px;
     border-top: 0.5px solid #272727;
     background-color: white;
-    padding-top:15px ;
+    padding-top: 15px;
+    font-family: Nunito, sans-serif;
+}
+
+.product-section h2 {
+    font-family: Montserrat, sans-serif;
+    font-weight: 900;
 }
 
 .product-img {
-    width: 100%;
+    width: 250px;
+    height: 350px;
 }
 
 .product-img img {
-    max-width: 100%;
-    max-height: 500px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -101,10 +107,6 @@
 /* Medium devices (tablets, 768px and down) */
 @media screen and (max-width: 768px) {
 
-    .product-img img {
-        min-width: 100%;
-    }
-
     
 }
 
@@ -112,5 +114,19 @@
 @media screen and (max-width: 576px) {
     .product-info {
         padding: 20px 10px!important;
+    }
+
+    .product-img {
+        width: 200px;
+        height: 300px;
+    }
+
+}
+
+/* Extra Small devices (landscape phones, 450px and down) */
+@media screen and (max-width: 576px) {
+    .product-img {
+        width: 275px;
+        height: 325px;
     }
 }

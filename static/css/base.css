@@ -50,6 +50,10 @@ header {
     color: #F0952A!important;
 }
 
+.grey {
+    color: #B4B1B1!important;
+}
+
 /* Navigation bar styles */
 .navbar {
     font-family: Montserrat, sans-serif;

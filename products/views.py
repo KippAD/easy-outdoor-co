@@ -3,11 +3,13 @@ from .models import Product, Category, SizeStock, RegularStock
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.forms.models import model_to_dict
+from django.db.models import Min, Max
 
 
 def all_products(request):
     """ Displays products depending on categories selected """
     products = Product.objects.all()
+    print(products)
     search = None
     sort = None
     direction = None
@@ -63,6 +65,11 @@ def all_products(request):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             products = products.order_by(sortkey)
+
+        # Sale functionality
+        if 'sale' in request.GET:
+            products = Product.objects.filter(sale_price__gt=0)
+            print(products)
 
     sorting = f'{sort}_{direction}'
 
