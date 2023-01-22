@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import UserProfile
+from .models import UserProfile, MailingList
 from checkout.models import Order, OrderLineItem
 from .forms import UserProfileForm, UserDeliveryForm
 from django.contrib import messages
@@ -47,3 +47,14 @@ def order_history(request):
     }
 
     return render(request, template, context)
+
+
+def mailing_list(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        e = MailingList(email=email)
+        e.save()
+        messages.success(request, 'You have joined our newsletter!')
+
+    template = 'home/index.html'
+    return render(request, template)

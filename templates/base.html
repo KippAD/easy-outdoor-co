@@ -177,9 +177,10 @@
                 </div>
                 <div id="footer-form" class="col-12 col-md-6 text-end">
                     <h4 class="fs-2 text-white">Easy Outdoor Co.</h4>
-                    <form action="POST" class="py-1">
+                    <form action="{% url 'mailing-list' %}" method='POST' class="py-1">
+                        {% csrf_token %}
                         <p class="mb-2">Join our newsletter:</p>
-                        <input type="email" placeholder="Enter your email...">
+                        <input type="email" id="email" name="email" placeholder="Enter your email...">
                         <input type="submit">
                     </form>
                     <p><i class="fa-regular fa-copyright"></i> 2023 Easy Outdoor Co. All Rights Reserved</p>

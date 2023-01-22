@@ -69,7 +69,6 @@ def all_products(request):
         # Sale functionality
         if 'sale' in request.GET:
             products = Product.objects.filter(sale_price__gt=0)
-            print(products)
 
     sorting = f'{sort}_{direction}'
 

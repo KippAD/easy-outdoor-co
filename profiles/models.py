@@ -30,3 +30,7 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     # If user exists then save the profile
     instance.userprofile.save()
 
+
+class MailingList(models.Model):
+    """ List of emails that recieve promotional emails from site """
+    email = models.EmailField(max_length=254, null=False, blank=False)

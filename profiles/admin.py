@@ -1,7 +1,7 @@
 from django.contrib import admin
-
 from django.contrib import admin
-from .models import UserProfile
+from .models import UserProfile, MailingList
+
 
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = (
@@ -15,4 +15,12 @@ class UserProfileAdmin(admin.ModelAdmin):
         'default_county',
     )
 
+
+class MailingListAdmin(admin.ModelAdmin):
+    list_display = (
+        'email',
+    )
+
+
 admin.site.register(UserProfile, UserProfileAdmin)
+admin.site.register(MailingList, MailingListAdmin)
