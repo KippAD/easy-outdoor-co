@@ -27,6 +27,7 @@
                         {{ form.sale_price | as_crispy_field }}
                     </div>
                     {{ form.image_url | as_crispy_field }}
+                    <a class="white-btn px-3 py-1" href="{% url 'manage-site' %}">Cancel</a>
                     <input class="shop-btn px-3 py-1" type="submit" value="Update Product">
                 </form>
             </div>

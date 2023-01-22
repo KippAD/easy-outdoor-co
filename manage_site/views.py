@@ -12,7 +12,7 @@ from .forms import ProductForm
 
 def manage_site(request):
     """Displays site management template for admin"""
-    template = 'manage_site/manage_site.html'
+    template = 'manage_site/manage-site.html'
 
     products = Product.objects.all()
     size_stock = SizeStock.objects.all()
@@ -26,7 +26,7 @@ def manage_site(request):
         'orders': orders,
     }
 
-    return render(request, 'manage_site/manage-site.html', context)
+    return render(request, template, context)
 
 
 # CRUD for products for admin area
@@ -38,7 +38,7 @@ class AddProduct(SuccessMessageMixin, generic.CreateView):
     success_message = "Product Added!"
 
     def get_success_url(self):
-        return reverse('manage_site')
+        return reverse('manage-site')
 
 
 class UpdateProduct(SuccessMessageMixin, generic.UpdateView):
@@ -61,7 +61,7 @@ class UpdateProduct(SuccessMessageMixin, generic.UpdateView):
         return ProductForm
 
     def get_success_url(self):
-        return reverse('manage_site')
+        return reverse('manage-site')
 
 
 class DeleteProduct(SuccessMessageMixin, generic.DeleteView):
@@ -70,6 +70,6 @@ class DeleteProduct(SuccessMessageMixin, generic.DeleteView):
     template_name = "manage_site/product-delete.html"
 
     def get_success_url(self):
-        return reverse('manage_site')
+        return reverse('manage-site')
 
 # CRUD for stock for admin area
