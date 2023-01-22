@@ -1,29 +1,19 @@
-# from django import forms
-# from django.contrib.auth.models import User
-# from products.models import Product
+from django import forms
+from django.contrib.auth.models import User
+from products.models import Product
 
 
-# class ProductForm(forms.ModelForm):
-#     class Meta:
-#         model = Product
-#         fields = '__all__'
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ['category', 'name', 'slug', 'desc', 'price', 'sale_price', 'image_url']
 
-#     def __init__(self, *args, **kwargs):
-#         """
-#         Add placeholders and classes, remove auto-generated
-#         labels and set autofocus on first field
-#         """
-#         super().__init__(*args, **kwargs)
-#         placeholders = {
-#             'name': 'Product Name',
-#             'desc': 'Description',
-#             'slug': 'Slug (Auto-Completes if blank)',
-#         }
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'Product Name *'}),
+            'slug': forms.TextInput(attrs={'placeholder': 'Slug (Auto loads if blank)'}),
+            'desc': forms.Textarea(attrs={'placeholder': 'Product description *', 'rows': 7}),
+            'price': forms.NumberInput(attrs={'placeholder': 'Price (£)'}),
+            'sale_price': forms.NumberInput(attrs={'placeholder': 'Discount Price (£)'}),
+            'image_url': forms.URLInput(attrs={'placeholder': 'Image URL'}),
+        }
 
-#         for field in self.fields:
-#             if self.fields[field].required:
-#                 placeholder = f'{placeholders[field]} *'
-#             else:
-#                 placeholder = placeholders[field]
-#             self.fields[field].widget.attrs['placeholder'] = placeholder
-#             self.fields[field].label = False

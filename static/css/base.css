@@ -28,7 +28,16 @@ header {
     font-family: Montserrat, sans-serif;
     font-weight: 700;
     border-radius: 5px;
-    border: none;
+    border: 1px solid #F0952A;
+}
+
+.white-btn {
+    text-decoration: none;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    color: #000000;
+    border-radius: 5px;
+    border: 2px solid black;
 }
 
 .shop-btn:hover {

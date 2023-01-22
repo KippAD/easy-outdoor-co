@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django import forms
 from itertools import chain
+from .forms import ProductForm
 
 
 def manage_site(request):
@@ -28,25 +29,47 @@ def manage_site(request):
     return render(request, 'manage_site/manage-site.html', context)
 
 
+# CRUD for products for admin area
 class AddProduct(SuccessMessageMixin, generic.CreateView):
+    """Creates product model"""
     model = Product
-    fields = '__all__'
-    template_name = "manage_site/add-product.html"
+    form_class = ProductForm
+    template_name = "manage_site/product-add.html"
     success_message = "Product Added!"
-
-    def get_form(self, form_class=None):
-        if form_class is None:
-            form_class = self.get_form_class()
-
-        form = super(AddProduct, self).get_form(form_class)
-        form.fields['category'].widget.attrs = {'placeholder': 'Category *'}
-        form.fields['name'].widget.attrs = {'placeholder': 'Name *'}
-        form.fields['desc'].widget.attrs = {'placeholder': 'Description *'}
-        form.fields['slug'].widget.attrs = {'placeholder': 'Slug (Auto-Completes if blank)'}
-        form.fields['price'].widget.attrs = {'placeholder': 'Price *'}
-        form.fields['sale_price'].widget.attrs = {'placeholder': 'Discounted Price'}
-        form.fields['image_url'].widget.attrs = {'placeholder': 'Image URL *'}
-        return form
 
     def get_success_url(self):
         return reverse('manage_site')
+
+
+class UpdateProduct(SuccessMessageMixin, generic.UpdateView):
+    """Updates product model"""
+    model = Product
+    template_name = "manage_site/product-update.html"
+    fields = '__all__'
+    success_message = "Product Updated!"
+
+    def get_initial(self):
+        initial_values = super(UpdateProduct, self).get_initial()
+        try:
+            current_group = self.object.groups.get()
+        except Exception as e:
+            success_message = f"{e} Error Occured: Update form could not be preloaded"
+            pass
+        return initial_values
+
+    def get_form_class(self):
+        return ProductForm
+
+    def get_success_url(self):
+        return reverse('manage_site')
+
+
+class DeleteProduct(SuccessMessageMixin, generic.DeleteView):
+    model = Product
+    success_message = 'Product Deleted!'
+    template_name = "manage_site/product-delete.html"
+
+    def get_success_url(self):
+        return reverse('manage_site')
+
+# CRUD for stock for admin area

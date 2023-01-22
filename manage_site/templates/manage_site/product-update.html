@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="mx-auto col-12 col-md-6 admin-form rounded mt-3">
-                <h2>Add Product</h2>
+                <h2>Edit Product</h2>
                 <form method="POST">
                     {% csrf_token %}
                     {{ form.category | as_crispy_field }}
@@ -27,7 +27,7 @@
                         {{ form.sale_price | as_crispy_field }}
                     </div>
                     {{ form.image_url | as_crispy_field }}
-                    <input class="shop-btn px-3 py-1" type="submit" value="Add Product">
+                    <input class="shop-btn px-3 py-1" type="submit" value="Update Product">
                 </form>
             </div>
         </div>
@@ -41,6 +41,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('label').hide()
+        $('#id_category').addClass('form-select')
         // Change option text
         $('select option:contains("---------")').text('Category *');
         $('select option:contains("jackets_coats")').text('Jackets & Coats');
