@@ -45,6 +45,16 @@
     color: #272727;
 }
 
+.product-detail-img {
+    width: 100%;
+}
+
+.product-detail-img img {
+    max-width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+}
+
 /* For size selectors */
 .size-box {
     font-weight: Nunito, sans-serif!important;
@@ -98,9 +108,21 @@
 
 /* Large devices (desktops, 992px and down) */
 @media screen and (max-width: 992px) {
+    .product-section {
+        text-align: center;
+    }
+
     .product-info {
         padding: 20px 0px!important;
         border: none;
+    }
+
+    #size-selector {
+        justify-content: center;
+    }
+
+    #quantity {
+        margin: 0 auto;
     }
 }
 
