@@ -21,21 +21,21 @@
         
         <div class="row">
             <div class="col-12 col-sm-4 d-inline-block py-2">
-                <a class="d-block shop-panel" href="{% url 'products' %}?sale" style="background-image: url('/media/sale-link.jpeg');">
+                <a class="d-block shop-panel" href="{% url 'products' %}?sale" style="background-image: url('{{ MEDIA_URL }}sale-link.jpeg');">
                     <div class="panel-content fs-1 d-flex align-items-center justify-content-center">
                         <h5 class="m-0 sale">On Sale</h5>
                     </div>
                 </a>
             </div>
             <div class="col-12 col-sm-4 d-inline-block py-2">
-                <a class="d-block shop-panel" href="{% url 'products' %}?clothing" style="background-image: url('/media/clothing-link.jpg');">
+                <a class="d-block shop-panel" href="{% url 'products' %}?clothing" style="background-image: url('{{ MEDIA_URL }}clothing-link.jpg');">
                     <div class="panel-content fs-1 d-flex align-items-center justify-content-center">
                         <h5 class="m-0">Clothing</h5>
                     </div>
                 </a>
             </div>
             <div class="col-12 col-sm-4 py-2">
-                <a class="d-block shop-panel" href="{% url 'products' %}?category=equipment" style="background-image: url('/media/gear-link.jpg');">
+                <a class="d-block shop-panel" href="{% url 'products' %}?category=equipment" style="background-image: url('{{ MEDIA_URL }}gear-link.jpg');">
                     <div class="panel-content fs-1 d-flex align-items-center justify-content-center">
                         <h5 class="m-0">Equipment</h5>
                     </div>
@@ -63,7 +63,7 @@
                 <p href="{% url 'products' %}" class="fs-5 mb-4">Whatever the journey is, we have you covered - by explorers for explorers.</p>
                 <a class="shop-btn fs-5 px-3 py-1">Shop Now</a>
             </div>
-            <div class="d-none d-lg-table-cell col-6"><img class="about-img" src="/media/about-us.jpg" alt=""></div>
+            <div class="d-none d-lg-table-cell col-6"><img class="about-img" src="{{ MEDIA_URL }}about-us.jpg" alt=""></div>
         </div>
     </div>
 </section>
