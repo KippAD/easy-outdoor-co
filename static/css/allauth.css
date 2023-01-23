@@ -1,6 +1,7 @@
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat:wght@400;500;600;700;800;900&family=Nunito:wght@500;600;700;800;900&display=swap');
 
+/* Styles for allauth forms */
 .form-section {
     background-color: #FFFFFF;
     text-align: center;
@@ -11,11 +12,15 @@
     padding: 50px;
     height: calc(100% - 80px);
     font-family: Nunito, sans-serif;
+    color: white;
 }
 
 .form-section > div {
-    background-color: #FFFFFF;
-    text-align: center;
+    background: url('/media/mountain.jpg') center bottom;
+    background-size: cover;
+    padding: 50px;
+    color: white;
+    width: 40%;
 }
 
 .form-section h2 {
@@ -23,10 +28,70 @@
     font-weight: 800;
 }
 
-/* Customise allauth forms */
+.form-section input[type=text],
+.form-section input[type=email],
+.form-section input[type=password] {
+    width: 50%;
+    margin: 20px auto;
+
+}
 
 label[for=id_login],
 label[for=id_password],
 label[for=id_email] {
     display: none;
+}
+
+#flexSwitchCheckDefault {
+    width: 50px;
+    height: 25px;
+}
+
+
+/* XX-Large devices (larger desktops, 1400px and down) */
+@media screen and (max-width: 1400px) {
+}
+
+/* X-Large devices (large desktops, 1200px and down) */
+@media screen and (max-width: 1200px) {
+}
+
+/* Large devices (desktops, 992px and down) */
+@media screen and (max-width: 992px) {
+
+    .form-section > div {
+        width: 60%;
+    }
+
+    .form-section input[type=text],
+    .form-section input[type=email],
+    .form-section input[type=password] {
+        width: 75%;
+    }
+
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media screen and (max-width: 768px) {
+}
+
+/* Small devices (landscape phones, 576px and down) */
+@media screen and (max-width: 576px) {
+    .info-panel {
+        width: calc(100% - 32px)
+    }
+
+    .form-section {
+        padding: 15px;
+    }
+
+    .form-section > div {
+        width: 90%;
+    }
+
+    .form-section input[type=text],
+    .form-section input[type=email],
+    .form-section input[type=password] {
+        width: 75%;
+    }
 }
