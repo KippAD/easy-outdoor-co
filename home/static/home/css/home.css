@@ -2,7 +2,7 @@
 
 /* Hero image */
 .hero-image {
-    background: url('') 50% 75%;
+    background: url('/media/hero-img.jpg') 50% 75%;
     background-size: cover;
     color: white;
     min-height: 60vh;
@@ -42,6 +42,11 @@
     position: absolute;
     height: 100%;
     width: 100%;
+}
+
+.panel-content:hover {
+    background-color: rgba(39, 39, 39, 0.671);
+    transition: all ease 0.2s;
 }
 
 .panel-content > h5 {
