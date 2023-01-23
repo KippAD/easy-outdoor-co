@@ -8,7 +8,7 @@ import random
 def HomePage(request):
     products = list(Product.objects.all())
 
-    random_products = random.sample(products, 8)
+    random_products = random.choices(products, k=8)
 
     context = {
         'products': random_products,
