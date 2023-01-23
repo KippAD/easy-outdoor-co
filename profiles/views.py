@@ -47,5 +47,3 @@ def order_history(request):
     }
 
     return render(request, template, context)
-
-

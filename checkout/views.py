@@ -6,7 +6,7 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from profiles.models import UserProfile
-from profiles.forms import UserProfileForm
+from profiles.forms import UserDeliveryForm
 from products.models import Product, SizeStock, RegularStock
 from basket.contexts import basket_contents
 
@@ -16,8 +16,8 @@ import json
 # Views taken from Boutiqe Ado walkthrough projcect by CodeInstitue
 @require_POST
 def cache_checkout_data(request):
-    print('cache')
     try:
+        username = request.user
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
@@ -29,7 +29,6 @@ def cache_checkout_data(request):
     except Exception as e:
         messages.error(request, 'Your payment was unsuccessfully \
             processed. Please try again later.')
-        print('our payment was unsuccessfull')
         return HttpResponse(content=e, status=400)
 
 
@@ -136,7 +135,6 @@ def checkout(request):
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
-                print(profile.user.email)
                 order_form = OrderForm(initial={
                     'full_name': profile.user.get_full_name(),
                     'email': profile.user.email,
@@ -148,10 +146,8 @@ def checkout(request):
                     'street_address2': profile.default_street_address2,
                     'county': profile.default_county,
                 })
-                print(order_form)
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
-                print('doesnt exist')
         else:
             order_form = OrderForm()
 
@@ -176,16 +172,15 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     order_items = OrderLineItem.objects.filter(order=order)
-
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
         # Attach the user's profile to the order
         order.user_profile = profile
         order.save()
-
         # Save the user's info
         if save_info:
-            profile_data = {
+
+            delivery_data = {
                 'default_phone_number': order.phone_number,
                 'default_country': order.country,
                 'default_postcode': order.postcode,
@@ -194,7 +189,7 @@ def checkout_success(request, order_number):
                 'default_street_address2': order.street_address2,
                 'default_county': order.county,
             }
-            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            user_profile_form = UserDeliveryForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
