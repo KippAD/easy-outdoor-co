@@ -11,6 +11,7 @@ urlpatterns = [
     path('profile/', include('profiles.urls')),
     path('manage/', include('manage_site.urls')),
     path('newsletter/', include('newsletter.urls')),
+    path('summernote/', include('django_summernote.urls')),
 ]
 
 handler404 = "easy_outdoor.views.page_not_found_view"

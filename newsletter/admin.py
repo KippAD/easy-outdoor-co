@@ -1,5 +1,7 @@
 from django.contrib import admin
 from .models import MailingList, NewsletterEmail
+from django_summernote.admin import SummernoteModelAdmin
+
 
 
 class MailingListAdmin(admin.ModelAdmin):
@@ -8,9 +10,9 @@ class MailingListAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'date_subscribed')
 
 
-class NewsletterEmailAdmin(admin.ModelAdmin):
+class NewsletterEmailAdmin(SummernoteModelAdmin):
     model = NewsletterEmail
-
+    summernote_fields = ('message')
     list_display = ('date', 'subject', 'message')
 
 
