@@ -53,7 +53,7 @@ def send_newsletter(request):
             })
         plain_message = strip_tags(html_message)
         from_email = settings.EMAIL_HOST_USER
-        to = setting.EMAIL_TEST_USER
+        to = settings.EMAIL_TEST_USER
         mail.send_mail(email_subject, plain_message, from_email, [to], html_message=html_message)
 
     messages.success(request, ('Newsletter sent!'))
