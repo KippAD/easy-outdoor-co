@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/manage_site.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="admin-section">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-12 col-md-6 admin-form rounded mt-3">
+                <h2>Add Product</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.category | as_crispy_field }}
+                    {{ form.name | as_crispy_field }}
+                    {{ form.slug | as_crispy_field }}
+                    {{ form.desc| as_crispy_field }}
+                    <p class="mb-0">Sized Item:</p>
+                    <div class="form-check form-switch" id="div_id_has_sizes">
+                        <input class="form-check-input" name="has_sizes" type="checkbox" id="flexSwitchCheckDefault" checked="">
+                    </div>
+                    <div class="d-flex mt-2 justify-content-between">
+                        {{ form.price | as_crispy_field }}
+                        {{ form.sale_price | as_crispy_field }}
+                    </div>
+                    {{ form.image_url | as_crispy_field }}
+                    <input class="shop-btn px-3 py-1" type="submit" value="Add Product">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>

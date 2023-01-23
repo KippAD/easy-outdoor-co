@@ -1,0 +1,40 @@
+<div class="row border-bottom mb-3">
+    <div class="my-3">
+        <h3 class="fw-bold">Clothing Stock</h3>
+    </div>
+</div>
+<!-- Sort Table is from https://datatables.net/examples/styling/bootstrap5.html -->
+<table id="newsletterTable" class="table table-striped data-table" style="width:100%">
+    <thead>
+        <tr>
+            <th>Date Subscribed</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in mailing_list %}
+        <tr>
+            <td>{{ user.date_subscribed }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+                <a class="fw-bold" href="">Edit
+                    <i class="fa-solid fa-pen-to-square"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Date Subscribed</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Edit</th>
+        </tr>
+    </tfoot>
+</table>
+
+
+

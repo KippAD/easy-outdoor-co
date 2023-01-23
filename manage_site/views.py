@@ -2,6 +2,7 @@ from django.shortcuts import render, reverse
 from products.models import Product, SizeStock, RegularStock
 from checkout.models import Order
 from profiles.models import UserProfile
+from newsletter.models import MailingList
 from django.views import generic
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
@@ -18,12 +19,14 @@ def manage_site(request):
     size_stock = SizeStock.objects.all()
     regular_stock = RegularStock.objects.all()
     orders = Order.objects.all()
+    mailing_list = MailingList.objects.all()
 
     context = {
         'products': products,
         'regular_stock': regular_stock,
         'size_stock': size_stock,
         'orders': orders,
+        'mailing_list': mailing_list,
     }
 
     return render(request, template, context)

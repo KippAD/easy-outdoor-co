@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib import admin
-from .models import UserProfile, MailingList
+from .models import UserProfile
 
 
 class UserProfileAdmin(admin.ModelAdmin):
@@ -16,11 +16,5 @@ class UserProfileAdmin(admin.ModelAdmin):
     )
 
 
-class MailingListAdmin(admin.ModelAdmin):
-    list_display = (
-        'email',
-    )
-
 
 admin.site.register(UserProfile, UserProfileAdmin)
-admin.site.register(MailingList, MailingListAdmin)

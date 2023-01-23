@@ -182,6 +182,7 @@
                     <form action="{% url 'mailing-list' %}" method='POST' class="py-1">
                         {% csrf_token %}
                         <p class="mb-2">Join our newsletter:</p>
+                        <input type="text" id="name" name="name" placeholder="Enter your name...">
                         <input type="email" id="email" name="email" placeholder="Enter your email...">
                         <input type="submit">
                     </form>
