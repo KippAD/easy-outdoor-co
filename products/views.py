@@ -95,7 +95,8 @@ def product_detail(request, slug):
 
         sizes = {k.upper(): v for k, v in product_sizes.items()}
         # Checks if stock exists accross all sizes
-        if all(value == 0 for value in product_sizes.values()):
+        if all(value == None or value == 0 for value in product_sizes.values()):
+            print('Stock empty')
             stock = None
         else:
             stock = list(product_sizes.values())
@@ -113,6 +114,8 @@ def product_detail(request, slug):
         random_products = random.sample(related_products, k=8)
     else:
         random_products = random.sample(related_products, len(related_products))
+
+    print(stock)
 
     context = {
         'product': product,

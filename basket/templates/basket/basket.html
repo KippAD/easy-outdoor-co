@@ -63,12 +63,12 @@
                                     <div data-value="+" class="rounded-end increment quantity-input">
                                         <i class="fa-solid fa-plus"></i>
                                     </div>
-                                    <button type="submit">Update</button>
-                                    {% if item.size_selection %}
-                                    <input type="hidden" name="product_size" value="{{ item.size_selection }}">
-                                    {% endif %}
-                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                 </div>
+                                <button class="mt-1 bg-white white-btn" type="submit">Update</button>
+                                {% if item.size_selection %}
+                                <input type="hidden" name="product_size" value="{{ item.size_selection }}">
+                                {% endif %}
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </form>
                         </div>
                         <div class="col-6">
