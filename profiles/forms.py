@@ -1,5 +1,5 @@
 from django import forms
-from .models import UserProfile
+from .models import UserProfile, ProductReview
 from django.contrib.auth.models import User
 
 
@@ -68,3 +68,14 @@ class UserDeliveryForm(forms.ModelForm):
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].label = False
+
+
+class ProductReviewForm(forms.ModelForm):
+    class Meta:
+        model = ProductReview
+        exclude = ('user', 'product',)
+
+        widgets = {
+            'comment': forms.Textarea(attrs={
+                'placeholder': 'Please leave your feedback in this box. Your comment will be displayed on the site! '}),
+        }

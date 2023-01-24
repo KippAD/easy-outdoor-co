@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib import admin
-from .models import UserProfile
+from .models import UserProfile, ProductReview
 
 
 class UserProfileAdmin(admin.ModelAdmin):
@@ -16,5 +16,14 @@ class UserProfileAdmin(admin.ModelAdmin):
     )
 
 
+class ProductReviewAdmin(admin.ModelAdmin):
+    list_display = (
+        'user',
+        'product',
+        'rating',
+        'comment',
+    )
+
 
 admin.site.register(UserProfile, UserProfileAdmin)
+admin.site.register(ProductReview, ProductReviewAdmin)

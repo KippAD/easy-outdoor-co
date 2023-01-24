@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django_countries.fields import CountryField
+from products.models import Product
+from django.core.validators import MaxValueValidator
 
 
 class UserProfile(models.Model):
@@ -19,6 +21,9 @@ class UserProfile(models.Model):
     default_street_address2 = models.CharField(max_length=80, null=True, blank=True)
     default_county = models.CharField(max_length=80, null=True, blank=True)
 
+    def __str__(self):
+        return self.user
+
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
@@ -30,3 +35,10 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     # If user exists then save the profile
     instance.userprofile.save()
 
+
+class ProductReview(models.Model):
+    """Model to store user reviews"""
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    product = models.ForeignKey('products.Product', related_name="product_rating", on_delete=models.CASCADE)
+    rating = models.DecimalField(max_digits=4, decimal_places=2, null=False, blank=False, validators=[MaxValueValidator(5)])
+    comment = models.TextField(max_length=400, null=True)
