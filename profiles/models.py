@@ -42,3 +42,5 @@ class ProductReview(models.Model):
     product = models.ForeignKey('products.Product', related_name="product_reviews", on_delete=models.CASCADE)
     rating = models.DecimalField(max_digits=4, decimal_places=2, null=False, blank=False, validators=[MaxValueValidator(5)])
     comment = models.TextField(max_length=400, null=True)
+    date = models.DateTimeField(auto_now_add=True)
+

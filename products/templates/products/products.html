@@ -34,16 +34,16 @@
             {% for product in products %}
             <div class='col-12 col-sm-6 col-lg-4 col-xl-3 text-center d-flex flex-column'>
                 <div class='mx-auto product-img pb-3'>
-                    <a href='{% url "product_detail" slug=product.slug%}'>
+                    <a href='{% url "product-detail" slug=product.slug%}'>
                         <img src='{{ product.image_url }}' alt='{{ product.name }}'>
                     </a>
                 </div>
                 <h5 class='fw-bold'>{{ product.name }}</h5>
                 <div class='row'>
-                    {% include 'products/includes/rating.html' %}
+                    {% include 'products/includes/product-rating.html' %}
                 </div>
                 <div>
-                <a href="">{{ product.product_reviews.all | length }} Review(s)</a>
+                <a href="{% url 'product-reviews' slug=product.slug %}">{{ product.product_reviews.all | length }} Review(s)</a>
                 {% if not product.sale_price %}
                     <p class='fw-bold'>£{{ product.price }}</p>
                 {% else %}

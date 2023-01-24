@@ -121,4 +121,15 @@ def product_detail(request, slug):
         'related_products': random_products,
     }
 
-    return render(request, 'products/product_detail.html', context)
+    return render(request, 'products/product-detail.html', context)
+
+
+def product_reviews(request, slug):
+    """Displays reviews of specific product"""
+    product = get_object_or_404(Product, slug=slug)
+
+    context = {
+        'product': product,
+    }
+
+    return render(request, 'products/product-reviews.html', context)

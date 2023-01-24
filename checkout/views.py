@@ -98,7 +98,7 @@ def checkout(request):
                                 item_stock.save()
                             else:
                                 messages.error(request, (
-                                    f"Unfortunately we only have {size_stock} left of the {product} in {product_size}. "
+                                    f"Unfortunately we only have {size_stock} left of the {product} in {size}. "
                                     "Please update the quantity, choose another size, or remove the item from the basket to complete your order!")
                                 )
                                 return redirect(reverse('view_basket'))
@@ -189,7 +189,7 @@ def checkout_success(request, order_number):
                 'default_street_address2': order.street_address2,
                 'default_county': order.county,
             }
-            user_profile_form = UserDeliveryForm(profile_data, instance=profile)
+            user_profile_form = UserDeliveryForm(delivery_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
 

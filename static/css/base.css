@@ -186,6 +186,7 @@ footer h5 {
 
 /* Star color */
 .star-rating i {
+    font-size: 1.2rem;
     color: #d8c625;
 }
 
