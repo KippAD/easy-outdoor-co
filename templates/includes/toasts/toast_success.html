@@ -1,3 +1,5 @@
+{% load basket_tools %}
+
 <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-bs-autohide="false">
     <div class="toast-header">
         <i class="toast-success fa-solid fa-circle-check fs-3"></i>
@@ -5,6 +7,53 @@
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body">
-        {{ message }}
+        <div>
+            <p class="fw-bold fs-5 mb-0">{{ message }}</p>
+        </div>
+        {% if grand_total and add_basket %}
+        <div class="container h-100 p-0">
+            {% for item in basket_items %}
+            <div class="row pt-3 border-bottom border-dark">
+                <div class="col-12 d-flex justify-content-start">
+                    <div class="img-container">
+                        <img class="toast-img" src="{{ item.product.image_url }}" alt="">
+                    </div>
+                    <div class="ps-3">
+                        <h5 class="fw-bold">{{ item.product.name }}</h5>
+                        {% include 'products/includes/product-rating.html' %}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="d-flex justify-content-between">
+                        <p class="quantity fw-bold">Qty: {{ item.quantity }}</p>
+                        {% if item.size_selection %}
+                        <p class="m-0">Size: {{ item.size_selection| upper }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="d-flex justify-content-between">
+                        <p class="fw-bold fs-6">£{{ item.product.price }}</p>
+                        <p class="fw-bold fs-6 text-end">Total: £{{ item.product.price | calc_total_price:item.quantity }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="row">
+                <div class="mt-3">
+                    <p class="mb-0 fs-6">Total: £{{ total }}</p>
+                    <p class="mb-0 fs-6">Delivery: £{{ delivery }}</p>
+                    <p class="fw-bold">Grand Total: £{{ grand_total }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <a class="fs-6 py-1 px-2 fw-bold shop-btn" href="{% url 'checkout' %}">Checkout</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
     </div>
-</div>

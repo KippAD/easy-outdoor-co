@@ -98,6 +98,18 @@ h1 {
     left: auto;
 }
 
+.basket-count {
+    background-color: #F0952A;
+    color: #FFFFFF;
+    font-size: 1rem;
+    padding: 3px 7px;
+    border-radius: 60%;
+    vertical-align: top;
+    bottom: 2.5px;
+    right: 7.5px;
+    position: relative;
+}
+
 /* Custom bootstrap burger menu styles (Taken from previous portfolio project: https://github.com/KippAD/george-orwell-pub */
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8, %3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
@@ -164,7 +176,13 @@ footer h5 {
 .toast-header {
     border-bottom: 1px solid #000000;
     font-family: Montserrat, sans-serif;
-    color: #000000;
+    color: hsl(0, 0%, 0%);
+}
+
+.toast-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
 }
 
 /* Colors for toast icons */

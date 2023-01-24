@@ -34,11 +34,10 @@ def add_to_basket(request, product_id):
                 if size_selection in basket[product_id]['size_quantities'].keys():
                     if (basket[product_id]['size_quantities'][size_selection] + quantity) <= size_stock:
                         basket[product_id]['size_quantities'][size_selection] += quantity
-                        messages.success(request, f'Added {quantity} {product.name} in size 1 {size_selection.upper()} to the basket')
+                        messages.success(request, f'Added {quantity} {product.name} in size {size_selection.upper()} to the basket')
                     else:
                         messages.error(request, (
-                            f"You have already added {quantity} of {product} to your basket. "
-                            "This is all of our remaining stock.")
+                            f"You have already added all remaining stock of {product} to your basket.")
                             )
                 else:
                     basket[product_id]['size_quantities'][size_selection] = quantity
@@ -115,6 +114,7 @@ def update_quantity(request, product_id):
         else:
             basket.pop(product_id)
             messages.success(request, f'Removed {product.name} from the basket')
+
 
     request.session['basket'] = basket
     print(basket)

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load basket_tools %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
@@ -61,7 +62,7 @@
                             <p class="text-danger fw-bold">There are only {{ stock }} of this item left in stock...</p>
                             {% endif %}
                             <h3 class="fs-5">Quantity:</h3>
-                            <div class="d-flex">
+                            <div class="d-flex quantity-container">
                                 <div data-value="-" class="rounded-start decrement quantity-input">
                                     <i class="fa-solid fa-minus"></i>
                                 </div>

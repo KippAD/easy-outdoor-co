@@ -115,13 +115,15 @@ def product_detail(request, slug):
     else:
         random_products = random.sample(related_products, len(related_products))
 
-    print(stock)
+    # For toast to know where message is coming from
+    add_basket = True
 
     context = {
         'product': product,
         'sizes': sizes,
         'stock': stock,
         'related_products': random_products,
+        'add_basket': add_basket,
     }
 
     return render(request, 'products/product-detail.html', context)
