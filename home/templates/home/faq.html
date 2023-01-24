@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="faq-section">
+    <div class="container py-5 text-center">
+        <div class="row mt-3 w-50 mx-auto">
+            <h2>Frequently Asked Questions</h2>
+            <p>Here you will find questions that we get asked a lot, we hope they will help you
+                with any queries you might have regarding our store. For more information feel
+                free to contact us and we'll get back to you as soon as we can!
+            </p>
+            <div class="pb-4">
+                <div class="logo"></div>
+            </div>
+        </div>
+        <div class="row w-50 mx-auto">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            What is your return policy?
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <p>
+                                At our store, we want to make sure that you are 100% satisfied with
+                                your purchase. That is why we offer a generous return policy for items purchased from
+                                us. Our return policy ensures that you can return any item within 30 days of purchase,
+                                provided it is in new condition and in its original packaging.
+                            </p>
+                            <p>
+                                We will provide a full refund or
+                                exchange for all returns, excluding shipping costs. If you have any questions about our
+                                return policy, please feel free to contact us at any time.
+                            </p>
+                            <p>
+                                To initiate a return, please contact our customer service team at using our contact
+                                form. Please include your order number in the message. We will
+                                provide you with further instructions on how to complete the return process upon
+                                recieving your message.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                        <button class="fw-bold accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            How long does it take for an order to be processed and shipped?
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <p>
+                                Orders placed in the UK will typically be processed and delivered
+                                within 1-2 working days. However, order processing and delivery times for international
+                                orders will vary depending on the country of delivery. We recommend
+                                that customers allow for additional time when placing orders to destinations outside of the
+                                UK.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="fw-bold accordion-header" id="flush-headingThree">
+                        <button class="fw-bold accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseThree" aria-expanded="false"
+                            aria-controls="flush-collapseThree">
+                            What payment methods do you accept?
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <p>
+                                We accept Visa and Mastercard for all our payments. All transactions
+                                are securely processed using Stripe, the leading payment processor. With Stripe, you can be
+                                sure that all your payments are secure and safe.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingFour">
+                        <button class="fw-bold accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseFour" aria-expanded="false"
+                            aria-controls="flush-collapseFour">
+                            Is there a minimum order requirement?
+                        </button>
+                    </h2>
+                    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <p>
+                                There is no minimum order requirement for our
+                                products and services. However, there is a delivery fee associated with each order that must
+                                be paid in order to receive the product or service. This fee pertains to 5% of the total
+                                cost of the items unless the order is above our £30 delivery threshold.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingFive">
+                        <button class="fw-bold accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseFive" aria-expanded="false"
+                            aria-controls="flush-collapseFive">
+                            Do you offer discounts or promotions on certain items?
+                        </button>
+                    </h2>
+                    <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <p>
+                                At Easy Outdoor we understand that saving money is as important as
+                                ever right now. That's why we offer a variety of sales and promotions throughout the
+                                year. You can view discount products in our <a href="{% url 'products' %}?sale">Sale</a> tab at the top of the page.
+                            </p>
+                            <p>
+                                Our newsletter also keeps you up to date with all of our current promotions, 
+                                so make sure to subscribe to stay in the know. With our sales and promotions, you can 
+                                shop for all of your favorite products without breaking the bank.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingSix">
+                        <button class="fw-bold accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+                            Are there any shipping costs associated with orders?
+                        </button>
+                    </h2>
+                    <div id="flush-collapseSix" class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <p>
+                                Deliveries are free over £30 but any underneath that
+                                threshold are subject to a 5% fee of the total delivery cost. This fee helps to offset
+                                the cost of processing, packaging and delivering the items. The 5% fee is applied to the total cost
+                                of the delivery and is not a flat fee.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingSeven">
+                        <button class="fw-bold accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseSeven" aria-expanded="false"
+                            aria-controls="flush-collapseSeven">
+                            Is there a way I can contact the store if I have further questions?
+                        </button>
+                    </h2>
+                    <div id="flush-collapseSeven" class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <p>
+                                If you have any further questions, you can contact us using our
+                                contact form. To access the contact form, simply use the contact page on our
+                                website. Fill out the form with your full name, email address, and a detailed message of
+                                your inquiry. Once you've submitted the form, we'll respond as soon as possible with an
+                                answer to your question.
+                            </p>
+                            <a href="#" class="shop-btn px-2 py-1">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingEight">
+                        <button class="fw-bold accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseEight" aria-expanded="false"
+                            aria-controls="flush-collapseEight">
+                            Are your products environmentally friendly?
+                        </button>
+                    </h2>
+                    <div id="flush-collapseEight" class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingEight" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <p>
+                                At Easy Outdoor, we are committed to sustainability in every aspect
+                                of our business. All of our products are sustainably sourced where possible, and we aim to
+                                transition to using only recycled and renewable materials by 2025.
+                            </p>
+                            <p>
+                                We also understand the importance of giving back to the environment,
+                                which is why we donate 5% of all profits to sustainability efforts. We believe that
+                                sustainable sourcing and giving back to the environment is the only way to ensure a brighter
+                                future for our planet.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('body').css('background-color', '#f8f8f8')
+    });
+</script>
+{% endblock %}
