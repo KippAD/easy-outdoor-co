@@ -48,7 +48,7 @@ def add_to_basket(request, product_id):
                 messages.success(request, f'Added {quantity} {product.name} in size 3{size_selection.upper()} to the basket')
         else:
             messages.error(request, (
-                f"We're sorry! We only have {quantity} left of the {product} in {size_selection}. "
+                f"We're sorry! We only have {size_stock} left of the {product} in {size_selection}. "
                 "Check to see if the remaining items are already in your basket.")
                 )
     else:
@@ -68,7 +68,7 @@ def add_to_basket(request, product_id):
                 messages.success(request, f'Added {product.name} to the basket')
         else:
             messages.error(request, (
-                f"We're sorry! We only have {quantity} left of the {product}. "
+                f"We're sorry! We only have {regular_stocks} left of the {product}. "
                 "Check to see if the remaining items are already in your basket.")
                 )
 
@@ -80,6 +80,7 @@ def add_to_basket(request, product_id):
 def update_quantity(request, product_id):
     basket = request.session.get('basket', {})
     product = get_object_or_404(Product, pk=product_id)
+    quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     size_selection = None
     if 'product_size' in request.POST:
@@ -88,40 +89,32 @@ def update_quantity(request, product_id):
     if size_selection:
         item_stock = get_object_or_404(SizeStock, product=product)
         size_stock = getattr(item_stock, size_selection)
-        if 'increment' in request.POST:
-            if (basket[product_id]['size_quantities'][size_selection] + 1) <= size_stock:
-                basket[product_id]['size_quantities'][size_selection] += 1
+        if quantity > 0:   
+            if (basket[product_id]['size_quantities'][size_selection] + quantity) <= size_stock:
+                basket[product_id]['size_quantities'][size_selection] = quantity
                 messages.success(request, f'Changed {product.name} quantity')
             else:
                 messages.error(request, (
                     f"You cannot add any more quantity to your order. "
                     "You have all the remaining stock of this size in your basket.")
                     )
-        elif 'decrement' in request.POST:
-            if basket[product_id]['size_quantities'][size_selection] > 1:
-                basket[product_id]['size_quantities'][size_selection] -= 1
-                messages.success(request, f'Changed {product.name} quantity')
-            else:
-                del basket[product_id]['size_quantities'][size_selection]
-                messages.success(request, f'Removed {product.name} in size {size_selection.upper()} from the basket')
+        else:
+            del basket[product_id]['size_quantities'][size_selection]
+            messages.success(request, f'Removed {product.name} in size {size_selection.upper()} from the basket')
     else:
         regular_stock = get_object_or_404(RegularStock, product=product)
-        if 'increment' in request.POST:
-            if (basket[product_id] + 1) <= regular_stock.stock:
-                basket[product_id] += 1
+        if quantity > 0: 
+            if (basket[product_id] + quantity) <= regular_stock.stock:
+                basket[product_id] = quantity
                 messages.success(request, f'Changed {product.name} quantity')
             else:
                 messages.error(request, (
                     f"You cannot add any more quantity to your order. "
                     "You have all the remaining stock of this size in your basket.")
                     )
-        elif 'decrement' in request.POST:
-            if basket[product_id] > 1:
-                basket[product_id] -= 1
-                messages.success(request, f'Changed {product.name} quantity')
-            else:
-                basket.pop(product_id)
-                messages.success(request, f'Removed {product.name} from the basket')
+        else:
+            basket.pop(product_id)
+            messages.success(request, f'Removed {product.name} from the basket')
 
     request.session['basket'] = basket
     print(basket)

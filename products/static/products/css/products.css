@@ -30,13 +30,13 @@
     border-right: 20px solid black;
 }
 
-.product-info > h2,
+.product-info>h2,
 .product-info h3 {
     font-family: Montserrat, sans-serif;
     font-weight: 700;
 }
 
-.product-info > p {
+.product-info>p {
     font-family: Nunito, sans-serif;
 }
 
@@ -57,7 +57,7 @@
 
 /* For size selectors */
 .size-box {
-    font-weight: Nunito, sans-serif!important;
+    font-weight: Nunito, sans-serif !important;
     font-weight: 700;
     width: 50px;
     height: 50px;
@@ -74,13 +74,14 @@
     background-color: #e1e0e0;
 }
 
-.btn-check:checked + .size-box {
+.btn-check:checked+.size-box {
     background-color: #F0952A;
     color: #ffffff;
 }
 
 
-.size-out, .size-out:hover {
+.size-out,
+.size-out:hover {
     background-color: #ffffff;
     border: 0.5px solid #b7b6b6;
     color: #b7b6b6;
@@ -98,9 +99,23 @@
     border: none;
 }
 
+#quantity {
+    width: 50px;
+    border: 1px solid #b7b6b6;
+    border-radius: 0;
+}
+
+.quantity-input {
+    background-color: #F0952A;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+
 /* Product reviews */
 
-.review-img  {
+.review-img {
     width: 150px;
     height: 150px;
     object-fit: cover;
@@ -109,17 +124,15 @@
 .review-comment {
     margin: 0 auto 20px auto;
     width: 50%;
-    color:#525151;
+    color: #525151;
 }
 
 
 /* XX-Large devices (larger desktops, 1400px and down) */
-@media screen and (max-width: 1400px) {
-}
+@media screen and (max-width: 1400px) {}
 
 /* X-Large devices (large desktops, 1200px and down) */
-@media screen and (max-width: 1200px) {
-}
+@media screen and (max-width: 1200px) {}
 
 /* Large devices (desktops, 992px and down) */
 @media screen and (max-width: 992px) {
@@ -128,7 +141,7 @@
     }
 
     .product-info {
-        padding: 20px 0px!important;
+        padding: 20px 0px !important;
         border: none;
     }
 
@@ -146,14 +159,12 @@
 }
 
 /* Medium devices (tablets, 768px and down) */
-@media screen and (max-width: 768px) {
-
-}
+@media screen and (max-width: 768px) {}
 
 /* Small devices (landscape phones, 576px and down) */
 @media screen and (max-width: 576px) {
     .product-info {
-        padding: 20px 10px!important;
+        padding: 20px 10px !important;
     }
 
     .product-img {

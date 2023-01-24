@@ -53,14 +53,22 @@
                     <div class="row">
                         <div class="col-6">
                             <form id="quantity-form" action="{% url 'update_quantity' item.product_id %}" method="POST">
-                                {% csrf_token %}
-                                <button type="submit" name="decrement" value="{{ item.quantity }}" data-product_id="{{ item.product_id }}" class="decrement fs-5 fw-bold"><i class="fa-sharp fa-solid fa-minus"></i></button> 
-                                <span class="quantity fs-5 fw-bold">{{ item.quantity }} </span>
-                                <button type="submit" name="increment" value="{{ item.quantity }}" data-product_id="{{ item.product_id }}" class="increment fs-5 fw-bold"><i class="fa-sharp fa-solid fa-plus"></i></i></button></p>
-                                {% if item.size_selection %}
-                                <input type="hidden" name="product_size" value="{{ item.size_selection }}">
-                                {% endif %}
-                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                {% csrf_token %}  
+                                <div class="d-flex">
+                                    <div data-value="-" class="rounded-start decrement quantity-input">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                    <input data-product_id="{{ product.id }}" class="m-0 text-center" type="number" name="quantity"
+                                    id="quantity" value="{{ item.quantity }}">
+                                    <div data-value="+" class="rounded-end increment quantity-input">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </div>
+                                    <button type="submit">Update</button>
+                                    {% if item.size_selection %}
+                                    <input type="hidden" name="product_size" value="{{ item.size_selection }}">
+                                    {% endif %}
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                </div>
                             </form>
                         </div>
                         <div class="col-6">
@@ -114,5 +122,22 @@
              location.reload();
          });
     })
+
+    // Taken from css tricks : https://css-tricks.com/number-increment-buttons/
+    $(".quantity-input").on("click", function () {
+        var oldValue = $("#quantity").val();
+
+        if ($(this).data('value') == '+') {
+            var newVal = parseFloat(oldValue) + 1;
+        } else {
+            // Don't allow decrementing below zero
+            if (oldValue > 0) {
+                var newVal = parseFloat(oldValue) - 1;
+            } else {
+                newVal = 0;
+            }
+        }
+        $("#quantity").val(newVal);
+    });
 </script>
 {% endblock %}

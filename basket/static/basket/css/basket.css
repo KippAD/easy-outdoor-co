@@ -93,6 +93,21 @@ a {
     color: #F0952A;
 }
 
+/* Increment styles */
+#quantity {
+    width: 50px;
+    border: 1px solid #b7b6b6;
+    border-radius: 0;
+}
+
+.quantity-input {
+    background-color: #F0952A;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+
 /* XX-Large devices (larger desktops, 1400px and down) */
 @media screen and (max-width: 1400px) {}
 
