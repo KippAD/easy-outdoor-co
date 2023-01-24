@@ -38,7 +38,7 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
 
 class ProductReview(models.Model):
     """Model to store user reviews"""
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    product = models.ForeignKey('products.Product', related_name="product_rating", on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name="user", on_delete=models.CASCADE)
+    product = models.ForeignKey('products.Product', related_name="product_reviews", on_delete=models.CASCADE)
     rating = models.DecimalField(max_digits=4, decimal_places=2, null=False, blank=False, validators=[MaxValueValidator(5)])
     comment = models.TextField(max_length=400, null=True)

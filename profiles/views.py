@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.db.models import Avg
 from .models import UserProfile, ProductReview
 from checkout.models import Order, OrderLineItem
 from products.models import Product
@@ -57,7 +58,7 @@ def load_rating_form(request, product_id):
     """Loads form for user to leave a rating"""
     product = get_object_or_404(Product, id=product_id)
     rating_form = ProductReviewForm()
-    template = 'profiles/product-review.html'
+    template = 'profiles/rate-product.html'
     context = {
         'form': rating_form,
         'product': product,
@@ -75,7 +76,13 @@ def rate_product(request, product_id):
         rating_form.instance.rating = request.POST.get('rating')
         rating_form.instance.comment = request.POST.get('comment')
         rating_form.save()
+        # Sets product rating to average of all ratings
+        product_ratings = ProductReview.objects.filter(product=product)
+        average_rating = product_ratings.aggregate(Avg('rating'))['rating__avg']
+        product.rating = round(average_rating, 2)
+        product.save()
     else:
+        messages.error(request='This form is invalid')
         rating_form = CommentForm()
 
     messages.success(request, 'Product Rated! Thank you for your feedback.')

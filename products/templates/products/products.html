@@ -43,6 +43,7 @@
                     {% include 'products/includes/rating.html' %}
                 </div>
                 <div>
+                <a href="">{{ product.product_reviews.all | length }} Review(s)</a>
                 {% if not product.sale_price %}
                     <p class='fw-bold'>£{{ product.price }}</p>
                 {% else %}

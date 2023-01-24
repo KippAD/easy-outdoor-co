@@ -48,13 +48,17 @@
                                         <strong>Qty:</strong> {{ item.quantity }} |
                                         <strong>Size:</strong> {{ item.product_size }} |
                                         <strong>£</strong>{{ item.lineitem_total }} |
-                                        {% for r in reviews %}
-                                            {% if r.product != item.product %}
-                                            <a href="{% url 'load-rating-form' product_id=item.product.id %}">Rate This Item</a>
-                                            {% else %}
-                                            <p>You rated this product {{ r.rating }} stars.</p>
-                                            {% endif %}
-                                        {% endfor %}
+                                        {% if reviews %}
+                                            {% for r in reviews %}
+                                                {% if r.product == item.product %}
+                                                <p>You rated this product {{ r.rating }} stars.</p>
+                                                {% else %}
+                                                <a href="{% url 'load-rating-form' product_id=item.product.id %}">Rate This Item</a>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% else %}
+                                        <a href="{% url 'load-rating-form' product_id=item.product.id %}">Rate This Item</a>
+                                        {% endif %}
                                     </p>
                                     {% endfor %}
                                 </div>
