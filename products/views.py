@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 from django.forms.models import model_to_dict
 from django.db.models import Min, Max
+import random
 
 
 def all_products(request):
@@ -105,10 +106,19 @@ def product_detail(request, slug):
         product_stock = get_object_or_404(RegularStock, product=product)
         stock = product_stock.stock
 
+    related_products = list(Product.objects.filter(category=product.category))
+    product_count = len(related_products)
+
+    if product_count > 8:
+        random_products = random.sample(related_products, k=8)
+    else:
+        random_products = random.sample(related_products, len(related_products))
+
     context = {
         'product': product,
         'sizes': sizes,
         'stock': stock,
+        'related_products': random_products,
     }
 
     return render(request, 'products/product_detail.html', context)
