@@ -1,10 +1,12 @@
 <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-bs-autohide="false">
     <div class="toast-header">
-        <i class="toast-warning fa-solid fa-circle-question"></i>
-        <strong class="ms-2 me-auto">What is this?</strong>
+        <i class="toast-success fa-solid fa-circle-check fs-3"></i>
+        <strong class="ms-2 fs-3 fw-bold me-auto">What is this?</strong>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body">
-        {{ message }}
+        <div>
+            <p class="fw-bold fs-6 mb-0">{{ message }}</p>
+        </div>
     </div>
 </div>

@@ -21,13 +21,13 @@
                 class="product-info col-12 offset-md-1 col-md-10 offset-lg-0 col-lg-8 d-flex flex-column justify-content-between">
                 <div>
                     <h2 class="fs-3">{{ product.name }}</h2>
-                    <p class="price fs-4">£{{ product.price }}</p>
                     <p>{% include 'products/includes/product-rating.html' %}</p>
                 </div>
 
                 <div>
                     <h3 class="fs-5 mb-0">Description</h3>
                     <p>{{ product.desc }}</p>
+                    <p class="price fs-4">£{{ product.price }}</p>
                 </div>
 
                 <div>
@@ -58,9 +58,6 @@
                         {% endif %}
                         <div class="pt-3">
                             {% if stock %}
-                            {% if stock <= 6 %}
-                            <p class="text-danger fw-bold">There are only {{ stock }} of this item left in stock...</p>
-                            {% endif %}
                             <h3 class="fs-5">Quantity:</h3>
                             <div class="d-flex quantity-container">
                                 <div data-value="-" class="rounded-start decrement quantity-input">

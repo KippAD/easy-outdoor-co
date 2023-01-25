@@ -1,7 +1,13 @@
 $(document).ready(function () {
     $(".stock-warning").hide()
+
     $("input:radio[name=sizes]:not(:disabled):first").attr('checked', true);
     $(".append-warning").append($(".stock-warning"))
+
+    if ($("input[name=sizes]:checked").attr('data-stock') <= 6) {
+        let key = $("input[name=sizes]:checked").val()
+        $("p[data-key=" + key + "]").show()
+    }
 
     $("input:radio[name=sizes]").change(function () {
         if ($(this).is(":checked")) {
