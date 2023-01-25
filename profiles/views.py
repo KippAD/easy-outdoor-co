@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Avg
+from django.db import IntegrityError
+from django.http import HttpResponseRedirect
 from .models import UserProfile, ProductReview
 from checkout.models import Order, OrderLineItem
 from products.models import Product
@@ -70,20 +72,31 @@ def rate_product(request, product_id):
     """Handles and submits rating"""
     product = get_object_or_404(Product, id=product_id)
     rating_form = ProductReviewForm(data=request.POST)
-    if rating_form.is_valid():
-        rating_form.instance.user = request.user
-        rating_form.instance.product = product
-        rating_form.instance.rating = request.POST.get('rating')
-        rating_form.instance.comment = request.POST.get('comment')
-        rating_form.save()
-        # Sets product rating to average of all ratings
-        product_ratings = ProductReview.objects.filter(product=product)
-        average_rating = product_ratings.aggregate(Avg('rating'))['rating__avg']
-        product.rating = round(average_rating, 2)
-        product.save()
+    user = request.user
+    rating = request.POST.get('rating')
+    if not rating:
+        rating = 0
     else:
-        messages.error(request='This form is invalid')
-        rating_form = CommentForm()
+        rating = rating
+    try:
+        if rating_form.is_valid():
+            rating_form.instance.user = user
+            rating_form.instance.product = product
+            rating_form.instance.rating = rating
+            rating_form.instance.comment = request.POST.get('comment')
+            rating_form.save()
+            # Sets product rating to average of all ratings
+            product_ratings = ProductReview.objects.filter(product=product)
+            average_rating = product_ratings.aggregate(Avg('rating'))['rating__avg']
+            product.rating = round(average_rating, 2)
+            product.save()
+            messages.success(request, f'Product Rated {rating} stars! Thank you for your feedback.')
+        else:
+            messages.error(request, 'The form was invalid and could not be processed. \
+                Please try again.')
+            rating_form = ProductReviewForm()
 
-    messages.success(request, 'Product Rated! Thank you for your feedback.')
+    except IntegrityError:
+        messages.error(request, 'Error: You have already reviewed this product.')
+
     return redirect('order-history')

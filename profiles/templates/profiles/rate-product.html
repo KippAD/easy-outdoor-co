@@ -14,14 +14,15 @@
             <div class="text-center mx-auto col-12 col-md-6 admin-form rounded mt-3">
                 <h2 class="border-bottom">Rate {{ product }}</h2>
                 <h5 class="fw-bold">Happy with this product? Let us know!</h5>
-                <form method="POST" action="{% url 'rate-product' product_id=product.id %}">
+                <form method="POST" id="reviewForm" action="{% url 'rate-product' product_id=product.id %}">
                     {% csrf_token %}
                     <div>
                         {% include 'profiles/includes/rating-selector.html' %}
                     </div>
+                    <div><p class="text-danger"></p></div>
                     {{ form.comment | as_crispy_field }}
                     <a class="white-btn px-3 py-1" href="{% url 'order-history' %}">Cancel</a>
-                    <input class="shop-btn px-3 py-1" type="submit" value="Submit">
+                    <input id="reviewSubmit" class="shop-btn px-3 py-1" type="submit" value="Submit">
                 </form>
             </div>
         </div>
@@ -34,7 +35,7 @@
 {{ block.super }}
 
 <script type="text/javascript">
-    $( document ).ready(function() {
+    $(document).ready(function () {
         $('input[name="rating"]:checked').val();
         $("label[for='id_comment']").hide()
     })
