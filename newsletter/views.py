@@ -86,6 +86,6 @@ def contact_form(request):
         email_content = f"{email_message} - Sent by {email_address}"
         from_email = settings.EMAIL_HOST_USER
         to = settings.EMAIL_HOST_USER
-        mail.send_mail(email_content, email_content, from_email, [to])
+        mail.send_mail(email_subject, email_content, from_email, [to])
 
         return redirect('contact-form')

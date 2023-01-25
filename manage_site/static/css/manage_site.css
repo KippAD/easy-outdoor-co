@@ -49,7 +49,7 @@ body{
 
 /* Validation errors */
 .error {
-    color: #c71515;
+    color: #c71515!important;
   }
 
 /* X-Large devices (large desktops, 1200px and down) */
