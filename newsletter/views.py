@@ -3,7 +3,7 @@ from django.conf import settings
 from .models import MailingList, NewsletterEmail
 from django.contrib import messages
 from .forms import NewsletterForm
-from django.core.mail import EmailMultiAlternatives, send_mail, send_mass_mail
+from django.core import mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
@@ -21,18 +21,15 @@ def newsletter_subscribe(request):
             email_subject = 'Newsletter Subscription Confirmation'
             email_content = f"Hi {name}! This is a confirmation email for your recent \
                 subscription to the Easy Outdoor Co. newsletter.\
-                    Email: {email}"
+                    Email:{email}"
             html_message = render_to_string('newsletter/email-template.html', {
                 'subject': email_subject,
                 'content': email_content
                 })
             plain_message = strip_tags(html_message)
             from_email = settings.EMAIL_HOST_USER
-            to = email
-            
-            msg = EmailMultiAlternatives(email_subject, plain_message, from_email, [to])
-            msg.attach_alternative(html_message, html_message)
-            msg.send()
+            to = settings.EMAIL_TEST_USER
+            mail.send_mail(email_subject, plain_message, from_email, [to], html_message=html_message)
 
             messages.success(request, 'You have joined our newsletter!')
 
@@ -71,6 +68,7 @@ def send_newsletter(request):
         plain_message = strip_tags(html_message)
         from_email = settings.EMAIL_HOST_USER
         to = MailingList.objects.values_list('email', flat=True)
+        print(to)
         mail.send_mail(email_subject, plain_message, from_email, [to], html_message=html_message)
 
     messages.success(request, ('Newsletter sent!'))
