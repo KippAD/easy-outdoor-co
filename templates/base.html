@@ -115,6 +115,9 @@
             </div>
 
             <div class="col-4 col-xl-1 d-flex justify-content-end order-xl-4">
+                {% if request.user.is_superuser %}
+                <a href="{% url 'manage-site' %}">Admin</a>
+                {% endif %}
                 <a class="nav-link" href="{% url 'view_basket' %}"><i
                         class="fa-solid fa-cart-shopping fs-2"><span class="basket-count">{{ basket_items | length }}</span>
                         </i>

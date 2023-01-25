@@ -15,3 +15,4 @@ urlpatterns = [
 ]
 
 handler404 = "easy_outdoor.views.page_not_found_view"
+handler403 = "easy_outdoor.views.page_forbidden_found_view"
