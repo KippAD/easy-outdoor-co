@@ -1,6 +1,9 @@
 from django.http import HttpResponse
 from .models import Order, OrderLineItem
 from profiles.models import UserProfile
+from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 import json
 import time
@@ -20,7 +23,7 @@ class StripeWH_Handler:
         plain_message = strip_tags(html_message)
         from_email = settings.EMAIL_HOST_USER
         to = order.email
-        mail.send_mail(email_content, email_content, from_email, [to], html_message=html_message)      
+        mail.send_mail(email_subject, plain_message, from_email, [to], html_message=html_message)      
 
     def handle_event(self, event):
         """
@@ -118,9 +121,7 @@ class StripeWH_Handler:
                         )
                         order_line_item.save()
                         stock = get_object_or_404(RegularStock, product=product)
-                        print(stock)
                         stock -= item_data
-                        print(stock)
                         stock.save()
 
                     else:
