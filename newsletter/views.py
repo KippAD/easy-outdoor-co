@@ -58,9 +58,7 @@ def send_newsletter(request):
     """
     if request.method == 'POST':
         email_subject = request.POST.get('subject')
-        print(email_subject)
         email_content = request.POST.get('message')
-        print(email_content)
         html_message = render_to_string('newsletter/email-template.html', {
             'subject': email_subject,
             'content': email_content
@@ -73,3 +71,21 @@ def send_newsletter(request):
 
     messages.success(request, ('Newsletter sent!'))
     return redirect('manage-site')
+
+
+def contact_form(request):
+
+    if request.method == 'GET':
+        return render(request, 'newsletter/contact-form.html' )
+
+    if request.method == 'POST':
+        messages.success(request, ('Message sent! We will get back to you as soon as we can.'))
+        email_subject = request.POST.get('subject')
+        email_address = request.POST.get('email')
+        email_message = request.POST.get('message')
+        email_content = f"{email_message} - Sent by {email_address}"
+        from_email = settings.EMAIL_HOST_USER
+        to = settings.EMAIL_HOST_USER
+        mail.send_mail(email_content, email_content, from_email, [to])
+
+        return redirect('contact-form')

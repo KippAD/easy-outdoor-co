@@ -47,6 +47,11 @@ body{
     width: 400px;
 }
 
+/* Validation errors */
+.error {
+    color: #c71515;
+  }
+
 /* X-Large devices (large desktops, 1200px and down) */
 @media screen and (max-width: 1200px) {
 }
