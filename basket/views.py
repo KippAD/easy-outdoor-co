@@ -12,7 +12,7 @@ def view_basket(request):
 
 
 def add_to_basket(request, product_id):
-    """ 
+    """
     Adds products to basket from product detail and also
     prevents the adding of item quantity great than that of the
     item's stock
@@ -77,6 +77,10 @@ def add_to_basket(request, product_id):
 
 
 def update_quantity(request, product_id):
+    """
+    Updates item quantity from within the basket if stock
+    is available to do so.
+    """
     basket = request.session.get('basket', {})
     product = get_object_or_404(Product, pk=product_id)
     quantity = int(request.POST.get('quantity'))
@@ -88,7 +92,7 @@ def update_quantity(request, product_id):
     if size_selection:
         item_stock = get_object_or_404(SizeStock, product=product)
         size_stock = getattr(item_stock, size_selection)
-        if quantity > 0:   
+        if quantity > 0:
             if (basket[product_id]['size_quantities'][size_selection] + quantity) <= size_stock:
                 basket[product_id]['size_quantities'][size_selection] = quantity
                 messages.success(request, f'Changed {product.name} quantity')
@@ -102,7 +106,7 @@ def update_quantity(request, product_id):
             messages.success(request, f'Removed {product.name} in size {size_selection.upper()} from the basket')
     else:
         regular_stock = get_object_or_404(RegularStock, product=product)
-        if quantity > 0: 
+        if quantity > 0:
             if (basket[product_id] + quantity) <= regular_stock.stock:
                 basket[product_id] = quantity
                 messages.success(request, f'Changed {product.name} quantity')
@@ -115,19 +119,22 @@ def update_quantity(request, product_id):
             basket.pop(product_id)
             messages.success(request, f'Removed {product.name} from the basket')
 
-
     request.session['basket'] = basket
     print(basket)
     return redirect(redirect_url, status=200)
 
 
 def delete_item(request, product_id):
-
+    """Deletes item from basket"""
     try:
         product = get_object_or_404(Product, pk=product_id)
         size_selection = None
         if 'product_size' in request.POST:
+            print(True)
             size_selection = request.POST.get('product_size')
+
+
+        print(size_selection)
 
         basket = request.session.get('basket', {})
 

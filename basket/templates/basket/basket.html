@@ -27,7 +27,7 @@
                         <div class="col-12 d-sm-flex justify-content-between">
                             <h3 class="m-0">{{ item.product.name }}</h3>
                             <div class="d-none d-sm-inline-block">
-                                <a class="fs-4 text-danger" href="{% url 'delete_item' item.product_id %}"><i class="fa-solid fa-square-xmark"></i></a>
+                                <a class="fs-4 text-danger remove-item" data-index="1" id="remove_{{ item.product_id }}" data-product_size="{{ item.size_selection }}"><i class="fa-solid fa-square-xmark"></i></a>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
 
                     <div class="row">
                         <div class="col-12 d-sm-none">
-                            <a class="fs-6 text-danger" d="remove_{{ item.product_id }}" href="{% url 'delete_item' item.product_id %}">Remove from basket <i class="fa-solid fa-square-xmark"></i></a>
+                            <a class="fs-6 text-danger remove-item" date-index="2" id="remove_{{ item.product_id }}" data-product_size="{{ item.size_selection }}">Remove from basket <i class="fa-solid fa-square-xmark"></i></a>
                         </div>
                     </div>
                 </div>
@@ -104,14 +104,13 @@
 
 {{ block.super }}
 <script type="text/javascript">
-    // Ensures that the item information matches the height of its image
     $(document).ready(function () {
         $('#quantity-form > p').remove()
-    });
 
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
-        var productId = $(this).attr('id').split('remove_')[1];
+        var index = $(this).data('index');
+        var productId = $(this).attr('id').split('remove_')[index];
         var size = $(this).data('product_size');
         var url = `/basket/delete/${productId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
@@ -138,5 +137,6 @@
         }
         $("#quantity").val(newVal);
     });
+});
 </script>
 {% endblock %}
