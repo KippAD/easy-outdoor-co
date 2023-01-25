@@ -17,6 +17,20 @@ def newsletter_subscribe(request):
         else:
             e = MailingList(name=name, email=email)
             e.save()
+
+            email_subject = 'Newsletter Subscription Confirmation'
+            email_content = f"Hi {name}! This is a confirmation email for your recent \
+                subscription to the Easy Outdoor Co. newsletter.\
+                    Email: {email}"
+            html_message = render_to_string('newsletter/email-template.html', {
+                'subject': email_subject,
+                'content': email_content
+                })
+            plain_message = strip_tags(html_message)
+            from_email = settings.EMAIL_HOST_USER
+            to = settings.EMAIL_TEST_USER
+            mail.send_mail(email_subject, plain_message, from_email, [to], html_message=html_message)
+
             messages.success(request, 'You have joined our newsletter!')
 
     redirect_url = 'home'
