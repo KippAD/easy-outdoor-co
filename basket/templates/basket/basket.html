@@ -123,7 +123,7 @@
 
     // Taken from css tricks : https://css-tricks.com/number-increment-buttons/
     $(".quantity-input").on("click", function () {
-        var oldValue = $("#quantity").val();
+        var oldValue = $(this).siblings('#quantity').val();
 
         if ($(this).data('value') == '+') {
             var newVal = parseFloat(oldValue) + 1;
@@ -135,7 +135,7 @@
                 newVal = 0;
             }
         }
-        $("#quantity").val(newVal);
+        $(this).siblings('#quantity').val(newVal);
     });
 });
 </script>

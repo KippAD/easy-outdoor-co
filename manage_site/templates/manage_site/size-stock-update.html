@@ -14,7 +14,7 @@
                 <h2 class="border-bottom">Edit Product Stock</h2>
                 <h3 class="fw-bold">{{ object.product }}</h3>
                 <p>Adjust the stock values of your product.</p>
-                <form method="POST">
+                <form id="sizeStockForm" method="POST">
                     {% csrf_token %}
                     {{ form.xs | as_crispy_field }}
                     {{ form.s | as_crispy_field }}
@@ -32,6 +32,6 @@
 
 {% endblock %}
 {% block postloadjs %}
-{{ block.super }}
-
+<!-- Page script and form validation -->
+<script src="{% static 'manage_site/js/size_stock_form.js' %}"></script>
 {% endblock %}
