@@ -73,7 +73,7 @@
                 </form>
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link me-3 sale" aria-current="page" href="{% url 'products' %}?sale">Sale</a>
+                        <a id="sale-link" class="nav-link me-3 sale" aria-current="page" href="{% url 'products' %}?sale">Sale</a>
                     </li>
 
 
@@ -118,9 +118,6 @@
             </div>
 
             <div class="col-4 col-xl-1 d-flex justify-content-end order-xl-4">
-                {% if request.user.is_superuser %}
-                <a href="{% url 'manage-site' %}">Admin</a>
-                {% endif %}
                 <a class="nav-link" href="{% url 'view_basket' %}"><i class="fa-solid fa-cart-shopping fs-2"><span
                             class="basket-count">{{ basket_items | length }}</span>
                     </i>
@@ -132,6 +129,7 @@
                     </a>
 
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'manage-site' %}">Admin</a></li>
                         <li><a class="dropdown-item" href="{% url 'profile' %}">Account</a></li>
                         <li><a class="dropdown-item" href="{% url 'order-history' %}">Order History</a></li>
                         <li><a class="dropdown-item" href="{% url 'account_logout' %}"><i
@@ -184,12 +182,12 @@
                 </div>
                 <div id="footer-form" class="col-12 col-md-6 text-end">
                     <h4 class="fs-2 text-white">Easy Outdoor Co.</h4>
-                    <form action="{% url 'mailing-list' %}" method='POST' class="py-1">
+                    <form id="newsletter-form" action="{% url 'mailing-list' %}" method='POST' class="py-1">
                         {% csrf_token %}
-                        <p class="mb-2">Join our newsletter:</p>
-                        <input type="text" id="name" name="name" placeholder="Enter your name...">
-                        <input type="email" id="email" name="email" placeholder="Enter your email...">
-                        <input type="submit">
+                        <p class="mb-2 fw-bold">Join our newsletter:</p>
+                        <input class="form-control" type="text" id="name" name="name" placeholder="Enter your name...">
+                        <input class="form-control" type="email" id="email" name="email" placeholder="Enter your email...">
+                        <input class="shop-btn" type="submit">
                     </form>
                     <p><i class="fa-regular fa-copyright"></i> 2023 Easy Outdoor Co. All Rights Reserved</p>
                 </div>

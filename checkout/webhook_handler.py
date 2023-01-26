@@ -8,6 +8,7 @@ from django.template.loader import render_to_string
 import json
 import time
 
+
 # Webhook handler taken from Boutiqe Ado walkthrough projcect by CodeInstitue
 class StripeWH_Handler:
     """Handle Stripe webhooks"""

@@ -9,4 +9,6 @@ urlpatterns = [
     path('update-size-stock/<int:pk>', views.UpdateSizeStock.as_view(), name='update-size-stock'),
     path('update-regular-stock/<int:pk>', views.UpdateRegularStock.as_view(), name='update-regular-stock'),
     path('order-details/<int:pk>', views.OrderDetails.as_view(), name='order-details'),
+    path('update-profile/<int:user_id>', views.update_profile, name='update-profile'),
+    path('delete-profile/<int:pk>', views.DeleteProfile.as_view(), name='delete-profile'),
 ]

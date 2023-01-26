@@ -1,0 +1,44 @@
+<div class="row border-bottom mb-3">
+    <div class="my-3">
+        <h3 class="fw-bold">Clothing Stock</h3>
+        <a class="shop-btn px-3 py-1 text-decoration-none" href="{% url 'newsletter-form' %}">Site Users</a>
+    </div>
+</div>
+<!-- Sort Table is from https://datatables.net/examples/styling/bootstrap5.html -->
+<table id="userTable" class="table table-striped data-table" style="width:100%">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Staff Status</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for profile in profiles %}
+        <tr>
+            <td>{{ profile.user.username }}</td>
+            <td>{{ profile.user.email }}</td>
+            <td>{{ profile.user.first_name }} {{ profile.user.last_name}}</td>
+            <td>{{ profile.user.is_staff }}</td>
+            <td>
+                <a class="fw-bold" href="{% url 'update-profile' user_id=profile.user.id %}">Edit
+                    <i class="fa-solid fa-pen-to-square"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Staff Status</th>
+            <th>Edit</th>
+        </tr>
+    </tfoot>
+</table>
+
+
+

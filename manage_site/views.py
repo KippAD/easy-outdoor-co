@@ -1,7 +1,9 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render, reverse, get_object_or_404
 from products.models import Product, SizeStock, RegularStock
+from django.contrib.auth.models import User
 from checkout.models import Order
 from profiles.models import UserProfile
+from profiles.forms import UserDeliveryForm, UserProfileForm
 from newsletter.models import MailingList
 from django.views import generic
 from django.contrib import messages
@@ -23,6 +25,7 @@ def manage_site(request):
     regular_stock = RegularStock.objects.all()
     orders = Order.objects.all()
     mailing_list = MailingList.objects.all()
+    profiles = UserProfile.objects.all()
 
     context = {
         'products': products,
@@ -30,6 +33,7 @@ def manage_site(request):
         'size_stock': size_stock,
         'orders': orders,
         'mailing_list': mailing_list,
+        'profiles': profiles,
     }
 
     return render(request, template, context)
@@ -134,3 +138,50 @@ class OrderDetails(SuccessMessageMixin, UserPassesTestMixin, generic.DetailView)
 
     def test_func(self):
         return self.request.user.is_staff
+
+
+# Crud for users
+@user_passes_test(lambda user: user.is_staff)
+def update_profile(request, user_id):
+    """ Display user profiles """
+    user = get_object_or_404(User, id=user_id)
+    profile = get_object_or_404(UserProfile, user=user)
+
+    if request.method == 'POST':
+        user_form = UserProfileForm(request.POST, instance=user)
+        delivery_form = UserDeliveryForm(request.POST, instance=profile)
+        if delivery_form.is_valid() and user_form.is_valid():
+            user_form.save()
+            delivery_form.save()
+            messages.success(request, 'Profile updated successfully')
+        else:
+            messages.error(request, 'Update failed. Please ensure the form is valid.')
+            raise ValidationError(
+                    "Your form was not updated, please fill out the form correctly."
+                )
+    else:
+        user_form = UserProfileForm(instance=user)
+        delivery_form = UserDeliveryForm(instance=profile)
+    orders = profile.orders.all()
+
+    template = 'manage_site/profile-update.html'
+    context = {
+        'user': user,
+        'profile': profile,
+        'user_form': user_form,
+        'delivery_form': delivery_form,
+    }
+
+    return render(request, template, context)
+
+
+class DeleteProfile(SuccessMessageMixin, UserPassesTestMixin, generic.DeleteView):
+    model = User
+    success_message = 'User Deleted!'
+    template_name = "manage_site/profile-delete.html"
+
+    def test_func(self):
+        return self.request.user.is_staff
+
+    def get_success_url(self):
+        return reverse('manage-site')

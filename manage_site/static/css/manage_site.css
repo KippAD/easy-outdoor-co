@@ -18,16 +18,28 @@ body{
     font-family: Montserrat, sans-serif!important;
 }
 
+.delete-btn {
+    background-color: #c71515!important;
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+    font-family: Montserrat, sans-serif;
+    border-radius: 5px;
+    border: none;
+}
+
+.delete-btn:hover {
+    color: #FFFFFF;
+    background-color: #a51212;
+    transition: all ease 0.2s;
+    cursor: pointer;
+}
 
 /* Sidebar */
 
-.nav-link:hover {
+.admin-section  .nav-link:hover {
     color: #000000;
     background-color: #b0a9a9;
-}
-
-.nav-link:active {
-    color: #ffffff;
 }
 
 /* Delete product img */

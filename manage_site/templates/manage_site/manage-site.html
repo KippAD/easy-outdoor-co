@@ -10,6 +10,7 @@
 {% block content %}
 
 <section class="admin-section mt-5">
+    <!-- Taken from bootstrap examples -->
     <div class="container pb-5">
         <div class="row">
             <h2 class="px-3 fs-1 fw-bold text-center">Admin</h2>
@@ -74,8 +75,8 @@
                     <div class="admin-db d-none" id="manage-orders">
                         {% include 'manage_site/includes/manage-orders.html' %}
                     </div>
-                    <div class="admin-db d-none" id="manage-sale">
-                        Sale
+                    <div class="admin-db d-none" id="manage-users">
+                        {% include 'manage_site/includes/manage-users.html' %}
                     </div>
                     <div class="admin-db d-none" id="manage-mailing">
                         {% include 'manage_site/includes/manage-newsletter.html' %}
@@ -109,8 +110,6 @@
                 $('#manage-stock').removeClass('d-none');
             } else if ($(this).is(':contains("Orders")')) {
                 $('#manage-orders').removeClass('d-none');
-            } else if ($(this).is(':contains("Sale")')) {
-                $('#manage-sale').removeClass('d-none');
             } else if ($(this).is(':contains("Users")')) {
                 $('#manage-users').removeClass('d-none');
             } else if ($(this).is(':contains("Mailing List")')) {

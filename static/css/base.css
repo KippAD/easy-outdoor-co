@@ -57,6 +57,10 @@ header {
     color: #B4B1B1!important;
 }
 
+select {
+    
+}
+
 /* Navigation bar styles */
 .navbar {
     font-family: Montserrat, sans-serif;
@@ -83,6 +87,14 @@ h1 {
 .nav-link {
     font-weight: 900;
     color: #000000;
+}
+
+.navbar .nav-link:hover {
+    color: #5a5959;
+}
+
+#sale-link:hover {
+    color: #d38225!important;
 }
 
 .logo {
@@ -231,6 +243,11 @@ table a {
     color: #000000;
 }
 
+#newsletter-form .form-control {
+    max-width: 200px;
+    margin-left: auto;
+}
+
 
 /* XX-Large devices (larger desktops, 1400px and down) */
 @media screen and (max-width: 1400px) {
@@ -261,6 +278,10 @@ table a {
         top: 12.5vh;
         right: 2.5vw;
         z-index: 99999999999;
+    }
+
+    #newsletter-form .form-control {
+        margin: 0 auto 10px 0;
     }
 }
 

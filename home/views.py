@@ -8,8 +8,10 @@ def index(request):
     """Displays home page"""
     products = list(Product.objects.all())
     random_products = random.sample(products, k=8)
+    user = request.user
     context = {
         'related_products': random_products,
+        'user': user,
     }
 
     return render(request, 'home/index.html', context)

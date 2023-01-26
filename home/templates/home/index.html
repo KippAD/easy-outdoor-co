@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -18,24 +18,27 @@
 <!-- Shopping panels -->
 <section class="vw-100 shop-panel-section pb-4">
     <div class="container">
-        
+
         <div class="row">
             <div class="col-12 col-sm-4 d-inline-block py-2">
-                <a class="d-block shop-panel" href="{% url 'products' %}?sale" style="background-image: url('{{ MEDIA_URL }}sale-link.jpeg');">
+                <a class="d-block shop-panel" href="{% url 'products' %}?sale"
+                    style="background-image: url('{{ MEDIA_URL }}sale-link.jpeg');">
                     <div class="panel-content fs-1 d-flex align-items-center justify-content-center">
                         <h5 class="m-0 sale">On Sale</h5>
                     </div>
                 </a>
             </div>
             <div class="col-12 col-sm-4 d-inline-block py-2">
-                <a class="d-block shop-panel" href="{% url 'products' %}?clothing" style="background-image: url('{{ MEDIA_URL }}clothing-link.jpg');">
+                <a class="d-block shop-panel" href="{% url 'products' %}?clothing"
+                    style="background-image: url('{{ MEDIA_URL }}clothing-link.jpg');">
                     <div class="panel-content fs-1 d-flex align-items-center justify-content-center">
                         <h5 class="m-0">Clothing</h5>
                     </div>
                 </a>
             </div>
             <div class="col-12 col-sm-4 py-2">
-                <a class="d-block shop-panel" href="{% url 'products' %}?category=equipment" style="background-image: url('{{ MEDIA_URL }}gear-link.jpg');">
+                <a class="d-block shop-panel" href="{% url 'products' %}?category=equipment"
+                    style="background-image: url('{{ MEDIA_URL }}gear-link.jpg');">
                     <div class="panel-content fs-1 d-flex align-items-center justify-content-center">
                         <h5 class="m-0">Equipment</h5>
                     </div>
@@ -50,26 +53,33 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-6 d-lg-table-cell container about-content">
-                <h3 class="fs-1">Built for Adventure.</h3>
-                <p class="fs-5">
-                    Every adventure starts with a jacket, a pair of shoes and a backpack.
-                    That's why we stock only the best outdoor brands fit for every terrain.
-                </p>
-                <p class="fs-5">
-                    We know first hand the importance of reliable and durable clothing and equipment;
-                    our own products reflect this, and any outside brands we stock have to meet this
-                    requirement.
-                </p>
-                <p href="{% url 'products' %}" class="fs-5 mb-4">Whatever the journey is, we have you covered - by explorers for explorers.</p>
-                <a class="shop-btn fs-5 px-3 py-1">Shop Now</a>
+                <div class="ps-4 h-100 d-flex flex-column flex-wrap justify-content-between">
+                    <h3 class="fs-1">Built for Adventure.</h3>
+                    <p>
+                        Every adventure starts with a jacket, a pair of shoes and a backpack.
+                        That's why we stock only the best outdoor brands fit for every terrain.
+                    </p>
+                    <p>
+                        We know first hand the importance of reliable and durable clothing and equipment;
+                        our own products reflect this, and any outside brands we stock have to meet this
+                        requirement.
+                    </p>
+                    <p class="mb-4">Whatever the journey is, we have you covered - by
+                        explorers for explorers.</p>
+                    <div>
+                        <a href="{% url 'products' %}" class="shop-btn fs-5 px-3 py-1">Shop Now</a>
+                    </div>
+                </div>
             </div>
-            <div class="d-none d-lg-table-cell col-6"><img class="about-img" src="{{ MEDIA_URL }}about-us.jpg" alt=""></div>
+            <div class="d-none d-lg-table-cell col-6">
+                <img class="about-img" src="{{ MEDIA_URL }}about-us.jpg" alt="">
+            </div>
         </div>
     </div>
 </section>
 
 <!-- Related products -->
-<section  class=" vw-100 px-3 related-products mt-3">
+<section class="vw-100 px-3 related-products mt-3">
     <div class="container">
         <h2 class="mb-3">Browse Products</h2>
         <div class="d-flex overflow-scroll">
