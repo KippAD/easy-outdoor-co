@@ -47,6 +47,9 @@ label[for=id_email] {
     height: 25px;
 }
 
+#password-change label {
+    display: none;
+}
 
 /* XX-Large devices (larger desktops, 1400px and down) */
 @media screen and (max-width: 1400px) {
