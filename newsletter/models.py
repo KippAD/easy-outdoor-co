@@ -14,8 +14,8 @@ class MailingList(models.Model):
 class NewsletterEmail(models.Model):
     """Stores and sends out newsletters composed by the admin"""
     date = models.DateTimeField(auto_now_add=True)
-    subject = models.CharField(max_length=200, null=True)
-    message = models.TextField(null=True)
+    subject = models.CharField(max_length=200, null=False)
+    message = models.TextField(null=False)
 
     def __str__(self):
         return self.subject

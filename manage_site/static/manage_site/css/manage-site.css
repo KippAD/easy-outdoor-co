@@ -35,6 +35,12 @@ body{
     cursor: pointer;
 }
 
+input,
+textarea,
+select {
+    margin: 15px auto 0 auto;
+}
+
 /* Sidebar */
 
 .admin-section  .nav-link:hover {

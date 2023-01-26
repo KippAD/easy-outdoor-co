@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/manage_site.css' %}">
-<link rel="stylesheet" href="{% static 'css/rating-selector.css' %}">
+<link rel="stylesheet" href="{% static 'manage_site/css/manage-site.css' %}">
+<link rel="stylesheet" href="{% static 'profiles/css/rating-selector.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -19,8 +19,9 @@
                     <div>
                         {% include 'profiles/includes/rating-selector.html' %}
                     </div>
-                    <div><p class="text-danger"></p></div>
-                    {{ form.comment | as_crispy_field }}
+                    <div class="mb-3">
+                        {{ form.comment | as_crispy_field }}
+                    </div>
                     <a class="white-btn px-3 py-1" href="{% url 'order-history' %}">Cancel</a>
                     <input id="reviewSubmit" class="shop-btn px-3 py-1" type="submit" value="Submit">
                 </form>
@@ -31,14 +32,8 @@
 </section>
 
 {% endblock %}
+
 {% block postloadjs %}
-{{ block.super }}
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('input[name="rating"]:checked').val();
-        $("label[for='id_comment']").hide()
-    })
-</script>
-
+<!-- Page script and form validation -->
+<script src="{% static 'profiles/js/rate_product.js' %}"></script>
 {% endblock %}

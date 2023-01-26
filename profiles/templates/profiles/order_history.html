@@ -22,7 +22,7 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
 
-                            <button class="accordion-button collapsed px-2" type="button" data-bs-toggle="collapse"
+                            <button class="shop-btn accordion-button collapsed px-2" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapse-{{ order.order_number }}" aria-expanded="false"
                                 aria-controls="flush-collapseOne">
                                 <strong>{{ forloop.counter }}. {{ order.date | date:"M d, Y"}} 
@@ -51,7 +51,7 @@
                                         {% if reviews %}
                                             {% for r in reviews %}
                                                 {% if r.product == item.product %}
-                                                <p>You rated this product {{ r.rating }} stars.</p>
+                                                <p class="toast-success">You rated this product {{ r.rating }} stars.</p>
                                                 {% else %}
                                                 <a href="{% url 'load-rating-form' product_id=item.product.id %}">Rate This Item</a>
                                                 {% endif %}
