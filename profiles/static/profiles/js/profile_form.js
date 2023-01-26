@@ -1,6 +1,7 @@
 // Contact form js and client side valdiation
 $(document).ready(function () {
     
+    // Taken from https://stackoverflow.com/questions/42229437/jquery-validation-accepts-even-if-input-contains-only-whitespaces
     jQuery.validator.addMethod("noSpace", function(value, element) { 
         return value.indexOf(" ") < 0 && value != ""; 
     }, "No space please and don't leave it empty");
@@ -8,6 +9,7 @@ $(document).ready(function () {
     jQuery.validator.addMethod("lettersonly", function(value, element) {
         return this.optional(element) || /^[a-zA-Z0-9\-]+$/i.test(value);
     }, "Letters and spaces only please");
+    
     // Custom validator method taken from https://stackoverflow.com/questions/29026778/jquery-validation-method-phone-number-begin-with-plus-mark
     $.validator.addMethod('fnType', function(value, element) {
         return value.match(/^\+(?:[0-9] ?){6,14}[0-9]$/);

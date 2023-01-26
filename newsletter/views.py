@@ -12,26 +12,30 @@ def newsletter_subscribe(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
-        if MailingList.objects.filter(email=email).exists():
-            messages.error(request, 'You have already joined our newsletter')
+
+        if email.strip() and name.strip():
+            if MailingList.objects.filter(email=email).exists():
+                messages.error(request, 'You have already joined our newsletter')
+            else:
+                e = MailingList(name=name, email=email)
+                e.save()
+
+                email_subject = 'Newsletter Subscription Confirmation'
+                email_content = f"Hi {name}! This is a confirmation email for your recent \
+                    subscription to the Easy Outdoor Co. newsletter.\
+                        Email:{email}"
+                html_message = render_to_string('newsletter/email-template.html', {
+                    'subject': email_subject,
+                    'content': email_content
+                    })
+                plain_message = strip_tags(html_message)
+                from_email = settings.EMAIL_HOST_USER
+                to = email
+                mail.send_mail(email_content, email_content, from_email, [to], html_message=html_message)
+
+                messages.success(request, 'You have joined our newsletter!')
         else:
-            e = MailingList(name=name, email=email)
-            e.save()
-
-            email_subject = 'Newsletter Subscription Confirmation'
-            email_content = f"Hi {name}! This is a confirmation email for your recent \
-                subscription to the Easy Outdoor Co. newsletter.\
-                    Email:{email}"
-            html_message = render_to_string('newsletter/email-template.html', {
-                'subject': email_subject,
-                'content': email_content
-                })
-            plain_message = strip_tags(html_message)
-            from_email = settings.EMAIL_HOST_USER
-            to = email
-            mail.send_mail(email_content, email_content, from_email, [to], html_message=html_message)
-
-            messages.success(request, 'You have joined our newsletter!')
+            messages.error(request, "An error occured: Please fill out both fields.")
 
     redirect_url = 'home'
     return redirect(redirect_url)
