@@ -28,6 +28,9 @@
     list-style-type: none;
 }
 
+#order-history-panel {
+    height: 500px;
+}
 
 /* XX-Large devices (larger desktops, 1400px and down) */
 @media screen and (max-width: 1400px) {

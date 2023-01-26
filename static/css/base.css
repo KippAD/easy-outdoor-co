@@ -127,6 +127,23 @@ h1 {
     position: relative;
 }
 
+/* Error pages */
+.error-section {
+    min-height: 70vh;
+}
+
+.error-section > .row {
+    background: url('/media/mountain.jpg') center bottom;
+    background-size: cover;
+    width: 50%;
+}
+
+.error-section h2 {
+    font-family: Montserrat, sans-serif;
+    font-weight: 900;
+}
+
+
 /* Custom bootstrap burger menu styles (Taken from previous portfolio project: https://github.com/KippAD/george-orwell-pub */
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8, %3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
@@ -283,10 +300,16 @@ table a {
     #newsletter-form .form-control {
         margin: 0 auto 10px 0;
     }
+
+    .error-section > .row {
+        width: 75%;
+    }
 }
 
 /* Small devices (landscape phones, 576px and down) */
 @media screen and (max-width: 576px) {
-    
+    .error-section > .row {
+        width: 90%;
+    }
 }
 

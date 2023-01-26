@@ -15,7 +15,7 @@
             <h2 class="px-3 fs-1 text-center">Order History</h2>
         </div>
         <div class="row">
-            <h3 class="border-bottom">Orders</h3>
+            <h3 class="d-none d-md-block border-bottom">Orders</h3>
             <div class="px-3 mt-3 col-12 col-md-6 order-2 order-md-1">
                 <div class="accordion accordion-flush" id="accordionFlushExample">
                     {% for order in orders %}
@@ -92,7 +92,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="mx-auto mt-3 py-4 col-12 col-md-6 order-1 order-md-2 rounded info-panel d-flex flex-column justify-content-center align-content-center">
+            <div id="order-history-panel" class="mx-auto mt-3 py-4 col-12 col-md-6 order-1 order-md-2 rounded info-panel d-flex flex-column justify-content-center align-content-center">
                 <div class="px-3 text-center text-white">
                     <div class="logo mb-3"></div>
                     <h3 class="fs-1">Hello {{ user.first_name }}.</h3>
@@ -100,7 +100,7 @@
                         Here you can view previous orders, this is useful if any issues arise later on in the order
                         process.</p>
                     <p class="mx-auto fs-5">If you are having trouble with an order please contact us.</p>
-                    <a href="" class="shop-btn text-decoration-none px-5 py-1">Contact Form</a>
+                    <a href="{% url 'contact-form' %}" class="shop-btn text-decoration-none px-5 py-1">Contact Form</a>
                 </div>
             </div>
         </div>

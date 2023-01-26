@@ -10,14 +10,17 @@
 {% block content %}
 
 
-<section class="profile-section">
-    <div class="container pb-5 d-flex flex-column justify-content-center align-items-center">
+<section class="error-section d-flex flex-column justify-content-center align-items-center">
+    <div class="row rounded text-white text-center p-5">
         <h2>404 Error <i class="fa-solid fa-screwdriver-wrench"></i></h2>
-        <p>We're sorry, something went wrong on our end...</p>
-        <div class="pb-4">
+        <div class="pb-1">
             <div class="logo"></div>
         </div>
-        <a href="shopt-btn py-1 px-2">Return to Shop</a>
+        <p class="mb-1">We're sorry, this page couldn't be loaded.
+        <p>If this problem persists please let us know!</p>
+        <div>
+            <a class="shop-btn py-2 px-2" href="{% url 'home' %}">Homepage</a>
+        </div>
     </div>
 </section>
 
