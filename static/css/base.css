@@ -57,10 +57,6 @@ header {
     color: #B4B1B1!important;
 }
 
-select {
-    
-}
-
 /* Navigation bar styles */
 .navbar {
     font-family: Montserrat, sans-serif;
@@ -142,6 +138,11 @@ h1 {
     font-family: Montserrat, sans-serif;
     font-weight: 900;
 }
+
+/* Validation errors */
+.error {
+    color: #c71515!important;
+  }
 
 
 /* Custom bootstrap burger menu styles (Taken from previous portfolio project: https://github.com/KippAD/george-orwell-pub */
@@ -260,7 +261,7 @@ table a {
     color: #000000;
 }
 
-#newsletter-form .form-control {
+#mailingListForm .form-control {
     max-width: 200px;
     margin-left: auto;
 }
@@ -285,8 +286,12 @@ table a {
 
 /* Medium devices (tablets, 768px and down) */
 @media screen and (max-width: 768px) {
-    #footer-form {
+    #mailingListForm {
         text-align: start!important;
+    }
+
+    #mailingListForm .form-control {
+        margin: 0 auto 10px 0;
     }
 
     .message-container {
@@ -295,10 +300,6 @@ table a {
         top: 12.5vh;
         right: 2.5vw;
         z-index: 99999999999;
-    }
-
-    #newsletter-form .form-control {
-        margin: 0 auto 10px 0;
     }
 
     .error-section > .row {

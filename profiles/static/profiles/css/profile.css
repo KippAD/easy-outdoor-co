@@ -13,8 +13,8 @@
     font-weight: 900;
 }
 
-#user-form input,
-#user-form select {
+#userForm input,
+#userForm select {
     margin-bottom: 5px;
 }
 

@@ -23,7 +23,7 @@ class UserProfileForm(forms.ModelForm):
             'username': 'Username',
             'first_name': 'First Name',
             'last_name': 'Last Name',
-            'email': 'Street Address 1',
+            'email': 'Email',
         }
 
         self.fields['username'].help_text = ''

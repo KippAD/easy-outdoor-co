@@ -13,7 +13,7 @@ def newsletter_subscribe(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         if MailingList.objects.filter(email=email).exists():
-            messages.warning(request, 'You have already joined our newsletter!')
+            messages.error(request, 'You have already joined our newsletter')
         else:
             e = MailingList(name=name, email=email)
             e.save()

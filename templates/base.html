@@ -29,10 +29,12 @@
 
     {% block corejs %}
     <script src="https://kit.fontawesome.com/132ee46fd9.js" crossorigin="anonymous"></script>
+    <!-- Jquery scripts -->
     <script src="https://code.jquery.com/jquery-3.6.2.min.js"
         integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js
-"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
@@ -129,8 +131,10 @@
                     </a>
 
                     <ul class="dropdown-menu">
+                        {% if user.is_staff %}
                         <li><a class="dropdown-item" href="{% url 'manage-site' %}">Admin</a></li>
-                        <li><a class="dropdown-item" href="{% url 'profile' %}">Account</a></li>
+                        {% endif %}
+                        <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
                         <li><a class="dropdown-item" href="{% url 'order-history' %}">Order History</a></li>
                         <li><a class="dropdown-item" href="{% url 'account_logout' %}"><i
                                     class="fa-solid fa-right-from-bracket"></i>Sign Out</a></li>
@@ -182,12 +186,18 @@
                 </div>
                 <div id="footer-form" class="col-12 col-md-6 text-end">
                     <h4 class="fs-2 text-white">Easy Outdoor Co.</h4>
-                    <form id="newsletter-form" action="{% url 'mailing-list' %}" method='POST' class="py-1">
+                    <form id="mailingListForm" action="{% url 'mailing-list' %}" method='POST' class="py-1">
                         {% csrf_token %}
                         <p class="mb-2 fw-bold">Join our newsletter:</p>
-                        <input class="form-control" type="text" id="name" name="name" placeholder="Enter your name...">
-                        <input class="form-control" type="email" id="email" name="email" placeholder="Enter your email...">
-                        <input class="shop-btn" type="submit">
+                        <div class="mb-2">
+                            <input class="form-control mb-0" type="text" id="name" name="name" placeholder="Enter your name...">
+                        </div>
+                        <div class="mb-2">
+                            <input class="form-control mb-0" type="email" id="email" name="email" placeholder="Enter your email...">
+                        </div>
+                        <div>
+                            <input class="shop-btn" type="submit">
+                        </div>
                     </form>
                     <p><i class="fa-regular fa-copyright"></i> 2023 Easy Outdoor Co. All Rights Reserved</p>
                 </div>
@@ -214,6 +224,7 @@
     {% endif %}
 
     {% block postloadjs %}
+    {{ block.super }}
     <script type="text/javascript">
         var toastElList = [].slice.call(document.querySelectorAll('.toast'))
         var toastList = toastElList.map(function (toastEl) {
@@ -221,6 +232,7 @@
         })
         toastList.forEach(toast => toast.show())
     </script>
+    <script src="{% static 'newsletter/js/mailing_list_form.js' %}"></script>
     {% endblock %}
 </body>
 

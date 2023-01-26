@@ -3,7 +3,7 @@ from django.db import models
 
 class MailingList(models.Model):
     """ List of emails that recieve promotional emails from site """
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     date_subscribed = models.DateTimeField(auto_now_add=True)
 

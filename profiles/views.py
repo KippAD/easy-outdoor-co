@@ -10,7 +10,7 @@ from django.contrib import messages
 from django.forms.models import model_to_dict
 
 
-def profile(request, username):
+def profile(request):
     """ Display user profiles """
     user = request.user
     profile = get_object_or_404(UserProfile, user=request.user)
@@ -24,9 +24,6 @@ def profile(request, username):
             messages.success(request, 'Profile updated successfully')
         else:
             messages.error(request, 'Update failed. Please ensure the form is valid.')
-            raise ValidationError(
-                    "Your form was not updated, please fill out the form correctly."
-                )
     else:
         user_form = UserProfileForm(instance=user)
         delivery_form = UserDeliveryForm(instance=profile)
