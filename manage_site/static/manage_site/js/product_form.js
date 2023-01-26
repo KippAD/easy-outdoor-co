@@ -22,7 +22,7 @@ $(document).ready(function () {
     }, "Letters and spaces only please");
 
     // Form validation
-    $('#productAddForm').validate({
+    $('.productForm').validate({
         rules: {
             category: {
                 required: true,
@@ -38,10 +38,6 @@ $(document).ready(function () {
             },
             price: {
                 required: true,
-                digits: true
-            },
-            sale_price: {
-                digits: true,
             },
             image_url: {
                 required: true,
@@ -63,10 +59,6 @@ $(document).ready(function () {
             },
             price: {
                 required: "Please enter a product price",
-                digits: "The product price must be a number"
-            },
-            price: {
-                digits: "The sale price must be a number"
             },
             image_url: {
                 required: "Please enter a URL for your product image",

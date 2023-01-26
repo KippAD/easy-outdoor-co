@@ -7,6 +7,7 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ['category', 'name', 'slug', 'desc', 'price', 'sale_price', 'image_url']
+        localized_fields = ['price']
 
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Product Name *'}),

@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% load l10n %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'manage_site/css/manage-site.css' %}">
 {% endblock %}
@@ -11,15 +13,15 @@
     <div class="container">
         <div class="row">
             <div class="mx-auto col-12 col-md-6 admin-form rounded mt-3">
-                <h2>Edit Product</h2>
-                <form method="POST">
+                <h2>Update Product</h2>
+                <form class="productForm" method="POST">
                     {% csrf_token %}
                     {{ form.category | as_crispy_field }}
                     {{ form.name | as_crispy_field }}
-                    {{ form.desc| as_crispy_field }}
                     {{ form.slug | as_crispy_field }}
+                    {{ form.desc| as_crispy_field }}
                     <p class="mb-0">Sized Item:</p>
-                    <div class="form-check form-switch" id="div_id_has_sizes" id="div_id_has_sizes" id="id_has_sizes">
+                    <div class="form-check form-switch" id="div_id_has_sizes">
                         <input class="form-check-input" name="has_sizes" type="checkbox" id="flexSwitchCheckDefault" checked="">
                     </div>
                     <div class="d-flex mt-2 justify-content-between">
@@ -27,8 +29,7 @@
                         {{ form.sale_price | as_crispy_field }}
                     </div>
                     {{ form.image_url | as_crispy_field }}
-                    <a class="white-btn px-3 py-1" href="{% url 'manage-site' %}">Cancel</a>
-                    <input class="shop-btn px-3 py-1" type="submit" value="Update Product">
+                    <input class="shop-btn px-3 py-1 mb-3" type="submit" value="Update Product">
                 </form>
             </div>
         </div>
@@ -37,24 +38,7 @@
 </section>
 
 {% endblock %}
+
 {% block postloadjs %}
-{{ block.super }}
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('label').hide()
-        $('#id_category').addClass('form-select')
-        // Change option text
-        $('select option:contains("---------")').text('Category *');
-        $('select option:contains("jackets_coats")').text('Jackets & Coats');
-        $('select option:contains("equipment")').text('Equipment');
-        $('select option:contains("trousers")').text('Trousers');
-        $('select option:contains("fleeces_jumpers")').text('Fleeces & Jumpers');
-        $('select option:contains("footwear")').text('Footwear');
-        $('select option:contains("t-shirts")').text('T-Shirts');
-        $('select option:contains("socks")').text('Socks');
-        $('select option:contains("sunglasses")').text('Sunglasses');
-        $('select option:contains("headwear")').text('Headwear');
-        $('select option:contains("gloves")').text('Gloves');
-    });
-</script>
+<script src="{% static 'manage_site/js/product_form.js' %}"></script>
 {% endblock %}
