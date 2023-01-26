@@ -1,9 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Product, Category, SizeStock, RegularStock
-from django.db.models import Q
+from django.db.models import Q, Min, Max
 from django.db.models.functions import Lower
 from django.forms.models import model_to_dict
-from django.db.models import Min, Max
+from django.contrib import messages
 import random
 
 
