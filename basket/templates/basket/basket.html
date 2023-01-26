@@ -8,25 +8,27 @@
 
 {% block content %}
 
-<section class="basket-section">
+<section class="basket-section container d-flex flex-column justify-content-between">
+    
+    <div class="text-center border-bottom">
+        <h2 class="fs-3">Your Basket</h2>
+    </div>
+    {% if basket_items %}
     <div class="container">
-        <div class="row">
-            <h2 class="fs-3">Your Basket</h2>
-        </div>
         {% for item in basket_items %}
-        <div class="row item-row my-2">
-            <div class="col-1 fs-5 fw-bold">
+        <div id="item-info" class="row item-row my-2 p-3">
+            <div class="d-none d-sm-block col-1 col-md-1 fs-5 fw-bold">
                 {{ forloop.counter }}.
             </div>
-            <div class="img-container d-none d-sm-block col-2 p-0">
+            <div class="img-container d-none d-md-block col-2 p-0">
                 <img class="basket-img" src="{{ item.product.image_url }}" alt="">
             </div>
-            <div class="col-11 col-sm-9 ps-3">
-                <div class="container h-100 p-0">
+            <div class="col-12 col-sm-10 col-md-9 col-md-8 ps-3">
+                <div class="container d-flex flex-column justify-content-between h-100 p-0">
                     <div class="row">
-                        <div class="col-12 d-sm-flex justify-content-between">
+                        <div id="item-name" class="col-12 d-md-flex justify-content-between">
                             <h3 class="m-0">{{ item.product.name }}</h3>
-                            <div class="d-none d-sm-inline-block">
+                            <div class="d-none d-md-inline-block">
                                 <a class="fs-4 text-danger remove-item" data-index="1" id="remove_{{ item.product_id }}" data-product_size="{{ item.size_selection }}"><i class="fa-solid fa-square-xmark"></i></a>
                             </div>
                         </div>
@@ -49,35 +51,39 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-6">
+                    <div class="row mt-auto">
+                        <div class="col-12 col-md-8">
                             <form id="quantity-form" action="{% url 'update_quantity' item.product_id %}" method="POST">
                                 {% csrf_token %}  
-                                <div class="d-flex">
-                                    <div data-value="-" class="rounded-start decrement quantity-input">
-                                        <i class="fa-solid fa-minus"></i>
+                                <div class="d-flex flex-column flex-md-row">
+                                    <div id="quantity-container" class="d-flex">
+                                        <div data-value="-" class="rounded-start decrement quantity-input">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </div>
+                                        <input data-product_id="{{ product.id }}" class="m-0 text-center" type="number" name="quantity"
+                                        id="quantity" value="{{ item.quantity }}">
+                                        <div data-value="+" class="rounded-end increment quantity-input">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
                                     </div>
-                                    <input data-product_id="{{ product.id }}" class="m-0 text-center" type="number" name="quantity"
-                                    id="quantity" value="{{ item.quantity }}">
-                                    <div data-value="+" class="rounded-end increment quantity-input">
-                                        <i class="fa-solid fa-plus"></i>
+                                    <div class="mt-2">
+                                        <button class="ms-1 bg-white white-btn" type="submit">Update</button>
                                     </div>
                                 </div>
-                                <button class="mt-1 bg-white white-btn" type="submit">Update</button>
                                 {% if item.size_selection %}
                                 <input type="hidden" name="product_size" value="{{ item.size_selection }}">
                                 {% endif %}
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </form>
                         </div>
-                        <div class="col-6">
-                            <p class="fw-bold total-price fs-5 m-0 text-end">Total: £{{ item.product.price | calc_total_price:item.quantity }}</p>
+                        <div id="grand-total" class="d-flex flex-column justify-content-end col-12 col-md-4">
+                            <p class="fw-bold total-price fs-5 m-0 lh-1 text-end">Total: £{{ item.product.price | calc_total_price:item.quantity }}</p>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-12 d-sm-none">
-                            <a class="fs-6 text-danger remove-item" date-index="2" id="remove_{{ item.product_id }}" data-product_size="{{ item.size_selection }}">Remove from basket <i class="fa-solid fa-square-xmark"></i></a>
+                        <div class="col-12 d-md-none">
+                            <a class="fs-6 text-danger remove-item" date-index="2" id="remove_{{ item.product_id }}" data-product_size="{{ item.size_selection }}"><i class="fa-solid fa-square-xmark"></i> Remove</a>
                         </div>
                     </div>
                 </div>
@@ -86,12 +92,19 @@
         <span class="d-block line-divide"></span>
         {% endfor %}
     </div>
+        {% else %}
+        <div class="text-center">
+            <i class="mb-3 grey fs-1 fa-solid fa-cart-shopping"></i>
+            <p class="grey fs-3 fw-bold">Your basket is currently empty</p>
+        </div>
+        {% endif %}
+    
 
     <div class="container checkout-btn py-3">
         <div class="row">
-            <div class="">
-                <a class="fs-6 py-1 px-2 fw-bold white-btn text-black" href="">Return to Shop</a>
-                <a class="fs-6 py-1 px-2 fw-bold shop-btn" href="{% url 'checkout' %}">Checkout</a>
+            <div class="d-flex justify-content-center">
+                <a class="fs-6 py-1 px-2 me-1 fw-bold white-btn text-black" href="">Return to Shop</a>
+                <a class="fs-6 py-1 px-2 ms-1 fw-bold shop-btn" href="{% url 'checkout' %}">Checkout</a>
             </div>
         </div>
     </div>
