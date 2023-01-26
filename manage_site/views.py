@@ -130,7 +130,6 @@ class UpdateRegularStock(SuccessMessageMixin, UserPassesTestMixin, generic.Updat
 
 
 # View order details
-
 class OrderDetails(SuccessMessageMixin, UserPassesTestMixin, generic.DetailView):
     """Displays immutable order details"""
     model = Order
@@ -143,7 +142,7 @@ class OrderDetails(SuccessMessageMixin, UserPassesTestMixin, generic.DetailView)
 # Crud for users
 @user_passes_test(lambda user: user.is_staff)
 def update_profile(request, user_id):
-    """ Display user profiles """
+    """ Displays form and updates users information """
     user = get_object_or_404(User, id=user_id)
     profile = get_object_or_404(UserProfile, user=user)
 
@@ -176,9 +175,24 @@ def update_profile(request, user_id):
 
 
 class DeleteProfile(SuccessMessageMixin, UserPassesTestMixin, generic.DeleteView):
+    """Deletes user profile from the database"""
     model = User
     success_message = 'User Deleted!'
     template_name = "manage_site/profile-delete.html"
+
+    def test_func(self):
+        return self.request.user.is_staff
+
+    def get_success_url(self):
+        return reverse('manage-site')
+
+
+# Delete email from newsletter database
+class DeleteEmail(SuccessMessageMixin, UserPassesTestMixin, generic.DeleteView):
+    """Deletes user profile from the database"""
+    model = MailingList
+    success_message = 'Email removed from mailing list!'
+    template_name = "manage_site/email-delete.html"
 
     def test_func(self):
         return self.request.user.is_staff

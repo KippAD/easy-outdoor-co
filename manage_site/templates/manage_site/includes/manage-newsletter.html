@@ -1,6 +1,6 @@
 <div class="row border-bottom mb-3">
-    <div class="my-3">
-        <h3 class="fw-bold">Clothing Stock</h3>
+    <div class="admin-header my-3">
+        <h3 class="fw-bold">Newsletter Subscriptions</h3>
         <a class="shop-btn px-3 py-1 text-decoration-none" href="{% url 'newsletter-form' %}">Send Newsletter</a>
     </div>
 </div>
@@ -21,8 +21,8 @@
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
             <td>
-                <a class="fw-bold" href="">Edit
-                    <i class="fa-solid fa-pen-to-square"></i></a>
+                <a class="fw-bold" href="{% url 'delete-email' pk=user.id %}">Remove
+                    <i class="fa-solid fa-trash-can"></i></a>
             </td>
         </tr>
         {% endfor %}

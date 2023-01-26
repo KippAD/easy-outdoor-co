@@ -11,4 +11,5 @@ urlpatterns = [
     path('order-details/<int:pk>', views.OrderDetails.as_view(), name='order-details'),
     path('update-profile/<int:user_id>', views.update_profile, name='update-profile'),
     path('delete-profile/<int:pk>', views.DeleteProfile.as_view(), name='delete-profile'),
+    path('delete-email/<int:pk>', views.DeleteEmail.as_view(), name='delete-email'),
 ]

@@ -10,112 +10,77 @@
 {% block content %}
 
 <section class="admin-section mt-5">
-    <!-- Taken from bootstrap examples -->
-    <div class="container pb-5">
-        <div class="row">
-            <h2 class="px-3 fs-1 fw-bold text-center">Admin</h2>
+    
+        <!-- Taken from bootstrap examples -->
+        <div class="container pb-5">
+            <div class="row">
+                <h2 class="fs-1 fw-bold text-center">Admin</h2>
+            </div>
+            <div class="row">
+                <div id="adminMenu" class="rounded col-12 col-md-3 col-lg-2 d-flex flex-column">
+                    <div class="mx-auto my-0 my-4 logo"></div>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active" aria-current="page">
+                                <i class="fa-solid fa-shirt"></i>
+                                Products
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link">
+                                <i class="fa-solid fa-boxes-packing"></i>
+                                Stock
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link">
+                                <i class="fa-solid fa-box-archive"></i>
+                                Orders
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link">
+                                <i class="fa-solid fa-user"></i>
+                                Users
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link">
+                                <i class="fa-solid fa-envelope"></i>
+                                Mailing List
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-md-9 col-lg-10">
+                    <div class="container">
+
+                        <div class="admin-db" id="manage-products">
+                            {% include 'manage_site/includes/manage-products.html' %}
+                        </div>
+                        <div class="admin-db d-none" id="manage-stock">
+                            {% include 'manage_site/includes/manage-stock.html' %}
+                        </div>
+                        <div class="admin-db d-none" id="manage-orders">
+                            {% include 'manage_site/includes/manage-orders.html' %}
+                        </div>
+                        <div class="admin-db d-none" id="manage-users">
+                            {% include 'manage_site/includes/manage-users.html' %}
+                        </div>
+                        <div class="admin-db d-none" id="manage-mailing">
+                            {% include 'manage_site/includes/manage-newsletter.html' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-2 d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-                <h3 class="fs-4 m-0 text-center fw-bold">Admin</h3>
-                <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active" aria-current="page">
-                            <i class="fa-solid fa-shirt"></i>
-                            Products
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link">
-                            <i class="fa-solid fa-boxes-packing"></i>
-                            Stock
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link">
-                            <i class="fa-solid fa-box-archive"></i>
-                            Orders
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link">
-                            <i class="fa-solid fa-tags"></i>
-                            Sale
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link">
-                            <i class="fa-solid fa-user"></i>
-                            Users
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link">
-                            <i class="fa-solid fa-envelope"></i>
-                            Mailing List
-                        </a>
-                    </li>
-                </ul>
-                <hr>
-                <div class="dropdown">
-                    <div class="logo"></div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-9">
-                <div class="container">
-
-                    <div class="admin-db" id="manage-products">
-                        {% include 'manage_site/includes/manage-products.html' %}
-                    </div>
-                    <div class="admin-db d-none" id="manage-stock">
-                        {% include 'manage_site/includes/manage-stock.html' %}
-                    </div>
-                    <div class="admin-db d-none" id="manage-orders">
-                        {% include 'manage_site/includes/manage-orders.html' %}
-                    </div>
-                    <div class="admin-db d-none" id="manage-users">
-                        {% include 'manage_site/includes/manage-users.html' %}
-                    </div>
-                    <div class="admin-db d-none" id="manage-mailing">
-                        {% include 'manage_site/includes/manage-newsletter.html' %}
-                    </div>
-                </div>
-            </div>
-
-            
-
-
+    </div>
 </section>
 
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
-<!-- Displays stock warning on sized items when low on stock -->
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('.data-table').DataTable();
-
-        $(".nav-link").click(function (e) {
-            $('.data-table').DataTable();
-            $('.nav-link').removeClass('active text-white');
-            $('.admin-db').addClass('d-none');
-            $(this).addClass('active');
-            
-            if ($(this).is(':contains("Products")'))  {
-                $('#manage-products').removeClass('d-none');
-            } else if ($(this).is(':contains("Stock")')) {
-                $('#manage-stock').removeClass('d-none');
-            } else if ($(this).is(':contains("Orders")')) {
-                $('#manage-orders').removeClass('d-none');
-            } else if ($(this).is(':contains("Users")')) {
-                $('#manage-users').removeClass('d-none');
-            } else if ($(this).is(':contains("Mailing List")')) {
-                $('#manage-mailing').removeClass('d-none');
-            }
-        });
-    });
-</script>
+<script src="{% static 'manage_site/js/manage_site.js' %}"></script>
 {% endblock %}

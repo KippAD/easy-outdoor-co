@@ -10,14 +10,11 @@
 <section class="admin-section">
     <div class="container">
         <div class="row text-center">
-            <div class="p-3 bg-white mx-auto col-12 col-md-6 admin-form rounded">
-                <h2>Delete Product</h2>
-                <p>Are you sure you want to delete <strong>{{ object }}</strong>?</p>
-                <div>
-                    <img class="product-img" src="{{ object.image_url }}" alt="">
-                    <p class="mt-2 fw-bold">ID: {{ object.id }}</p>
-                    <p class="fw-bold">£{{ object.price }}</p>
-                </div>
+            <div class="p-3 bg-white mx-auto col-12 col-md-6 admin-form rounded mt-3">
+                <h2>Delete Subscription</h2>
+                <p>Are you sure you want to remove this user from the mailing list?</p>
+                <p class="mb-0">Email:</p>
+                <p class="fw-bold">{{ object }}</p>
                 
                 <form method="post">{% csrf_token %}
                     {{ form }}

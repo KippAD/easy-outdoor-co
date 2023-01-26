@@ -1,5 +1,5 @@
 <div class="row border-bottom mb-3">
-    <div class="my-3">
+    <div class="admin-header my-3">
         <h3 class="fw-bold">Clothing Stock</h3>
         <a class="shop-btn px-3 py-1 text-decoration-none" href="{% url 'newsletter-form' %}">Site Users</a>
     </div>
@@ -9,9 +9,9 @@
     <thead>
         <tr>
             <th>Username</th>
-            <th>Email</th>
+            <th class="d-none d-md-table-cell">Email</th>
             <th>Name</th>
-            <th>Staff Status</th>
+            <th class="d-none d-md-table-cell">Staff Status</th>
             <th>Edit</th>
         </tr>
     </thead>
@@ -19,9 +19,9 @@
         {% for profile in profiles %}
         <tr>
             <td>{{ profile.user.username }}</td>
-            <td>{{ profile.user.email }}</td>
+            <td class="d-none d-md-table-cell">{{ profile.user.email }}</td>
             <td>{{ profile.user.first_name }} {{ profile.user.last_name}}</td>
-            <td>{{ profile.user.is_staff }}</td>
+            <td class="d-none d-md-table-cell">{{ profile.user.is_staff }}</td>
             <td>
                 <a class="fw-bold" href="{% url 'update-profile' user_id=profile.user.id %}">Edit
                     <i class="fa-solid fa-pen-to-square"></i></a>
@@ -32,9 +32,9 @@
     <tfoot>
         <tr>
             <th>Username</th>
-            <th>Email</th>
+            <th class="d-none d-md-table-cell">Email</th>
             <th>Name</th>
-            <th>Staff Status</th>
+            <th class="d-none d-md-table-cell">Staff Status</th>
             <th>Edit</th>
         </tr>
     </tfoot>

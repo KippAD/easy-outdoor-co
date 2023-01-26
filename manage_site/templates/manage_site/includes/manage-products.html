@@ -1,11 +1,11 @@
 <div class="row border-bottom mb-3">
-    <div class="my-3">
+    <div class="admin-header my-3">
         <h3 class="fw-bold">Product Management</h3>
         <a class="shop-btn px-3 py-1 text-decoration-none" href="{% url 'add-product' %}">Add
             product</a>
-
     </div>
 </div>
+
 <!-- Sort Table is from https://datatables.net/examples/styling/bootstrap5.html -->
 <table id="productTable" class="table table-striped data-table" style="width:100%">
     <thead>
@@ -31,10 +31,14 @@
             <td class="d-none d-md-table-cell"><i class="fa-solid fa-star"></i>{{ product.rating }}</td>
             <td>£{{ product.price }}</td>
             <td>
-                <a class="fw-bold" href="{% url 'update-product' pk=product.id %}">Edit
-                    <i class="fa-solid fa-pen-to-square"></i></a>
-                <a class="fw-bold" href="{% url 'delete-product' pk=product.id %}">Delete
-                    <i class="fa-solid fa-trash-can"></i></a>
+                <div>
+                    <a class="fw-bold" href="{% url 'update-product' pk=product.id %}">Edit
+                        <i class="fa-solid fa-pen-to-square"></i></a>
+                </div>
+                <div>
+                    <a class="fw-bold" href="{% url 'delete-product' pk=product.id %}">Delete
+                        <i class="fa-solid fa-trash-can"></i></a>
+                </div>
             </td>
         </tr>
         {% endfor %}

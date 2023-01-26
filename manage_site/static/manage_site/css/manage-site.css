@@ -7,6 +7,10 @@ body{
 .admin-section {
     font-family: Nunito, sans-serif;
     max-width: 100vw;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .admin-section h2 {
@@ -48,6 +52,11 @@ select {
     background-color: #b0a9a9;
 }
 
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: var(--bs-nav-pills-link-active-color);
+    background-color: #F0952A !important;;
+}
+
 /* Delete product img */
 .product-img {
     width: 100px;
@@ -80,6 +89,16 @@ select {
     .order-detail {
         width: 100%;
         padding: 15px!important;
+    }
+
+    #adminMenu,
+    .admin-header {
+        text-align: center;
+    }
+
+    #adminMenu {
+        width: 80%;
+        margin: 0 auto 0 auto;
     }
 }
 
