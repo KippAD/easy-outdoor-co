@@ -202,6 +202,15 @@ def checkout_success(request, order_number):
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
 
+    email_subject = f'Order Confirmation - {order.order_number}'
+    html_message = render_to_string('checkout/confirmation_emails/order-confirmation.html', {
+        'order': order,
+        })
+    plain_message = strip_tags(html_message)
+    from_email = settings.EMAIL_HOST_USER
+    to = order.email
+    send_mail(email_subject, plain_message, from_email, [to], html_message=html_message)
+
     if 'basket' in request.session:
         del request.session['basket']
 

@@ -20,14 +20,7 @@ class StripeWH_Handler:
         self.request = request
 
     def _send_confirmation_email(self, order):
-        email_subject = f'Order Confirmation - {order.order_number}'
-        html_message = render_to_string('checkout/confirmation_emails/order-confirmation.html', {
-            'order': order,
-            })
-        plain_message = strip_tags(html_message)
-        from_email = settings.EMAIL_HOST_USER
-        to = order.email
-        send_mail(email_subject, plain_message, from_email, [to], html_message=html_message)
+        print(order)
 
     def handle_event(self, event):
         """
