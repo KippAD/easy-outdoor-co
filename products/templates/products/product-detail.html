@@ -26,7 +26,7 @@
                 <div>
                     <h3 class="fs-5 mb-0">Description</h3>
                     <p>{{ product.desc }}</p>
-                    <p class="price fs-4">£{{ product.price }}</p>
+                    <p class="price fs-4 mb-0">£{{ product.price }}</p>
                 </div>
 
                 <div>
@@ -76,7 +76,7 @@
 
                 {% if stock %}
                 <div class="pt-3">
-                    <button type="submit" class="shop-btn fs-5 mb-3">Add to Basket <i
+                    <button type="submit" class="shop-btn fs-5">Add to Basket <i
                             class="fa-solid fa-cart-shopping"></i></button>
                 </div>
                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -87,12 +87,12 @@
                 {% endif %}
             </div>
         </div>
-        <div class="row ps-0 mt-3">
-            <div class="col-12 vw-100 ">
+        <div id="product-carousel" class="row ps-0 mt-3">
+            <div class="col-12">
                 <!-- Related products -->
                 <h2 class="mb-3">Browse Products</h2>
-                <div class="d-flex overflow-scroll">
-                    {% include 'home/includes/product-carousel.html' %}
+                <div class="d-flex overflow-scroll overflow-hidden mw-100">
+                    {% include 'products/includes/product-carousel.html' %}
                 </div>
             </div>
         </div>

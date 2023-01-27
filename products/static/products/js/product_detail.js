@@ -1,6 +1,8 @@
 $(document).ready(function () {
     $(".stock-warning").hide()
 
+    $(".size-box:last").css('margin', 0)
+
     $("input:radio[name=sizes]:not(:disabled):first").attr('checked', true);
     $(".append-warning").append($(".stock-warning"))
 
