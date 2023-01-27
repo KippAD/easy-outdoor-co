@@ -46,3 +46,6 @@ class ProductReview(models.Model):
 
     class Meta:
         unique_together = ('user', 'product',)
+
+    def __str__(self):
+        return self.product + "Review"
