@@ -116,7 +116,6 @@
 
 .accordion-button:not(.collapsed) {
     color: #ffffff;
-    background-color: #F0952A!important;;
     box-shadow: none!important;
 }
 

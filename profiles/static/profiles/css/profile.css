@@ -32,15 +32,10 @@
     height: 500px;
 }
 
-.accordion-button {
-    border: 1px solid #7f7c7c;
-}
-
 .accordion-button:not(.collapsed) {
     color: #000000;
     background-color: #FFFFFF!important;;
     box-shadow: none!important;
-    border: 1px solid #000000;
 }
 
 /* XX-Large devices (larger desktops, 1400px and down) */

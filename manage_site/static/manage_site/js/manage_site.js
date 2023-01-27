@@ -2,10 +2,11 @@ $(document).ready(function () {
 
     $('.data-table').DataTable();
 
-    $(".nav-link").click(function (e) {
+    $(".admin-menu-link").click(function (e) {
         $('.data-table').DataTable();
         $('.nav-link').removeClass('active text-white');
         $('.admin-db').addClass('d-none');
+        $(".admin-menu-link").removeClass('active');
         $(this).addClass('active');
         
         if ($(this).is(':contains("Products")'))  {

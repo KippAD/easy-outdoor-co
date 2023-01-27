@@ -47,14 +47,32 @@ select {
 
 /* Sidebar */
 
-.admin-section  .nav-link:hover {
+.admin-section  .admin-menu-link:hover {
     color: #000000;
     background-color: #b0a9a9;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-    color: var(--bs-nav-pills-link-active-color);
+.admin-menu-link.active {
+    color: #FFFFFF;
     background-color: #F0952A !important;;
+}
+
+.admin-btn,
+.admin-menu-link {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #000000;
+    font-weight: 900;
+    display: block;
+}
+
+.admin-menu-link.active:hover {
+    color: #FFFFFF!important;
+}
+
+.admin-btn:hover {
+    color: #FFFFFF;
+    background-color: #417690;
 }
 
 /* Delete product img */

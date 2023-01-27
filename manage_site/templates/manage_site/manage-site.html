@@ -10,71 +10,78 @@
 {% block content %}
 
 <section class="admin-section mt-5">
-    
-        <!-- Taken from bootstrap examples -->
-        <div class="container pb-5">
-            <div class="row">
-                <h2 class="fs-1 fw-bold text-center">Admin</h2>
+
+    <!-- Taken from bootstrap examples -->
+    <div class="container pb-5">
+        <div class="row">
+            <h2 class="fs-1 fw-bold text-center">Admin</h2>
+        </div>
+        <div class="row">
+            <div id="adminMenu" class="rounded col-12 col-md-3 col-lg-2 d-flex flex-column">
+                <div class="mx-auto my-0 my-4 logo"></div>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="#" class="admin-menu-link rounded active" aria-current="page">
+                            <i class="fa-solid fa-shirt"></i>
+                            Products
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="admin-menu-link rounded">
+                            <i class="fa-solid fa-boxes-packing"></i>
+                            Stock
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="admin-menu-link rounded">
+                            <i class="fa-solid fa-box-archive"></i>
+                            Orders
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="admin-menu-link rounded">
+                            <i class="fa-solid fa-user"></i>
+                            Users
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="admin-menu-link rounded">
+                            <i class="fa-solid fa-envelope"></i>
+                            Mailing List
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'admin:index' %}" class="admin-btn rounded">
+                            <i class="fa-solid fa-gear"></i>
+                            Django
+                        </a>
+                    </li>
+                    
+                </ul>
             </div>
-            <div class="row">
-                <div id="adminMenu" class="rounded col-12 col-md-3 col-lg-2 d-flex flex-column">
-                    <div class="mx-auto my-0 my-4 logo"></div>
-                    <ul class="nav nav-pills flex-column mb-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active" aria-current="page">
-                                <i class="fa-solid fa-shirt"></i>
-                                Products
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link">
-                                <i class="fa-solid fa-boxes-packing"></i>
-                                Stock
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link">
-                                <i class="fa-solid fa-box-archive"></i>
-                                Orders
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link">
-                                <i class="fa-solid fa-user"></i>
-                                Users
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link">
-                                <i class="fa-solid fa-envelope"></i>
-                                Mailing List
-                            </a>
-                        </li>
-                    </ul>
-                </div>
 
-                <div class="col-12 col-md-9 col-lg-10">
-                    <div class="container">
+            <div class="col-12 col-md-9 col-lg-10">
+                <div class="container">
 
-                        <div class="admin-db" id="manage-products">
-                            {% include 'manage_site/includes/manage-products.html' %}
-                        </div>
-                        <div class="admin-db d-none" id="manage-stock">
-                            {% include 'manage_site/includes/manage-stock.html' %}
-                        </div>
-                        <div class="admin-db d-none" id="manage-orders">
-                            {% include 'manage_site/includes/manage-orders.html' %}
-                        </div>
-                        <div class="admin-db d-none" id="manage-users">
-                            {% include 'manage_site/includes/manage-users.html' %}
-                        </div>
-                        <div class="admin-db d-none" id="manage-mailing">
-                            {% include 'manage_site/includes/manage-newsletter.html' %}
-                        </div>
+                    <div class="admin-db" id="manage-products">
+                        {% include 'manage_site/includes/manage-products.html' %}
+                    </div>
+                    <div class="admin-db d-none" id="manage-stock">
+                        {% include 'manage_site/includes/manage-stock.html' %}
+                    </div>
+                    <div class="admin-db d-none" id="manage-orders">
+                        {% include 'manage_site/includes/manage-orders.html' %}
+                    </div>
+                    <div class="admin-db d-none" id="manage-users">
+                        {% include 'manage_site/includes/manage-users.html' %}
+                    </div>
+                    <div class="admin-db d-none" id="manage-mailing">
+                        {% include 'manage_site/includes/manage-newsletter.html' %}
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 
