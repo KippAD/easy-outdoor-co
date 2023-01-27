@@ -10,7 +10,6 @@ import random
 def all_products(request):
     """ Displays products depending on categories selected """
     products = Product.objects.all()
-    print(products)
     search = None
     sort = None
     direction = None
@@ -96,7 +95,6 @@ def product_detail(request, slug):
         sizes = {k.upper(): v for k, v in product_sizes.items()}
         # Checks if stock exists accross all sizes
         if all(value == None or value == 0 for value in product_sizes.values()):
-            print('Stock empty')
             stock = None
         else:
             stock = list(product_sizes.values())

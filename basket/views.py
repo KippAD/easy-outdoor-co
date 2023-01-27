@@ -71,7 +71,6 @@ def add_to_basket(request, product_id):
                 "Check to see if the remaining items are already in your basket.")
                 )
 
-    print(basket)
     request.session['basket'] = basket
     return redirect(redirect_url)
 
@@ -84,7 +83,6 @@ def update_quantity(request, product_id):
     basket = request.session.get('basket', {})
     product = get_object_or_404(Product, pk=product_id)
     quantity = int(request.POST.get('quantity'))
-    print(quantity)
     redirect_url = request.POST.get('redirect_url')
     size_selection = None
     if 'product_size' in request.POST:
@@ -122,7 +120,6 @@ def update_quantity(request, product_id):
             messages.success(request, f'Removed {product.name} from the basket')
 
     request.session['basket'] = basket
-    print(basket)
     return redirect(redirect_url, status=200)
 
 
@@ -132,7 +129,6 @@ def delete_item(request, product_id):
         product = get_object_or_404(Product, pk=product_id)
         size_selection = None
         if 'product_size' in request.POST:
-            print(True)
             size_selection = request.POST.get('product_size')
 
         basket = request.session.get('basket', {})

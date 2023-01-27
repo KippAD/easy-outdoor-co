@@ -19,7 +19,7 @@ def newsletter_subscribe(request):
             else:
                 e = MailingList(name=name, email=email)
                 e.save()
-
+                # Send confirmation of subscription email
                 email_subject = 'Newsletter Subscription Confirmation'
                 email_content = f"Hi {name}! This is a confirmation email for your recent \
                     subscription to the Easy Outdoor Co. newsletter.\
@@ -70,7 +70,6 @@ def send_newsletter(request):
         plain_message = strip_tags(html_message)
         from_email = settings.EMAIL_HOST_USER
         to = MailingList.objects.values_list('email', flat=True)
-        print(to)
         mail.send_mail(email_subject, plain_message, from_email, [to], html_message=html_message)
 
     messages.success(request, ('Newsletter sent!'))
