@@ -16,6 +16,7 @@ header {
     background-color: #FFFFFF;
     border-bottom: 0.5px solid #ebe8e8;
     position: fixed;
+    z-index: 50;
 }
 
 .clear-content {
@@ -28,7 +29,7 @@ header {
     font-family: Montserrat, sans-serif;
     font-weight: 700;
     border-radius: 5px;
-    border: 1px solid #F0952A;
+    border: none;
     text-decoration: none;
 }
 

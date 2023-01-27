@@ -114,10 +114,16 @@
 @media screen and (max-width: 1200px) {}
 
 /* Large devices (desktops, 992px and down) */
-@media screen and (max-width: 992px) {}
+@media screen and (max-width: 992px) {
+  
+}
 
 /* Medium devices (tablets, 768px and down) */
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+    .item-row {
+        padding: 0!important;
+    }
+}
 
 /* Small devices (landscape phones, 576px and down) */
 @media screen and (max-width: 576px) {}

@@ -18,20 +18,17 @@
         </div>
         <div class="row">
 
-            <div class="col-12 col-md-6 order-md-2 container">
+            <div class="col-12 col-md-6 order-md-2 container ps-3">
                 <div class="row">
                     <h3 class="fs-4">Summary</h3>
                 </div>
                 {% for item in basket_items %}
-                <div class="row item-row my-2">
-                    <div class="col-1 fs-6 fw-bold">
-                        {{ forloop.counter }}.
-                    </div>
-                    <div class="img-container d-none d-sm-block col-2 p-0">
+                <div class="row item-row my-2 ps-3">
+                    <div class="img-container d-none d-md-block col-3 col-lg-2 p-0">
                         <img class="basket-img" src="{{ item.product.image_url }}" alt="">
                     </div>
-                    <div class="col-11 col-sm-9 ps-3">
-                        <div class="container h-100 p-0">
+                    <div class="col-12 col-md-9 col-lg-10">
+                        <div class="container h-100 p-0 d-flex flex-column justify-content-between">
                             <div class="row">
                                 <div class="col-12 d-flex justify-content-between">
                                     <h3 class="fs-5 fw-bold m-0">{{ item.product.name }}</h3>
@@ -46,33 +43,36 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-12">
-                                    <p class="m-0 fs-5 item-price">£{{ item.product.price }}</p>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12">
+                                <div class="col-6">
                                     {% if item.size_selection %}
                                     <p class="m-0">Size: {{ item.size_selection| upper }}</p>
                                     {% endif %}
                                 </div>
+                                <div class="col-6 text-end">
+                                    <p class="quantity mb-0">Qty: {{ item.quantity }} </p>
+                                </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-6">
-                                    <p class="quantity fw-bold">Qty: {{ item.quantity }} </p>
+                                    <p class="m-0 fs-6 item-price">£{{ item.product.price }}</p>
                                 </div>
                                 <div class="col-6">
-                                    <p class="fw-bold total-price fs-5 m-0 text-end">Total:
+                                    <p class="fw-bold total-price fs-6 m-0 text-end">Total:
                                         £{{ item.product.price | calc_total_price:item.quantity }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <span class="d-block line-divide"></span>
+                <span class="pt-2 d-block line-divide"></span>
                 {% endfor %}
+                <div class="row mt-2">
+                    <h3 class="fs-4">Cost</h3>
+                    <p class="m-0"><strong>Total:</strong> £{{ total }}</p>
+                    <p class="m-0"><strong>Delivery:</strong> £{{ delivery }}</p>
+                    <p class="mb-3"><strong>Grand Total:</strong> £{{ grand_total }}</p>
+                </div>
             </div>
 
             <div class="col-12 col-md-6 order-md-1 px-3 mx-auto checkout-form border-end">
@@ -109,9 +109,9 @@
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                        <legend>Payment</legend>
                         <!-- A Stripe card element will go here -->
-                        <div class="mb-3 form-control" id="card-element"></div>
+                        <div class="mb-3 py-2 form-control" id="card-element"></div>
                         <!-- Used to display form errors -->
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                         <!-- Pass the client secret to the view so we can get the payment intent id -->
