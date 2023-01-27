@@ -63,7 +63,7 @@ def send_newsletter(request):
     if request.method == 'POST':
         email_subject = request.POST.get('subject')
         email_content = request.POST.get('message')
-        html_message = render_to_string('newsletter/email-template.html', {
+        html_message = render_to_string('newsletter/newsletter-template.html', {
             'subject': email_subject,
             'content': email_content
             })
