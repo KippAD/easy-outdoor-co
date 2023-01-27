@@ -126,6 +126,10 @@
     padding: 0px 10px;
 }
 
+.product-row a h5:hover {
+    color: #525151;
+}
+
 /* Product reviews */
 
 .review-img {

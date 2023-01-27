@@ -24,7 +24,7 @@ def newsletter_subscribe(request):
                 email_content = f"Hi {name}! This is a confirmation email for your recent \
                     subscription to the Easy Outdoor Co. newsletter.\
                         Email:{email}"
-                html_message = render_to_string('newsletter/email-template.html', {
+                html_message = render_to_string('newsletter/newsletter-template.html', {
                     'subject': email_subject,
                     'content': email_content
                     })

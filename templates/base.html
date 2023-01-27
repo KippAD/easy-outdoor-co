@@ -165,24 +165,28 @@
                     <ul>
                         <li><a href="{% url 'frequently-asked-questions' %}">FAQ's</a></li>
                         <li><a href="{% url 'contact-form' %}">Contact Us</a></li>
-                        <li>Delivery</li>
+                        <li><a href="{% url 'frequently-asked-questions' %}">Delivery</a></li>
                     </ul>
                 </div>
                 <div class="col col-md-2">
                     <h5 class="mb-1">Shop</h5>
                     <ul>
-                        <li class="sale">Sale</li>
-                        <li>Clothing</li>
-                        <li>Equipment</li>
+                        <li><a class="sale" href="{% url 'products' %}?sale">Sale</a></li>
+                        <li><a href="{% url 'products' %}?clothing">Clothing</a></li>
+                        <li><a href="{% url 'products' %}?gear">Equipment</a></li>
                     </ul>
                 </div>
                 <div class="col col-md-2">
                     <h5 class="mb-1">Account</h5>
                     <ul>
-                        <li>Profile</li>
-                        <li>Billing Info</li>
-                        <li>Track Order</li>
-                        <li>Order History</li>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'profile' %}">Profile</a></li>
+                        <li><a href="{% url 'order-history' %}">Order History</a></li>
+                        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+                        {% else %}
+                        <li><a href="{% url 'account_login' %}">Sign In</a></li>
+                        <li><a href="{% url 'account_signup' %}">Create Account</a></li>
+                        {% endif %}
                     </ul>
                 </div>
                 <div class="col-12 col-md-6 text-end">
