@@ -16,7 +16,6 @@ header {
     background-color: #FFFFFF;
     border-bottom: 0.5px solid #ebe8e8;
     position: fixed;
-    z-index: 100;
 }
 
 .clear-content {
