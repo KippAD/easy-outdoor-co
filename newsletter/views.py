@@ -70,7 +70,7 @@ def send_newsletter(request):
         plain_message = strip_tags(html_message)
         from_email = settings.EMAIL_HOST_USER
         to = MailingList.objects.values_list('email', flat=True)
-        mail.send_mail(email_subject, plain_message, from_email, [to], html_message=html_message)
+        mail.send_mail(email_subject, plain_message, from_email, to, html_message=html_message)
 
     messages.success(request, ('Newsletter sent!'))
     return redirect('manage-site')
