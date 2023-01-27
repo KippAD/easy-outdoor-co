@@ -174,11 +174,15 @@ def update_profile(request, user_id):
     return render(request, template, context)
 
 
-class DeleteProfile(SuccessMessageMixin, UserPassesTestMixin, generic.DeleteView):
+class DeleteProfile(UserPassesTestMixin, generic.DeleteView):
     """Deletes user profile from the database"""
     model = User
-    success_message = 'User Deleted!'
+    delete_message = 'User Deleted!'
     template_name = "manage_site/profile-delete.html"
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.delete_message)
+        return super(DeleteProfile, self).delete(request, *args, **kwargs)
 
     def test_func(self):
         return self.request.user.is_staff
@@ -188,11 +192,15 @@ class DeleteProfile(SuccessMessageMixin, UserPassesTestMixin, generic.DeleteView
 
 
 # Delete email from newsletter database
-class DeleteEmail(SuccessMessageMixin, UserPassesTestMixin, generic.DeleteView):
+class DeleteEmail(UserPassesTestMixin, generic.DeleteView):
     """Deletes user profile from the database"""
     model = MailingList
-    success_message = 'Email removed from mailing list!'
+    delete_message = 'Email removed from mailing list!'
     template_name = "manage_site/email-delete.html"
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.delete_message)
+        return super(DeleteEmail, self).delete(request, *args, **kwargs)
 
     def test_func(self):
         return self.request.user.is_staff
