@@ -1,108 +1,279 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **The Easy Outdoor Co.**
 
-Welcome Kipp AD,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## **Brief**
+The Easy Outdoor Co. is an e-commerce site for a fictional store that sells clothing and equipment for outdoor activities. The application takes payments using Stripe and logs orders. Features for the site owner include adding and updating products, deleting stock, and sending newsletters to a mailing list attached to the database. Users are able to create an account, review products, and make orders. 
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+This project was undertaken as my Milestone 5 E-commerce project for my Full Stack Software Engineering diploma with Code Institute. The project was planned using Agile methodology and built using the Django framework alongside various other technologies.
 
-## Gitpod Reminders
+## **Planning**
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### **Objectives**
 
-`python3 -m http.server`
+Planning this project required considering the ideal goals of the user, the site owner, and the necessary steps to achieve them as the developer of the project. At the highest level of abstraction these goals are:
 
-A blue button should appear to click: _Make Public_,
+- **User**: The user wants to be able to browse for products and buy them easily.
+- **Owner**: The owner wants to be able to profit off the business and manage the store.
 
-Another blue button should appear to click: _Open Browser_.
+#### **To achieve these goals:**
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+**User**:
+- Create an interface that the user can move through intuitively.
+- Site actions are clear and the user can achieve their objectives without hassle.
+- The site is aesthetically attractive and users enjoy using it.
+- Content is organized in a hierarchy of importance so that users can get where they need to be quickly.
 
-A blue button should appear to click: _Make Public_,
+**Owner:**
+- SEO will improve the websites traffic and therefore increase the amount of orders made.
+- Marketing such as a newsletter and social media will ensure that users return to the site and increase the amount of sales.
+- A custom admin UI will improve the owners User Experience by making CRUD on the database more intuitive.
+- Managing discounted prices, products, sending newsletters are all easily achieved from within the UI.
 
-Another blue button should appear to click: _Open Browser_.
+## **User Stories**
+By considering the requirements for the User and Owner, as well as the intended marketing techniques, I could then break the requirements of a successful development into epics. From there I broke the epics down into User Stories which were used to decide on the project’s required features.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+###  **User Stories**
 
-To log into the Heroku toolbelt CLI:
+**Epic: Site Navigation**
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+A clear, well designed, and simple UI that allows both staff and customers to use navigate the site easily.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+- As a **user** I can **easily navigate the site** so that **I can access the different areas of the shop and complete user actions intuitively**
+- As a **user** I can **view products** so that **I can browse the products for sale on the site**
+- As a **user** I can **filter products by category** so that **narrow down shopping searches to items relevant to my interests**
+- As a **user** I can **search for products** so that **query for specific items of interest faster**
+- As a **user** I can **sort product search results** so that **I can filter through products by various attributes intuitively**
+- As a **user** I can **view a list of frequently asked questions** so that **I can have my queries answered without contacting the site admin**
 
-------
+**User Epic: Buying Products**
 
-## Release History
+Buying products is simple and quick and all of the relevant information to make an order is clear to a shopper.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- As a **user** I can **select the sizes of items** so that **I can choose specific clothing sizes when I buy items**
+- As a **user** I can **add products to a basket** so that **I can store items in a list of products to purchase as I navigate through the site**
+- As a **user** I can **clearly see what items are currently in stock** so that **I am aware which items can be ordered immediately**
+- As a **user** I can **see the total cost of my order** so that **I am aware exactly how much I am required to pay**
+- As a **user** I can **view delivery costs** so that **I am aware of any surplus charges to my order**
+- As a **user** I can **see discounted products** so that **I am aware of opportunities to save money on purchases**
+- As a **user** I can **update the quantity of items in the basket** so that **I can easily manage the items I wish to order**
+- As a **user** I can **remove items from the basket** so that **I can delete any unwanted items from my order**
+- As a **user** I can **make secure payments** so that **I can safely order items with my card**
+- As a **user** I can **update the quantity of items in the basket** so that **I can easily manage the items I wish to orderr**
+- As a **user** I can **join a newsletter** so that **I can be made aware of any news or promotions running in the store**
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+**Epic: Account Management**
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+Users can create a profile, manage their own information and speed up the checkout process with saved personal data.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+- As a **user** I can **create an account** so that **I can manage my personal details and view order history if I am a regular shopper**
+- As a **user** I can **save my personal details when checking out** so that **placing orders is faster in future**
+- As a **user** I can **manually add my personal information to a profile** so that **I can checkout faster when ordering**
+- As a **user** I can **update my profile information** so that **I can keep my personal details up to date**
+- As a **user** I can **view my order history** so that **I can access information about unfulfilled and past orders**
+- As a **user** I can **change my password** so that **I can keep my account safe and access my profile if I lose my password**
+- As a **user** I can **delete my account** so that **I can maintain control over my personal information**
+- As a **user** I can **rate products** so that **I can give feedback to the store and other prospective buyers on items that I have purchased**
+- As a **user** I can **contact the store** so that **I can have any queries answered by the site admin**
+- As a **user** I can **create a wish list of items so that I can save products to buy at a future date**
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+**Epic: Site Management**
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+Site staff can manage products, update stock, send newsletters and complete other actions of managing the database.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+- As an **admin** I can **add products to the store** so that **I can keep the product list up to date with new arrivals**
+- As an **admin** I can **update existing products** so that **I can manage the information of currently listed products**
+- As an **admin** I can **delete existing products** so that **I can remove products from the product database**
+- As an **admin** I can **hide products from the store** so that **I can remove out of stock or faulty items from being displayed**
+- As an **admin** I can **manage stock** so that **I can maintain that items for sale are available to be bought and shipped**
+- As an **admin** I can **add a discount to items** so that **I can create a list of items on sale**
+- As an **admin** I can **change my password** so that **I can keep my account safe and access my profile if I lose my password**
+- As an **admin** I can **delete my account** so that **I can maintain control over my personal information**
+- As an **admin** I can **rate products** so that **I can give feedback to the store and other prospective buyers on items that I have purchased**
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+The four epics are ranked in terms of priority. In order for the site to function in its most basic state the user needs to be able to navigate the site and buy products. To greatly improve the UX of the user the account management epic can be added next. Finally Django has a built in admin panel so the site management epic is of lowest priority.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### **Marketing Techniques**
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+An integral part of developing a successful online store is how you can achieve a higher traffic of users.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+- **Newsletter:** Using a newsletter subscription allows users to easily opt in to an email that notifies them of the promotions that the store is offering.
+- **Social Media:** An active social media presence would offer similar advantages to that of a newsletter. It would also allow the running of ads through the social media website, which would reach a much wider audience than that of just the users that have subscribed to the newsletter.
+- **Sales:** Sales and promotions in general are an important aspect of bringing customers in. Using discounted products in emails and social media posts will entice users onto the site.
+- **SEO:** Search engine optimisation will increase the likelihood of users finding the site when searching, therefore increasing the amount of users on the site.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## **Project Management**
+These user stories were added to a project board on this repository's project board so that development could be managed.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+[**Project Board**](https://github.com/users/KippAD/projects/6/views/1)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## **Design**
 
-------
+### **Design Objective**
+- The site is aesthetically appealing and users enjoy being on the site.
+- Users are able to complete site actions and navigate intuitively.
+- The user rarely encounters errors but is redirected appropriately when doing so.
+- Site information is presented in a heirachy of importance.
 
-## FAQ about the uptime script
+### **Wireframes**
 
-**Why have you added this script?**
+The wireframes on the site were created with Figma. The design itself was intended to be fairly simple to keep the entire experience for the user as neat and uncomplex as possible and to avoid creating a visual overload.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
 
-**How will this affect me?**
+## **Features**
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+### **Navbar**
+The navbar allows easy and intuitive navigation throughout the site. Built from bootstraps responsive navbar template, the navigation bar minimizes into a burger menu on smaller screens and features dropdowns to contain all of the necessary links.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+- **Burger Menu** - The navbar transforms into a burger menu so that the page isn’t crowded with links on smaller devices.
+- **Search Bar** - The search bar allows the user to quickly search for products from anywhere on the site; they will be transported to a list of products matching their query upon submitting.
+- **Profile Icon** - The profile icon features a dropdown menu that allows the user to view their profile and order history. The icon is dynamic so that it only displays if a user is logged in, otherwise it shows a login link. It also displays a link to the admin panel if the user is a staff member.
+- **Basket Icon** - The basket icon in the navbar will display the total amount of different items in the basket. It also allows the user to access their shopping basket from anywhere on the site.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+### **Home**
+Most of the site is quite simple in its design, usually using black and white colors with an orange color to signify user actions. This is not to overload the user when they are trying to use the site's functionality. The home page however is the first place that the user lands, so there is an impetus on aesthetic design in order to entice the user to stay, as well as concise information that explains the site's purpose.
 
-**So….?**
+- **Hero Image** - The hero image is the first thing the user sees. The idea is that they are drawn in by an impressive image, and a catchy overlay text - they then can surmise what the purpose of the store is.
+- **Shopping Panels** - The panels link to the three main sections of the shop; the sale, clothing, and equipment. These images draw the user in more to the necessary actions to view products more so than the smaller links in the navbar.
+- **About Us** - This describes the purpose of the store in much more detail than the hero overlay, allowing the user to unravel information about the site as they move through it rather than overloading them with content all at once.
+- **Product Carousel** - The product carousel is a scrollable assortment of random items from the store. If a first time user is seeing this feature, they have potentially not seen a product yet. This feature brings the product section to them, showing them the sort of items that are sold without them having to navigate to a different area.
+- **Footer** - The footer contains mosts of the navigation that has already been shown in the navbar and the home page. It also includes a newsletter subscription form and a link to the sites instagram page.
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### **Products**
+The products section displays all of the products for sale on the store, and also allows the user to sort or filter them by different categories to help them narrow items down to those that are relevant to them.
 
-**Can I opt out?**
+- **Discounted Items** - Items with a discounted price display both the original price and the sale price. This shows the user the amount of money they can save on an item during its promotion period. The sale tab also limits all products to those that are discounted, meaning the user can browse all discounted items at once.
+- **Sorting Dropdown** - The user can quickly sort items by their name, price, category and rating. This improves their user experience by streamlining their search.
+- **Reviews** - The user is able to see the star rating of the product, and can also see the amount of reviews left on a specific item. From there they can view the reviews and comments left by users on items of interest.
+- **Product Detail** - Upon clicking a product in the main product page, the user is brought to the product detail page. This page displays the product information, as well as a quantity selector and a size selector that the user can use to add the product to the basket.
+- **Related Products** - The product detail page also contains a related products carousel which contains products of the same category as that of the product the user is viewing. This allows them to continue their search easily with relevant items if they are not interested in purchasing the item in the product detail.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+### **Basket**
+The basket is accessed by the shopping cart icon in the navbar. It contains every item added to the basket by the user, their size, quantity, price, and total price. The user is able to manage the products from there by increasing or decreasing their quantity, or removing them entirely.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+- **Quantity Input** - The user can update the total quantity of their items from the basket. This allows them to control their shopping basket easily, and manage the total cost of the order.
+- **Remove From Basket** - The user can remove items from the basket by setting the quantity to 0 or by selecting the x icon on the item’s panel.
 
-**Anything more?**
+### **Stock**
+The site features stock management. Stock can be managed by staff and is automatically adjusted when orders are completed.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+- **Dynamic Stock** - Stock is automatically decremented when sales are completed. Out of stock items remove the ability to add the product to the basket.
+- **Basket Validation** - Stock value is used to validate the quantity of items added to the basket. This prevents users from setting a quantity greater than the remaining stock and putting the business in a position where they cannot fulfill their orders.
 
----
+### **Account & Profile**
+The user can manage their account and view order history by accessing the user icon in the navigation bar. They are able to manage their personal details and keep track of their orders. Allauth is used to manage the users login, password and confirmation emails.
 
-Happy coding!
+- **Profile** - The user profile section is where the user can add and update their personal details and delivery information. Their information is then used to speed up the checkout process by preloading the checkout form to improve their user experience.
+- **Order History** - The user is also able to view details about previous orders. They are also able to rate items if they have purchase them, and are shown the ratings that they have given items when reviewing them.
+- **AllAuth** - AllAuth allows the user to easily access and administer their account, with the templates being customized to fit the design of the website.
+
+### **Reviews**
+The user is able to give a star rating and leave a comment review of products that they have previously bought. Giving feedback gives a way for the user to interact with the site and also informs prospective buyers on products of interest.
+
+- **Star Rating Selector** - The review form contains a radio selector styled into a five star input. The value is parsed into a float value which is added to the database. The rating displayed on the product is the average value of all combined ratings.
+- **Comment** - The user can also use the comment box to leave a description of the production which will be fed back to the site owner and displayed on the site for other users.
+
+### **Custom Admin**
+To improve the experience of site staff, a custom admin UI was built to complete site actions such as product and stock management. From this panel staff members can complete CRUD on products, view orders, manage stock, manage the mailing list, and send newsletters.
+
+- **Sorting Tables** - The information on the database is displayed in a sorting table that includes pagination and a search bar. This means that staff can move through large amounts of data easily, and in a friendlier way than the default django admin.
+- **Product CRUD** - Staff can create, update, and delete products from the database from within the UI.
+- **Stock Management** - Staff can keep a products stock corresponding stock up to date from within the UI. This allows them to easily maintain items that are available for sale on the store.
+- **Order List** - Staff can see a list of all orders and view them in detail in another page. This means that sales can be tracked easily and the site owner can see how well the store is doing, and that specific orders can be found without hassle.
+- **Mailing List** - Staff can remove users from the mailing list and update their details if necessary.
+- **Newsletter** - Staff can also send newsletters from within the admin panel, which builds off of a base newsletter template and adds the subject and content from the input of the user. A summernote editor means that the message can be formatted well and promotional emails can be well styled.
+
+### **Secure Checkout**
+The checkout process features a delivery form and a stripe payment form, as well as a final summary of the order before the user decides to purchase. There is also a confirmation page that displays upon completion of the order.
+
+- **Checkout Form** - The checkout form takes the users personal and delivery information, validating it before completing the process. There is also a final summary of the items in the order, and an option to save the users information to their profile upon completion. A spinner displays to prevent the user from submitting multiple payments whilst the order is being processed.
+- **Order Summary** - Upon a successful order, the details of the order are displayed on a new page with a notification stating that the order has been completed, and that a confirmation email has been sent.
+
+### **Newsletter, Contact Form & Emails**
+Custom html email templates were built for allauth and django emails which are triggered for events such as an order being completed or the newsletter being subscribed to.
+
+- **Newsletter** - Users can subscribe to a mailing list and receive emails sent by site staff. These emails feature a custom template and can be sent by staff from the admin panel. Users receive an email upon subscribing successfully to the newsletter.
+- **Order Confirmation Email** - Users receive a confirmation email upon completing an order successfully. The email contains all of the relevant information about the order.
+- **Allauth Emails** - The default allauth emails for resetting a password and for verification of a new account have been customized to be consistent with other site emails.
+- **Contact Form**  - There is a contact form that is linked to the main email address of the site owner where users can query with any questions or issues that they are facing when using the site. The message is validated and sent to the owner along with the email that the user wishes to be contacted with.
+
+### **FAQ’s**
+The user can see a list of frequently asked questions to answer any questions that they might have.
+
+- **Accordion** - The FAQ’s are formatted in a Bootstrap accordion to present the large amount of text in bitesize quantities so that the user can navigate to helpful answers easily.
+
+## **Future Features**
+
+- **Stock Anayltics** - A future feature would be an interface that informs the admin on sales so that they can make decisions on how much stock to order, or which items are the most popular and which are not performing as well.
+
+- **Wishlist** - A feature that was intended to be included in this iteration of development was a product wishlist. This would allow users to make a list of products that they can return to later on if they wish to buy them. Unfortunately this feature did not make it in due to time constraints, but would be a useful thing to add in future.
+
+- **Stock Notification** - Another intended feature was an email sent to the user of when stock comes back into the store of a specific item. The user would be able to opt in to this from the product detail. This feature was not added as others were prioritized to meet the deadline.
+
+## **Future**
+Here are some future features that were outside of the project scope on the current iteration of development, but could be included to improve the user experience and site in general.
+
+- **Form Submission Email:** User receives an email when an account is created or when a booking is made.
+- **Waiting List:** Users will have the option to join a waiting list for full events and receive an email if there is availability.
+- **Prefilled Booking Form:** Booking form is prefilled with the event and can be replaced with a select form if the user chooses.
+- **Repeating/Self Deleting Event:** Events can be set to repeating so that they automatically appear on the schedule each week, and events in the past self-delete.
+- **Messaging In Browser:** User and admin can message within the website from the account and admin panels respectively.
+- **Menu:** Admin has access to CRUD functionality for a menu.
+- **Admin Interface for User:** Whilst the admin can see users in the admin panel, it redirects the admin to the default django admin dashboard, so CRUD functionality for the user within the custom UI would provide a better experience for the site owner.
+
+## **Testing**
+
+### **Python**
+
+### **HTML**
+
+### **CSS**
+
+### **Responsiveness**
+
+### **Browser Testing**
+
+Easy Outdoor Co has been tested on the following browsers:
+
+- **Chrome**
+- **Mozilla Firefox**
+- **Safari**
+- **Opera**
+
+### **Lighthouse Testing**
+
+## **Bugs**
+
+### Resolved
+
+### Unresolved
+
+## **Technologies**
+The George Orwell Pub was built with the following technologies:
+
+1.  [**Django**](https://www.djangoproject.com/) - Full stack framework to build database and backend.
+2.  [**Bootstrap**](https://getbootstrap.com/) - Front end framework used to build features quickly.
+2.  [**Python**](https://www.python.org/) - Application logic and functionality.
+3.  [**HTML**](https://en.wikipedia.org/wiki/HTML5) - Templates content and email design.
+4.  [**CSS**](https://en.wikipedia.org/wiki/CSS) - Styling content on the site.
+5.  [**JQuery**](https://jquery.com/) - Javascript library used for form validation and interactivity.
+6.  [**Gitpod**](https://gitpod.io) - The IDE used for the project development.
+7.  [**Heroku**](https://dashboard.heroku.com/apps) - Hosting deployed project.
+9.  [**Figma**](https://figma.com/) - Wireframe design.
+10. [**Real Favicon Generator**](https://realfavicongenerator.net/) - Generating favicon from logo image.
+
+## **Deployment**
+
+### **To deploy the project**
+The Easy Outdoor Co. was used to host the deployed application:
+
+## Cloning Project
+The project files are hosted on GitHub and can be cloned for further development:
+
+## Credits
+
+[**Bootstrap**](https://getbootstrap.com/) - Bootstrap makes up the core of the site structure and design.
+
+[**Data Tables**](https://datatables.net/examples/basic_init/index.html) - The admin panel data tables were taken from here.
+
+I want to thank Precious Ijege and my fellow students at Code Institute for their guidance and support in development of this project. I wouldn't have managed to complete the diploma without the help I recieved throughout!
