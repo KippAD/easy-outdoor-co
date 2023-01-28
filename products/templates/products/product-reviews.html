@@ -14,9 +14,18 @@
                 <h2>{{ product }} Reviews</h2>
                 <div>
                     <img class="review-img mb-3" src="{{ product.image_url }}" alt="">
+                    {% if product.product_reviews.all %}
                     <h3>Overall Rating:</h3>
                     <p>{% include 'products/includes/product-rating.html' %}</p>
                     <p>See what our customers thought of this product.</p>
+                    {% else %}
+                    <div class="row border-bottom py-3">
+                        <div class="col-12">
+                            <h3>Sorry...</h3>
+                            <p>There aren't any reviews for this product just yet!</p>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>                
                 
             </div>
@@ -31,7 +40,7 @@
             </div>
         </div>
         {% endfor %}
-        <a class="white-btn px-3 py-1" href="{% url 'manage-site' %}">Back to products</a>
+        <a class="white-btn px-3 py-1" href="{% url 'products' %}">Back to products</a>
     </div>
 
 </section>

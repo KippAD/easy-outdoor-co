@@ -89,6 +89,7 @@ Site staff can manage products, update stock, send newsletters and complete othe
 - As an **admin** I can **change my password** so that **I can keep my account safe and access my profile if I lose my password**
 - As an **admin** I can **delete my account** so that **I can maintain control over my personal information**
 - As an **admin** I can **rate products** so that **I can give feedback to the store and other prospective buyers on items that I have purchased**
+- As an **admin** I can **send a newsletter so that I can keep users up to date with the latest deals or promotions**
 
 The four epics are ranked in terms of priority. In order for the site to function in its most basic state the user needs to be able to navigate the site and buy products. To greatly improve the UX of the user the account management epic can be added next. Finally Django has a built in admin panel so the site management epic is of lowest priority.
 
