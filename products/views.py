@@ -32,7 +32,6 @@ def all_products(request):
                 'gloves',
                 'headwear',
                 'equipment',
-                'footwear',
                 'sunglasses'
                 ])
 

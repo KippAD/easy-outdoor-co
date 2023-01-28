@@ -19,8 +19,8 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <!-- Sort table -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"
-        rel="stylesheet" />
-    <link href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+        rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
     {% endblock %}
@@ -43,15 +43,15 @@
         integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
     </script>
     <!-- Datatables -->
-    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
     {% block extra_js %}
     {% endblock %}
-
+    <meta charset="UTF-8">
     <title>Easy Outdoor Co.</title>
 </head>
 
@@ -104,7 +104,6 @@
                             <li><a class="dropdown-item" href="{% url 'products' %}?gear">All Gear</a></li>
                             <li><a class="dropdown-item" href="{% url 'products' %}?category=equipment">Equipment</a>
                             </li>
-                            <li><a class="dropdown-item" href="{% url 'products' %}?category=footwear">Footwear</a></li>
                             <li><a class="dropdown-item" href="{% url 'products' %}?category=gloves">Gloves</a></li>
                             <li><a class="dropdown-item" href="{% url 'products' %}?category=headwear">Headwear</a></li>
                             <li><a class="dropdown-item" href="{% url 'products' %}?category=sunglasses">Sunglasses</a>
@@ -116,7 +115,7 @@
 
             <div class="col-4 col-xl-1 my-2 order-xl-1">
                 <a href="{% url 'home' %}">
-                    <div background='' class="logo"></div>
+                    <div class="logo"></div>
                 </a>
             </div>
 
@@ -243,7 +242,7 @@
 
     {% block postloadjs %}
     {{ block.super }}
-    <script type="text/javascript">
+    <script>
         var toastElList = [].slice.call(document.querySelectorAll('.toast'))
         var toastList = toastElList.map(function (toastEl) {
             return new bootstrap.Toast(toastEl)

@@ -9,7 +9,6 @@ $(document).ready(function () {
     $('select option:contains("equipment")').text('Equipment');
     $('select option:contains("trousers")').text('Trousers');
     $('select option:contains("fleeces_jumpers")').text('Fleeces & Jumpers');
-    $('select option:contains("footwear")').text('Footwear');
     $('select option:contains("t-shirts")').text('T-Shirts');
     $('select option:contains("socks")').text('Socks');
     $('select option:contains("sunglasses")').text('Sunglasses');
