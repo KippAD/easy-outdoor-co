@@ -37,6 +37,7 @@ header {
     text-decoration: none;
     font-family: Montserrat, sans-serif;
     font-weight: 700;
+    background-color: #FFFFFF;
     color: #000000;
     border-radius: 5px;
     border: 2px solid black;
@@ -45,6 +46,13 @@ header {
 .shop-btn:hover {
     color: #FFFFFF;
     background-color: #d38225;
+    transition: all ease 0.2s;
+    cursor: pointer;
+}
+
+.white-btn:hover {
+    color: #000000;
+    background-color: #e2e2e2;
     transition: all ease 0.2s;
     cursor: pointer;
 }
@@ -273,6 +281,7 @@ table a {
 #mailingListForm .form-control {
     max-width: 200px!important;
     margin-left: auto;
+    margin-right: 0;
 }
 
 
@@ -312,11 +321,25 @@ table a {
     .error-section>.row {
         width: 75%;
     }
+
+    footer h4 {
+        text-align: start;
+    }
 }
 
 /* Small devices (landscape phones, 576px and down) */
 @media screen and (max-width: 576px) {
     .error-section>.row {
         width: 90%;
+    }
+
+    #copyright {
+        justify-content: center!important;
+        margin-top: 10px;
+    }
+
+    #insta-link,
+    #copyright > p {
+        text-align: center;
     }
 }

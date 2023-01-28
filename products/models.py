@@ -40,6 +40,8 @@ class Product(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
+        if not self.rating:
+            self.rating = 0
         return super().save(*args, **kwargs)
 
     # Rounds to nearest .5 for the star rating
