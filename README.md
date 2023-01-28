@@ -359,53 +359,33 @@ Here are some future features that were outside of the project scope on the curr
 
 ### **HTML**
 
-The HTML on the application was validated using the [**W3C HTML Validator**](https://validator.w3.org/). Validating the html by using the project URL or Github repository sometimes would raise a lot of errors related to Django's built in settings. As these are not accessible, they cannot be resolved. Each page on the website were validated and all errors caused by custom code were otherwise resolved.
+The HTML on the application was validated using the [**W3C HTML Validator**](https://validator.w3.org/). Validating the html by using the Github repository sometimes would raise a lot of errors related to Django's built in settings. As these are not accessible, they cannot be resolved. Each page on the website was run through the validator and all errors caused by custom code were otherwise resolved.
 
-**Homepage**
-No validation errors.
-<detail>
 
-![image](media/readme-images/homepagehtml.png)
+**Homepage** - No validation errors.
 
-</detail>
+**Products Page** - No validation errors.
 
-**Products Page**
-No validation errors.
+**Product Detail** - No validation errors.
 
-<detail>
+**Basket** - If multiple sizes of same item it causes a multiple ID error. This is because the product ID is dynamically rendered into the template for use in the view.
 
-![image](media/readme-images/productshtml.png)
+**Checkout and Success Page** No validation errors
 
-</detail>
-
-**Product Detail**
-No validation errors.
+**Manage Site** - No validation errors
 
 <detail>
 
-![image](media/readme-images/productdetail-html.png)
+![image](media/readme-images/html-validation.png)
 
 </detail>
 
-**Basket**
-<detail>
-  
- If multiple sizes of same item it causes multiple ID - this is used by Jquery
-</detail>
-
-**Checkout**
-<detail>
-</detail>
-
-**Checkout Success**
-<detail>
-</detail>
-
-**Manage Site**
-<detail>
-</detail>
 
 ### **CSS**
+
+All css files were checked with 
+
+![image](media/readme-images/html-validation.png)
 
 ### **Responsiveness**
 
