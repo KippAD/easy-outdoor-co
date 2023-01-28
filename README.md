@@ -223,6 +223,137 @@ Here are some future features that were outside of the project scope on the curr
 
 ## **Testing**
 
+### **Testing User Stories**
+
+#### **Epic: Site Navigation**
+
+<details>
+  
+**As a user I can easily navigate the site so that I can access the different areas of the shop and complete user actions intuitively**
+- **COMPLETE:** The navigation bar and footer mean that the user is able to move through the site easily to get to their desired area. Buttons and links are consistently designed throughout the site so that the user can build familiarity with navigation elements.
+
+**As a user I can view products so that I can browse the products for sale on the site**
+- **COMPLETE:** The products section is clearly accessible from the navbar and footer so that viewing products can be achieved from anywhere on the site.
+
+**As a user I can filter products by category so that narrow down shopping searches to items relevant to my interests**
+- **COMPLETE:** Products are categorized and can be filtered by selecting the chosen category in the top navbar.
+
+**As a user I can search for products so that query for specific items of interest faster**
+- **COMPLETE:** There is a search input in the navigation bar which allows the user to query specific products from anywhere in the site.
+
+**As a user I can sort product search results so that I can filter through products by various attributes intuitively**
+- **COMPLETE:** The products page includes a sorting dropdown that allows the user to filter items by attributes such as price, rating, and name.
+
+**As a user I can view a list of frequently asked questions so that I can have my queries answered without contacting the site admin**
+- **COMPLETE:** There is a FAQ page that contains information in the site in much more detail so that the user can resolve any issues they might have.
+
+**As a user I can contact the store so that I can have any queries answered by the site admin**
+- **COMPLETE:** There is a contact form the allows the user to send an email directly to the main site email, the user is forced to include their email address so that the site owner knows who to send the response to.
+  
+</details>
+
+#### **Epic: Buying Products**
+
+<details>
+
+**As a user I can select the sizes of items so that I can choose specific clothing sizes when I buy items**
+- **COMPLETE:** On the product detail there is a size selector which will show the user if the item has sizes, and allows them to select one before adding the item to the basket.
+
+**As a user I can add products to a basket so that I can store items in a list of products to purchase as I navigate through the site**
+- **COMPLETE:** There is add to product functionality from the product detail pages. Users can select the quantity and size of the item before adding it to the basket. There is validation to prevent users from adding more quantity than available stock.
+
+**As a user I can clearly see what items are currently in stock so that I am aware which items can be ordered immediately**
+- **INCOMPLETE:** The product detail displays whether an item is in stock or not. Sized items also display if a particular size is low on stock. However there is no functionality to filter out of stock items from the product list.
+
+**As a user I can see the total cost of my order so that I am aware exactly how much I am required to pay**
+- **COMPLETE:** Total order cost is displayed in the basket and checkout. It also appears in the success toast of adding a product to the basket.
+
+**As a user I can view delivery costs so that I am aware of any surplus charges to my order**
+- **COMPLETE:** Delivery cost is displayed in the basket and checkout. It also appears in the success toast of adding a product to the basket.
+
+**As a user I can see discounted products so that I am aware of opportunities to save money on purchases**
+- **COMPLETE:** Discounted prices can be easily seen in the product list and detail as a new value with the old price crossed out. There is also a sale tab to filter all discounted items into one search.
+
+**As a user I can update the quantity of items in the basket so that I can easily manage the items I wish to order**
+- **COMPLETE:** Total order cost is displayed in the basket and checkout. It also appears in the success toast of adding a product to the basket.
+
+**As a user I can remove items from the basket so that I can delete any unwanted items from my order**
+- **COMPLETE:** Users are able to remove individual items from the basket with the x icon. They can also set the quantity to 0 or to a negative number and the same outcome is achieved.
+
+**As a user I can make secure payments so that I can safely order items with my card**
+- **COMPLETE:** Stripe functionality securely takes payments for orders and appears in the dashboard. A spinner overlay hides the form and prevents the user from accidentally making double payments.
+
+**As a user I can update the quantity of items in the basket so that I can easily manage the items I wish to order**
+- **COMPLETE:** Users are able to increment and decrement their quantity from within the basket. These inputs are validated to prevent quantity from being greater to the remaining stock.
+
+**As a user I can join a newsletter so that I can be made aware of any news or promotions running in the store**
+- **COMPLETE:** Users can sign up to a mailing list from the form in the footer. They receive a confirmation email upon submitting the form, and then receive any newsletters the admin might send.
+
+</details>
+
+#### **Epic: Account Management**
+
+<details>
+
+**As a user I can create an account so that I can manage my personal details and view order history if I am a regular shopper**
+- **COMPLETE:** Users are able to sign up easily and receive an email verification in order to complete the registration process.
+
+**As a user I can save my personal details when checking out so that placing orders is faster in future**
+- **COMPLETE:** There is a checkbox on the checkout form that allows a user to take the personal information entered and add it to their profile. If a user is not logged in it gives them the option so register an account or sign in.
+  
+**As a user I can manually add my personal information to a profile so that I can checkout faster when ordering**
+- **COMPLETE:** There is a profile page that contains a form for the user to manually add their personal and delivery information to their profile.
+  
+**As a user I can update my profile information so that I can keep my personal details up to date**
+- **COMPLETE:** Users can use the profile form on their profile page to update existing information on their profile and keep their data up to date.
+
+**As a user I can view my order history so that I can access information about unfulfilled and past orders**
+- **COMPLETE:** Order history is displayed in the order history page accessed from the profile dropdown menu. There they can see orders they have made and the items they have purchased. A confirmation email sends upon order completion.
+
+**As a user I can change my password so that I can keep my account safe and access my profile if I lose my password**
+- **COMPLETE:** Logged in users are able to change their password through a change password button located on the profile form; they are redirected to a change password form where they can complete the action. Users are also able to request a password reset email from the login page if they forget it, where they will be sent an email with a link to change it.
+
+**As a user I can delete my account so that I can maintain control over my personal information**
+- **INCOMPLETE:** Users are unable to delete or request a deletion for their account automatically. Instead they have to send an email to the site owner to delete the user manually. This is below-par UX so this User Story is considered incomplete.
+
+**As a user I can rate products so that I can give feedback to the store and other prospective buyers on items that I have purchased**
+- **COMPLETE:** Users are able to review products that they have purchased from the order history tab. They are automatically presented with a link to rate the product once they have made a purchase, and will be shown a message if they have already rated it. From there they can submit a star rating and leave a comment, which will be displayed on the products reviews section.
+
+**As a user I can contact the store so that I can have any queries answered by the site admin**
+- **COMPLETE:** There is a contact form accessed through various areas of the site, but most easily from the footer. In this form they are able to send an email directly to the site owner.
+
+**As a user I can create a wish list of items so that I can save products to buy at a future date**
+- **INCOMPLETE:** This user story was not completed. During development it was put on a lower priority due to expected time constraints, so didn’t make the final deployment. This feature is one that should be implemented in future.
+
+</details>
+
+#### **Epic: Site Management**
+
+<details>
+
+**As an admin I can add products to the store so that I can keep the product list up to date with new arrivals**
+- **COMPLETE:** The admin is able to add products by accessing the add product button in the custom admin UI.
+
+**As an admin I can update existing products so that I can manage the information of currently listed products****
+- **COMPLETE:** The admin can update existing products from the update products form in the admin UI.
+
+**As an admin I can delete existing products so that I can remove products from the product database
+- **COMPLETE:** The admin can delete existing products from the database in the custom admin UI by selecting the delete product button and confirming the action****
+
+**As an admin I can hide products from the store so that I can remove out of stock or faulty items from being displayed**
+- **COMPLETE:** Incomplete user story. This user story was ultimately not completed. Out of stock items simply display that they are out of stock. For an admin to hide a product they would have to delete the model.
+
+**As an admin I can manage stock so that I can maintain that items for sale are available to be bought and shipped**
+- **COMPLETE:** The admin is able to manage stock values in the custom admin UI for both sized and regular item stock.
+
+**As an admin I can add a discount to items so that I can create a list of items on sale**
+- **COMPLETE:** The admin can add a discounted price to the product model. These products display their discounted value in the products list, and can be grouped by accessing the sale link.
+
+**As an admin I can send a newsletter so that I can keep users up to date with the latest deals or promotions.**
+- **COMPLETE:** The admin is able to send a newsletter to all emails on the mailing list from the custom admin UI. The message input is a summernote field, meaning that content can be meaningfully formatted.
+
+</details>
+
 ### **Python**
 
 ### **HTML**
