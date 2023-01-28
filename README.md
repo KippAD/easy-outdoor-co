@@ -355,9 +355,9 @@ Here are some future features that were outside of the project scope on the curr
 
 </details>
 
-### **Python**
+###
 
-### **HTML**
+#### **HTML**
 
 The HTML on the application was validated using the [**W3C HTML Validator**](https://validator.w3.org/). Validating the html by using the Github repository sometimes would raise a lot of errors related to Django's built in settings. As these are not accessible, they cannot be resolved. Each page on the website was run through the validator and all errors caused by custom code were otherwise resolved.
 
@@ -380,45 +380,120 @@ The HTML on the application was validated using the [**W3C HTML Validator**](htt
 
 </details>
 
-### **CSS**
+#### **CSS**
 
 All css files were checked with [**Jigsaw CSS Validator**](https://jigsaw.w3.org/css-validator/) and returned with no errors.
 
 <details>
  
-### **base.css**
+#### **base.css**
   
 ![image](media/readme-images/base-css.png)
   
- ### **home.css**
+ #### **home.css**
   
 ![image](media/readme-images/home-css.png)
   
-### **product.css**
+#### **product.css**
   
 ![image](media/readme-images/products-css.png)
   
-### **basket.css**
+#### **basket.css**
   
 ![image](media/readme-images/basket-css.png)
   
-### **manage-site.css**
+#### **profile.css**
   
 ![image](media/readme-images/profile-css.png)
   
-### **allauth.css**
+#### **allauth.css**
   
 ![image](media/readme-images/allauth-css.png)
   
-### **checkout.css**
+#### **checkout.css**
   
 ![image](media/readme-images/checkout-css.png)
   
-### **manage-site.css**
+#### **manage-site.css**
   
 ![image](media/readme-images/manage-css.png)
   
 </details>
+
+#### **JavaScript**
+
+[**Jshint Javascript Validator**](https://jshint.com/). 
+
+#### **Python**
+
+All custom python is validated by the [**Code Institue Pep8 Validator Validator**](https://pep8ci.herokuapp.com/). Most of the issues were related to trailing whitespace and lines that were too long; the IDE has a built in warning system that allowed most of these to be resolved prior to validation. All files where custom Python was added were tested individually from each app. Below are the results from the tests along with the results message.
+
+**Basket**
+
+- apps.py - All clear, no errors found
+- contexts.py - All clear, no errors found
+- urls.py - All clear, no errors found
+- views.py - All clear, no errors found
+
+**Checkout**
+
+- admin.py - All clear, no errors found
+- apps.py - All clear, no errors found
+- forms.py - All clear, no errors found
+- models.py - All clear, no errors found
+- signals.py - All clear, no errors found
+- urls.py - All clear, no errors found
+- views.py - All clear, no errors found
+- webhook_handler.py - 2 x E501 line too long (80 > 79 characters). These variables could not be restructured without damaging the logic.
+- webhooks.py - 1 x E501 line too long (80 > 79 characters). This variable could not be restructured without damaging the logic.
+
+**Easy Outdoor Co (Main directory)**
+
+- urls.py - All clear, no errors found
+- views.py - All clear, no errors found
+
+**Home**
+
+- apps.py - All clear, no errors found
+- urls.py - All clear, no errors found
+- views.py - All clear, no errors found
+
+**Manage Site**
+
+- apps.py - All clear, no errors found
+- forms.py - All clear, no errors found
+- urls.py - All clear, no errors found
+- views.py - All clear, no errors found
+
+**Newsletter**
+
+- admin.py - All clear, no errors found
+- apps.py - All clear, no errors found
+- forms.py - All clear, no errors found
+- models.py - All clear, no errors found
+- urls.py - All clear, no errors found
+- views.py - All clear, no errors found
+
+**Products**
+
+- admin.py - All clear, no errors found
+- apps.py - All clear, no errors found
+- forms.py - All clear, no errors found
+- models.py - 1 x 62: E741 ambiguous variable name 'l'. The field name was already coded deep into the logic and unfortunately there wasn't time to change the name and recreate the database items.
+- signals.py - All clear, no errors found
+- urls.py - All clear, no errors found
+- views.py - All clear, no errors found
+
+**Profiles**
+
+- admin.py - All clear, no errors found
+- apps.py - All clear, no errors found
+- forms.py - All clear, no errors found
+- models.py - All clear, no errors found
+- urls.py - All clear, no errors found
+- views.py - All clear, no errors found
+
+
 
 ### **Responsiveness**
 
