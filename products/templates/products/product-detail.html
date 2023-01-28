@@ -17,11 +17,14 @@
                 </div>
             </div>
 
-            <div class="product-info col-12 offset-md-1 col-md-10 offset-lg-0 col-lg-8 d-flex flex-column justify-content-between">
+            <div
+                class="product-info col-12 offset-md-1 col-md-10 offset-lg-0 col-lg-8 d-flex flex-column justify-content-between">
                 <div class="d-flex flex-column justify-content-start">
                     <h2 class="fs-3">{{ product.name }}</h2>
                     {% include "products/includes/product-rating.html" %}
-                    <a class="mb-2" href="{% url 'product-reviews' slug=product.slug %}">{{ product.product_reviews.all | length }} Review(s)</a>
+                    <a class="mb-2"
+                        href="{% url 'product-reviews' slug=product.slug %}">{{ product.product_reviews.all | length }}
+                        Review(s)</a>
                 </div>
 
                 <div>
@@ -47,12 +50,10 @@
                                 autocomplete="off" data-stock="{{ value }}">
                             <label class="size-box" for="{{ key }}">{{ key }}</label>
                             {% else %}
-                            <input type="radio" class="btn-check" name="sizes" id="{{ key }}" autocomplete="off"
-                                disabled>
+                            <input type="radio" class="btn-check" name="sizes" id="{{ key }}" disabled>
                             <label class="size-box size-out" for="{{ key }}">{{ key }}</label>
                             {% endif %}
                             {% endfor %}
-
                         </div>
                         <div class="append-warning mb-0 mt-2"></div>
                         {% endif %}
@@ -63,8 +64,8 @@
                                 <div data-value="-" class="rounded-start decrement quantity-input">
                                     <i class="fa-solid fa-minus"></i>
                                 </div>
-                                <input data-product_id="{{ product.id }}" class="m-0 text-center" type="number" name="quantity"
-                                id="quantity" value="1">
+                                <input data-product_id="{{ product.id }}" class="m-0 text-center" type="number"
+                                    name="quantity" id="quantity" value="1">
                                 <div data-value="+" class="rounded-end increment quantity-input">
                                     <i class="fa-solid fa-plus"></i>
                                 </div>
@@ -73,19 +74,17 @@
                             <h3 class="text-danger">We're sorry, this item is out of stock...</h3>
                             {% endif %}
                         </div>
-                </div>
 
-                {% if stock %}
-                <div class="pt-3">
-                    <button type="submit" class="shop-btn fs-5">Add to Basket <i
-                            class="fa-solid fa-cart-shopping"></i></button>
-                </div>
-                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-
+                        {% if stock %}
+                            <div class="pt-3">
+                                <button type="submit" class="shop-btn fs-5">Add to Basket <i
+                                        class="fa-solid fa-cart-shopping"></i></button>
+                            </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        {% else %}
+                            <p>We get stock delivered weekly, please check again soon!</p>
+                        {% endif %}
                 </form>
-                {% else %}
-                <p>We get stock delivered weekly, please check again soon!</p>
-                {% endif %}
             </div>
         </div>
         <div id="product-carousel" class="row ps-0 mt-3">

@@ -76,14 +76,14 @@
                                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </form>
                         </div>
-                        <div id="grand-total" class="d-flex flex-column justify-content-end col-12 col-md-4">
+                        <div id="item-total" class="d-flex flex-column justify-content-end col-12 col-md-4">
                             <p class="fw-bold total-price fs-5 m-0 lh-1 text-end">Total: £{{ item.product.price | calc_total_price:item.quantity }}</p>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12 d-md-none">
-                            <a class="fs-6 text-danger remove-item" date-index="2" id="remove_{{ item.product_id }}" data-product_size="{{ item.size_selection }}"><i class="fa-solid fa-square-xmark"></i> Remove</a>
+                            <a class="fs-6 text-danger remove-item" data-index="2" id="remove_{{ item.product_id }}" data-product_size="{{ item.size_selection }}"><i class="fa-solid fa-square-xmark"></i> Remove</a>
                         </div>
                     </div>
                 </div>
@@ -126,7 +126,7 @@
 {% block postloadjs %}
 
 {{ block.super }}
-<script type="text/javascript">
+<script>
     $(document).ready(function () {
         $("#quantity-form > p").remove()
 
