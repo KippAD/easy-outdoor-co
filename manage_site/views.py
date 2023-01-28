@@ -6,7 +6,7 @@ from newsletter.models import MailingList
 from profiles.forms import UserDeliveryForm, UserProfileForm
 from .forms import ProductForm, RegularStockForm, SizeStockForm
 
-from django.views.generic import CreateView, UpdateView, DeleteView
+from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import UserPassesTestMixin
@@ -42,7 +42,7 @@ def manage_site(request):
 
 
 # CRUD for products for admin area
-class AddProduct(SuccessMessageMixin, UserPassesTestMixin, generic.CreateView):
+class AddProduct(SuccessMessageMixin, UserPassesTestMixin, CreateView):
     """Creates product model"""
     model = Product
     form_class = ProductForm
@@ -185,7 +185,7 @@ def update_profile(request, user_id):
     return render(request, template, context)
 
 
-class DeleteProfile(UserPassesTestMixin, generic.DeleteView):
+class DeleteProfile(UserPassesTestMixin, DeleteView):
     """Deletes user profile from the database"""
     model = User
     delete_message = "User Deleted!"
