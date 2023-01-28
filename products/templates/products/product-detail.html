@@ -76,16 +76,16 @@
                         </div>
 
                         {% if stock %}
-                            <div class="pt-3">
-                                <button type="submit" class="shop-btn fs-5">Add to Basket <i
-                                        class="fa-solid fa-cart-shopping"></i></button>
-                            </div>
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                        {% else %}
-                            <p>We get stock delivered weekly, please check again soon!</p>
-                        {% endif %}
+                        <div class="pt-3">
+                            <button type="submit" class="shop-btn fs-5">Add to Basket <i
+                                    class="fa-solid fa-cart-shopping"></i></button>
                         </div>
-                </form>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        {% else %}
+                        <p>We get stock delivered weekly, please check again soon!</p>
+                        {% endif %}
+                    </form>
+                </div>
             </div>
         </div>
         <div id="product-carousel" class="row ps-0 mt-3">
