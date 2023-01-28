@@ -15,8 +15,8 @@
                 <form method="POST" action="{% url 'send-newsletter' %}">
                     {% csrf_token %}
                     <p>{{ form.subject | as_crispy_field }}</p>
-                    <div style="width:320px; max-width:320px;">
-                        {{ form.message | as_crispy_field }}
+                    <div id="summernote-container" class="w-100">
+                        {{ form.message }}
                     </div>
                     
                     <input class="shop-btn px-3 py-1" type="submit" value="Send Newsletter">
@@ -34,9 +34,6 @@
     $(document).ready(function () {
         $('label').hide()
 
-        $('.note-editor').attr('style', function(i, style) {
-            return style && style.replace(/display[^;]+;?/g, '');
-        });
     });
 </script>
 {% endblock %}
