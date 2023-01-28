@@ -420,9 +420,49 @@ All css files were checked with [**Jigsaw CSS Validator**](https://jigsaw.w3.org
   
 </details>
 
-#### **JavaScript**
+### **JavaScript**
 
-[**Jshint Javascript Validator**](https://jshint.com/). 
+JavaScript code on Easy Outdoor Co. was run through the [**Jshint Javascript Validator**](https://jshint.com/). All files an inline code were checked individually to ensure that all custom JavaScript was properly tested. In order to get the correct validation on Jshint, '//jshint esversion: 6'
+"/*globals $:false */".* were added to the top of the validator. This sets the esversion to 6 and also allows Jquery - which all JavaScript on the application was built with
+
+
+**Basket**
+
+- basket.html(Inline JS) - Two errors:'newVal' is already defined and 'newVal' used out of scope. This code is taken from a [tutorial](https://css-tricks.com/number-increment-buttons/) and adjusting the variables affects the functionality.
+
+**Checkout**
+
+- checkout.js - One undefined variable: jQuery. This comes from the [JQuery Validation Plugin](https://jqueryvalidation.org/). This could be the potential cause of the error.
+- stripe_elements.js - One undefined variable: Stripe. This variable comes from Stripe functionality, potentially why the validator raises an error for it.
+
+**Home**
+
+- faq.html(Inline JS) - Raises no errors or warnings.
+
+**Manage Site**
+
+- manage_site.js - Raises no errors or warnings.
+- product_form.js - One undefined variable: jQuery. This comes from the [JQuery Validation Plugin](https://jqueryvalidation.org/). This could be the potential cause of the error.
+
+**Newsletter**
+
+- contact_form.js - Raises no errors or warnings.
+- newsletter-form.js(Inline JS) - Raises no errors or warnings.
+
+**Products**
+
+- product_detail.js - Raises the same warning as Basket's basket.html file as the same code is used.
+- products.html(Inline JS) - Raises no errors or warnings.
+
+**Profiles**
+
+- mailing_list_form.js - One undefined variable: jQuery. This comes from the [JQuery Validation Plugin](https://jqueryvalidation.org/). This could be the potential cause of the error.
+- rate_product.js - Raises no errors or warnings.
+
+**Project Level**
+
+- product_form.js - One undefined variable: jQuery. This comes from the [JQuery Validation Plugin](https://jqueryvalidation.org/). This could be the potential cause of the error.
+- base.html(Inline JS) - One undefined variable: bootstrap. This JS comes from the bootstrap documentation.
 
 #### **Python**
 

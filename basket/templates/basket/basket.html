@@ -128,7 +128,7 @@
 {{ block.super }}
 <script>
     $(document).ready(function () {
-        $("#quantity-form > p").remove()
+        $("#quantity-form > p").remove();
 
     $(".remove-item").click(function(e) {
         var csrfToken = "{{ csrf_token }}";
@@ -142,7 +142,7 @@
          .done(function() {
              location.reload();
          });
-    })
+    });
 
     // Taken from css tricks : https://css-tricks.com/number-increment-buttons/
     $(".quantity-input").on("click", function () {

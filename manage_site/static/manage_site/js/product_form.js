@@ -1,7 +1,7 @@
 // Contact form js and client side valdiation
 $(document).ready(function () {
-    $("label").hide()
-    $("#id_category").addClass("form-select")
+    $("label").hide();
+    $("#id_category").addClass("form-select");
 
     // Change option text
     $("select option:contains('---------')").text("Category *");

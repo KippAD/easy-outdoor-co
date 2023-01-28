@@ -242,11 +242,11 @@
     {% block postloadjs %}
     {{ block.super }}
     <script>
-        var toastElList = [].slice.call(document.querySelectorAll(".toast"))
+        var toastElList = [].slice.call(document.querySelectorAll(".toast"));
         var toastList = toastElList.map(function (toastEl) {
-            return new bootstrap.Toast(toastEl)
-        })
-        toastList.forEach(toast => toast.show())
+            return new bootstrap.Toast(toastEl);
+        });
+        toastList.forEach(toast => toast.show());
     </script>
     <script src="{% static 'js/mailing_list_form.js' %}" crossorigin="anonymous"></script>
     {% endblock %}

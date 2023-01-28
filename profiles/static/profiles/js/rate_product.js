@@ -1,7 +1,7 @@
 // Contact form js and client side valdiation
 $(document).ready(function () {
     $("input[name='rating']:checked").val();
-    $("label[for='id_comment']").hide()
+    $("label[for='id_comment']").hide();
 
     $("#reviewForm").validate({
         rules: {

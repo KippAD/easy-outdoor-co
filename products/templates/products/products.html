@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static "products/css/products.css" %}">
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -74,7 +74,7 @@
         $("#sort-selector").change(function() {
             var selector = $(this);
             var currentUrl = new URL(window.location);
-            $(".product-row").addClass("border-bottom")
+            $(".product-row").addClass("border-bottom");
 
             var selectedVal = selector.val();
             if(selectedVal != "reset"){
@@ -91,6 +91,6 @@
 
                 window.location.replace(currentUrl);
             }
-        })
+        });
     </script>
 {% endblock %}
