@@ -20,7 +20,7 @@ class StripeWH_Handler:
         Handle a generic/unknown/unexpected webhook event
         """
         return HttpResponse(
-            content=f'Unhandled webhook received: {event["type"]}',
+            content=f"Unhandled webhook received: {event['type']}",
             status=200)
 
     def handle_payment_intent_succeeded(self, event):
@@ -44,7 +44,7 @@ class StripeWH_Handler:
         # Update profile information if save_info was checked
         profile = None
         username = intent.metadata.username
-        if username != 'AnonymousUser':
+        if username != "AnonymousUser":
             profile = UserProfile.objects.get(user__username=username)
             if save_info:
                 profile.default_phone_number = shipping_details.phone
@@ -81,7 +81,8 @@ class StripeWH_Handler:
                 time.sleep(1)
         if order_exists:
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
+                content=f"Webhook received: {event['type']} \
+                    | SUCCESS: Verified order already in database",
                 status=200)
         else:
             order = None
@@ -109,12 +110,15 @@ class StripeWH_Handler:
                             quantity=item_data,
                         )
                         order_line_item.save()
-                        stock = get_object_or_404(RegularStock, product=product)
+                        stock = get_object_or_404(
+                            RegularStock, product=product
+                            )
                         stock -= item_data
                         stock.save()
 
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for size, quantity in item_data[
+                                "items_by_size"].items():
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
@@ -126,10 +130,11 @@ class StripeWH_Handler:
                 if order:
                     order.delete()
                 return HttpResponse(
-                    content=f'Webhook received: {event["type"]} | ERROR: {e}',
+                    content=f"Webhook received: {event['type']} | ERROR: {e}",
                     status=500)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
+            content=f"Webhook received: {event['type']} \
+                | SUCCESS: Created order in webhook",
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):
@@ -137,5 +142,5 @@ class StripeWH_Handler:
         Handle the payment_intent.payment_failed webhook from Stripe
         """
         return HttpResponse(
-            content=f'Webhook received: {event["type"]}',
+            content=f"Webhook received: {event['type']}",
             status=200)

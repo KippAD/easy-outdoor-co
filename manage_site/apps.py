@@ -2,5 +2,5 @@ from django.apps import AppConfig
 
 
 class ManageSiteConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'manage_site'
+    default_auto_field = "django.db.models.BigAutoField"
+    name = "manage_site"

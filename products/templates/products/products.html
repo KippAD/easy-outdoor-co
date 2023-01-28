@@ -1,60 +1,60 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block extra_css %}
-<link rel='stylesheet' href='{% static "products/css/products.css" %}'>
+<link rel="stylesheet" href="{% static "products/css/products.css" %}">
 {% endblock %}
 
 {% block content %}
 
-<section class='product-section'>
-    <div class='container mx-auto'>
-        <h2 class='pb-3 text-center'>Products</h2>
+<section class="product-section">
+    <div class="container mx-auto">
+        <h2 class="pb-3 text-center">Products</h2>
         
-        <div class='row pb-2'>
-            <div class='col-5 col-md-6'>
+        <div class="row pb-2">
+            <div class="col-5 col-md-6">
                 <p id="result-count" class="fw-bold">{{ products|length }} Result(s)</p>
             </div>
-            <div id="sort-dropdown" class='col-7 col-md-6 dropdown text text-end'>
+            <div id="sort-dropdown" class="col-7 col-md-6 dropdown text text-end">
                 <!-- Sorting method taken from Code Institute Boutique Ado walkthrough project -->
-                <select id='sort-selector' class='white-btn border-dark rounded border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}'>
-                    <option value='reset' {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                    <option value='price_asc' {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-                    <option value='price_desc' {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                    <option value='rating_asc' {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
-                    <option value='rating_desc' {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
-                    <option value='name_asc' {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
-                    <option value='name_desc' {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
-                    <option value='category_asc' {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
-                    <option value='category_desc' {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
+                <select id="sort-selector" class="white-btn border-dark rounded border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                    <option value="reset" {% if current_sorting == "None_None" %}selected{% endif %}>Sort by...</option>
+                    <option value="price_asc" {% if current_sorting == "price_asc" %}selected{% endif %}>Price (low to high)</option>
+                    <option value="price_desc" {% if current_sorting == "price_desc" %}selected{% endif %}>Price (high to low)</option>
+                    <option value="rating_asc" {% if current_sorting == "rating_asc" %}selected{% endif %}>Rating (low to high)</option>
+                    <option value="rating_desc" {% if current_sorting == "rating_desc" %}selected{% endif %}>Rating (high to low)</option>
+                    <option value="name_asc" {% if current_sorting == "name_asc" %}selected{% endif %}>Name (A-Z)</option>
+                    <option value="name_desc" {% if current_sorting == "name_desc" %}selected{% endif %}>Name (Z-A)</option>
+                    <option value="category_asc" {% if current_sorting == "category_asc" %}selected{% endif %}>Category (A-Z)</option>
+                    <option value="category_desc" {% if current_sorting == "category_desc" %}selected{% endif %}>Category (Z-A)</option>
                 </select>
             </div>
         </div>
         
-        <div class='row product-row d-flex border-bottom'>
+        <div class="row product-row d-flex border-bottom">
             {% for product in products %}
-            <div class='col-12 col-sm-6 col-lg-4 col-xl-3 text-center d-flex flex-column'>
-                <div class='mx-auto product-img pb-3'>
-                    <a href='{% url "product-detail" slug=product.slug%}'>
-                        <img src='{{ product.image_url }}' alt='{{ product.name }}'>
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 text-center d-flex flex-column">
+                <div class="mx-auto product-img pb-3">
+                    <a href="{% url 'product-detail' slug=product.slug%}">
+                        <img src="{{ product.image_url }}" alt="{{ product.name }}">
                     </a>
                 </div>
                 <div>
-                    <a class="text-black text-decoration-none" href='{% url "product-detail" slug=product.slug%}'>
-                        <h5 class='mb-0 fw-bold'>{{ product.name }}</h5>
+                    <a class="text-black text-decoration-none" href="{% url 'product-detail' slug=product.slug%}">
+                        <h5 class="mb-0 fw-bold">{{ product.name }}</h5>
                     </a>
                     <p class="grey mb-1">{{ product.category.friendly_name }}</p>
                 </div>
-                <div class='row'>
-                    {% include 'products/includes/product-rating.html' %}
+                <div class="row">
+                    {% include "products/includes/product-rating.html" %}
                 </div>
                 <div>
                 <a href="{% url 'product-reviews' slug=product.slug %}">{{ product.product_reviews.all | length }} Review(s)</a>
                 {% if not product.sale_price %}
-                    <p class='fw-bold'>£{{ product.price }}</p>
+                    <p class="fw-bold">£{{ product.price }}</p>
                 {% else %}
-                    <p class='m-0 grey text-decoration-line-through'>£{{ product.price }}</p>
-                    <p class='fw-bold sale'>£{{ product.sale_price }}</p>
+                    <p class="m-0 grey text-decoration-line-through">£{{ product.price }}</p>
+                    <p class="fw-bold sale">£{{ product.sale_price }}</p>
                 {% endif %}
                 </div>
             </div>
@@ -70,24 +70,24 @@
 
     {{ block.super }}
     <!-- Sorting method taken from Code Institute Boutique Ado walkthrough project -->
-    <script type='text/javascript'>
-        $('#sort-selector').change(function() {
+    <script type="text/javascript">
+        $("#sort-selector").change(function() {
             var selector = $(this);
             var currentUrl = new URL(window.location);
-            $('.product-row').addClass('border-bottom')
+            $(".product-row").addClass("border-bottom")
 
             var selectedVal = selector.val();
-            if(selectedVal != 'reset'){
-                var sort = selectedVal.split('_')[0];
-                var direction = selectedVal.split('_')[1];
+            if(selectedVal != "reset"){
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
 
-                currentUrl.searchParams.set('sort', sort);
-                currentUrl.searchParams.set('direction', direction);
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
 
                 window.location.replace(currentUrl);
             } else {
-                currentUrl.searchParams.delete('sort');
-                currentUrl.searchParams.delete('direction');
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
 
                 window.location.replace(currentUrl);
             }

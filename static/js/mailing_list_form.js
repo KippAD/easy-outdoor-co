@@ -5,7 +5,7 @@ $(document).ready(function () {
         return value.indexOf(" ") < 0 && value != ""; 
     }, "No space please and don't leave it empty");
 
-    $('#mailingListForm').validate({
+    $("#mailingListForm").validate({
         rules: {
             name: {
                 required: true,

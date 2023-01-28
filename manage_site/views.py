@@ -1,18 +1,20 @@
 from django.shortcuts import render, reverse, get_object_or_404, redirect
 from products.models import Product, SizeStock, RegularStock
-from django.contrib.auth.models import User
 from checkout.models import Order
 from profiles.models import UserProfile
-from profiles.forms import UserDeliveryForm, UserProfileForm
 from newsletter.models import MailingList
-from django.views import generic
+from profiles.forms import UserDeliveryForm, UserProfileForm
+from .forms import ProductForm, RegularStockForm, SizeStockForm
+
+from django.views.generic import CreateView, UpdateView, DeleteView
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
-from django import forms
-from itertools import chain
-from .forms import ProductForm, RegularStockForm, SizeStockForm
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.models import User
+
+from django import forms
+from itertools import chain
 
 
 @user_passes_test(lambda user: user.is_staff)
@@ -28,12 +30,12 @@ def manage_site(request):
     profiles = UserProfile.objects.all()
 
     context = {
-        'products': products,
-        'regular_stock': regular_stock,
-        'size_stock': size_stock,
-        'orders': orders,
-        'mailing_list': mailing_list,
-        'profiles': profiles,
+        "products": products,
+        "regular_stock": regular_stock,
+        "size_stock": size_stock,
+        "orders": orders,
+        "mailing_list": mailing_list,
+        "profiles": profiles,
     }
 
     return render(request, template, context)
@@ -51,14 +53,14 @@ class AddProduct(SuccessMessageMixin, UserPassesTestMixin, generic.CreateView):
         return self.request.user.is_staff
 
     def get_success_url(self):
-        return reverse('manage-site')
+        return reverse("manage-site")
 
 
-class UpdateProduct(SuccessMessageMixin, UserPassesTestMixin, generic.UpdateView):
+class UpdateProduct(SuccessMessageMixin, UserPassesTestMixin, UpdateView):
     """Updates product model"""
     model = Product
     template_name = "manage_site/product-update.html"
-    fields = '__all__'
+    fields = "__all__"
     success_message = "Product Updated!"
 
     def get_initial(self):
@@ -72,12 +74,12 @@ class UpdateProduct(SuccessMessageMixin, UserPassesTestMixin, generic.UpdateView
         return self.request.user.is_staff
 
     def get_success_url(self):
-        return reverse('manage-site')
+        return reverse("manage-site")
 
 
-class DeleteProduct(SuccessMessageMixin, UserPassesTestMixin, generic.DeleteView):
+class DeleteProduct(SuccessMessageMixin, UserPassesTestMixin, DeleteView):
     model = Product
-    delete_message = 'Product Deleted!'
+    delete_message = "Product Deleted!"
     template_name = "manage_site/product-delete.html"
 
     def delete(self, request, *args, **kwargs):
@@ -88,15 +90,15 @@ class DeleteProduct(SuccessMessageMixin, UserPassesTestMixin, generic.DeleteView
         return self.request.user.is_staff
 
     def get_success_url(self):
-        return reverse('manage-site')
+        return reverse("manage-site")
 
 
 # CRUD for stock for admin area
-class UpdateSizeStock(SuccessMessageMixin, UserPassesTestMixin, generic.UpdateView):
+class UpdateSizeStock(SuccessMessageMixin, UserPassesTestMixin, UpdateView):
     """Updates product model"""
     model = SizeStock
     template_name = "manage_site/size-stock-update.html"
-    fields = '__all__'
+    fields = "__all__"
     success_message = "Product size stock updated!"
 
     def get_initial(self):
@@ -110,10 +112,10 @@ class UpdateSizeStock(SuccessMessageMixin, UserPassesTestMixin, generic.UpdateVi
         return self.request.user.is_staff
 
     def get_success_url(self):
-        return reverse('manage-site')
+        return reverse("manage-site")
 
 
-class UpdateRegularStock(SuccessMessageMixin, UserPassesTestMixin, generic.UpdateView):
+class UpdateRegularStock(SuccessMessageMixin, UserPassesTestMixin, UpdateView):
     """Updates product model"""
     model = RegularStock
     template_name = "manage_site/regular-stock-update.html"
@@ -130,11 +132,11 @@ class UpdateRegularStock(SuccessMessageMixin, UserPassesTestMixin, generic.Updat
         return self.request.user.is_staff
 
     def get_success_url(self):
-        return reverse('manage-site')
+        return reverse("manage-site")
 
 
 # View order details
-class OrderDetails(SuccessMessageMixin, UserPassesTestMixin, generic.DetailView):
+class OrderDetails(SuccessMessageMixin, UserPassesTestMixin, DetailView):
     """Displays immutable order details"""
     model = Order
     template_name = "manage_site/order-detail.html"
@@ -150,30 +152,34 @@ def update_profile(request, user_id):
     user = get_object_or_404(User, id=user_id)
     profile = get_object_or_404(UserProfile, user=user)
 
-    if request.method == 'POST':
+    if request.method == "POST":
         user_form = UserProfileForm(request.POST, instance=user)
         delivery_form = UserDeliveryForm(request.POST, instance=profile)
         if delivery_form.is_valid() and user_form.is_valid():
             user_form.save()
             delivery_form.save()
-            messages.success(request, 'Profile updated successfully')
-            return redirect(reverse('manage-site'))
+            messages.success(request, "Profile updated successfully")
+            return redirect(reverse("manage-site"))
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid.')
+            messages.error(
+                request,
+                "Update failed. Please ensure the form is valid."
+                )
             raise ValidationError(
-                    "Your form was not updated, please fill out the form correctly."
+                    f"Your form was not updated, please fill out \
+                    the form correctly."
                 )
     else:
         user_form = UserProfileForm(instance=user)
         delivery_form = UserDeliveryForm(instance=profile)
     orders = profile.orders.all()
 
-    template = 'manage_site/profile-update.html'
+    template = "manage_site/profile-update.html"
     context = {
-        'user': user,
-        'profile': profile,
-        'user_form': user_form,
-        'delivery_form': delivery_form,
+        "user": user,
+        "profile": profile,
+        "user_form": user_form,
+        "delivery_form": delivery_form,
     }
 
     return render(request, template, context)
@@ -182,7 +188,7 @@ def update_profile(request, user_id):
 class DeleteProfile(UserPassesTestMixin, generic.DeleteView):
     """Deletes user profile from the database"""
     model = User
-    delete_message = 'User Deleted!'
+    delete_message = "User Deleted!"
     template_name = "manage_site/profile-delete.html"
 
     def delete(self, request, *args, **kwargs):
@@ -193,11 +199,11 @@ class DeleteProfile(UserPassesTestMixin, generic.DeleteView):
         return self.request.user.is_staff
 
     def get_success_url(self):
-        return reverse('manage-site')
+        return reverse("manage-site")
 
 
 # Delete email from newsletter database
-class DeleteEmail(UserPassesTestMixin, generic.DeleteView):
+class DeleteEmail(UserPassesTestMixin, DeleteView):
     """Deletes user profile from the database"""
     model = MailingList
     delete_message = "Email removed from mailing list!"
@@ -211,4 +217,4 @@ class DeleteEmail(UserPassesTestMixin, generic.DeleteView):
         return self.request.user.is_staff
 
     def get_success_url(self):
-        return reverse('manage-site')
+        return reverse("manage-site")

@@ -12,13 +12,20 @@ class UserProfile(models.Model):
     Model that stores users personal and delivery
     information for future deliveries
     """
-    user = models.OneToOneField(User, related_name="userprofile", on_delete=models.CASCADE)
-    default_phone_number = models.CharField(max_length=20, null=True, blank=True)
-    default_country = CountryField(blank_label='Country *', null=True, blank=True)
-    default_postcode = models.CharField(max_length=20, null=True, blank=True)
-    default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
-    default_street_address1 = models.CharField(max_length=80, null=True, blank=True)
-    default_street_address2 = models.CharField(max_length=80, null=True, blank=True)
+    user = models.OneToOneField(User, related_name="userprofile",
+                                on_delete=models.CASCADE)
+    default_phone_number = models.CharField(max_length=20,
+                                            null=True, blank=True)
+    default_country = CountryField(blank_label="Country *",
+                                   null=True, blank=True)
+    default_postcode = models.CharField(max_length=20,
+                                        null=True, blank=True)
+    default_town_or_city = models.CharField(max_length=40,
+                                            null=True, blank=True)
+    default_street_address1 = models.CharField(max_length=80,
+                                               null=True, blank=True)
+    default_street_address2 = models.CharField(max_length=80,
+                                               null=True, blank=True)
     default_county = models.CharField(max_length=80, null=True, blank=True)
 
     def __str__(self):
@@ -38,14 +45,21 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
 
 class ProductReview(models.Model):
     """Model to store user reviews"""
-    user = models.ForeignKey(User, related_name="user", on_delete=models.CASCADE)
-    product = models.ForeignKey('products.Product', related_name="product_reviews", on_delete=models.CASCADE)
-    rating = models.DecimalField(max_digits=4, decimal_places=2, null=True, blank=True, validators=[MaxValueValidator(5)])
+    user = models.ForeignKey(User, related_name="user",
+                             on_delete=models.CASCADE)
+    product = models.ForeignKey(
+        "products.Product", related_name="product_reviews",
+        on_delete=models.CASCADE
+        )
+    rating = models.DecimalField(
+        max_digits=4, decimal_places=2, null=True,
+        blank=True, validators=[MaxValueValidator(5)]
+        )
     comment = models.TextField(max_length=400, null=False)
     date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('user', 'product',)
+        unique_together = ("user", "product",)
 
     def __str__(self):
         return str(self.product + "Review by" + self.user)

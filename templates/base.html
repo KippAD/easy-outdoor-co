@@ -190,7 +190,7 @@
                 </div>
                 <div class="col-12 col-md-6 text-end">
                     <h4 class="fs-2 text-white">Easy Outdoor Co.</h4>
-                    <form id="mailingListForm" action="{% url 'mailing-list' %}" method='POST' class="py-1">
+                    <form id="mailingListForm" action="{% url 'mailing-list' %}" method="POST" class="py-1">
                         {% csrf_token %}
                         <p class="mb-2 fw-bold">Join our newsletter:</p>
                         <div class="mb-2">
@@ -227,13 +227,13 @@
         {% for message in messages %}
         {% with message.level as level %}
         {% if level == 40 %}
-        {% include 'includes/toasts/toast_error.html' %}
+        {% include "includes/toasts/toast_error.html" %}
         {% elif level == 30 %}
-        {% include 'includes/toasts/toast_warning.html' %}
+        {% include "includes/toasts/toast_warning.html" %}
         {% elif level == 25 %}
-        {% include 'includes/toasts/toast_success.html' %}
+        {% include "includes/toasts/toast_success.html" %}
         {% else %}
-        {% include 'includes/toasts/toast_info.html' %}
+        {% include "includes/toasts/toast_info.html" %}
         {% endif %}
         {% endwith %}
         {% endfor %}
@@ -243,7 +243,7 @@
     {% block postloadjs %}
     {{ block.super }}
     <script>
-        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastElList = [].slice.call(document.querySelectorAll(".toast"))
         var toastList = toastElList.map(function (toastEl) {
             return new bootstrap.Toast(toastEl)
         })

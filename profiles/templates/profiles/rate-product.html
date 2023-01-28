@@ -17,7 +17,7 @@
                 <form method="POST" id="reviewForm" action="{% url 'rate-product' product_id=product.id %}">
                     {% csrf_token %}
                     <div>
-                        {% include 'profiles/includes/rating-selector.html' %}
+                        {% include "profiles/includes/rating-selector.html" %}
                     </div>
                     <div class="mb-3">
                         {{ form.comment | as_crispy_field }}

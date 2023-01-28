@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat:wght@400;500;600;700;800;900&family=Nunito:wght@500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Montserrat:wght@400;500;600;700;800;900&family=Nunito:wght@500;600;700;800;900&display=swap");
 
 
 .profile-section {
@@ -19,7 +19,7 @@
 }
 
 .info-panel {
-    background: url('/media/mountain.jpg') center;
+    background: url("/media/mountain.jpg") center;
     background-size: cover;
 }
 
@@ -36,23 +36,6 @@
     color: #000000;
     background-color: #FFFFFF!important;;
     box-shadow: none!important;
-}
-
-/* XX-Large devices (larger desktops, 1400px and down) */
-@media screen and (max-width: 1400px) {
-}
-
-/* X-Large devices (large desktops, 1200px and down) */
-@media screen and (max-width: 1200px) {
-}
-
-/* Large devices (desktops, 992px and down) */
-@media screen and (max-width: 992px) {
-
-}
-
-/* Medium devices (tablets, 768px and down) */
-@media screen and (max-width: 768px) {
 }
 
 /* Small devices (landscape phones, 576px and down) */

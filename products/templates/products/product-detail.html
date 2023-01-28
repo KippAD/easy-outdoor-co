@@ -20,7 +20,7 @@
             <div class="product-info col-12 offset-md-1 col-md-10 offset-lg-0 col-lg-8 d-flex flex-column justify-content-between">
                 <div class="d-flex flex-column justify-content-start">
                     <h2 class="fs-3">{{ product.name }}</h2>
-                    {% include 'products/includes/product-rating.html' %}
+                    {% include "products/includes/product-rating.html" %}
                     <a class="mb-2" href="{% url 'product-reviews' slug=product.slug %}">{{ product.product_reviews.all | length }} Review(s)</a>
                 </div>
 
@@ -93,7 +93,7 @@
                 <!-- Related products -->
                 <h2 class="mb-3">Browse Products</h2>
                 <div class="d-flex overflow-scroll overflow-hidden mw-100">
-                    {% include 'products/includes/product-carousel.html' %}
+                    {% include "products/includes/product-carousel.html" %}
                 </div>
             </div>
         </div>

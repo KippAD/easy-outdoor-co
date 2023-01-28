@@ -4,34 +4,34 @@ from .models import Product, Category, SizeStock, RegularStock
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
-        'name',
-        'price',
-        'has_sizes',
+        "name",
+        "price",
+        "has_sizes",
     )
 
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
-        'friendly_name',
-        'name',
+        "friendly_name",
+        "name",
     )
 
 
 class SizeStockAdmin(admin.ModelAdmin):
     list_display = (
-        'product',
-        'xs',
-        's',
-        'm',
-        'l',
-        'xl',
+        "product",
+        "xs",
+        "s",
+        "m",
+        "l",
+        "xl",
     )
 
 
 class RegularStockAdmin(admin.ModelAdmin):
     list_display = (
-        'product',
-        'stock',
+        "product",
+        "stock",
     )
 
 

@@ -1,6 +1,6 @@
 // Contact form js and client side valdiation
 $(document).ready(function () {
-    $('#contactForm').validate({
+    $("#contactForm").validate({
         rules: {
             subject: {
                 required: true,

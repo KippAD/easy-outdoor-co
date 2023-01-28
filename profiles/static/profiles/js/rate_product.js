@@ -1,9 +1,9 @@
 // Contact form js and client side valdiation
 $(document).ready(function () {
-    $('input[name="rating"]:checked').val();
+    $("input[name='rating']:checked").val();
     $("label[for='id_comment']").hide()
 
-    $('#reviewForm').validate({
+    $("#reviewForm").validate({
         rules: {
             subject: {
                 required: true,
@@ -36,7 +36,7 @@ $(document).ready(function () {
         },
     });
 
-    $('#userForm').validate({
+    $("#userForm").validate({
         rules: {
             username: {
                 required: true,

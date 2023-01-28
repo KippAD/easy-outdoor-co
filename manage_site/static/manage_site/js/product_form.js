@@ -1,19 +1,19 @@
 // Contact form js and client side valdiation
 $(document).ready(function () {
-    $('label').hide()
-    $('#id_category').addClass('form-select')
+    $("label").hide()
+    $("#id_category").addClass("form-select")
 
     // Change option text
-    $('select option:contains("---------")').text('Category *');
-    $('select option:contains("jackets_coats")').text('Jackets & Coats');
-    $('select option:contains("equipment")').text('Equipment');
-    $('select option:contains("trousers")').text('Trousers');
-    $('select option:contains("fleeces_jumpers")').text('Fleeces & Jumpers');
-    $('select option:contains("t-shirts")').text('T-Shirts');
-    $('select option:contains("socks")').text('Socks');
-    $('select option:contains("sunglasses")').text('Sunglasses');
-    $('select option:contains("headwear")').text('Headwear');
-    $('select option:contains("gloves")').text('Gloves');
+    $("select option:contains('---------')").text("Category *");
+    $("select option:contains('jackets_coats')").text("Jackets & Coats");
+    $("select option:contains('equipment')").text("Equipment");
+    $("select option:contains('trousers')").text("Trousers");
+    $("select option:contains('fleeces_jumpers')").text("Fleeces & Jumpers");
+    $("select option:contains('t-shirts')").text("T-Shirts");
+    $("select option:contains('socks')").text("Socks");
+    $("select option:contains('sunglasses')").text("Sunglasses");
+    $("select option:contains('headwear')").text("Headwear");
+    $("select option:contains('gloves')").text("Gloves");
 
     // Only allows letters and dashes for slug
     jQuery.validator.addMethod("lettersonly", function(value, element) {
@@ -21,7 +21,7 @@ $(document).ready(function () {
     }, "Letters and spaces only please");
 
     // Form validation
-    $('.productForm').validate({
+    $(".productForm").validate({
         rules: {
             category: {
                 required: true,

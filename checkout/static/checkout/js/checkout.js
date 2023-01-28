@@ -2,15 +2,15 @@
 $(document).ready(function () {
 
     jQuery.validator.addMethod("lettersonly", function(value, element) {
-        return this.optional(element) || /^[a-zA-Z\-]+$/i.test(value);
-    }, "Letters and spaces only please");
+        return this.optional(element) || /^[a-zA-Z\- ]+$/i.test(value);
+    }, "Letters, spaces and dashes only please");
 
     // Custom validator method taken from https://stackoverflow.com/questions/29026778/jquery-validation-method-phone-number-begin-with-plus-mark
-    $.validator.addMethod('fnType', function(value, element) {
+    $.validator.addMethod("fnType", function(value, element) {
         return value.match(/^\+(?:[0-9] ?){6,14}[0-9]$/);
-    },'Enter Valid  phone number');
+    },"Enter Valid  phone number");
 
-    $('#payment-form').validate({
+    $("#payment-form").validate({
         rules: {
             full_name: {
                 required: true,
@@ -40,7 +40,7 @@ $(document).ready(function () {
         messages: {
             full_name: {
                 required: "Please enter a name",
-                lettersonly: "Your name can only contain numbers and spaces",
+                lettersonly: "Your name can only contain numbers, spaces and dashes",
             },
             email: {
                 required: "Please enter your email",
