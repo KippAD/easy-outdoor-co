@@ -59,7 +59,7 @@ class SizeStock(models.Model):
     xl = models.IntegerField('extra large', null=True, blank=True)
     
     def __str__(self):
-        return self.product + "Size Stock"
+        return str(self.product.name + "Size Stock")
 
 
 class RegularStock(models.Model):
@@ -68,4 +68,4 @@ class RegularStock(models.Model):
     stock = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
-        return self.product + "Regular Stock"
+        return str(self.product.name + "Regular Stock")
