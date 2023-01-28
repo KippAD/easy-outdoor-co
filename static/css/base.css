@@ -223,7 +223,6 @@ footer a:hover {
 /* Msg container for toasts */
 .message-container {
     background-color: #FFFFFF;
-    overflow: hidden;
     position: fixed;
     top: 10vh;
     right: 5vw;

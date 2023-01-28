@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.db.models import Avg
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect
@@ -22,6 +22,7 @@ def profile(request):
             user_form.save()
             delivery_form.save()
             messages.success(request, 'Profile updated successfully')
+            return redirect(reverse('profile'))
         else:
             messages.error(request, 'Update failed. Please ensure the form is valid.')
     else:
