@@ -17,7 +17,7 @@
         <div class="row">
             <h3 class="d-none d-md-block border-bottom">Orders</h3>
             <div class="px-3 mt-3 col-12 col-md-6 order-2 order-md-1">
-                {% if not orders %}
+                {% if orders %}
                 <div class="accordion accordion-flush" id="accordionFlushExample">
                     {% for order in orders %}
                     <div class="accordion-item">
