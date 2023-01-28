@@ -8,7 +8,7 @@ def basket_contents(request):
     basket_items = []
     total = 0
     product_count = 0
-    basket = request.session.get('basket', {})
+    basket = request.session.get("basket", {})
 
     for product_id, product_data in basket.items():
         if isinstance(product_data, int):
@@ -16,20 +16,20 @@ def basket_contents(request):
             total += product_data * product.price
             product_count += product_data
             basket_items.append({
-                'product_id': product_id,
-                'quantity': product_data,
-                'product': product,
+                "product_id": product_id,
+                "quantity": product_data,
+                "product": product,
             })
         else:
             product = get_object_or_404(Product, pk=product_id)
-            for size_selection, quantity in product_data['size_quantities'].items():
+            for size_selection, quantity in product_data["size_quantities"].items():
                 total += quantity * product.price
                 product_count += quantity
                 basket_items.append({
-                    'product_id': product_id,
-                    'quantity': quantity,
-                    'product': product,
-                    'size_selection': size_selection,
+                    "product_id": product_id,
+                    "quantity": quantity,
+                    "product": product,
+                    "size_selection": size_selection,
                 })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
@@ -42,12 +42,12 @@ def basket_contents(request):
     grand_total = delivery + total
 
     context = {
-        'basket_items': basket_items,
-        'total': total,
-        'product_count': product_count,
-        'delivery': delivery,
-        'free_delivery_delta': free_delivery_delta,
-        'grand_total': grand_total,
+        "basket_items": basket_items,
+        "total": total,
+        "product_count": product_count,
+        "delivery": delivery,
+        "free_delivery_delta": free_delivery_delta,
+        "grand_total": grand_total,
     }
 
     return context

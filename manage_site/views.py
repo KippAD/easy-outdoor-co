@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, get_object_or_404
+from django.shortcuts import render, reverse, get_object_or_404, redirect
 from products.models import Product, SizeStock, RegularStock
 from django.contrib.auth.models import User
 from checkout.models import Order
@@ -18,7 +18,7 @@ from django.contrib.auth.decorators import user_passes_test
 @user_passes_test(lambda user: user.is_staff)
 def manage_site(request):
     """Displays site management template for admin"""
-    template = 'manage_site/manage-site.html'
+    template = "manage_site/manage-site.html"
 
     products = Product.objects.all()
     size_stock = SizeStock.objects.all()
@@ -77,8 +77,12 @@ class UpdateProduct(SuccessMessageMixin, UserPassesTestMixin, generic.UpdateView
 
 class DeleteProduct(SuccessMessageMixin, UserPassesTestMixin, generic.DeleteView):
     model = Product
-    success_message = 'Product Deleted!'
+    delete_message = 'Product Deleted!'
     template_name = "manage_site/product-delete.html"
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.delete_message)
+        return super(DeleteProfile, self).delete(request, *args, **kwargs)
 
     def test_func(self):
         return self.request.user.is_staff
@@ -153,6 +157,7 @@ def update_profile(request, user_id):
             user_form.save()
             delivery_form.save()
             messages.success(request, 'Profile updated successfully')
+            return redirect(reverse('manage-site'))
         else:
             messages.error(request, 'Update failed. Please ensure the form is valid.')
             raise ValidationError(
@@ -195,7 +200,7 @@ class DeleteProfile(UserPassesTestMixin, generic.DeleteView):
 class DeleteEmail(UserPassesTestMixin, generic.DeleteView):
     """Deletes user profile from the database"""
     model = MailingList
-    delete_message = 'Email removed from mailing list!'
+    delete_message = "Email removed from mailing list!"
     template_name = "manage_site/email-delete.html"
 
     def delete(self, request, *args, **kwargs):

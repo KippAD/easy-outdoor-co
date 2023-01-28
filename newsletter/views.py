@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.conf import settings
 from .models import MailingList, NewsletterEmail
 from django.contrib import messages
@@ -90,5 +90,5 @@ def contact_form(request):
         from_email = settings.EMAIL_HOST_USER
         to = settings.EMAIL_HOST_USER
         mail.send_mail(email_subject, email_content, from_email, [to])
-
-        return redirect('contact-form')
+        
+        return redirect(reverse('home'))

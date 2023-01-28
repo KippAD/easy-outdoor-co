@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        {% include 'products/includes/product-rating.html' %}
+                        {% include "products/includes/product-rating.html" %}
                     </div>
 
                     <div class="row">
@@ -91,6 +91,16 @@
         </div>
         <span class="d-block line-divide"></span>
         {% endfor %}
+        <div class="row text-center mt-3">
+            <h3 class="fs-4">Cost</h3>
+            <p class="m-0 fs-5"><strong>Total:</strong> £{{ total }}</p>
+            {% if delivery %}
+            <p class="m-0 fs-5"><strong>Delivery:</strong> £{{ delivery }}</p>
+            {% else %}
+            <p class="m-0 fs-5"><strong>Delivery:</strong> Free</p>
+            {% endif %}
+            <p class="mb-2 fs-5"><strong>Grand Total:</strong> £{{ grand_total }}</p>
+        </div>
     </div>
         {% else %}
         <div class="text-center">
@@ -118,15 +128,15 @@
 {{ block.super }}
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#quantity-form > p').remove()
+        $("#quantity-form > p").remove()
 
-    $('.remove-item').click(function(e) {
+    $(".remove-item").click(function(e) {
         var csrfToken = "{{ csrf_token }}";
-        var index = $(this).data('index');
-        var productId = $(this).attr('id').split('remove_')[index];
-        var size = $(this).data('product_size');
+        var index = $(this).data("index");
+        var productId = $(this).attr("id").split("remove_")[index];
+        var size = $(this).data("product_size");
         var url = `/basket/delete/${productId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+        var data = {"csrfmiddlewaretoken": csrfToken, "product_size": size};
 
         $.post(url, data)
          .done(function() {
@@ -136,9 +146,9 @@
 
     // Taken from css tricks : https://css-tricks.com/number-increment-buttons/
     $(".quantity-input").on("click", function () {
-        var oldValue = $(this).siblings('#quantity').val();
+        var oldValue = $(this).siblings("#quantity").val();
 
-        if ($(this).data('value') == '+') {
+        if ($(this).data("value") == "+") {
             var newVal = parseFloat(oldValue) + 1;
         } else {
             // Don't allow decrementing below zero
@@ -148,7 +158,7 @@
                 newVal = 0;
             }
         }
-        $(this).siblings('#quantity').val(newVal);
+        $(this).siblings("#quantity").val(newVal);
     });
 });
 </script>
