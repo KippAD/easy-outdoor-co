@@ -111,7 +111,7 @@ def contact_form(request):
             request,
             ("Message sent! We will get back to you as soon as we can."))
         email_subject = request.POST.get("subject")
-        email_address = request.POST.get("email")
+        email_address = request.POST.get("newsletter-email")
         email_message = request.POST.get("message")
         email_content = f"{email_message} - Sent by {email_address}"
         from_email = settings.EMAIL_HOST_USER

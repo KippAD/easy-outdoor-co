@@ -25,7 +25,7 @@
 
                             <button class="accordion-button collapsed px-2" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapse-{{ order.order_number }}" aria-expanded="false"
-                                aria-controls="flush-collapseOne">
+                                aria-controls="flush-collapse-{{ order.order_number }}">
                                 <strong>{{ forloop.counter }}. {{ order.date | date:"M d, Y"}} 
                                     - {{ order.lineitems.all | length }} Items - 
                                     £{{ order.grand_total }}
