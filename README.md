@@ -374,18 +374,51 @@ The HTML on the application was validated using the [**W3C HTML Validator**](htt
 
 **Manage Site** - No validation errors
 
-<detail>
+<details>
 
 ![image](media/readme-images/html-validation.png)
 
-</detail>
-
+</details>
 
 ### **CSS**
 
-All css files were checked with 
+All css files were checked with [**Jigsaw CSS Validator**](https://jigsaw.w3.org/css-validator/) and returned with no errors.
 
-![image](media/readme-images/html-validation.png)
+<details>
+ 
+### **base.css**
+  
+![image](media/readme-images/base-css.png)
+  
+ ### **home.css**
+  
+![image](media/readme-images/home-css.png)
+  
+### **product.css**
+  
+![image](media/readme-images/products-css.png)
+  
+### **basket.css**
+  
+![image](media/readme-images/basket-css.png)
+  
+### **manage-site.css**
+  
+![image](media/readme-images/profile-css.png)
+  
+### **allauth.css**
+  
+![image](media/readme-images/allauth-css.png)
+  
+### **checkout.css**
+  
+![image](media/readme-images/checkout-css.png)
+  
+### **manage-site.css**
+  
+![image](media/readme-images/manage-css.png)
+  
+</details>
 
 ### **Responsiveness**
 
