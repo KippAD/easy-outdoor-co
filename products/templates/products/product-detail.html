@@ -47,7 +47,7 @@
                                 size left in stock...</p>
 
                             <input type="radio" class="btn-check" name="sizes" value="{{ key }}" id="{{ key }}"
-                                autocomplete="off" data-stock="{{ value }}">
+                                data-stock="{{ value }}">
                             <label class="size-box" for="{{ key }}">{{ key }}</label>
                             {% else %}
                             <input type="radio" class="btn-check" name="sizes" id="{{ key }}" disabled>
@@ -84,6 +84,7 @@
                         {% else %}
                             <p>We get stock delivered weekly, please check again soon!</p>
                         {% endif %}
+                        </div>
                 </form>
             </div>
         </div>
