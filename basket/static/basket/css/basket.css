@@ -87,6 +87,11 @@ a {
     color: #F0952A;
 }
 
+.remove-item:hover {
+    cursor: pointer;
+    color: #990b0b;
+}
+
 /* Increment styles */
 #quantity {
     width: 50px;

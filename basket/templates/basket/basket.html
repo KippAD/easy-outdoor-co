@@ -113,8 +113,10 @@
     <div class="container checkout-btn py-3">
         <div class="row">
             <div class="d-flex justify-content-center">
-                <a class="fs-6 py-1 px-2 me-1 fw-bold white-btn text-black" href="">Return to Shop</a>
+                <a class="fs-6 py-1 px-2 me-1 fw-bold white-btn text-black" href="{% url 'products' %}">Return to Shop</a>
+                {% if basket_items %}
                 <a class="fs-6 py-1 px-2 ms-1 fw-bold shop-btn" href="{% url 'checkout' %}">Checkout</a>
+                {% endif %}
             </div>
         </div>
     </div>
