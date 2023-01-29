@@ -1,5 +1,6 @@
 # **The Easy Outdoor Co.**
 
+![image](media/readme-images/home.png)
 
 ## **Brief**
 The Easy Outdoor Co. is an e-commerce site for a fictional store that sells clothing and equipment for outdoor activities. The application takes payments using Stripe and logs orders in the database. Features for the site owner include adding and updating products, deleting stock, and sending newsletters to a mailing list. Users are able to create an account, review products, and make orders. 

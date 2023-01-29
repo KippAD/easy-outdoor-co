@@ -50,6 +50,10 @@ def all_products(request):
             searches = Q(name__icontains=search) | Q(desc__icontains=search)
             products = products.filter(searches)
 
+        # Sale functionality
+        if "sale" in request.GET:
+            products = Product.objects.filter(sale_price__gt=0)
+
         #  Sorting method from Code Institute Boutique Ado walkthrough project
         if "sort" in request.GET:
             sortkey = request.GET["sort"]
@@ -64,10 +68,6 @@ def all_products(request):
                 if direction == "desc":
                     sortkey = f"-{sortkey}"
             products = products.order_by(sortkey)
-
-        # Sale functionality
-        if "sale" in request.GET:
-            products = Product.objects.filter(sale_price__gt=0)
 
     sorting = f"{sort}_{direction}"
 
