@@ -48,12 +48,13 @@ def order_history(request):
     """ Display user's order history """
     profile = get_object_or_404(UserProfile, user=request.user)
     orders = Order.objects.filter(user_profile=profile)
+    ordered_orders = orders.order_by('-date')
     user = request.user
     reviews = ProductReview.objects.filter(user=user)
 
     template = "profiles/order_history.html"
     context = {
-        "orders": orders,
+        "orders": ordered_orders,
         "reviews": reviews,
     }
 

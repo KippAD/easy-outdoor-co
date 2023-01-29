@@ -95,8 +95,8 @@
                     <div class="row mt-2">
                         <h3 class="fs-4">Cost</h3>
                         <p class="m-0"><strong>Total:</strong> £{{ order.order_total }}</p>
-                        <p class="m-0"><strong>Delivery:</strong> £{{ order.delivery_cost }}</p>
-                        <p class="mb-3"><strong>Grand Total:</strong> £{{ order.grand_total }}</p>
+                        <p class="m-0"><strong>Delivery:</strong> £{{ order.delivery_cost | floatformat:2 }}</p>
+                        <p class="mb-3"><strong>Grand Total:</strong> £{{ order.grand_total | floatformat:2 }}</p>
                     </div>
                 </div>
             </div>

@@ -95,11 +95,11 @@
             <h3 class="fs-4">Cost</h3>
             <p class="m-0 fs-5"><strong>Total:</strong> £{{ total }}</p>
             {% if delivery %}
-            <p class="m-0 fs-5"><strong>Delivery:</strong> £{{ delivery }}</p>
+            <p class="m-0 fs-5"><strong>Delivery:</strong> £{{ delivery | floatformat:2 }}</p>
             {% else %}
             <p class="m-0 fs-5"><strong>Delivery:</strong> Free</p>
             {% endif %}
-            <p class="mb-2 fs-5"><strong>Grand Total:</strong> £{{ grand_total }}</p>
+            <p class="mb-2 fs-5"><strong>Grand Total:</strong> £{{ grand_total |floatformat:2 }}</p>
         </div>
     </div>
         {% else %}
