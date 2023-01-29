@@ -11,7 +11,7 @@ from django.utils.html import strip_tags
 def newsletter_subscribe(request):
     if request.method == "POST":
         name = request.POST.get("name")
-        email = request.POST.get("email")
+        email = request.POST.get("newsletter-email")
 
         if email.strip() and name.strip():
             if MailingList.objects.filter(email=email).exists():
@@ -107,15 +107,24 @@ def contact_form(request):
             )
 
     if request.method == "POST":
-        messages.success(
-            request,
-            ("Message sent! We will get back to you as soon as we can."))
         email_subject = request.POST.get("subject")
-        email_address = request.POST.get("newsletter-email")
         email_message = request.POST.get("message")
-        email_content = f"{email_message} - Sent by {email_address}"
-        from_email = settings.EMAIL_HOST_USER
-        to = settings.EMAIL_HOST_USER
-        mail.send_mail(email_subject, email_content, from_email, [to])
+        if email_subject.isspace() or email_message.isspace():
+            messages.error(
+                request,
+                "Inputs cannot be whitespace only"
+            )
+            return redirect(reverse("home"))
+        else:
+            messages.success(
+                request,
+                ("Message sent! We will get back to you as soon as we can."))
+
+            email_address = request.POST.get("email")
+            email_message = request.POST.get("message")
+            email_content = f"{email_message} - Sent by {email_address}"
+            from_email = settings.EMAIL_HOST_USER
+            to = settings.EMAIL_HOST_USER
+            mail.send_mail(email_subject, email_content, from_email, [to])
 
         return redirect(reverse("home"))
