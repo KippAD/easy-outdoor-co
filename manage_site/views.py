@@ -84,7 +84,7 @@ class DeleteProduct(SuccessMessageMixin, UserPassesTestMixin, DeleteView):
 
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.delete_message)
-        return super(DeleteProfile, self).delete(request, *args, **kwargs)
+        return super(DeleteProduct, self).delete(request, *args, **kwargs)
 
     def test_func(self):
         return self.request.user.is_staff
