@@ -964,6 +964,8 @@ To test the performance, accessibility, best practices and SEO, a lighthouse tes
 
 ## **Unresolved Bugs**
 
+- There is no pagination on the products list meaning that long lists of results can take up a lot of vertical space - especially on mobile devices. This is bad UX and will be one of the first issues resolved in future development.
+
 - When updating profile information the intended success message fails to appear. This bug was caused when the view was changed to redirect upon form submission in order to prevent the “Confirm form resubmission” alert from popping up on page refresh. It only occurs when the user is redirected to the same view. The update functionality still works as expected so it is more an issue of bad UX. It was decided that the message not appearing would be slightly preferable to redirecting the user to the home page and displaying the message.
 
 - The stock data tables only sort by name correctly. When sorting by stock quantity the order is seemingly random - it is possible that this is caused by two data tables appearing on the same page. This was not resolved because the JS and CSS are external libraries and there wasn’t enough time to dig into them and see what was causing the issue.
