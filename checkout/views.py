@@ -133,6 +133,7 @@ def checkout(request):
         else:
             messages.error(request, "There was an error with your form. \
                 Please try again.")
+            return redirect('checkout')
     else:
         basket = request.session.get("basket", {})
         if not basket:
