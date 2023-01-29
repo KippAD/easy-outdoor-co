@@ -100,8 +100,24 @@ An integral part of developing a successful online store is how you can achieve 
 - **Newsletter:** Using a newsletter subscription allows users to easily opt in to an email that notifies them of the promotions that the store is offering.
 - **Social Media:** An active social media presence would offer similar advantages to that of a newsletter. It would also allow the running of ads through the social media website, which would reach a much wider audience than that of just the users that have subscribed to the newsletter.
 - **Sales:** Sales and promotions in general are an important aspect of bringing customers in. Using discounted products in emails and social media posts will entice users onto the site.
-- **SEO:** Search engine optimisation will increase the likelihood of users finding the site when searching, therefore increasing the amount of users on the site.
 
+### **Serach Engine Optimization**
+
+Search engine optimization will increase the likelihood of users finding the site when searching, therefore increasing the amount of users on the site. This is a crucial step in ensuring that an online business is successful, because without users there won’t be sales. 
+
+Steps taken to optimize SEO:
+
+- Content is intended to be meaningful and relevant. Product descriptions are detailed and explain the key selling points for each product.
+
+- The design also contributes to SEO, which ties into the entire UX. By focusing on giving a great User Experience the user is more likely to stay on the site rather than clicking back to search results, and also move through different pages on the site. This improves SEO metrics such as bounce rate, session time, dwell time and pages per session.
+
+- External links use the rel=noopener attribute to distinguish them from internal links for the SEO to know that they aren’t relevant to the site.
+
+- XML Sitemap lists important URLs so that search engines can crawl through the site and understand the site structure. It also allows search engines to discover content quicker.
+
+- Robots.txt file limits areas of the site that a search engine can access and is seen by them as a mark of quality - therefore improving SEO.
+
+- Keywords and description in the site head contribute to SEO. Deciding upon keywords came from considering phrases that would be most relevant to the products that the site sells. Then using the application wordtracker.com I was able to see suggested keywords and their volume of search. This helped inform the final list of keywords:
 
 ## **Project Management**
 These user stories were added to a project board on this repository's project board so that development could be managed.
@@ -829,7 +845,7 @@ The site works well on mobile devices, with all design retaining its intergrity 
 
 **Tablet Devices**
 
-These tablet devices all passed because the site is useable on each of them. It should be stated however that horizontal tablets do adversely effect the overall design. Forms can appear small on the screen, the data tables in admin can also be a bit too wide - this is defintely an area to be improved on.
+These tablet devices all passed because the site is useable on each of them. It should be stated however that horizontal tablets do sometimes adversely effect the overall design. Forms can appear small on the screen, the data tables in admin can also be a bit too wide - this is defintely an area to be improved on. This is mainly true of the larger screen height devices such as the Kindle Fire HDX - however on other tablet devices in the testing the design works well.
 
 <details>
 
