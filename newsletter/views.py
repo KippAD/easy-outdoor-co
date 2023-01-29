@@ -114,7 +114,6 @@ def contact_form(request):
                 request,
                 "Inputs cannot be whitespace only"
             )
-            return redirect(reverse("home"))
         else:
             messages.success(
                 request,
