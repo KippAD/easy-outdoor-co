@@ -11,10 +11,11 @@ $(document).ready(function () {
     }, "Letters and spaces only please");
     
     // Custom validator method taken from https://stackoverflow.com/questions/29026778/jquery-validation-method-phone-number-begin-with-plus-mark
-    jQuery.validator.addMethod("fnType", function (phone_number, element) {
-        phone_number = phone_number.replace(/\s+/g, "");
-        return this.optional(element) || phone_number.match(/^\+(?:[0-9] ?){6,14}[0-9]$/);
-    }, "Please specify a valid number")
+    // and regex from https://forum.jquery.com/topic/number-and-plus-sign-only
+    $.validator.addMethod("fnType", function(value, element) {
+        return value.match(/^[+-]?\d+$/);
+    },"Enter Valid  phone number");
+
 
     $("#userForm").validate({
         rules: {
@@ -58,7 +59,7 @@ $(document).ready(function () {
                 email: "Must be an email: example@email.com"
             },
             default_phone_number: {
-                fnType: "Your number may only include numbers or plus character"
+                fnType: "Your number may only contain a country code symbol (+) and numbers"
             },
         },
     });
