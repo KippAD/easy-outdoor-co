@@ -46,11 +46,11 @@
                 <div class="mt-3">
                     <p class="fw-bold mb-0 fs-6">Total: £{{ total }}</p>
                     {% if delivery %}
-                    <p class="mb-0 fs-6">Delivery: £{{ delivery }}</p>
+                    <p class="mb-0 fs-6">Delivery: £{{ delivery | floatformat:2  }}</p>
                     {% else %}
                     <p class="mb-0 fs-6">Delivery: Free</p>
                     {% endif %}
-                    <p class="fw-bold">Grand Total: £{{ grand_total }}</p>
+                    <p class="fs-6 fw-bold">Grand Total: £{{ grand_total | floatformat:2 }}</p>
                 </div>
             </div>
             <div class="row">
