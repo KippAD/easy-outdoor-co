@@ -11,6 +11,7 @@ class ProductForm(forms.ModelForm):
             "name",
             "slug",
             "desc",
+            "has_sizes",
             "price",
             "sale_price",
             "image_url"
