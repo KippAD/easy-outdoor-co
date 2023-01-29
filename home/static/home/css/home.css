@@ -117,6 +117,7 @@
 .accordion-button:not(.collapsed) {
     color: #ffffff;
     box-shadow: none!important;
+    background-color: #F0952A !important;
 }
 
 /* XX-Large devices (larger desktops, 1400px and down) */
