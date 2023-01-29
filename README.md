@@ -939,7 +939,7 @@ To test the performance, accessibility, best practices and SEO, a lighthouse tes
 
 </details>
 
-## **Bugs Unresolved**
+## **Unresolved Bugs**
 
 - When updating profile information the intended success message fails to appear. This bug was caused when the view was changed to redirect upon form submission in order to prevent the “Confirm form resubmission” alert from popping up on page refresh. It only occurs when the user is redirected to the same view. The update functionality still works as expected so it is more an issue of bad UX. It was decided that the message not appearing would be slightly preferable to redirecting the user to the home page and displaying the message.
 
@@ -967,11 +967,336 @@ The Easy Outdoor Co. website used the following technologies during development:
 
 ## **Deployment**
 
+## **Deployment**
+
 ### **To deploy the project**
-The Easy Outdoor Co. was used to host the deployed application:
+
+1. First create a repository on Github using the Code Institute Gitpod full template. To do this head to the template’s page and select **Create a new repository** from the “Use this template” dropdown menu.
+
+<details>
+
+![image](media/readme-images/gitpod-template.png)
+
+</details>
+
+2. Enter a name for the project, and then choose the **Create repository from template** button at the bottom of the form.
+
+<details>
+
+![image](media/readme-images/create-repository.png)
+
+</details>
+
+3. Next create your Gitpod workspace by clicking on the “**Gitpod**” button in the top right of your repository page. This will create the workspace.
+
+<details>
+
+![image](media/readme-images/start-gitpod.png)
+
+</details>
+
+4. Whilst the workspace is initializing, head over to Elephant SQL and make an account if you do not already have one. You can also sign in with Github. Once logged in, create a **New instance**.
+
+  <details>
+
+  ![image](media/readme-images/new-instance.png)
+
+  </details>
+
+5. First we enter a name for our database and make sure that the free plan is chosen. You can add optional tags if you wish.
+
+<details>
+
+![image](media/readme-images/name-database.png)
+
+</details>
+
+6. Then we select a region. Choose the region closest to you, and select **Review**.
+
+<details>
+
+![image](media/readme-images/database-region.png)
+
+</details>
+
+7. Now we can review our inputs and finally select **Create instance**.
+
+<details>
+
+![image](media/readme-images/create-instance.png)
+
+</details>
+
+8. Now head over to Heroku and either create an account or log in. From the main Heroku dashboard select the **New** dropdown button and choose **Create new app**.
+
+<details>
+
+![image](media/readme-images/create-heroku.png)
+
+</details>
+
+9. In the following menu we choose a name and the region closest to you. Then **Create app** to build the app.
+
+<details>
+
+![image](media/readme-images/name-heroku.png)
+
+</details>
+
+10. Now in the Heroku settings panel reveal the hidden **Reveal Config Vars**. In the key and value form add a key of **DATABASE_URL**, and then copy the URL from your ElephantSQL app and paste it into the value box.
+
+<details>
+
+![image](media/readme-images/set-database-url.png)
+
+</details>
+
+11. Back in your Gitpod workspace we can install Django and our required libraries by running the following commands in the terminal.
+
+```
+pip3 install Django==3.2
+pip3 install dj_database_url==0.5.0 psycopg2
+pip3 install gunicorn
+```
+
+12. Now we freeze this packages into a file called requirements.txt with the following command:
+
+```
+pip3 freeze > requirements.txt
+```
+
+13. Create a file called **Procfile** to the root directory, and add the following syntax:
+
+```
+web: gunicorn easy_outdoor.wsgi:application
+```
+
+<details>
+
+![image](media/readme-images/procfile.png)
+
+</details>
+
+14. Now let’s start our project by running the following command (give your project a meaningful and relevant name):
+
+```
+django-admin startproject project_name_here
+```
+
+15. We have a project started, but now we need to create an app! For this example the app created was called home.
+
+```
+python3 manage.py startapp app_name_here
+```
+
+16. Whenever we create a new application on Django we need to add it to the installed apps in settings.py.
+
+<details>
+
+![image](media/readme-images/install-app.png)
+
+</details>
+
+17. Once we have done that, we can migrate out changes using the following commands:
+
+```
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+
+<details>
+
+![image](media/readme-images/migrate.png)
+
+</details>
+
+18. If you want to check that everything has worked correctly, run the local server with:
+
+```
+python3 manage.py runserver
+```
+
+19. Now if you go to the URL you should see the default Django homepage.
+
+<details>
+
+![image](media/readme-images/django-home.png)
+
+</details>
+
+20. Now we create a file called **env.py** in the base root of our project. This will contain all of our secret keys that we use to connect our application to the database. In the file we need to first:
+
+```
+import os
+```
+
+21. And then we set a secret key of our choosing. This key should remain in the env file so that it is never accessible from our repository. With the same syntax we add another variable called **DATABASE_URL**, which we can copy from our ElephantSQL instance.
+
+<details>
+
+![image](media/readme-images/envpy-vars.png)
+
+</details>
+
+22. Back in the settings.py file import **os** and **dj_database_url**. We also use an if statement to check the path and import the env file.
+
+<details>
+
+![image](media/readme-images/settings-imports.png)
+
+</details>
+
+23. Next we comment out our existing DATABASES object and temporarily add in our ElephantSQL URL to connect to the database. (Do not commit whilst the databases are in this state.)
+
+<details>
+
+![image](media/readme-images/temporary-db.png)
+
+</details>
+
+24. Then we can check if we are connected to the external database by running:
+
+```
+python3 manage.py showmigrations
+```
+
+25. The terminal will display a list of migrations if we are connected:
+
+<details>
+
+![image](media/readme-images/connected-db.png)
+
+</details>
+
+26. Once migrated it is time to create a SuperUser. Run the following command and enter in the details of the superuser.
+
+```
+python3 manage.py createsuperuser
+```
+
+27. Back in settings we can refactor our DATABASES object to check which database we are using, local or external.
+
+<details>
+
+![image](media/readme-images/refactor-db.png)
+
+</details>
+
+28. Now migrate our changes with:
+
+```
+python3 manage.py migrate
+```
+
+29. Back in the ElephantSQL database instance, head to the browser tab and select **AUTH_USER** from the dropdown menu. Now if we run **Execute** the superuser details will be displayed.
+
+<details>
+
+![image](media/readme-images/auth-elephant.png)
+
+</details>
+
+30. In the Easy Outdoor Co project there are a few environment variables required for the full functionality.
+
+```
+SECRET_KEY: your secret key
+STRIPE_PUBLIC_KEY: public key from stripe
+STRIPE_SECRET_KEY: secret key from stripe
+STRIPE_WH_SECRET: stripe wh secret key
+DATABASE_URL: your Elephant SQL URL
+```
+
+In order for Stripe Payments to work on your own project you need to sign up to Stripe and get your own API keys to set in the Env and in Heroku. Add the above environment variables to the Config Vars in Heroku as well as the env.py file in the IDE.
+
+31. For the Easy Outdoor Co. website, static media is hosted by AWS. This is optional if you are using a different hosting system such as Cloudinary. If media is hosted on AWS the following ket values need to be added to Heroku Config Vars:
+
+```
+AWS_ACCESS_KEY: Your AWS access key
+AWS_SECRET_ACCESS_KEY: Your AWSMsecret key
+USE_AWS: True
+```
+
+32. Now in settings we can set AWS settings:
+
+<details>
+
+![image](media/readme-images/aws-settings.png)
+
+</details>
+
+
+33. In order to correctly connect to the media files we need to refactor the media and static files directories. This will allow Heroku to be server our media and static files from folders in the root directory:
+
+<details>
+
+![image](media/readme-images/refactor-static.png)
+
+</details>
+
+34. We add the URL of our heroku app as an allowed host, along with localhost.
+
+<details>
+
+![image](media/readme-images/add-host.png)
+
+</details>
+
+
+
+34. For email functionality these Config Vars also need to be added to Heroku:
+
+```
+EMAIL_HOST_PASS: your host pass (Easy Outdoor Uses gmail smtp to generate the email pass)
+EMAIL_HOST_USER: site email address
+```
+
+35. With these variables set, you need to ensure that all of your project apps are installed in settings.py. The following are installed apps from the Easy Outdoor Co application:
+
+<details>
+
+![image](media/readme-images/easy-installed-apps.png)
+
+</details>
+
+36. Now we commit and push our changes to Github:
+
+```
+git add .
+git commit -m “Add environment variables for heroku deployment”
+```
+
+37. In Heroku under the **Deployment method** tab, you can manually connect to your repository using the Github method. Search for the repository and connect.
+
+<details>
+
+![image](media/readme-images/heroku-github.png)
+
+</details>
+
+38. Now if we select deploy, the project should successfully deploy, connected to AWS and the ElephantSQL database.
 
 ## Cloning Project
-The project files are hosted on GitHub and can be cloned for further development:
+The project files are hosted on GitHub and can be cloned for further development.
+
+1. From the [Github Repository](https://github.com/KippAD/easy-outdoor-co), select the **Code** dropdown menu and copy the URL.
+
+2. Open the CLI in your IDE and type the following command:
+
+```git clone https://github.com/KippAD/easy-outdoor-co.git```
+
+3. This will load the application code into your editor, but for the project to run you need to install all the requirements of the project that are in the requirements file:
+
+```pip3 install -r requirements.txt```
+
+4. There are also a list of environment variables required to add to the env.py file. More information on these can be seen in the deployment instructions.
+
+```
+SECRET_KEY: your secret key
+STRIPE_PUBLIC_KEY: public key from stripe
+STRIPE_SECRET_KEY: secret key from stripe
+STRIPE_WH_SECRET: stripe wh secret key
+DATABASE_URL: your Elephant SQL URL
+```
 
 ## Credits
 
