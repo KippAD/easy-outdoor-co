@@ -533,7 +533,274 @@ All custom python is validated by the [**Code Institue Pep8 Validator Validator*
 - urls.py - All clear, no errors found
 - views.py - All clear, no errors found
 
+### **Manual Testing**
 
+A series of manual tests were conducted on each page to ensure that every link, form, or site action works as originally intended. Any unresolved errors are detail in the "Unresolved Bugs" section below testing.
+
+**Homepage**
+
+<details>
+  
+#### **Navigation Bar**
+
+| Result | Navigation Bar Manual Testing                           |
+|--------|---------------------------------------------------------|
+| ✓      | Link hover styles function as expected                  |
+| ✓      | Link hover styles function as expected                  |
+| ✓      | Links redirect to expected page                         |
+| ✓      | Basket icon displays correct amount of items in basket  |
+| ✓      | Search bar works as expected                            |
+| ✓      | Error toast display when empty searches are enter       |
+| ✓      | Logged in users can access profile dropdown             |
+| ✓      | Logged in users profile links redirect to expected page |
+| ✓      | Logged out users can login using login icon             |
+| ✓      | Login and Logout success toasts appear                  |
+  
+ #### **Home/Index**
+ 
+| Result | Home/Index Manual Testing                               |
+|--------|---------------------------------------------------------|
+| ✓      | Shop now buttons hover styles function as expected      |
+| ✓      | Shop now links redirect to expected page                |
+| ✓      | Shopping panel links hover styles function as expected  |
+| ✓      | Shopping panel links redirects to expected page         |
+| ✓      | Product carousel display correct amount of items        |
+| ✓      | Product carousel scroller works as expected             |
+| ✓      | Product images and name links to correct product detail |
+  
+ #### **Footer**
+  
+| Result | Footer Manual Testing                                                      |
+|--------|----------------------------------------------------------------------------|
+| ✓      | All links redirect to correct place                                        |
+| ✓      | All hover functionality works as expected                                  |
+| ✓      | Newsletter form doesn't accept empty name input                            |
+| ✓      | Newsletter form doesn't accept empty email input                           |
+| ✓      | Newsletter form doesn't accept incorrect email input                       |
+| ✓      | Email is added to database if form is valid                                |
+| ✓      | Error toast is returned if email is already subscribed to mailing list     |
+| ✓      | Success toast is returned if email successfully subscribes to mailing list |
+  
+</details>
+
+**Products & Product Detail**
+
+<details>
+
+#### **Product List**
+
+| Result | Products Manual Testing                          |
+|--------|--------------------------------------------------|
+| ✓      | Results counter displays correct amount of items |
+| ✓      | All sorting categories sort products correctly   |
+| ✓      | Hover styles function as expected                |
+| ✓      | Links direct to the correct page                 |
+| ✓      | Correct amount of reviews are displayed          |
+  
+#### **Product Detail**
+  
+| Result | Product Detail Manual Testing                    |
+|--------|--------------------------------------------------|
+| ✓      | Correct amount of reviews are displayed          |
+| ✓      | Size selector is prechecked on page load         |
+| ✓      | Low stock warnings display correctly             |
+| ✓      | Sizes disable when out of stock                  |
+| ✓      | Quantity form incrementa as intended             |
+| ✓      | Correct quantity is added to basket              |
+| ✓      | Correct size is added to basket                  |
+| ✓      | Success toast appears upon adding to basket      |
+| ✓      | Error toast appears if quantity is too large     |
+| ✓      | Carousel displays correct amount of items        |
+| ✓      | Product carousel scroller works as expected      |
+| ✓      | Carousel links to correct product detail         |
+
+</details>
+  
+**Basket**
+  
+<details>
+  
+| Result | Basket Manual Testing                         |
+|--------|-----------------------------------------------|
+| ✓      | Correct numbering appears at each line item   |
+| ✓      | Quantity input increments as expected         |
+| ✓      | Hover styles work as expected                 |
+| ✓      | Delete from basket removes the correct items  |
+| ✓      | Update button updates quantity correctly      |
+| ✓      | Checkout button loads checkout form           |
+| ✓      | Back button redirects to products             |
+| ✓      | Quantity cannot be greater than stock         |
+| ✓      | Error toasts appear at expected moments       |
+| ✓      | Success message appears at successful actions |
+| ✓      | 0 or negative quantities remove from basket   |
+  
+</details>
+
+**Checkout**
+
+<details>
+  
+#### **Checkout**
+  
+| Result | Checkout Manual Testing                                                                      |
+|--------|----------------------------------------------------------------------------------------------|
+| ✓      | Correct items appear in summary                                                              |
+| ✓      | Correct costs appear in summary                                                              |
+| ✓      | Removing any or all items will redirect to the basket                                        |
+| ✓      | Delete from basket removes the correct items                                                 |
+| ✓      | Form validation works as expected                                                            |
+| x      | Form validation errors appear as expected (Issue with name validation - See unresolved bugs) |
+| ✓      | Back button redirects to basket                                                              |
+| ✓      | Spinner displays as expected                                                                 |
+| ✓      | Successful checkout loads order summary page                                                 |
+| ✓      | Order confirmation is sent to attached email                                                 |
+| ✓      | Profile information is saved if check                                                        |
+| ✓      | Profile information preloads checkout                                                        |
+  
+#### **Checkout Success**
+  
+| Result | Checkout Success Manual Testing                   |
+|--------|---------------------------------------------------|
+| ✓      | Hover styles work as expected                     |
+| ✓      | Links direct to correct page                      |
+| ✓      | Summary information matches the order information |
+| ✓      | Success toast appears on load                     |
+  
+</details>
+
+**Profile**
+  
+<details>
+  
+#### **Profile**
+  
+| Result | Profile Page Manual Testing                         |
+|--------|-----------------------------------------------------|
+| ✓      | Username validation only allows alphanumeric        |
+| ✓      | Name field validation only allow letters and spaces |
+| ✓      | Email field only accepts valid emails               |
+| ✓      | Username field is required                          |
+| ✓      | Email field is required                             |
+| ✓      | Phone number field only allows numbers and plus     |
+| ✓      | Hover styles work as expected                       |
+| ✓      | Links direct to the correct page                    |
+| ✓      | Whitespace inputs are treated as empty              |
+| x      | Toast appears on update (See unresolved bugs)       |
+  
+#### **Order History**
+  
+| Result | Order History Manual Testing               |
+|--------|--------------------------------------------|
+| ✓      | Accordion buttons trigger correct dropdown |
+| ✓      | Orders are ordered by newest to oldest     |
+| ✓      | Unrated items display link to review       |
+| ✓      | Rated items display star rating            |
+| ✓      | Links direct to correct areas              |
+| ✓      | Hover styles work as expected              |
+  
+#### **Review Products**
+  
+| Result | Product Review Manual Testing                      |
+|--------|----------------------------------------------------|
+| ✓      | Star selector works as expected                    |
+| ✓      | Submitted star value matches correct decimal value |
+| ✓      | Message field validation works as expected         |
+| ✓      | Review is correctly submitted to database          |
+| ✓      | Cancel but redirects to order history              |
+| ✓      | Success toast appears on successful submission     |
+| ✓      | Review is displayed on the site                    |
+
+</details>
+
+**Manage Site**
+
+<details>
+  
+| Result | Manage Site/Admin Manual Testing                                               |
+|--------|--------------------------------------------------------------------------------|
+| ✓      | Admin menu buttons display correct content                                     |
+| ✓      | Admin menu buttons hover works as expected                                     |
+| ✓      | Admin menu button active works as expected                                     |
+| ✓      | Links direct to correct page                                                   |
+| ✓      | Button hovers works as expected                                                |
+| ✓      | Product data table search and sorting works as expected                        |
+| ✓      | Add product form validation works as expected                                  |
+| ✓      | Add product form adds product to database                                      |
+| ✓      | Update product form preloads correct information in form                       |
+| ✓      | Update product form validation works as expected                               |
+| ✓      | Update product form updates existing product in database                       |
+| ✓      | Delete product shows correct product on confirmation                           |
+| ✓      | Delete product confirmation removes correct product from database              |
+| ✓      | Size stock object is created when sized product is created                     |
+| ✓      | Regular stock object is created when unsized product is created                |
+| ✓      | Success message display when product is added, updated or deleted              |
+| ✓      | Size stock table displays correct data                                         |
+| ✓      | Stock form updates stock in database                                           |
+| ✓      | Regular stock table displays correct data                                      |
+| ✓      | Regular stock form updates stock in database                                   |
+| x      | Stock data table search and sorting works as expected (See unresolved bugs)    |
+| ✓      | Orders data table displays correct data                                        |
+| ✓      | Order data table search and sorting works as expected                          |
+| ✓      | Order details link displays correct order information                          |
+| ✓      | Order details buttons work as expected                                         |
+| ✓      | Order details hover styles work as expected                                    |
+| ✓      | Users data table displays correct data                                         |
+| ✓      | Users data table search and sorting works as expected                          |
+| ✓      | Update user form preloads correct data into form                               |
+| ✓      | Update user form validation works as expected                                  |
+| ✓      | Update user form updates into database                                         |
+| ✓      | Success toast displayed when successful submission or deletion                 |
+| ✓      | Delete user button loads correct product on delete page                        |
+| ✓      | Delete user confirmation deletes correct user from database                    |
+| ✓      | Users data table displays correct data                                         |
+| ✓      | Users data table displays correct data                                         |
+| ✓      | Users data table search and sorting works as expected                          |
+| ✓      | Delete email from mailing list confirmation deletes correct user from database |
+| x      | Send newsletter form validation works as expected (See unresolved bugs)        |
+| ✓      | Newsletter is sent to mailing list upon submission                             |
+  
+</details>
+
+**All Auth**
+  
+<details>
+  
+| Result | Allauth Manual Testing                               |
+|--------|------------------------------------------------------|
+| ✓      | Sign in template design correct                      |
+| ✓      | Sign in functions as expected                        |
+| ✓      | Sign up template design correct                      |
+| ✓      | Sign up functions as expected                        |
+| ✓      | Already signed up validation works as expected       |
+| ✓      | Verification email sent page template design correct |
+| ✓      | Verification email is received                       |
+| ✓      | Verification email link is valid                     |
+| ✓      | Sign out template design correct                     |
+| ✓      | Sign out functions as expected                       |
+| ✓      | Reset password template design is correct            |
+| ✓      | Reset password email is received                     |
+| ✓      | Reset password link works as expected                |
+| ✓      | Change password template design is correct           |
+| ✓      | Change password functions as expected                |
+| ✓      | All action toasts appear as expected                 |
+
+</details>
+
+**Contact Form and FAQ**
+
+<details>
+  
+| Result | Contact Form and FAQ Manual Testing                   |
+|--------|-------------------------------------------------------|
+| ✓      | Contact form is correctly validated (See known bugs)  |
+| ✓      | Email is received by site owner email upon submission |
+| ✓      | Links work as expected                                |
+| ✓      | Hover styles work as expected                         |
+| ✓      | FAQ accordion opens the correct item                  |
+| ✓      | FAQ links work as expected                            |
+| ✓      | FAQ hover styles work as expected                     |
+
+</details>
 
 ### **Responsiveness**
 
@@ -548,14 +815,19 @@ Easy Outdoor Co has been tested on the following browsers:
 
 ### **Lighthouse Testing**
 
-## **Bugs**
+## **Bugs Unresolved**
 
-### Resolved
+- When updating profile information the intended success message fails to appear. This bug was caused when the view was changed to redirect upon form submission in order to prevent the “Confirm form resubmission” alert from popping up on page refresh. It only occurs when the user is redirected to the same view. The update functionality still works as expected so it is more an issue of bad UX. It was decided that the message not appearing would be slightly preferable to redirecting the user to the home page and displaying the message.
 
-### Unresolved
+- The stock data tables only sort by name correctly. When sorting by stock quantity the order is seemingly random - it is possible that this is caused by two data tables appearing on the same page. This was not resolved because the JS and CSS are external libraries and there wasn’t enough time to dig into them and see what was causing the issue.
+
+- Contact form whitespace only validation on the subject redirects the user to the home page where it displays an error rather than displaying inline on the form. This is an inverse of the updating profile information - it was decided that it would be better to have an error to explain that the form is invalid rather than just refreshing the page and not showing an error. This does technically prevent the incorrect input, it is just less than ideal UX.
+
+- In the admin area it was not possible to validate the Summernote Editor in time. This was a lower priority because the form is only accessed by site staff.
+
 
 ## **Technologies**
-The George Orwell Pub was built with the following technologies:
+The Easy Outdoor Co. website used the following technologies during development:
 
 1.  [**Django**](https://www.djangoproject.com/) - Full stack framework to build database and backend.
 2.  [**Bootstrap**](https://getbootstrap.com/) - Front end framework used to build features quickly.
@@ -567,6 +839,7 @@ The George Orwell Pub was built with the following technologies:
 7.  [**Heroku**](https://dashboard.heroku.com/apps) - Hosting deployed project.
 9.  [**Figma**](https://figma.com/) - Wireframe design.
 10. [**Real Favicon Generator**](https://realfavicongenerator.net/) - Generating favicon from logo image.
+10. [**Sitemap generatore**](https://www.xml-sitemaps.com/) - Generating sitemap for application.
 
 ## **Deployment**
 
