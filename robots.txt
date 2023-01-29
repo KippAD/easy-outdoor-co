@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /accounts/
 Disallow: /profile/
 Disallow: /manage/
-Sitemap: https://easy-outdoor-co.herokuapp.com/sitemape.xml
+Sitemap: https://easy-outdoor-co.herokuapp.com/sitemap.xml
