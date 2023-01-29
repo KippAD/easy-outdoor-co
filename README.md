@@ -804,6 +804,62 @@ A series of manual tests were conducted on each page to ensure that every link, 
 
 ### **Responsiveness**
 
+**Mobile Devices**
+
+The site works well on mobile devices, with all design retaining its intergrity accross the tested devices.
+
+<details>
+  
+| Device           | Mobile Device Responsive Testing |
+|------------------|----------------------------------|
+| Galaxy S8        | Passed                           |
+| Galaxy S8+       | Passed                           |
+| Galaxy S9+       | Passed                           |
+| Galaxy S20 Ultra | Passed                           |
+| Galaxy a51/71    | Passed                           |
+| Moto G4          | Passed                           |
+| Iphone SE        | Passed                           |
+| Iphone XR        | Passed                           |
+| Iphone X         | Passed                           |
+| Iphone 12 Pro    | Passed                           |
+| Pixel 5          | Passed                           |
+| Pixel 2XL        | Passed                           |
+
+</details>
+
+**Tablet Devices**
+
+These tablet devices all passed because the site is useable on each of them. It should be stated however that horizontal tablets do adversely effect the overall design. Forms can appear small on the screen, the data tables in admin can also be a bit too wide - this is defintely an area to be improved on.
+
+<details>
+
+| Device          | Tablet Device Responsive Testing |
+|-----------------|----------------------------------|
+| Kindle Fire HDX | Passed                           |
+| Ipad Mini       | Passed                           |
+| Ipad Air        | Passed                           |
+| Surface Pro 7   | Passed                           |
+| Surface Duo     | Passed                           |
+| Nest Hub        | Passed                           |
+| Nest Hub Max    | Passed                           |
+| Ipad            | Passed                           |
+| Ipad Pro        | Passed                           |
+ 
+</details>
+
+**Larger Devices**
+
+Although the site was intended to be mobile first, the larger devices are probably where the site looks its best. Learning from this I will probably put more focus on creating a great mobile UI as mobile users are potentially the most important target audience.
+
+<details>
+
+| Device      | Larger Screen Widths Responsive Testing |
+|-------------|-----------------------------------------|
+| 1440 x 900  | Passed                                  |
+| 1920 x 1080 | Passed                                  |
+ 
+</details>
+
 ### **Browser Testing**
 
 Easy Outdoor Co has been tested on the following browsers:
@@ -812,6 +868,10 @@ Easy Outdoor Co has been tested on the following browsers:
 - **Mozilla Firefox**
 - **Safari**
 - **Opera**
+
+Easy Outdoor Co has been tested on and is compatible with the following browsers:
+
+Notes:
 
 ### **Lighthouse Testing**
 
