@@ -500,6 +500,7 @@ JavaScript code on Easy Outdoor Co. was run through the [**Jshint Javascript Val
 
 - mailing_list_form.js - One undefined variable: jQuery. This comes from the [JQuery Validation Plugin](https://jqueryvalidation.org/). This could be the potential cause of the error.
 - rate_product.js - Raises no errors or warnings.
+- order_history.js(Inline JS) - Raises no errors or warnings.
 
 **Project Level**
 
@@ -988,9 +989,19 @@ The Easy Outdoor Co. website used the following technologies during development:
 7.  [**Heroku**](https://dashboard.heroku.com/apps) - Hosting deployed project.
 9.  [**Figma**](https://figma.com/) - Wireframe design.
 10. [**Real Favicon Generator**](https://realfavicongenerator.net/) - Generating favicon from logo image.
-10. [**Sitemap generatore**](https://www.xml-sitemaps.com/) - Generating sitemap for application.
+11. [**Sitemap generatore**](https://www.xml-sitemaps.com/) - Generating sitemap for application.
+12. [**Amazon Web Services**](https://aws.amazon.com/) - Static and media hosting.
+13. [**Unlayered**](https://unlayer.com/) - Email template designer.
 
-## **Deployment**
+## **Additional Dependencie**
+
+1. [**Jquery Validation Plugin**](https://jqueryvalidation.org/) - Jquery client side validation
+2. [**AllAuth**](https://django-allauth.readthedocs.io/en/latest/) - Django account management
+3. [**Stripe**](https://stripe.com/en-gb-fr) - Processing site payments
+4. [**Gunicorn**](https://gunicorn.org/) - Web Server Gateway Interface
+5. [**ElephantSQL**](https://www.elephantsql.com/) - Managing Postgres database
+6. [**psycopg2**](https://pypi.org/project/psycopg2/) -  PostgreSQL database adapter
+7. [**Django Crispy Forms**](https://django-crispy-forms.readthedocs.io/en/latest/) - Elegant form rendering
 
 ## **Deployment**
 
@@ -1324,8 +1335,26 @@ DATABASE_URL: your Elephant SQL URL
 
 ## Credits
 
+[**Boutique Ado**](https://github.com/ckz8780/boutique_ado_v1) - Much of the core functionality was built using code from the Code Institute Boutique Ado project, as this was our final walkthrough project.
+
 [**Bootstrap**](https://getbootstrap.com/) - Bootstrap makes up the core of the site structure and design.
 
 [**Data Tables**](https://datatables.net/examples/basic_init/index.html) - The admin panel data tables were taken from here.
 
+[**CSS Tricks Incrementor**]( https://css-tricks.com/number-increment-buttons/) - The quantity incrmentor was built followin this tutorial.
+
+[**Checkout Spinner CSS**](https://loading.io/css/) - Checkout spinner CSS taken from loading.io
+
+[**Custom Error Page**](https://levelup.gitconnected.com/django-customize-404-error-page-72c6b6277317) - Custom error responses were learnt from the linked tutorial.
+
+**Jquery Custom Phone Number Method** was built using two Stack Overflow answers by users: 
+- [Harpartap Singh Permar](https://stackoverflow.com/questions/29026778/jquery-validation-method-phone-number-begin-with-plus-mark)
+- [dsvick](https://forum.jquery.com/topic/number-and-plus-sign-only)
+
+**Jquery Custom NoSpace Method** is taken from Stack Overflow anwer by: 
+- [Rana Gosh](https://stackoverflow.com/questions/42229437/jquery-validation-accepts-even-if-input-contains-only-whitespaces)
+
+
 I want to thank Precious Ijege and my fellow students at Code Institute for their guidance and support in development of this project. I wouldn't have managed to complete the diploma without the help I recieved throughout!
+
+
