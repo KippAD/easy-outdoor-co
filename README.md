@@ -878,18 +878,66 @@ Although the site was intended to be mobile first, the larger devices are probab
 
 ### **Browser Testing**
 
-Easy Outdoor Co has been tested on the following browsers:
+Easy Outdoor Co has been tested on and is compatible with the following browsers:
 
 - **Chrome**
 - **Mozilla Firefox**
 - **Safari**
 - **Opera**
 
-Easy Outdoor Co has been tested on and is compatible with the following browsers:
-
-Notes:
+All functionality works as intended and the design remains consistent.
 
 ### **Lighthouse Testing**
+
+To test the performance, accessibility, best practices and SEO, a lighthouse test was performed on each of the main areas of the site. As with some of the unresolved bugs on the site some of the warnings come from other dependencies, but there is also room for improvement from my own code. Time constraints also limited my oppurtunities to get each of these metrics as high as possible, although the numbers are green and acceptable in most cases.
+
+**Homepage**
+
+<details>
+
+![image](media/readme-images/home-lh.png)
+
+</details>
+
+**Products**
+
+<details>
+
+![image](media/readme-images/products-lh.png)
+
+</details>
+
+**Product Detail**
+
+<details>
+
+![image](media/readme-images/product-detail-lh.png)
+
+</details>
+
+**Basket**
+
+<details>
+
+![image](media/readme-images/basket-lh.png)
+
+</details>
+
+**Checkout**
+
+<details>
+
+![image](media/readme-images/checkout-lh.png)
+
+</details>
+
+**Manage Site**
+
+<details>
+
+![image](media/readme-images/manage-lh.png)
+
+</details>
 
 ## **Bugs Unresolved**
 
