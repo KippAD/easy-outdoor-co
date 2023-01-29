@@ -59,12 +59,12 @@
                         {% endif %}
                         <div class="pt-3">
                             {% if stock %}
-                            <h3 class="fs-5">Quantity:</h3>
+                            <h3 id="quantity-label" class="fs-5">Quantity:</h3>
                             <div class="d-flex quantity-container">
                                 <div data-value="-" class="rounded-start decrement quantity-input">
                                     <i class="fa-solid fa-minus"></i>
                                 </div>
-                                <input data-product_id="{{ product.id }}" class="m-0 text-center" type="number"
+                                <input aria-labelledby="quantity-label" data-product_id="{{ product.id }}" class="m-0 text-center" type="number"
                                     name="quantity" id="quantity" value="1">
                                 <div data-value="+" class="rounded-end increment quantity-input">
                                     <i class="fa-solid fa-plus"></i>

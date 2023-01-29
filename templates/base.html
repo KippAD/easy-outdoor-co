@@ -115,19 +115,19 @@
             </div>
 
             <div class="col-4 col-xl-1 my-2 order-xl-1">
-                <a href="{% url 'home' %}">
+                <a href="{% url 'home' %}" aria-label="Logo link takes user back to homepage">
                     <div class="logo"></div>
                 </a>
             </div>
 
             <div class="col-4 col-xl-1 d-flex justify-content-end order-xl-4">
-                <a class="nav-link" href="{% url 'view_basket' %}"><i class="fa-solid fa-cart-shopping fs-2"><span
+                <a class="nav-link" href="{% url 'view_basket' %}" alt="Link to basket"><i class="fa-solid fa-cart-shopping fs-2"><span
                             class="basket-count">{{ basket_items | length }}</span>
                     </i>
                 </a>
                 <div id="profile-icon" class="dropdown-center">
                     {% if user.is_authenticated %}
-                    <a class="nav-link pe-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link pe-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggles drop down menu with profile and order history">
                         <i class="fa-solid fa-user fs-2"></i>
                     </a>
 
@@ -147,7 +147,7 @@
                 </div>
             </div>
 
-            <a class="navbar-brand d-none d-xl-inline-block order-xl-2 col-xl-3" href="{% url 'home' %}">
+            <a class="navbar-brand d-none d-xl-inline-block order-xl-2 col-xl-3" href="{% url 'home' %}" alt="Link to home page">
                 <h1 class="m-0 fs-2">Easy Outdoor Co.</h1>
             </a>
         </nav>
@@ -190,7 +190,7 @@
                     </ul>
                 </div>
                 <div class="col-12 col-md-6 text-end">
-                    <h4 class="fs-2 text-white">Easy Outdoor Co.</h4>
+                    <h6 class="fs-2 text-white">Easy Outdoor Co.</h6>
                     <form id="mailingListForm" action="{% url 'mailing-list' %}" method="POST" class="py-1">
                         {% csrf_token %}
                         <p class="mb-2 fw-bold">Join our newsletter:</p>
