@@ -52,13 +52,13 @@
                                         {% if reviews %}
                                             {% for r in reviews %}
                                                 {% if r.product == item.product %}
-                                                <p class="toast-success">You rated this product {{ r.rating }} stars.</p>
+                                                <p class="toast-success">You have already rated this product.</p>  
                                                 {% else %}
-                                                <a href="{% url 'load-rating-form' product_id=item.product.id %}">Rate This Item</a>
+                                                <a class="unrated" href="{% url 'load-rating-form' product_id=item.product.id %}">Rate This Item</a>
                                                 {% endif %}
                                             {% endfor %}
                                         {% else %}
-                                        <a href="{% url 'load-rating-form' product_id=item.product.id %}">Rate This Item</a>
+                                        <a class="rated" href="{% url 'load-rating-form' product_id=item.product.id %}">Rate This Item</a>
                                         {% endif %}
                                     </p>
                                     {% endfor %}
@@ -113,4 +113,15 @@
         </div>
 </section>
 
+{% endblock %}
+
+{% block postloadjs %}
+<script>
+    $(document).ready(function () {
+        $('.unrated').hide();
+        $('.rated').hide();
+        $('.unrated:first').show();
+        $('.rated:first').show();
+    });
+</script>
 {% endblock %}
