@@ -2,7 +2,7 @@
 
 
 ## **Brief**
-The Easy Outdoor Co. is an e-commerce site for a fictional store that sells clothing and equipment for outdoor activities. The application takes payments using Stripe and logs orders. Features for the site owner include adding and updating products, deleting stock, and sending newsletters to a mailing list attached to the database. Users are able to create an account, review products, and make orders. 
+The Easy Outdoor Co. is an e-commerce site for a fictional store that sells clothing and equipment for outdoor activities. The application takes payments using Stripe and logs orders in the database. Features for the site owner include adding and updating products, deleting stock, and sending newsletters to a mailing list. Users are able to create an account, review products, and make orders. 
 
 This project was undertaken as my Milestone 5 E-commerce project for my Full Stack Software Engineering diploma with Code Institute. The project was planned using Agile methodology and built using the Django framework alongside various other technologies.
 
@@ -32,22 +32,28 @@ Planning this project required considering the ideal goals of the user, the site
 ## **User Stories**
 By considering the requirements for the User and Owner, as well as the intended marketing techniques, I could then break the requirements of a successful development into epics. From there I broke the epics down into User Stories which were used to decide on the project’s required features.
 
-###  **User Stories**
-
-**Epic: Site Navigation**
+### **Epic: Site Navigation**
 
 A clear, well designed, and simple UI that allows both staff and customers to use navigate the site easily.
 
+<details><summary><b>Site Navigation User Stories</b></summary>
+ <br/>
+  
 - As a **user** I can **easily navigate the site** so that **I can access the different areas of the shop and complete user actions intuitively**
 - As a **user** I can **view products** so that **I can browse the products for sale on the site**
-- As a **user** I can **filter products by category** so that **narrow down shopping searches to items relevant to my interests**
-- As a **user** I can **search for products** so that **query for specific items of interest faster**
+- As a **user** I can **filter products by category** so that **I can narrow down shopping searches to items relevant to my interests**
+- As a **user** I can **search for products** so that **I can query for specific items of interest faster**
 - As a **user** I can **sort product search results** so that **I can filter through products by various attributes intuitively**
 - As a **user** I can **view a list of frequently asked questions** so that **I can have my queries answered without contacting the site admin**
+  
+</details>
+  
+### **User Epic: Buying Products**
 
-**User Epic: Buying Products**
+Buying products is simple and quick and all of the relevant information to make an order is clear to the user.
 
-Buying products is simple and quick and all of the relevant information to make an order is clear to a shopper.
+<details><summary><b>Buying Producst User Stories</b></summary>
+ <br/>
 
 - As a **user** I can **select the sizes of items** so that **I can choose specific clothing sizes when I buy items**
 - As a **user** I can **add products to a basket** so that **I can store items in a list of products to purchase as I navigate through the site**
@@ -61,9 +67,14 @@ Buying products is simple and quick and all of the relevant information to make 
 - As a **user** I can **update the quantity of items in the basket** so that **I can easily manage the items I wish to orderr**
 - As a **user** I can **join a newsletter** so that **I can be made aware of any news or promotions running in the store**
 
-**Epic: Account Management**
+</details>
+ 
+### **Epic: Account Management**
 
 Users can create a profile, manage their own information and speed up the checkout process with saved personal data.
+
+<details><summary><b>Account Management User Stories</b></summary>
+ <br/>
 
 - As a **user** I can **create an account** so that **I can manage my personal details and view order history if I am a regular shopper**
 - As a **user** I can **save my personal details when checking out** so that **placing orders is faster in future**
@@ -76,9 +87,14 @@ Users can create a profile, manage their own information and speed up the checko
 - As a **user** I can **contact the store** so that **I can have any queries answered by the site admin**
 - As a **user** I can **create a wish list of items so that I can save products to buy at a future date**
 
-**Epic: Site Management**
+</details> 
+ 
+### **Epic: Site Management**
 
-Site staff can manage products, update stock, send newsletters and complete other actions of managing the database.
+Site staff can manage products, update stock, send newsletters and complete other actions that manage the database.
+
+<details><summary><b>Site Management User Stories</b></summary>
+ <br/>
 
 - As an **admin** I can **add products to the store** so that **I can keep the product list up to date with new arrivals**
 - As an **admin** I can **update existing products** so that **I can manage the information of currently listed products**
@@ -91,6 +107,8 @@ Site staff can manage products, update stock, send newsletters and complete othe
 - As an **admin** I can **rate products** so that **I can give feedback to the store and other prospective buyers on items that I have purchased**
 - As an **admin** I can **send a newsletter so that I can keep users up to date with the latest deals or promotions**
 
+</details>
+ 
 The four epics are ranked in terms of priority. In order for the site to function in its most basic state the user needs to be able to navigate the site and buy products. To greatly improve the UX of the user the account management epic can be added next. Finally Django has a built in admin panel so the site management epic is of lowest priority.
 
 ### **Marketing Techniques**
@@ -101,36 +119,36 @@ An integral part of developing a successful online store is how you can achieve 
 - **Social Media:** An active social media presence would offer similar advantages to that of a newsletter. It would also allow the running of ads through the social media website, which would reach a much wider audience than that of just the users that have subscribed to the newsletter.
 - **Sales:** Sales and promotions in general are an important aspect of bringing customers in. Using discounted products in emails and social media posts will entice users onto the site.
 
-### **Serach Engine Optimization**
+### **Search Engine Optimization**
 
 Search engine optimization will increase the likelihood of users finding the site when searching, therefore increasing the amount of users on the site. This is a crucial step in ensuring that an online business is successful, because without users there won’t be sales. 
 
-Steps taken to optimize SEO:
+**Steps taken to optimize SEO:**
 
 - Content is intended to be meaningful and relevant. Product descriptions are detailed and explain the key selling points for each product.
 
-- The design also contributes to SEO, which ties into the entire UX. By focusing on giving a great User Experience the user is more likely to stay on the site rather than clicking back to search results, and also move through different pages on the site. This improves SEO metrics such as bounce rate, session time, dwell time and pages per session.
+- The design also contributes to SEO, which ties into the entire UX. By focusing on giving a good User Experience the user is more likely to stay on the site rather than clicking back to search results, and also move through different pages on the site. This improves SEO metrics such as bounce rate, session time, dwell time and pages per session.
 
 - External links use the rel=noopener attribute to distinguish them from internal links for the SEO to know that they aren’t relevant to the site.
 
 - XML Sitemap lists important URLs so that search engines can crawl through the site and understand the site structure. It also allows search engines to discover content quicker.
 
-- Robots.txt file limits areas of the site that a search engine can access and is seen by them as a mark of quality - therefore improving SEO.
+- Robots.txt file limits areas of the site that a search engine can access and is seen by them as a mark of quality - this improves SEO.
 
-- Keywords and description in the site head contribute to SEO. Deciding upon keywords came from considering phrases that would be most relevant to the products that the site sells. Then using the application wordtracker.com I was able to see suggested keywords and their volume of search. This helped inform the final list of keywords:
+- Keywords and description in the site head contribute to SEO. Deciding upon keywords came from considering phrases that would be most relevant to the products that the site sells. Then using the application wordtracker.com I was able to see suggested keywords and their volume of search. This helped inform the final list of keywords.
 
 ## **Project Management**
-These user stories were added to a project board on this repository's project board so that development could be managed.
+The user stories were added to a project board on this repository's project board so that development could be managed incrementally.
 
 [**Project Board**](https://github.com/users/KippAD/projects/6/views/1)
 
 ## **Design**
 
 ### **Design Objective**
-- The site is aesthetically appealing and users enjoy being on the site.
+- The site is aesthetically appealing and users enjoy being on it.
 - Users are able to complete site actions and navigate intuitively.
 - The user rarely encounters errors but is redirected appropriately when doing so.
-- Site information is presented in a heirachy of importance.
+- Site information is presented in a hierachy of importance.
 
 ### **Wireframes**
 
@@ -148,12 +166,12 @@ The navbar allows easy and intuitive navigation throughout the site. Built from 
 - **Basket Icon** - The basket icon in the navbar will display the total amount of different items in the basket. It also allows the user to access their shopping basket from anywhere on the site.
 
 ### **Home**
-Most of the site is quite simple in its design, usually using black and white colors with an orange color to signify user actions. This is not to overload the user when they are trying to use the site's functionality. The home page however is the first place that the user lands, so there is an impetus on aesthetic design in order to entice the user to stay, as well as concise information that explains the site's purpose.
+Most of the site is quite simple in its design, usually using black and white colors with an orange color to signify user actions. This is not to overload the user when they are trying to use the site's functionality. The homepage however is the first place that the user lands, so there is an impetus on a more complex but enticing design in order to persuade the user to stay, as well as concise information that explains the site's purpose.
 
-- **Hero Image** - The hero image is the first thing the user sees. The idea is that they are drawn in by an impressive image, and a catchy overlay text - they then can surmise what the purpose of the store is.
+- **Hero Image** - The hero image is the first thing the user sees. The idea is that they are drawn in by an impressive image and a catchy overlay text so that they can quickly surmise what the purpose of the store is.
 - **Shopping Panels** - The panels link to the three main sections of the shop; the sale, clothing, and equipment. These images draw the user in more to the necessary actions to view products more so than the smaller links in the navbar.
 - **About Us** - This describes the purpose of the store in much more detail than the hero overlay, allowing the user to unravel information about the site as they move through it rather than overloading them with content all at once.
-- **Product Carousel** - The product carousel is a scrollable assortment of random items from the store. If a first time user is seeing this feature, they have potentially not seen a product yet. This feature brings the product section to them, showing them the sort of items that are sold without them having to navigate to a different area.
+- **Product Carousel** - The product carousel is a scrollable assortment of random items from the store. If a first time user is seeing this feature they have potentially not seen a product yet. This feature brings the product section to them, showing them the sort of items that are sold without them having to navigate to a different area.
 - **Footer** - The footer contains mosts of the navigation that has already been shown in the navbar and the home page. It also includes a newsletter subscription form and a link to the sites instagram page.
 
 ### **Products**
@@ -181,7 +199,7 @@ The site features stock management. Stock can be managed by staff and is automat
 The user can manage their account and view order history by accessing the user icon in the navigation bar. They are able to manage their personal details and keep track of their orders. Allauth is used to manage the users login, password and confirmation emails.
 
 - **Profile** - The user profile section is where the user can add and update their personal details and delivery information. Their information is then used to speed up the checkout process by preloading the checkout form to improve their user experience.
-- **Order History** - The user is also able to view details about previous orders. They are also able to rate items if they have purchase them, and are shown the ratings that they have given items when reviewing them.
+- **Order History** - The user is able to view details about previous orders. They are also able to rate items if they have purchased them, and are shown the ratings that they have given items after reviewing them.
 - **AllAuth** - AllAuth allows the user to easily access and administer their account, with the templates being customized to fit the design of the website.
 
 ### **Reviews**
@@ -196,15 +214,15 @@ To improve the experience of site staff, a custom admin UI was built to complete
 - **Sorting Tables** - The information on the database is displayed in a sorting table that includes pagination and a search bar. This means that staff can move through large amounts of data easily, and in a friendlier way than the default django admin.
 - **Product CRUD** - Staff can create, update, and delete products from the database from within the UI.
 - **Stock Management** - Staff can keep a products stock corresponding stock up to date from within the UI. This allows them to easily maintain items that are available for sale on the store.
-- **Order List** - Staff can see a list of all orders and view them in detail in another page. This means that sales can be tracked easily and the site owner can see how well the store is doing, and that specific orders can be found without hassle.
+- **Order List** - Staff can see a list of all orders and view them in detail in another page. This means that sales can be tracked easily, the site owner can see how well the store is doing, and specific orders can be found without hassle.
 - **Mailing List** - Staff can remove users from the mailing list and update their details if necessary.
 - **Newsletter** - Staff can also send newsletters from within the admin panel, which builds off of a base newsletter template and adds the subject and content from the input of the user. A summernote editor means that the message can be formatted well and promotional emails can be well styled.
 
 ### **Secure Checkout**
 The checkout process features a delivery form and a stripe payment form, as well as a final summary of the order before the user decides to purchase. There is also a confirmation page that displays upon completion of the order.
 
-- **Checkout Form** - The checkout form takes the users personal and delivery information, validating it before completing the process. There is also a final summary of the items in the order, and an option to save the users information to their profile upon completion. A spinner displays to prevent the user from submitting multiple payments whilst the order is being processed.
-- **Order Summary** - Upon a successful order, the details of the order are displayed on a new page with a notification stating that the order has been completed, and that a confirmation email has been sent.
+- **Checkout Form** - The checkout form takes the users personal and delivery information, validating it before completing the process. There is also a final summary of the items in the order and an option to save the users information to their profile upon completion. A spinner displays to prevent the user from submitting multiple payments whilst the order is being processed.
+- **Order Summary** - Upon a successful order, the details of the order are displayed on a new page with a notification stating that the order has been completed and that a confirmation email has been sent.
 
 ### **Newsletter, Contact Form & Emails**
 Custom html email templates were built for allauth and django emails which are triggered for events such as an order being completed or the newsletter being subscribed to.
@@ -223,20 +241,9 @@ The user can see a list of frequently asked questions to answer any questions th
 
 - **Stock Anayltics** - A future feature would be an interface that informs the admin on sales so that they can make decisions on how much stock to order, or which items are the most popular and which are not performing as well.
 
-- **Wishlist** - A feature that was intended to be included in this iteration of development was a product wishlist. This would allow users to make a list of products that they can return to later on if they wish to buy them. Unfortunately this feature did not make it in due to time constraints, but would be a useful thing to add in future.
+- **Wishlist** - A feature that was intended to be included in this iteration of development was a product wishlist. This would allow users to make a list of products that they can return to later on if they wish to buy them. Unfortunately this feature did not make it in due to time constraints, however it would be a useful thing to add in future.
 
 - **Stock Notification** - Another intended feature was an email sent to the user of when stock comes back into the store of a specific item. The user would be able to opt in to this from the product detail. This feature was not added as others were prioritized to meet the deadline.
-
-## **Future**
-Here are some future features that were outside of the project scope on the current iteration of development, but could be included to improve the user experience and site in general.
-
-- **Form Submission Email:** User receives an email when an account is created or when a booking is made.
-- **Waiting List:** Users will have the option to join a waiting list for full events and receive an email if there is availability.
-- **Prefilled Booking Form:** Booking form is prefilled with the event and can be replaced with a select form if the user chooses.
-- **Repeating/Self Deleting Event:** Events can be set to repeating so that they automatically appear on the schedule each week, and events in the past self-delete.
-- **Messaging In Browser:** User and admin can message within the website from the account and admin panels respectively.
-- **Menu:** Admin has access to CRUD functionality for a menu.
-- **Admin Interface for User:** Whilst the admin can see users in the admin panel, it redirects the admin to the default django admin dashboard, so CRUD functionality for the user within the custom UI would provide a better experience for the site owner.
 
 ## **Testing**
 
@@ -244,131 +251,151 @@ Here are some future features that were outside of the project scope on the curr
 
 #### **Epic: Site Navigation**
 
-<details>
   
-**As a user I can easily navigate the site so that I can access the different areas of the shop and complete user actions intuitively**
-- **COMPLETE:** The navigation bar and footer mean that the user is able to move through the site easily to get to their desired area. Buttons and links are consistently designed throughout the site so that the user can build familiarity with navigation elements.
+<details><summary><b>As a user I can easily navigate the site so that I can access the different areas of the shop and complete user actions intuitively</b></summary><br/>
+COMPLETE:The navigation bar and footer mean that the user is able to move through the site easily to get to their desired area. Buttons and links are consistently designed throughout the site so that the user can build familiarity with navigation elements.
+</details>
 
-**As a user I can view products so that I can browse the products for sale on the site**
-- **COMPLETE:** The products section is clearly accessible from the navbar and footer so that viewing products can be achieved from anywhere on the site.
+<details><summary><b>As a user I can view products so that I can browse the products for sale on the site</b></summary><br/>
+COMPLETE: The products section is clearly accessible from the navbar and footer so that viewing products can be achieved from anywhere on the site.
+</details>
 
-**As a user I can filter products by category so that narrow down shopping searches to items relevant to my interests**
-- **COMPLETE:** Products are categorized and can be filtered by selecting the chosen category in the top navbar.
+<details><summary><b>As a user I can filter products by category so that I can narrow down shopping searches to items relevant to my interests</b></summary><br/>
+COMPLETE: Products are categorized and can be filtered by selecting the chosen category in the top navbar.
+</details>
 
-**As a user I can search for products so that query for specific items of interest faster**
-- **COMPLETE:** There is a search input in the navigation bar which allows the user to query specific products from anywhere in the site.
+<details><summary><b>As a user I can search for products so that I can query for specific items of interest faster</b></summary><br/>
+COMPLETE: There is a search input in the navigation bar which allows the user to query specific products from anywhere in the site.
+</details>
 
-**As a user I can sort product search results so that I can filter through products by various attributes intuitively**
-- **COMPLETE:** The products page includes a sorting dropdown that allows the user to filter items by attributes such as price, rating, and name.
+<details><summary><b>As a user I can sort product search results so that I can filter through products by various attributes intuitively</b></summary><br/>
+COMPLETE: The products page includes a sorting dropdown that allows the user to filter items by attributes such as price, rating, and name.
+</details>
 
-**As a user I can view a list of frequently asked questions so that I can have my queries answered without contacting the site admin**
-- **COMPLETE:** There is a FAQ page that contains information in the site in much more detail so that the user can resolve any issues they might have.
+<details><summary><b>As a user I can view a list of frequently asked questions so that I can have my queries answered without contacting the site admin</b></summary><br/>
+COMPLETE: There is a FAQ page that contains information in the site in much more detail so that the user can resolve any issues they might have.
+</details>
 
-**As a user I can contact the store so that I can have any queries answered by the site admin**
-- **COMPLETE:** There is a contact form the allows the user to send an email directly to the main site email, the user is forced to include their email address so that the site owner knows who to send the response to.
-  
+<details><summary><b>As a user I can contact the store so that I can have any queries answered by the site admin</b></summary><br/>
+COMPLETE: There is a contact form the allows the user to send an email directly to the main site email, the user is forced to include their email address so that the site owner knows who to send the response to.
 </details>
 
 #### **Epic: Buying Products**
 
-<details>
-
-**As a user I can select the sizes of items so that I can choose specific clothing sizes when I buy items**
-- **COMPLETE:** On the product detail there is a size selector which will show the user if the item has sizes, and allows them to select one before adding the item to the basket.
-
-**As a user I can add products to a basket so that I can store items in a list of products to purchase as I navigate through the site**
-- **COMPLETE:** There is add to product functionality from the product detail pages. Users can select the quantity and size of the item before adding it to the basket. There is validation to prevent users from adding more quantity than available stock.
-
-**As a user I can clearly see what items are currently in stock so that I am aware which items can be ordered immediately**
-- **INCOMPLETE:** The product detail displays whether an item is in stock or not. Sized items also display if a particular size is low on stock. However there is no functionality to filter out of stock items from the product list.
-
-**As a user I can see the total cost of my order so that I am aware exactly how much I am required to pay**
-- **COMPLETE:** Total order cost is displayed in the basket and checkout. It also appears in the success toast of adding a product to the basket.
-
-**As a user I can view delivery costs so that I am aware of any surplus charges to my order**
-- **COMPLETE:** Delivery cost is displayed in the basket and checkout. It also appears in the success toast of adding a product to the basket.
-
-**As a user I can see discounted products so that I am aware of opportunities to save money on purchases**
-- **COMPLETE:** Discounted prices can be easily seen in the product list and detail as a new value with the old price crossed out. There is also a sale tab to filter all discounted items into one search.
-
-**As a user I can update the quantity of items in the basket so that I can easily manage the items I wish to order**
-- **COMPLETE:** Total order cost is displayed in the basket and checkout. It also appears in the success toast of adding a product to the basket.
-
-**As a user I can remove items from the basket so that I can delete any unwanted items from my order**
-- **COMPLETE:** Users are able to remove individual items from the basket with the x icon. They can also set the quantity to 0 or to a negative number and the same outcome is achieved.
-
-**As a user I can make secure payments so that I can safely order items with my card**
-- **COMPLETE:** Stripe functionality securely takes payments for orders and appears in the dashboard. A spinner overlay hides the form and prevents the user from accidentally making double payments.
-
-**As a user I can update the quantity of items in the basket so that I can easily manage the items I wish to order**
-- **COMPLETE:** Users are able to increment and decrement their quantity from within the basket. These inputs are validated to prevent quantity from being greater to the remaining stock.
-
-**As a user I can join a newsletter so that I can be made aware of any news or promotions running in the store**
-- **COMPLETE:** Users can sign up to a mailing list from the form in the footer. They receive a confirmation email upon submitting the form, and then receive any newsletters the admin might send.
-
+<details><summary><b>As a user I can select the sizes of items so that I can choose specific clothing sizes when I buy items</b></summary><br/>
+- **COMPLETE:** On the product detail there is a size selector which will show the user if the item has sizes and allows them to select one before adding it to the basket.
+</details>
+ 
+<details><summary><b>As a user I can add products to a basket so that I can store items in a list of products to purchase as I navigate through the site</b></summary><br/>
+COMPLETE: There is add to product functionality from the product detail pages. Users can select the quantity and size of the item before adding it to the basket. There is validation to prevent users from adding more quantity than available stock.
+</details>
+ 
+<details><summary><b>As a user I can clearly see what items are currently in stock so that I am aware which items can be ordered immediately</b></summary><br/>
+INCOMPLETE: The product detail displays whether an item is in stock or not. Sized items also display if a particular size is low on stock. However there is no functionality to filter out of stock items from the product list.
 </details>
 
+<details><summary><b>As a user I can see the total cost of my order so that I am aware exactly how much I am required to pay</b></summary><br/>
+COMPLETE: Total order cost is displayed in the basket and checkout. It also appears in the success toast of adding a product to the basket.
+</details>
+ 
+<details><summary><b>As a user I can view delivery costs so that I am aware of any surplus charges to my order</b></summary><br/>
+COMPLETE: Delivery cost is displayed in the basket and checkout. It also appears in the success toast of adding a product to the basket.
+</details>
+ 
+<details><summary><b>As a user I can see discounted products so that I am aware of opportunities to save money on purchases</b></summary><br/>
+COMPLETE: Discounted prices can be easily seen in the product list and detail as a new value with the old price crossed out. There is also a sale tab to filter all discounted items into one search.
+</details>
+ 
+<details><summary><b>As a user I can update the quantity of items in the basket so that I can easily manage the items I wish to order</b></summary><br/>
+COMPLETE: Total order cost is displayed in the basket and checkout. It also appears in the success toast of adding a product to the basket.
+</details>
+ 
+<details><summary><b>As a user I can remove items from the basket so that I can delete any unwanted items from my order</b></summary><br/>
+COMPLETE: Users are able to remove individual items from the basket with the x icon. They can also set the quantity to 0 or to a negative number and the same outcome is achieved.
+</details>
+ 
+<details><summary><b>As a user I can make secure payments so that I can safely order items with my card</b></summary><br/>
+COMPLETE: Stripe functionality securely takes payments for orders and appears in the dashboard. A spinner overlay hides the form and prevents the user from accidentally making double payments.
+</details>
+ 
+<details><summary><b>As a user I can update the quantity of items in the basket so that I can easily manage the items I wish to order</b></summary><br/>
+COMPLETE: Users are able to increment and decrement their quantity from within the basket. These inputs are validated to prevent quantity from being greater than the remaining stock.
+</details>
+ 
+<details><summary><b>As a user I can join a newsletter so that I can be made aware of any news or promotions running in the store</b></summary><br/>
+COMPLETE: Users can sign up to a mailing list from the form in the footer. They receive a confirmation email upon submitting the form, and then receive any newsletters the admin might send.
+</details>
+ 
 #### **Epic: Account Management**
 
-<details>
+<details><summary><b>As a user I can create an account so that I can manage my personal details and view order history if I am a regular shopper</b></summary><br/>
+COMPLETE: Users are able to sign up easily and receive an email verification in order to complete the registration process.
+</details>
 
-**As a user I can create an account so that I can manage my personal details and view order history if I am a regular shopper**
-- **COMPLETE:** Users are able to sign up easily and receive an email verification in order to complete the registration process.
+<details><summary><b>As a user I can save my personal details when checking out so that placing orders is faster in future</b></summary><br/>
+COMPLETE: There is a checkbox on the checkout form that allows a user to take the personal information entered and add it to their profile. If a user is not logged in it gives them the option to register an account or sign in.
+</details>
 
-**As a user I can save my personal details when checking out so that placing orders is faster in future**
-- **COMPLETE:** There is a checkbox on the checkout form that allows a user to take the personal information entered and add it to their profile. If a user is not logged in it gives them the option so register an account or sign in.
-  
-**As a user I can manually add my personal information to a profile so that I can checkout faster when ordering**
-- **COMPLETE:** There is a profile page that contains a form for the user to manually add their personal and delivery information to their profile.
-  
-**As a user I can update my profile information so that I can keep my personal details up to date**
-- **COMPLETE:** Users can use the profile form on their profile page to update existing information on their profile and keep their data up to date.
+<details><summary><b>As a user I can manually add my personal information to a profile so that I can checkout faster when ordering</b></summary><br/>
+COMPLETE: There is a profile page that contains a form for the user to manually add personal and delivery information to their profile.
+</details>
+ 
+<details><summary><b>As a user I can update my profile information so that I can keep my personal details up to date</b></summary><br/>
+COMPLETE: Users can use the profile form on their profile page to update existing information on their profile and keep their data up to date.
+</details>
+ 
+<details><summary><b>As a user I can view my order history so that I can access information about unfulfilled and past orders</b></summary><br/>
+COMPLETE: Order history is displayed in the order history page accessed from the profile dropdown menu. There they can see orders they have made and the items they have purchased. A confirmation email sends upon order completion.
+</details>
 
-**As a user I can view my order history so that I can access information about unfulfilled and past orders**
-- **COMPLETE:** Order history is displayed in the order history page accessed from the profile dropdown menu. There they can see orders they have made and the items they have purchased. A confirmation email sends upon order completion.
+<details><summary><b>As a user I can change my password so that I can keep my account safe and access my profile if I lose my password</b></summary><br/>
+COMPLETE: Logged in users are able to change their password through a change password button located on the profile form; they are redirected to a change password form where they can complete the action. Users are also able to request a password reset email from the login page if they forget it, where they will be sent an email with a link to change it.
+</details>
 
-**As a user I can change my password so that I can keep my account safe and access my profile if I lose my password**
-- **COMPLETE:** Logged in users are able to change their password through a change password button located on the profile form; they are redirected to a change password form where they can complete the action. Users are also able to request a password reset email from the login page if they forget it, where they will be sent an email with a link to change it.
+<details><summary><b>As a user I can delete my account so that I can maintain control over my personal information</b></summary><br/>
+INCOMPLETE: Users are unable to delete or request a deletion for their account automatically. Instead they have to send an email to the site owner to delete the user manually. This is below-par UX so this User Story is considered incomplete.
+</details>
 
-**As a user I can delete my account so that I can maintain control over my personal information**
-- **INCOMPLETE:** Users are unable to delete or request a deletion for their account automatically. Instead they have to send an email to the site owner to delete the user manually. This is below-par UX so this User Story is considered incomplete.
-
-**As a user I can rate products so that I can give feedback to the store and other prospective buyers on items that I have purchased**
-- **COMPLETE:** Users are able to review products that they have purchased from the order history tab. They are automatically presented with a link to rate the product once they have made a purchase, and will be shown a message if they have already rated it. From there they can submit a star rating and leave a comment, which will be displayed on the products reviews section.
-
-**As a user I can contact the store so that I can have any queries answered by the site admin**
-- **COMPLETE:** There is a contact form accessed through various areas of the site, but most easily from the footer. In this form they are able to send an email directly to the site owner.
-
-**As a user I can create a wish list of items so that I can save products to buy at a future date**
-- **INCOMPLETE:** This user story was not completed. During development it was put on a lower priority due to expected time constraints, so didn’t make the final deployment. This feature is one that should be implemented in future.
-
+<details><summary><b>As a user I can rate products so that I can give feedback to the store and other prospective buyers on items that I have purchased</b></summary><br/>
+COMPLETE: Users are able to review products that they have purchased from the order history tab. They are automatically presented with a link to rate the product once they have made a purchase and will be shown a message if they have already rated it. From there they can submit a star rating and leave a comment, which will be displayed on the products reviews section.
+</details>
+ 
+<details><summary><b>As a user I can contact the store so that I can have any queries answered by the site admin</b></summary><br/>
+COMPLETE: There is a contact form accessed through various areas of the site, but most easily from the footer. In this form they are able to send an email directly to the site owner.
+</details>
+ 
+<details><summary><b>As a user I can create a wish list of items so that I can save products to buy at a future date</b></summary><br/>
+INCOMPLETE: This user story was not completed. During development it was put on a lower priority due to expected time constraints, so it didn’t make the final deployment. This feature is one that should be implemented in the future.
 </details>
 
 #### **Epic: Site Management**
 
-<details>
-
-**As an admin I can add products to the store so that I can keep the product list up to date with new arrivals**
-- **COMPLETE:** The admin is able to add products by accessing the add product button in the custom admin UI.
-
-**As an admin I can update existing products so that I can manage the information of currently listed products****
-- **COMPLETE:** The admin can update existing products from the update products form in the admin UI.
-
-**As an admin I can delete existing products so that I can remove products from the product database
-- **COMPLETE:** The admin can delete existing products from the database in the custom admin UI by selecting the delete product button and confirming the action****
-
-**As an admin I can hide products from the store so that I can remove out of stock or faulty items from being displayed**
-- **COMPLETE:** Incomplete user story. This user story was ultimately not completed. Out of stock items simply display that they are out of stock. For an admin to hide a product they would have to delete the model.
-
-**As an admin I can manage stock so that I can maintain that items for sale are available to be bought and shipped**
-- **COMPLETE:** The admin is able to manage stock values in the custom admin UI for both sized and regular item stock.
-
-**As an admin I can add a discount to items so that I can create a list of items on sale**
-- **COMPLETE:** The admin can add a discounted price to the product model. These products display their discounted value in the products list, and can be grouped by accessing the sale link.
-
-**As an admin I can send a newsletter so that I can keep users up to date with the latest deals or promotions.**
-- **COMPLETE:** The admin is able to send a newsletter to all emails on the mailing list from the custom admin UI. The message input is a summernote field, meaning that content can be meaningfully formatted.
-
+<details><summary><b>As an admin I can add products to the store so that I can keep the product list up to date with new arrivals</b></summary><br/>
+COMPLETE: The admin is able to add products by accessing the add product button in the custom admin UI.
+</details>
+ 
+<details><summary><b>As an admin I can update existing products so that I can manage the information of currently listed products</b></summary><br/>
+COMPLETE: The admin can update existing products from the update products form in the admin UI.
+</details>
+ 
+<details><summary><b>As an admin I can delete existing products so that I can remove products from the product database</b></summary><br/>
+COMPLETE: The admin can delete existing products from the database in the custom admin UI by selecting the delete product button and confirming the action.
+</details>
+ 
+<details><summary><b>As an admin I can hide products from the store so that I can remove out of stock or faulty items from being displayed</b></summary><br/>
+INCOMPLETE: This user story was ultimately not completed. Out of stock items simply display that they are out of stock. For an admin to hide a product they would have to delete the model.
+</details>
+ 
+<details><summary><b>As an admin I can manage stock so that I can maintain that items for sale are available to be bought and shipped</b></summary><br/>
+COMPLETE: The admin is able to manage stock values in the custom admin UI for both sized and regular item stock.
+</details>
+ 
+<details><summary><b>As an admin I can add a discount to items so that I can create a list of items on sale</b></summary><br/>
+COMPLETE: The admin can add a discounted price to the product model. These products display their discounted value in the products list and can be grouped by accessing the sale link.
+</details>
+ 
+<details><summary><b>As an admin I can send a newsletter so that I can keep users up to date with the latest deals or promotions</b></summary><br/>
+COMPLETE: The admin is able to send a newsletter to all emails on the mailing list from the custom admin UI. The message input is a summernote field, meaning that content can be meaningfully formatted.
 </details>
 
 ###
@@ -376,7 +403,6 @@ Here are some future features that were outside of the project scope on the curr
 #### **HTML**
 
 The HTML on the application was validated using the [**W3C HTML Validator**](https://validator.w3.org/). Validating the html by using the Github repository sometimes would raise a lot of errors related to Django's built in settings. As these are not accessible, they cannot be resolved. Each page on the website was run through the validator and all errors caused by custom code were otherwise resolved.
-
 
 **Homepage** - No validation errors.
 
@@ -439,7 +465,7 @@ All css files were checked with [**Jigsaw CSS Validator**](https://jigsaw.w3.org
 ### **JavaScript**
 
 JavaScript code on Easy Outdoor Co. was run through the [**Jshint Javascript Validator**](https://jshint.com/). All files an inline code were checked individually to ensure that all custom JavaScript was properly tested. In order to get the correct validation on Jshint, '//jshint esversion: 6'
-"/*globals $:false */".* were added to the top of the validator. This sets the esversion to 6 and also allows Jquery - which all JavaScript on the application was built with
+"/*globals $:false */".* weas added to the top of the validator. This sets the esversion to 6 and also allows Jquery - which all JavaScript on the application was built with.
 
 
 **Basket**
@@ -482,7 +508,7 @@ JavaScript code on Easy Outdoor Co. was run through the [**Jshint Javascript Val
 
 #### **Python**
 
-All custom python is validated by the [**Code Institue Pep8 Validator Validator**](https://pep8ci.herokuapp.com/). Most of the issues were related to trailing whitespace and lines that were too long; the IDE has a built in warning system that allowed most of these to be resolved prior to validation. All files where custom Python was added were tested individually from each app. Below are the results from the tests along with the results message.
+All custom Python code is validated by the [**Code Institue Pep8 Validator Validator**](https://pep8ci.herokuapp.com/). Most of the issues were related to trailing whitespace and lines that were too long; the IDE has a built in warning system that allowed most of these to be resolved prior to validation. All files where custom Python was added were tested individually from each app. Below are the results from the tests along with the results message.
 
 **Basket**
 
@@ -551,7 +577,7 @@ All custom python is validated by the [**Code Institue Pep8 Validator Validator*
 
 ### **Manual Testing**
 
-A series of manual tests were conducted on each page to ensure that every link, form, or site action works as originally intended. Any unresolved errors are detail in the "Unresolved Bugs" section below testing.
+A series of manual tests were conducted on each page to ensure that every link, form, or site action works as originally intended. Any unresolved errors are detailed in the "Unresolved Bugs" section below testing.
 
 **Homepage**
 
@@ -562,11 +588,10 @@ A series of manual tests were conducted on each page to ensure that every link, 
 | Result | Navigation Bar Manual Testing                           |
 |--------|---------------------------------------------------------|
 | ✓      | Link hover styles function as expected                  |
-| ✓      | Link hover styles function as expected                  |
 | ✓      | Links redirect to expected page                         |
 | ✓      | Basket icon displays correct amount of items in basket  |
 | ✓      | Search bar works as expected                            |
-| ✓      | Error toast display when empty searches are enter       |
+| ✓      | Error toast displays when empty searches are enter      |
 | ✓      | Logged in users can access profile dropdown             |
 | ✓      | Logged in users profile links redirect to expected page |
 | ✓      | Logged out users can login using login icon             |
@@ -578,8 +603,8 @@ A series of manual tests were conducted on each page to ensure that every link, 
 |--------|---------------------------------------------------------|
 | ✓      | Shop now buttons hover styles function as expected      |
 | ✓      | Shop now links redirect to expected page                |
-| ✓      | Shopping panel links hover styles function as expected  |
-| ✓      | Shopping panel links redirects to expected page         |
+| ✓      | Shopping panel link hover styles function as expected   |
+| ✓      | Shopping panel links redirect to expected page          |
 | ✓      | Product carousel display correct amount of items        |
 | ✓      | Product carousel scroller works as expected             |
 | ✓      | Product images and name links to correct product detail |
@@ -588,7 +613,7 @@ A series of manual tests were conducted on each page to ensure that every link, 
   
 | Result | Footer Manual Testing                                                      |
 |--------|----------------------------------------------------------------------------|
-| ✓      | All links redirect to correct place                                        |
+| ✓      | All links redirect to the correct page                                     |
 | ✓      | All hover functionality works as expected                                  |
 | ✓      | Newsletter form doesn't accept empty name input                            |
 | ✓      | Newsletter form doesn't accept empty email input                           |
@@ -621,7 +646,7 @@ A series of manual tests were conducted on each page to ensure that every link, 
 | ✓      | Size selector is prechecked on page load         |
 | ✓      | Low stock warnings display correctly             |
 | ✓      | Sizes disable when out of stock                  |
-| ✓      | Quantity form incrementa as intended             |
+| ✓      | Quantity form increments as intended             |
 | ✓      | Correct quantity is added to basket              |
 | ✓      | Correct size is added to basket                  |
 | ✓      | Success toast appears upon adding to basket      |
@@ -670,7 +695,7 @@ A series of manual tests were conducted on each page to ensure that every link, 
 | ✓      | Spinner displays as expected                                                                 |
 | ✓      | Successful checkout loads order summary page                                                 |
 | ✓      | Order confirmation is sent to attached email                                                 |
-| ✓      | Profile information is saved if check                                                        |
+| ✓      | Profile information is saved if checked                                                      |
 | ✓      | Profile information preloads checkout                                                        |
   
 #### **Checkout Success**
@@ -722,7 +747,7 @@ A series of manual tests were conducted on each page to ensure that every link, 
 | ✓      | Submitted star value matches correct decimal value |
 | ✓      | Message field validation works as expected         |
 | ✓      | Review is correctly submitted to database          |
-| ✓      | Cancel but redirects to order history              |
+| ✓      | Cancel button redirects to order history           |
 | ✓      | Success toast appears on successful submission     |
 | ✓      | Review is displayed on the site                    |
 
@@ -738,7 +763,6 @@ A series of manual tests were conducted on each page to ensure that every link, 
 | ✓      | Admin menu buttons hover works as expected                                     |
 | ✓      | Admin menu button active works as expected                                     |
 | ✓      | Links direct to correct page                                                   |
-| ✓      | Button hovers works as expected                                                |
 | ✓      | Product data table search and sorting works as expected                        |
 | ✓      | Add product form validation works as expected                                  |
 | ✓      | Add product form adds product to database                                      |
@@ -749,13 +773,13 @@ A series of manual tests were conducted on each page to ensure that every link, 
 | ✓      | Delete product confirmation removes correct product from database              |
 | ✓      | Size stock object is created when sized product is created                     |
 | ✓      | Regular stock object is created when unsized product is created                |
-| ✓      | Success message display when product is added, updated or deleted              |
+| ✓      | Success message displays when product is added, updated or deleted             |
 | ✓      | Size stock table displays correct data                                         |
-| ✓      | Stock form updates stock in database                                           |
+| ✓      | Stock forms update stock in database                                           |
 | ✓      | Regular stock table displays correct data                                      |
 | ✓      | Regular stock form updates stock in database                                   |
 | x      | Stock data table search and sorting works as expected (See unresolved bugs)    |
-| ✓      | Orders data table displays correct data                                        |
+| ✓      | Order data table displays correct data                                         |
 | ✓      | Order data table search and sorting works as expected                          |
 | ✓      | Order details link displays correct order information                          |
 | ✓      | Order details buttons work as expected                                         |
@@ -768,7 +792,6 @@ A series of manual tests were conducted on each page to ensure that every link, 
 | ✓      | Success toast displayed when successful submission or deletion                 |
 | ✓      | Delete user button loads correct product on delete page                        |
 | ✓      | Delete user confirmation deletes correct user from database                    |
-| ✓      | Users data table displays correct data                                         |
 | ✓      | Users data table displays correct data                                         |
 | ✓      | Users data table search and sorting works as expected                          |
 | ✓      | Delete email from mailing list confirmation deletes correct user from database |
@@ -889,7 +912,7 @@ All functionality works as intended and the design remains consistent.
 
 ### **Lighthouse Testing**
 
-To test the performance, accessibility, best practices and SEO, a lighthouse test was performed on each of the main areas of the site. As with some of the unresolved bugs on the site some of the warnings come from other dependencies, but there is also room for improvement from my own code. Time constraints also limited my oppurtunities to get each of these metrics as high as possible, although the numbers are green and acceptable in most cases.
+To test the performance, accessibility, best practices and SEO, a lighthouse test was performed on each of the main areas of the site. As with some of the unresolved bugs on the site some of the warnings come from other dependencies, but there is also room for improvement from my own code. Time constraints limited my opportunities to get each of these metrics as high as possible, although the numbers are green and acceptable in most cases.
 
 **Homepage**
 
@@ -945,7 +968,7 @@ To test the performance, accessibility, best practices and SEO, a lighthouse tes
 
 - The stock data tables only sort by name correctly. When sorting by stock quantity the order is seemingly random - it is possible that this is caused by two data tables appearing on the same page. This was not resolved because the JS and CSS are external libraries and there wasn’t enough time to dig into them and see what was causing the issue.
 
-- Contact form whitespace only validation on the subject redirects the user to the home page where it displays an error rather than displaying inline on the form. This is an inverse of the updating profile information - it was decided that it would be better to have an error to explain that the form is invalid rather than just refreshing the page and not showing an error. This does technically prevent the incorrect input, it is just less than ideal UX.
+- Contact form whitespace only validation on subject field redirects the user to the home page and displays an error rather than displaying inline on the form. This is an inverse of the updating profile information - it was decided that it would be better to have an error to explain that the form is invalid rather than just refreshing the page and not showing an error. This does technically prevent the incorrect input, it is just less than ideal UX.
 
 - In the admin area it was not possible to validate the Summernote Editor in time. This was a lower priority because the form is only accessed by site staff.
 
@@ -979,7 +1002,7 @@ The Easy Outdoor Co. website used the following technologies during development:
 
 </details>
 
-2. Enter a name for the project, and then choose the **Create repository from template** button at the bottom of the form.
+2. Enter a name for the project, and then select the **Create repository from template** button at the bottom of the form.
 
 <details>
 
@@ -1011,7 +1034,7 @@ The Easy Outdoor Co. website used the following technologies during development:
 
 </details>
 
-6. Then we select a region. Choose the region closest to you, and select **Review**.
+6. Then we select a region. Choose the region closest to you, and then select **Review**.
 
 <details>
 
@@ -1065,7 +1088,7 @@ pip3 install gunicorn
 pip3 freeze > requirements.txt
 ```
 
-13. Create a file called **Procfile** to the root directory, and add the following syntax:
+13. Create a file called **Procfile** in the root directory, then add the following syntax:
 
 ```
 web: gunicorn easy_outdoor.wsgi:application
@@ -1097,7 +1120,7 @@ python3 manage.py startapp app_name_here
 
 </details>
 
-17. Once we have done that, we can migrate out changes using the following commands:
+17. Once we have done that, we can migrate our changes using the following commands:
 
 ```
 python3 manage.py makemigrations
@@ -1130,7 +1153,7 @@ python3 manage.py runserver
 import os
 ```
 
-21. And then we set a secret key of our choosing. This key should remain in the env file so that it is never accessible from our repository. With the same syntax we add another variable called **DATABASE_URL**, which we can copy from our ElephantSQL instance.
+21. And then we set a secret key of our choosing. This key should remain in the env file so that it is never accessible from our Github repository. With the same syntax we add another variable called **DATABASE_URL** which we can also copy from our ElephantSQL instance - this is the same as we have done in the Heroku config vars.
 
 <details>
 
@@ -1208,11 +1231,11 @@ DATABASE_URL: your Elephant SQL URL
 
 In order for Stripe Payments to work on your own project you need to sign up to Stripe and get your own API keys to set in the Env and in Heroku. Add the above environment variables to the Config Vars in Heroku as well as the env.py file in the IDE.
 
-31. For the Easy Outdoor Co. website, static media is hosted by AWS. This is optional if you are using a different hosting system such as Cloudinary. If media is hosted on AWS the following ket values need to be added to Heroku Config Vars:
+31. For the Easy Outdoor Co. website, static media is hosted by AWS. This is optional if you are using a different hosting system such as Cloudinary. If media is hosted on AWS the following key values need to be added to Heroku Config Vars:
 
 ```
 AWS_ACCESS_KEY: Your AWS access key
-AWS_SECRET_ACCESS_KEY: Your AWSMsecret key
+AWS_SECRET_ACCESS_KEY: Your AWS secret key
 USE_AWS: True
 ```
 
@@ -1225,7 +1248,7 @@ USE_AWS: True
 </details>
 
 
-33. In order to correctly connect to the media files we need to refactor the media and static files directories. This will allow Heroku to be server our media and static files from folders in the root directory:
+33. In order to correctly connect to the media files we need to refactor the media and static files directories. This will allow Heroku to be served our media and static files from folders in the root directory:
 
 <details>
 
@@ -1240,7 +1263,6 @@ USE_AWS: True
 ![image](media/readme-images/add-host.png)
 
 </details>
-
 
 
 34. For email functionality these Config Vars also need to be added to Heroku:
