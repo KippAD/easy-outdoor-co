@@ -112,12 +112,19 @@ Site staff can manage products, update stock, send newsletters and complete othe
  
 The four epics are ranked in terms of priority. In order for the site to function in its most basic state the user needs to be able to navigate the site and buy products. To greatly improve the UX of the user the account management epic can be added next. Finally Django has a built in admin panel so the site management epic is of lowest priority.
 
+### **Business Model**
+
+The Easy Outdoor Co. is an online clothing store that sells its own products directly to customers. This means its business model is a direct seller business to customer (B2C). To make a B2C business model successful, exposure to potential customers is crucial. An onus must be put on marketing techniques to bring in new customers, reliability and trustworthiness to retain customers, and providing the best possible UX in order to set the business apart from the competition - as B2C businesses are the most widespread of the e-commerce types.
+
+In the marketing techniques and SEO sections below there are some strategies taken by the company in order to achieve the aims set above.
+
+
 ### **Marketing Techniques**
 
 An integral part of developing a successful online store is how you can achieve a higher traffic of users.
 
 - **Newsletter:** Using a newsletter subscription allows users to easily opt in to an email that notifies them of the promotions that the store is offering.
-- **Social Media:** An active social media presence would offer similar advantages to that of a newsletter. It would also allow the running of ads through the social media website, which would reach a much wider audience than that of just the users that have subscribed to the newsletter.
+- **Social media:** An active social media presence would offer similar advantages to that of a newsletter. It would also allow the running of ads through the social media website, which would reach a much wider audience than that of just the users that have subscribed to the newsletter. There is an instagram page for the website already attached to the link in the footer.
 - **Sales:** Sales and promotions in general are an important aspect of bringing customers in. Using discounted products in emails and social media posts will entice users onto the site.
 
 ### **Search Engine Optimization**
@@ -155,19 +162,30 @@ The user stories were added to a project board on this repository's project boar
 
 The wireframes on the site were created with Figma. The design itself was intended to be fairly simple to keep the entire experience for the user as neat and uncomplex as possible and to avoid creating a visual overload.
 
-
 ## **Features**
 
 ### **Navbar**
+
+![image](media/readme-images/navbar.png)
+
 The navbar allows easy and intuitive navigation throughout the site. Built from bootstraps responsive navbar template, the navigation bar minimizes into a burger menu on smaller screens and features dropdowns to contain all of the necessary links.
+
+<details><summary><b>Features</b></summary><br>
 
 - **Burger Menu** - The navbar transforms into a burger menu so that the page isn’t crowded with links on smaller devices.
 - **Search Bar** - The search bar allows the user to quickly search for products from anywhere on the site; they will be transported to a list of products matching their query upon submitting.
 - **Profile Icon** - The profile icon features a dropdown menu that allows the user to view their profile and order history. The icon is dynamic so that it only displays if a user is logged in, otherwise it shows a login link. It also displays a link to the admin panel if the user is a staff member.
 - **Basket Icon** - The basket icon in the navbar will display the total amount of different items in the basket. It also allows the user to access their shopping basket from anywhere on the site.
 
+</details>
+
 ### **Home**
+
+![image](media/readme-images/home-top.png)
+
 Most of the site is quite simple in its design, usually using black and white colors with an orange color to signify user actions. This is not to overload the user when they are trying to use the site's functionality. The homepage however is the first place that the user lands, so there is an impetus on a more complex but enticing design in order to persuade the user to stay, as well as concise information that explains the site's purpose.
+
+<details><summary><b>Features</b></summary><br>
 
 - **Hero Image** - The hero image is the first thing the user sees. The idea is that they are drawn in by an impressive image and a catchy overlay text so that they can quickly surmise what the purpose of the store is.
 - **Shopping Panels** - The panels link to the three main sections of the shop; the sale, clothing, and equipment. These images draw the user in more to the necessary actions to view products more so than the smaller links in the navbar.
@@ -175,43 +193,158 @@ Most of the site is quite simple in its design, usually using black and white co
 - **Product Carousel** - The product carousel is a scrollable assortment of random items from the store. If a first time user is seeing this feature they have potentially not seen a product yet. This feature brings the product section to them, showing them the sort of items that are sold without them having to navigate to a different area.
 - **Footer** - The footer contains mosts of the navigation that has already been shown in the navbar and the home page. It also includes a newsletter subscription form and a link to the sites instagram page.
 
+</details>
+
+<details><summary><b>Images</b></summary><br>
+ 
+#### **Navbar, Hero Section & Shopping Panel Links**
+![image](media/readme-images/home-top.png)
+
+####**About Us Section**
+![image](media/readme-images/home-about.png)
+ 
+**Products Carousel & Footer**
+![image](media/readme-images/home-bottom.png)
+
+</details>
+
 ### **Products**
+
+![image](media/readme-images/products.png)
+
 The products section displays all of the products for sale on the store, and also allows the user to sort or filter them by different categories to help them narrow items down to those that are relevant to them.
 
+<details><summary><b>Features</b></summary><br>
+ 
 - **Discounted Items** - Items with a discounted price display both the original price and the sale price. This shows the user the amount of money they can save on an item during its promotion period. The sale tab also limits all products to those that are discounted, meaning the user can browse all discounted items at once.
 - **Sorting Dropdown** - The user can quickly sort items by their name, price, category and rating. This improves their user experience by streamlining their search.
 - **Reviews** - The user is able to see the star rating of the product, and can also see the amount of reviews left on a specific item. From there they can view the reviews and comments left by users on items of interest.
 - **Product Detail** - Upon clicking a product in the main product page, the user is brought to the product detail page. This page displays the product information, as well as a quantity selector and a size selector that the user can use to add the product to the basket.
 - **Related Products** - The product detail page also contains a related products carousel which contains products of the same category as that of the product the user is viewing. This allows them to continue their search easily with relevant items if they are not interested in purchasing the item in the product detail.
+ 
+</details>
+
+
+<details><summary><b>Images</b></summary><br>
+ 
+#### **Products Page**
+![image](media/readme-images/products.png)
+
+#### **Product Detail**
+![image](media/readme-images/product-detail.png)
+ 
+#### **Sale**
+![image](media/readme-images/product-sale.png)
+
+</details>
 
 ### **Basket**
+
+![image](media/readme-images/basket.png)
+
 The basket is accessed by the shopping cart icon in the navbar. It contains every item added to the basket by the user, their size, quantity, price, and total price. The user is able to manage the products from there by increasing or decreasing their quantity, or removing them entirely.
+
+<details><summary><b>Features</b></summary><br>
 
 - **Quantity Input** - The user can update the total quantity of their items from the basket. This allows them to control their shopping basket easily, and manage the total cost of the order.
 - **Remove From Basket** - The user can remove items from the basket by setting the quantity to 0 or by selecting the x icon on the item’s panel.
 
+</details>
+
+<details><summary><b>Images</b></summary><br>
+ 
+#### **Stock Warning**
+![image](media/readme-images/stock-error.png)
+
+#### **Updated Basket**
+![image](media/readme-images/update-basket.png)
+ 
+#### **Empty Basket**
+![image](media/readme-images/empty-basket.png)
+
+</details>
+
 ### **Stock**
+
+![image](media/readme-images/stock-error.png)
+
 The site features stock management. Stock can be managed by staff and is automatically adjusted when orders are completed.
 
+<details><summary><b>Features</b></summary><br>
+  
 - **Dynamic Stock** - Stock is automatically decremented when sales are completed. Out of stock items remove the ability to add the product to the basket.
 - **Basket Validation** - Stock value is used to validate the quantity of items added to the basket. This prevents users from setting a quantity greater than the remaining stock and putting the business in a position where they cannot fulfill their orders.
+ 
+</details>
+
+<details><summary><b>Images</b></summary><br>
+ 
+#### **Stock Error Basket**
+![image](media/readme-images/stock-error.png)
+
+</details>
 
 ### **Account & Profile**
+
+![image](media/readme-images/profile.png)
+
 The user can manage their account and view order history by accessing the user icon in the navigation bar. They are able to manage their personal details and keep track of their orders. Allauth is used to manage the users login, password and confirmation emails.
+
+<details><summary><b>Features</b></summary><br>
 
 - **Profile** - The user profile section is where the user can add and update their personal details and delivery information. Their information is then used to speed up the checkout process by preloading the checkout form to improve their user experience.
 - **Order History** - The user is able to view details about previous orders. They are also able to rate items if they have purchased them, and are shown the ratings that they have given items after reviewing them.
 - **AllAuth** - AllAuth allows the user to easily access and administer their account, with the templates being customized to fit the design of the website.
+ 
+</details>
+
+<details><summary><b>Images</b></summary><br>
+ 
+#### **Profile**
+![image](media/readme-images/profile.png)
+
+#### **Order History**
+![image](media/readme-images/order-history.png)
+ 
+#### **Sign In Form**
+![image](media/readme-images/sign-in.png)
+ 
+#### **Sign Up Form**
+![image](media/readme-images/sign-up.png)
+
+</details>
 
 ### **Reviews**
+
+![image](media/readme-images/reviews.png)
+
 The user is able to give a star rating and leave a comment review of products that they have previously bought. Giving feedback gives a way for the user to interact with the site and also informs prospective buyers on products of interest.
+
+<details><summary><b>Features</b></summary><br>
 
 - **Star Rating Selector** - The review form contains a radio selector styled into a five star input. The value is parsed into a float value which is added to the database. The rating displayed on the product is the average value of all combined ratings.
 - **Comment** - The user can also use the comment box to leave a description of the production which will be fed back to the site owner and displayed on the site for other users.
 
+</details>
+
+<details><summary><b>Images</b></summary><br>
+ 
+#### **Reviews**
+![image](media/readme-images/reviews.png)
+
+#### **Review Form**
+![image](media/readme-images/review-form.png)
+
+</details>
+
 ### **Custom Admin**
+
+![image](media/readme-images/manage-site.png)
+
 To improve the experience of site staff, a custom admin UI was built to complete site actions such as product and stock management. From this panel staff members can complete CRUD on products, view orders, manage stock, manage the mailing list, and send newsletters.
 
+<details><summary><b>Features</b></summary><br>
+ 
 - **Sorting Tables** - The information on the database is displayed in a sorting table that includes pagination and a search bar. This means that staff can move through large amounts of data easily, and in a friendlier way than the default django admin.
 - **Product CRUD** - Staff can create, update, and delete products from the database from within the UI.
 - **Stock Management** - Staff can keep a products stock corresponding stock up to date from within the UI. This allows them to easily maintain items that are available for sale on the store.
@@ -219,19 +352,100 @@ To improve the experience of site staff, a custom admin UI was built to complete
 - **Mailing List** - Staff can remove users from the mailing list and update their details if necessary.
 - **Newsletter** - Staff can also send newsletters from within the admin panel, which builds off of a base newsletter template and adds the subject and content from the input of the user. A summernote editor means that the message can be formatted well and promotional emails can be well styled.
 
+</details>
+
+
+<details><summary><b>Images</b></summary><br>
+ 
+#### **Admin Dashboard**
+![image](media/readme-images/manage-site.png)
+
+#### **Add Product Form**
+![image](media/readme-images/add-product.png)
+ 
+#### **Newsletter Form**
+![image](media/readme-images/newsletter-form.png)
+ 
+#### **Order Detail**
+![image](media/readme-images/order-detail.png)
+
+</details>
+
+
 ### **Secure Checkout**
+
+![image](media/readme-images/checkout.png)
+
 The checkout process features a delivery form and a stripe payment form, as well as a final summary of the order before the user decides to purchase. There is also a confirmation page that displays upon completion of the order.
 
+<details><summary><b>Features</b></summary><br>
+ 
 - **Checkout Form** - The checkout form takes the users personal and delivery information, validating it before completing the process. There is also a final summary of the items in the order and an option to save the users information to their profile upon completion. A spinner displays to prevent the user from submitting multiple payments whilst the order is being processed.
 - **Order Summary** - Upon a successful order, the details of the order are displayed on a new page with a notification stating that the order has been completed and that a confirmation email has been sent.
 
+</details>
+
+
+<details><summary><b>Images</b></summary><br>
+ 
+#### **Main Checkout**
+![image](media/readme-images/checkout.png)
+
+#### **Checkout Success**
+![image](media/readme-images/checkout-success.png)
+ 
+#### **Spinner**
+![image](media/readme-images/spinner.png)
+
+</details>
+
+
 ### **Newsletter, Contact Form & Emails**
+
+![image](media/readme-images/contact-form.png)
+
 Custom html email templates were built for allauth and django emails which are triggered for events such as an order being completed or the newsletter being subscribed to.
+
+<details><summary><b>Features</b></summary><br>
 
 - **Newsletter** - Users can subscribe to a mailing list and receive emails sent by site staff. These emails feature a custom template and can be sent by staff from the admin panel. Users receive an email upon subscribing successfully to the newsletter.
 - **Order Confirmation Email** - Users receive a confirmation email upon completing an order successfully. The email contains all of the relevant information about the order.
 - **Allauth Emails** - The default allauth emails for resetting a password and for verification of a new account have been customized to be consistent with other site emails.
 - **Contact Form**  - There is a contact form that is linked to the main email address of the site owner where users can query with any questions or issues that they are facing when using the site. The message is validated and sent to the owner along with the email that the user wishes to be contacted with.
+
+</details>
+
+<details><summary><b>Images</b></summary><br>
+ 
+#### **Contact Form**
+![image](media/readme-images/checkout.png)
+
+#### **Subscription Confirmation Email**
+![image](media/readme-images/newsletter-subscription.png)
+ 
+#### **Order Confirmation Email**
+![image](media/readme-images/order-confirmation.png)
+
+</details>
+
+### **FAQ’s**
+
+![image](media/readme-images/faq.png)
+
+The user can see a list of frequently asked questions to answer any questions that they might have.
+
+<details><summary><b>Features</b></summary><br>
+ 
+- **Accordion** - The FAQ’s are formatted in a Bootstrap accordion to present the large amount of text in bitesize quantities so that the user can navigate to helpful answers easily.
+ 
+</details>
+
+<details><summary><b>Images</b></summary><br>
+ 
+#### **FAQ Accordion**
+![image](media/readme-images/faq.png)
+
+</details>
 
 ### **FAQ’s**
 The user can see a list of frequently asked questions to answer any questions that they might have.
