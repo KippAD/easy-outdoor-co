@@ -7,6 +7,8 @@ The Easy Outdoor Co. is an e-commerce site for a fictional store that sells clot
 
 This project was undertaken as my Milestone 5 E-commerce project for my Full Stack Software Engineering diploma with Code Institute. The project was planned using Agile methodology and built using the Django framework alongside various other technologies.
 
+[**Link to Live Site**](https://easy-outdoor-co.herokuapp.com/)
+
 ## **Planning**
 
 ### **Objectives**
@@ -475,6 +477,8 @@ The user can see a list of frequently asked questions to answer any questions th
 
 - **Stock Notification** - Another intended feature was an email sent to the user of when stock comes back into the store of a specific item. The user would be able to opt in to this from the product detail. This feature was not added as others were prioritized to meet the deadline.
 
+- **Womens Section** - Currently the site only stocks men's clothes. A future development could be to add women's stock and the corresponding size models.
+
 ## **Testing**
 
 ### **Testing User Stories**
@@ -803,6 +807,7 @@ All custom Python code is validated by the [**Code Institue Pep8 Validator Valid
 - apps.py - All clear, no errors found
 - forms.py - All clear, no errors found
 - models.py - All clear, no errors found
+- signals.py -
 - urls.py - All clear, no errors found
 - views.py - All clear, no errors found
 
@@ -971,6 +976,8 @@ A series of manual tests were conducted on each page to ensure that every link, 
 | ✓      | Hover styles work as expected              |
   
 #### **Review Products**
+
+Extremely late in to the development a couple of errors pertaining to product reviews arose. The original results had to be reviewed and the entire manual testing process was undertaken again in order to check that the new code hadn't irritated any other functionality. Luckily everything worked as expected.
   
 | Result | Product Review Manual Testing                      |
 |--------|----------------------------------------------------|
@@ -1583,6 +1590,8 @@ DATABASE_URL: your Elephant SQL URL
 
 **Jquery Custom NoSpace Method** is taken from Stack Overflow anwer by: 
 - [Rana Gosh](https://stackoverflow.com/questions/42229437/jquery-validation-accepts-even-if-input-contains-only-whitespaces)
+
+[**Unsplash**](https://unsplash.com/s/photos/mens-beanie) - Copyright free images taken from Unsplash
 
 
 I want to thank Precious Ijege and my fellow students at Code Institute for their guidance and support in development of this project. I wouldn't have managed to complete the diploma without the help I recieved throughout!
