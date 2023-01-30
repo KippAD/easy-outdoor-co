@@ -55,7 +55,7 @@ A clear, well designed, and simple UI that allows both staff and customers to us
 
 Buying products is simple and quick and all of the relevant information to make an order is clear to the user.
 
-<details><summary><b>Buying Producst User Stories</b></summary>
+<details><summary><b>Buying Products User Stories</b></summary>
  <br/>
 
 - As a **user** I can **select the sizes of items** so that **I can choose specific clothing sizes when I buy items**
@@ -67,7 +67,7 @@ Buying products is simple and quick and all of the relevant information to make 
 - As a **user** I can **update the quantity of items in the basket** so that **I can easily manage the items I wish to order**
 - As a **user** I can **remove items from the basket** so that **I can delete any unwanted items from my order**
 - As a **user** I can **make secure payments** so that **I can safely order items with my card**
-- As a **user** I can **update the quantity of items in the basket** so that **I can easily manage the items I wish to orderr**
+- As a **user** I can **update the quantity of items in the basket** so that **I can easily manage the items I wish to order**
 - As a **user** I can **join a newsletter** so that **I can be made aware of any news or promotions running in the store**
 
 </details>
@@ -105,9 +105,6 @@ Site staff can manage products, update stock, send newsletters and complete othe
 - As an **admin** I can **hide products from the store** so that **I can remove out of stock or faulty items from being displayed**
 - As an **admin** I can **manage stock** so that **I can maintain that items for sale are available to be bought and shipped**
 - As an **admin** I can **add a discount to items** so that **I can create a list of items on sale**
-- As an **admin** I can **change my password** so that **I can keep my account safe and access my profile if I lose my password**
-- As an **admin** I can **delete my account** so that **I can maintain control over my personal information**
-- As an **admin** I can **rate products** so that **I can give feedback to the store and other prospective buyers on items that I have purchased**
 - As an **admin** I can **send a newsletter so that I can keep users up to date with the latest deals or promotions**
 
 </details>
@@ -145,7 +142,7 @@ Search engine optimization will increase the likelihood of users finding the sit
 
 - Robots.txt file limits areas of the site that a search engine can access and is seen by them as a mark of quality - this improves SEO.
 
-- Keywords and description in the site head contribute to SEO. Deciding upon keywords came from considering phrases that would be most relevant to the products that the site sells. Then using the application wordtracker.com I was able to see suggested keywords and their volume of search. This helped inform the final list of keywords.
+- Keywords and description in the site head contribute to SEO. Deciding upon keywords came from considering phrases that would be most relevant to the products that the site sells. Then using the site [wordtracker.com](https://www.wordtracker.com/) I was able to see suggested keywords and their volume of search. This helped inform the final list of keywords.
 
 ## **Project Management**
 The user stories were added to a project board on this repository's project board so that development could be managed incrementally.
@@ -240,7 +237,7 @@ The products section displays all of the products for sale on the store, and als
 ![image](media/readme-images/product-detail.png)
  
 ### **Sale**
-![image](media/readme-images/product-sale.png)
+![image](media/readme-images/sale.png)
 
 </details>
 
@@ -363,7 +360,7 @@ To improve the experience of site staff, a custom admin UI was built to complete
  
 - **Sorting Tables** - The information on the database is displayed in a sorting table that includes pagination and a search bar. This means that staff can move through large amounts of data easily, and in a friendlier way than the default django admin.
 - **Product CRUD** - Staff can create, update, and delete products from the database from within the UI.
-- **Stock Management** - Staff can keep a products stock corresponding stock up to date from within the UI. This allows them to easily maintain items that are available for sale on the store.
+- **Stock Management** - Staff can keep a products corresponding stock up to date from within the UI. This allows them to easily maintain items that are available for sale on the store.
 - **Order List** - Staff can see a list of all orders and view them in detail in another page. This means that sales can be tracked easily, the site owner can see how well the store is doing, and specific orders can be found without hassle.
 - **Mailing List** - Staff can remove users from the mailing list and update their details if necessary.
 - **Newsletter** - Staff can also send newsletters from within the admin panel, which builds off of a base newsletter template and adds the subject and content from the input of the user. A summernote editor means that the message can be formatted well and promotional emails can be well styled.
@@ -380,7 +377,7 @@ To improve the experience of site staff, a custom admin UI was built to complete
 ![image](media/readme-images/add-product.png)
  
 ### **Newsletter Form**
-![image](media/readme-images/newsletter-form.png)
+![image](media/readme-images/send-newsletter.png)
  
 ### **Order Detail**
 ![image](media/readme-images/order-detail.png)
@@ -807,7 +804,7 @@ All custom Python code is validated by the [**Code Institue Pep8 Validator Valid
 - apps.py - All clear, no errors found
 - forms.py - All clear, no errors found
 - models.py - All clear, no errors found
-- signals.py -
+- signals.py - All clear, no errors found
 - urls.py - All clear, no errors found
 - views.py - All clear, no errors found
 
@@ -841,7 +838,7 @@ A series of manual tests were conducted on each page to ensure that every link, 
 | ✓      | Shop now links redirect to expected page                |
 | ✓      | Shopping panel link hover styles function as expected   |
 | ✓      | Shopping panel links redirect to expected page          |
-| ✓      | Product carousel display correct amount of items        |
+| ✓      | Product carousel displays correct amount of items        |
 | ✓      | Product carousel scroller works as expected             |
 | ✓      | Product images and name links to correct product detail |
   
@@ -1584,14 +1581,16 @@ DATABASE_URL: your Elephant SQL URL
 
 [**Custom Error Page**](https://levelup.gitconnected.com/django-customize-404-error-page-72c6b6277317) - Custom error responses were learnt from the linked tutorial.
 
+[**Star Selector**](https://codepen.io/anefzaoui/pen/NWPZzMa ) - Ahmed Nefzaoui
+
+[**Unsplash**](https://unsplash.com/s/photos/mens-beanie) - Copyright free images taken from Unsplash
+
 **Jquery Custom Phone Number Method** was built using two Stack Overflow answers by users: 
 - [Harpartap Singh Permar](https://stackoverflow.com/questions/29026778/jquery-validation-method-phone-number-begin-with-plus-mark)
 - [dsvick](https://forum.jquery.com/topic/number-and-plus-sign-only)
 
 **Jquery Custom NoSpace Method** is taken from Stack Overflow anwer by: 
 - [Rana Gosh](https://stackoverflow.com/questions/42229437/jquery-validation-accepts-even-if-input-contains-only-whitespaces)
-
-[**Unsplash**](https://unsplash.com/s/photos/mens-beanie) - Copyright free images taken from Unsplash
 
 
 I want to thank Precious Ijege and my fellow students at Code Institute for their guidance and support in development of this project. I wouldn't have managed to complete the diploma without the help I recieved throughout!
