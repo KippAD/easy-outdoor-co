@@ -166,7 +166,7 @@ The wireframes on the site were created with Figma. The design itself was intend
 ### **Wireframes One**
 ![image](media/readme-images/wireframes-1.png)
 
-### **Wireframes One**
+### **Wireframes Two**
 ![image](media/readme-images/wireframes-2.png)
 
 </details>
