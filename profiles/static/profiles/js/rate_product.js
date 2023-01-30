@@ -16,7 +16,7 @@ $(document).ready(function () {
             },
             comment: {
                 required: true,
-                minlength: 50   
+                minlength: 15   
             }
         },
         messages: {
