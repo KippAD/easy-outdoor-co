@@ -78,6 +78,5 @@ class ProductReviewForm(forms.ModelForm):
 
         widgets = {
             "comment": forms.Textarea(attrs={
-                "placeholder": "Please leave your feedback in this box.\
-                Your comment will be displayed on the site! "}),
+                "placeholder": "Please leave your feedback in this box."}),
         }

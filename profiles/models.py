@@ -62,4 +62,4 @@ class ProductReview(models.Model):
         unique_together = ("user", "product",)
 
     def __str__(self):
-        return str(self.product + "Review by" + self.user)
+        return self.comment

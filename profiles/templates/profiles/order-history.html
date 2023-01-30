@@ -52,14 +52,11 @@
                                         {% if reviews %}
                                             {% for r in reviews %}
                                                 {% if r.product == item.product %}
-                                                <p class="toast-success">You have already rated this product.</p>  
-                                                {% else %}
-                                                <a class="unrated" href="{% url 'load-rating-form' product_id=item.product.id %}">Rate This Item</a>
+                                                <p class="toast-success product-review">You have already rated this product.</p>  
                                                 {% endif %}
                                             {% endfor %}
-                                        {% else %}
-                                        <a class="rated" href="{% url 'load-rating-form' product_id=item.product.id %}">Rate This Item</a>
                                         {% endif %}
+                                        <a class="rated" href="{% url 'load-rating-form' product_id=item.product.id %}">Rate This Item</a>
                                     </p>
                                     {% endfor %}
                                 </div>
@@ -118,10 +115,9 @@
 {% block postloadjs %}
 <script>
     $(document).ready(function () {
-        $('.unrated').hide();
-        $('.rated').hide();
-        $('.unrated:first').show();
-        $('.rated:first').show();
+        if ( $(".product-review").length ) {
+            $(".product-review").next().hide()
+        }
     });
 </script>
 {% endblock %}

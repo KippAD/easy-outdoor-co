@@ -52,7 +52,7 @@ def order_history(request):
     user = request.user
     reviews = ProductReview.objects.filter(user=user)
 
-    template = "profiles/order_history.html"
+    template = "profiles/order-history.html"
     context = {
         "orders": ordered_orders,
         "reviews": reviews,
@@ -109,4 +109,4 @@ def rate_product(request, product_id):
             "Error: You have already reviewed this product."
             )
 
-    return redirect("order-history")
+    return render(request, "home/index.html")

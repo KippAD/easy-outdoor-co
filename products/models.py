@@ -17,6 +17,8 @@ class Category(models.Model):
     def save(self, *args, **kwargs):
         if not self.friendly_name:
             self.friendly_name = self.name.capitalize()
+        if not self.rating:
+            self.rating = 0
         return super().save(*args, **kwargs)
 
 
