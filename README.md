@@ -161,6 +161,16 @@ The user stories were added to a project board on this repository's project boar
 
 The wireframes on the site were created with Figma. The design itself was intended to be fairly simple to keep the entire experience for the user as neat and uncomplex as possible and to avoid creating a visual overload.
 
+<details><summary><b>Wireframes</b></summary>
+
+### **Wireframes One**
+![image](media/readme-images/wireframes-1.png)
+
+### **Wireframes One**
+![image](media/readme-images/wireframes-2.png)
+
+</details>
+
 # **Features**
 
 ## **Navbar**
