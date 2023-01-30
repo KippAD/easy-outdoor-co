@@ -162,9 +162,9 @@ The user stories were added to a project board on this repository's project boar
 
 The wireframes on the site were created with Figma. The design itself was intended to be fairly simple to keep the entire experience for the user as neat and uncomplex as possible and to avoid creating a visual overload.
 
-## **Features**
+# **Features**
 
-### **Navbar**
+## **Navbar**
 
 ![image](media/readme-images/navbar.png)
 
@@ -179,7 +179,9 @@ The navbar allows easy and intuitive navigation throughout the site. Built from 
 
 </details>
 
-### **Home**
+---
+
+## **Home**
 
 ![image](media/readme-images/home-top.png)
 
@@ -197,18 +199,20 @@ Most of the site is quite simple in its design, usually using black and white co
 
 <details><summary><b>Images</b></summary><br>
  
-#### **Navbar, Hero Section & Shopping Panel Links**
+### **Navbar, Hero Section & Shopping Panel Links**
 ![image](media/readme-images/home-top.png)
 
-####**About Us Section**
+### **About Us Section**
 ![image](media/readme-images/home-about.png)
  
-**Products Carousel & Footer**
+### **Products Carousel & Footer**
 ![image](media/readme-images/home-bottom.png)
 
 </details>
 
-### **Products**
+---
+
+## **Products**
 
 ![image](media/readme-images/products.png)
 
@@ -227,18 +231,20 @@ The products section displays all of the products for sale on the store, and als
 
 <details><summary><b>Images</b></summary><br>
  
-#### **Products Page**
+### **Products Page**
 ![image](media/readme-images/products.png)
 
-#### **Product Detail**
+### **Product Detail**
 ![image](media/readme-images/product-detail.png)
  
-#### **Sale**
+### **Sale**
 ![image](media/readme-images/product-sale.png)
 
 </details>
 
-### **Basket**
+---
+
+## **Basket**
 
 ![image](media/readme-images/basket.png)
 
@@ -253,18 +259,20 @@ The basket is accessed by the shopping cart icon in the navbar. It contains ever
 
 <details><summary><b>Images</b></summary><br>
  
-#### **Stock Warning**
+### **Stock Warning**
 ![image](media/readme-images/stock-error.png)
 
-#### **Updated Basket**
+### **Updated Basket**
 ![image](media/readme-images/update-basket.png)
  
-#### **Empty Basket**
+### **Empty Basket**
 ![image](media/readme-images/empty-basket.png)
 
 </details>
 
-### **Stock**
+---
+
+## **Stock**
 
 ![image](media/readme-images/stock-error.png)
 
@@ -279,12 +287,14 @@ The site features stock management. Stock can be managed by staff and is automat
 
 <details><summary><b>Images</b></summary><br>
  
-#### **Stock Error Basket**
+### **Stock Error Basket**
 ![image](media/readme-images/stock-error.png)
 
 </details>
 
-### **Account & Profile**
+---
+
+## **Account & Profile**
 
 ![image](media/readme-images/profile.png)
 
@@ -300,21 +310,23 @@ The user can manage their account and view order history by accessing the user i
 
 <details><summary><b>Images</b></summary><br>
  
-#### **Profile**
+### **Profile**
 ![image](media/readme-images/profile.png)
 
-#### **Order History**
+### **Order History**
 ![image](media/readme-images/order-history.png)
  
-#### **Sign In Form**
+### **Sign In Form**
 ![image](media/readme-images/sign-in.png)
  
-#### **Sign Up Form**
+### **Sign Up Form**
 ![image](media/readme-images/sign-up.png)
 
 </details>
 
-### **Reviews**
+---
+
+## **Reviews**
 
 ![image](media/readme-images/reviews.png)
 
@@ -329,15 +341,17 @@ The user is able to give a star rating and leave a comment review of products th
 
 <details><summary><b>Images</b></summary><br>
  
-#### **Reviews**
+### **Reviews**
 ![image](media/readme-images/reviews.png)
 
-#### **Review Form**
+### **Review Form**
 ![image](media/readme-images/review-form.png)
 
 </details>
 
-### **Custom Admin**
+---
+
+## **Custom Admin**
 
 ![image](media/readme-images/manage-site.png)
 
@@ -357,22 +371,23 @@ To improve the experience of site staff, a custom admin UI was built to complete
 
 <details><summary><b>Images</b></summary><br>
  
-#### **Admin Dashboard**
+### **Admin Dashboard**
 ![image](media/readme-images/manage-site.png)
 
-#### **Add Product Form**
+### **Add Product Form**
 ![image](media/readme-images/add-product.png)
  
-#### **Newsletter Form**
+### **Newsletter Form**
 ![image](media/readme-images/newsletter-form.png)
  
-#### **Order Detail**
+### **Order Detail**
 ![image](media/readme-images/order-detail.png)
 
 </details>
 
+---
 
-### **Secure Checkout**
+## **Secure Checkout**
 
 ![image](media/readme-images/checkout.png)
 
@@ -388,19 +403,20 @@ The checkout process features a delivery form and a stripe payment form, as well
 
 <details><summary><b>Images</b></summary><br>
  
-#### **Main Checkout**
+### **Main Checkout**
 ![image](media/readme-images/checkout.png)
 
-#### **Checkout Success**
+### **Checkout Success**
 ![image](media/readme-images/checkout-success.png)
  
-#### **Spinner**
+### **Spinner**
 ![image](media/readme-images/spinner.png)
 
 </details>
 
+---
 
-### **Newsletter, Contact Form & Emails**
+## **Newsletter, Contact Form & Emails**
 
 ![image](media/readme-images/contact-form.png)
 
@@ -417,18 +433,20 @@ Custom html email templates were built for allauth and django emails which are t
 
 <details><summary><b>Images</b></summary><br>
  
-#### **Contact Form**
+### **Contact Form**
 ![image](media/readme-images/checkout.png)
 
-#### **Subscription Confirmation Email**
+### **Subscription Confirmation Email**
 ![image](media/readme-images/newsletter-subscription.png)
  
-#### **Order Confirmation Email**
+### **Order Confirmation Email**
 ![image](media/readme-images/order-confirmation.png)
 
 </details>
 
-### **FAQ’s**
+---
+
+## **FAQ’s**
 
 ![image](media/readme-images/faq.png)
 
@@ -442,15 +460,12 @@ The user can see a list of frequently asked questions to answer any questions th
 
 <details><summary><b>Images</b></summary><br>
  
-#### **FAQ Accordion**
+### **FAQ Accordion**
 ![image](media/readme-images/faq.png)
 
 </details>
 
-### **FAQ’s**
-The user can see a list of frequently asked questions to answer any questions that they might have.
-
-- **Accordion** - The FAQ’s are formatted in a Bootstrap accordion to present the large amount of text in bitesize quantities so that the user can navigate to helpful answers easily.
+---
 
 ## **Future Features**
 
